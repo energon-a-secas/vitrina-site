@@ -97,3 +97,29 @@ browser sizes the item to max-content and clamps it to `max-width`, so the
 middle step exists so the shelf survives a blocked hotlink or no network; on
 the published page it simply 404s and the drawn spine takes over. `data.js` is
 the only place an id becomes an image URL.
+
+**The search box has to reach every view.** `renderRuns()` originally ignored
+`state.query`, and because `showRuns` persists in prefs a returning visitor
+opened straight into the whole-collection view where typing did nothing at all.
+All three views now run through `matches()` in `data.js`, which is the single
+definition of what a query matches. Adding a fourth view means wiring it there
+too.
+
+**The local image fallback is gated on an index.** `cache-images` writes
+`data/images/index.json`; `data.js` loads it and `hasLocalSpine`/`hasLocalCover`
+decide whether a failed image is worth retrying locally. Without that gate the
+retry fired for every catalogue spine with no scan, which was 43 doomed requests
+on one load of the whole-collection view. The index is inside the gitignored
+directory, so the published page never finds it and never retries.
+
+**The light must not live on the scrolling element.** The downlight was a
+`::before` on `.shelfrow__case`, which is what scrolls, so on a 365-volume row
+the lamp slid away with the books. It now sits on `.shelfrow__case-wrap`, which
+does not move. Anything that should stay still belongs on the wrapper; only the
+books and the board scroll.
+
+**The Browser pane cannot verify scroll behaviour.** It runs no
+`requestAnimationFrame` and dispatches no scroll events even with a real
+`clientWidth`, so `data-scroll` and the edge fades cannot be exercised there.
+That is why `scrollState()` in `shelf.js` is a pure function with its own test
+(`make validate`) rather than logic buried in a listener.

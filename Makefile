@@ -8,6 +8,7 @@ help:
 	@echo ""
 	@echo "  make serve    Start dev server → http://localhost:$(PORT)"
 	@echo "  make kill     Kill this project's HTTP server"
+	@echo "  make validate Run the tests (plain node, no install)"
 	@echo ""
 
 # ── Dev server ────────────────────────────────────────────────────────────────
@@ -23,3 +24,7 @@ serve:
 .PHONY: kill
 kill:
 	@lsof -ti :$(PORT) | xargs kill 2>/dev/null && echo "Stopped server on port $(PORT)" || echo "No server running on port $(PORT)"
+
+.PHONY: validate
+validate:
+	@node tests/shelf.test.mjs

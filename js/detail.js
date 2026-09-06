@@ -5,7 +5,7 @@ import { $, escHtml, toast } from './utils.js';
 import { markSelected } from './render.js';
 import {
   title, authorLine, bookYear, coverFor, spineFor, hasSpine, recordUrl,
-  catalogEntry, localCover, localSpine,
+  catalogEntry, localCover, localSpine, hasLocalSpine, hasLocalCover,
 } from './data.js';
 
 let hideTimer = null;
@@ -23,12 +23,12 @@ export function openBook(key) {
   drawer.hidden = false;
   const art = $('.detail__spine');
   if (art) art.addEventListener('error', () => {
-    if (r0 != null && !art.dataset.triedLocal) { art.dataset.triedLocal = '1'; art.src = localSpine(r0); return; }
+    if (r0 != null && hasLocalSpine(r0) && !art.dataset.triedLocal) { art.dataset.triedLocal = '1'; art.src = localSpine(r0); return; }
     art.remove();
   });
   const face = $('.detail__cover');
   if (face && face.tagName === 'IMG') face.addEventListener('error', () => {
-    if (r0 != null && !face.dataset.triedLocal) { face.dataset.triedLocal = '1'; face.src = localCover(r0); }
+    if (r0 != null && hasLocalCover(r0) && !face.dataset.triedLocal) { face.dataset.triedLocal = '1'; face.src = localCover(r0); }
   });
   document.body.classList.add('modal-open');
   requestAnimationFrame(() => drawer.classList.add('is-open'));

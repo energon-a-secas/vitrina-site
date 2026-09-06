@@ -17,22 +17,35 @@ export const recordUrl = (id) => `${SOURCE}/biblioteca/ver/libro/${id}/`;
 export const localSpine = (id) => `data/images/lomo-${String(id).padStart(8, '0')}.jpg`;
 export const localCover = (id) => `data/images/portada-${String(id).padStart(8, '0')}.jpg`;
 
-async function getJson(path, fallback) {
+// What is actually in that directory, written by `cache-images`. Without it the
+// page cannot tell a cached image from one that was never fetched, and every
+// catalogue spine with no scan costs a second doomed request. Absent on the
+// published page, where both sets stay empty and nothing is retried.
+const cached = { spine: new Set(), cover: new Set() };
+export const hasLocalSpine = (id) => cached.spine.has(Number(id));
+export const hasLocalCover = (id) => cached.cover.has(Number(id));
+
+async function getJson(path, fallback, { quiet = false } = {}) {
   try {
     const res = await fetch(path, { cache: 'no-cache' });
     if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
     return await res.json();
   } catch (err) {
-    console.warn(`Vitrina could not read ${path}:`, err && err.message);
+    if (!quiet) console.warn(`Vitrina could not read ${path}:`, err && err.message);
     return fallback;
   }
 }
 
 export async function loadData() {
-  const [library, catalog] = await Promise.all([
+  const [library, catalog, images] = await Promise.all([
     getJson('data/library.json', { books: [] }),
     getJson('data/catalog.json', { books: [], collections: [] }),
+    getJson('data/images/index.json', null, { quiet: true }),
   ]);
+  if (images) {
+    (images.spine || []).forEach((id) => cached.spine.add(id));
+    (images.cover || []).forEach((id) => cached.cover.add(id));
+  }
   state.catalog = (catalog.books || []).filter((b) => b && b.id != null);
   state.collections = catalog.collections || [];
   return (library.books || []).filter((b) => b && (b.id != null || b.title));
@@ -271,12 +284,23 @@ export function collectionRuns() {
       .forEach((b) => volumes.push({ number: null, key: 'cat' + b.id, record: b, owned: false }));
 
     if (!volumes.length) return;
+    const full = volumes.length;
+    // The search box has to reach this view too. Same predicate as the shelf
+    // and the browser, so "matches" has one definition: filtering here rather
+    // than dimming keeps the count honest and, with a 13,900px Nova row, is
+    // the only way a match 300 volumes along is reachable at all.
+    const shown = state.query
+      ? volumes.filter((v) => matches({ record: v.record, shelf: null, note: null }, state.query))
+      : volumes;
+    if (!shown.length) return;
     runs.push({
       id: cid,
       label: head.publisher ? `${head.name} (${head.publisher})` : (head.name || 'Collection'),
-      volumes,
-      owned: volumes.filter((v) => v.owned).length,
-      total: volumes.length,
+      volumes: shown,
+      owned: shown.filter((v) => v.owned).length,
+      total: shown.length,
+      full,
+      filtered: shown.length !== full,
     });
   });
   return runs.sort((a, b) => b.owned - a.owned || a.label.localeCompare(b.label));

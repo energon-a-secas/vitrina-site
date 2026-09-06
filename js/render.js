@@ -3,7 +3,7 @@
 import { state } from './state.js';
 import { $, $$, escHtml, plural } from './utils.js';
 import { shelves, title, authorLine, bookYear, coverFor, hasSpine, collectionRuns } from './data.js';
-import { shelfMarkup, runMarkup, measureSpines } from './shelf.js';
+import { shelfMarkup, runMarkup, measureSpines, markScrollable } from './shelf.js';
 import { renderBrowse } from './browse.js';
 
 export function render() {
@@ -47,6 +47,7 @@ function renderShelf() {
   if (!total) { view.innerHTML = empty(); return; }
   view.innerHTML = groups.map((g) => shelfMarkup(g, { trueScale: state.trueScale })).join('');
   measureSpines(view);
+  markScrollable(view);
 }
 
 /**
@@ -59,16 +60,26 @@ function renderRuns(view) {
   const owned = runs.reduce((n, r) => n + r.owned, 0);
   const total = runs.reduce((n, r) => n + r.total, 0);
   const el = $('#count');
-  if (el) el.textContent = total ? `${owned} of ${total} across ${runs.length} collections` : '';
+  if (el) {
+    el.textContent = state.query
+      ? `${total} matching, ${owned} of them yours`
+      : (total ? `${owned} of ${total} across ${runs.length} collections` : '');
+  }
   if (!runs.length) {
-    view.innerHTML = `<div class="empty">
-        <p class="empty__lead">No collection to draw yet.</p>
-        <p class="empty__hint">This needs <code>data/catalog.json</code>. Run <code>python3 scripts/scrape.py catalog</code>.</p>
-      </div>`;
+    view.innerHTML = state.query
+      ? `<div class="empty">
+          <p class="empty__lead">Nothing in these collections matches that.</p>
+          <p class="empty__hint">The search covers every catalogued volume here, not just yours.</p>
+        </div>`
+      : `<div class="empty">
+          <p class="empty__lead">No collection to draw yet.</p>
+          <p class="empty__hint">This needs <code>data/catalog.json</code>. Run <code>python3 scripts/scrape.py catalog</code>.</p>
+        </div>`;
     return;
   }
   view.innerHTML = runs.map((r) => runMarkup(r, { trueScale: state.trueScale })).join('');
   measureSpines(view);
+  markScrollable(view);
 }
 
 function renderCovers() {

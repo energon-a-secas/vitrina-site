@@ -123,6 +123,7 @@ ES modules require an HTTP server (not `file://`):
 
 ```bash
 make serve      # http://localhost:8881
+make validate   # the tests, plain node, no install
 ```
 
 ---

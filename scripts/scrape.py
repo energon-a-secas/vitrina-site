@@ -353,8 +353,22 @@ def cmd_cache_images(args):
         if n % 50 == 0:
             print("  %d/%d books, %d cached" % (n, len(ids), got), flush=True)
 
+    # An index of what is actually here. Without it the page cannot tell a
+    # cached image from one that was never fetched, so every catalogue spine
+    # with no scan cost a second, doomed request to this directory: 43 of them
+    # on one load of the whole-collection view.
+    have = {"spine": [], "cover": []}
+    for name in os.listdir(IMAGES):
+        m = re.match(r"(lomo|portada)-(\d{8})\.jpg$", name)
+        if m:
+            have["spine" if m.group(1) == "lomo" else "cover"].append(int(m.group(2)))
+    have["spine"].sort()
+    have["cover"].sort()
+    tf.dump(os.path.join(IMAGES, "index.json"), have)
+
     print("\n%d images cached (%.1f MB), %d already present, %d never scanned, %d failed"
           % (got, total_bytes / 1048576.0, skipped, missing, failed))
+    print("index: %d spines, %d covers" % (len(have["spine"]), len(have["cover"])))
     print("-> %s  (gitignored: the published page uses the catalogue directly)" % IMAGES)
 
 

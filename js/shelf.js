@@ -10,7 +10,7 @@
 // typographic, so nobody mistakes it for the real cover.
 
 import { escHtml, hueOf, numberOf } from './utils.js';
-import { title, authorLine, bookHeight, spineFor, bookYear, hasSpine, localSpine } from './data.js';
+import { title, authorLine, bookHeight, spineFor, bookYear, hasSpine, localSpine, hasLocalSpine } from './data.js';
 
 export const UNIT_PX = 15;          // pixels per centimetre of book height
 const MIN_THICK_CM = 0.9;
@@ -86,7 +86,7 @@ export function measureSpines(root) {
  */
 function onError(btn, img, apply) {
   const id = img.dataset.bookId;
-  if (id && !img.dataset.triedLocal) {
+  if (id && hasLocalSpine(id) && !img.dataset.triedLocal) {
     img.dataset.triedLocal = '1';
     img.addEventListener('load', apply, { once: true });
     img.addEventListener('error', () => fallback(btn, img), { once: true });
@@ -110,11 +110,57 @@ export function shelfMarkup(group, opts) {
         <h2 class="shelfrow__label" id="sh-${cssId(group.label)}">${escHtml(group.label)}</h2>
         <span class="shelfrow__count">${group.books.length}</span>
       </header>
-      <div class="shelfrow__case">
-        <div class="shelfrow__books">${books}</div>
-        <div class="shelfrow__board" aria-hidden="true"></div>
+      <div class="shelfrow__case-wrap">
+        <div class="shelfrow__case">
+          <div class="shelfrow__books">${books}</div>
+          <div class="shelfrow__board" aria-hidden="true"></div>
+        </div>
       </div>
     </section>`;
+}
+
+/**
+ * Which edges of a scrollable row still have books beyond them.
+ * Pure, so it can be tested without a browser: the DOM half below is wiring.
+ */
+export function scrollState(scrollLeft, scrollWidth, clientWidth) {
+  const slack = scrollWidth - clientWidth;
+  if (slack <= 2) return 'none';
+  if (scrollLeft <= 2) return 'start';
+  if (scrollLeft >= slack - 2) return 'end';
+  return 'middle';
+}
+
+/**
+ * Tell each row whether it continues past its edges, so the fade can say so.
+ * A 365-volume row scrolls sideways with nothing on screen admitting it: no
+ * scrollbar until you touch it, no edge, no hint that Nova reaches 363.
+ *
+ * `scrollWidth` and `clientWidth` are cached and refreshed by the observer
+ * rather than read per scroll event, because reading them forces layout and a
+ * trackpad flick delivers a lot of events.
+ */
+export function markScrollable(root) {
+  root.querySelectorAll('.shelfrow__case').forEach((el) => {
+    let sw = el.scrollWidth;
+    let cw = el.clientWidth;
+    const paint = () => {
+      const next = scrollState(el.scrollLeft, sw, cw);
+      if (next === 'none') el.removeAttribute('data-scroll');
+      else if (el.dataset.scroll !== next) el.dataset.scroll = next;
+    };
+    const remeasure = () => { sw = el.scrollWidth; cw = el.clientWidth; paint(); };
+    el.addEventListener('scroll', paint, { passive: true });
+    // Spine widths are only known once their images decode, so the row keeps
+    // growing after first paint. Watch it rather than measuring once.
+    if (typeof ResizeObserver === 'function') {
+      const ro = new ResizeObserver(remeasure);
+      ro.observe(el);
+      const books = el.querySelector('.shelfrow__books');
+      if (books) ro.observe(books);
+    }
+    remeasure();
+  });
 }
 
 export function cssId(s) {
@@ -130,12 +176,18 @@ export function runMarkup(run, opts) {
   return `<section class="shelfrow shelfrow--run" aria-labelledby="run-${cssId(run.label)}">
       <header class="shelfrow__head">
         <h2 class="shelfrow__label" id="run-${cssId(run.label)}">${escHtml(run.label)}</h2>
-        <span class="shelfrow__count">${run.owned} of ${run.total}</span>
-        <span class="shelfrow__hint">the lit ones are yours</span>
+        <span class="shelfrow__count">${run.filtered
+          ? `${run.total} of ${run.full} match`
+          : `${run.owned} of ${run.total}`}</span>
+        <span class="shelfrow__hint">${run.filtered
+          ? `${run.owned} of them yours`
+          : 'the lit ones are yours'}</span>
       </header>
-      <div class="shelfrow__case">
-        <div class="shelfrow__books">${books}</div>
-        <div class="shelfrow__board" aria-hidden="true"></div>
+      <div class="shelfrow__case-wrap">
+        <div class="shelfrow__case">
+          <div class="shelfrow__books">${books}</div>
+          <div class="shelfrow__board" aria-hidden="true"></div>
+        </div>
       </div>
     </section>`;
 }
