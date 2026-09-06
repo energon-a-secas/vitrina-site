@@ -2,8 +2,8 @@
 
 import { state } from './state.js';
 import { $, $$, escHtml, plural } from './utils.js';
-import { shelves, title, authorLine, bookYear, coverFor, hasSpine } from './data.js';
-import { shelfMarkup, measureSpines } from './shelf.js';
+import { shelves, title, authorLine, bookYear, coverFor, hasSpine, collectionRuns } from './data.js';
+import { shelfMarkup, runMarkup, measureSpines } from './shelf.js';
 import { renderBrowse } from './browse.js';
 
 export function render() {
@@ -41,10 +41,33 @@ function syncControls() {
 
 function renderShelf() {
   const view = $('#view-shelf');
+  if (state.showRuns) { renderRuns(view); return; }
   const { groups, total } = shelves();
   count(total);
   if (!total) { view.innerHTML = empty(); return; }
   view.innerHTML = groups.map((g) => shelfMarkup(g, { trueScale: state.trueScale })).join('');
+  measureSpines(view);
+}
+
+/**
+ * Every collection the shelf owns from, drawn whole. Grouping and ordering do
+ * not apply here: a collection's order is its own numbering, which is the whole
+ * point of looking at it this way.
+ */
+function renderRuns(view) {
+  const runs = collectionRuns();
+  const owned = runs.reduce((n, r) => n + r.owned, 0);
+  const total = runs.reduce((n, r) => n + r.total, 0);
+  const el = $('#count');
+  if (el) el.textContent = total ? `${owned} of ${total} across ${runs.length} collections` : '';
+  if (!runs.length) {
+    view.innerHTML = `<div class="empty">
+        <p class="empty__lead">No collection to draw yet.</p>
+        <p class="empty__hint">This needs <code>data/catalog.json</code>. Run <code>python3 scripts/scrape.py catalog</code>.</p>
+      </div>`;
+    return;
+  }
+  view.innerHTML = runs.map((r) => runMarkup(r, { trueScale: state.trueScale })).join('');
   measureSpines(view);
 }
 

@@ -15,6 +15,7 @@ async function init() {
   $('#sortBy').value = state.sortBy;
   $('#trueScale').checked = state.trueScale;
   $('#hideOwned').checked = state.hideOwned;
+  $('#showRuns').checked = state.showRuns;
 
   render();
   bindEvents();

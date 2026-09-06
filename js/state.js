@@ -16,6 +16,7 @@ export const state = {
   hideOwned: false,
   browseCollection: '',
   shortcuts: true,    // WCAG 2.1.4: a single-key shortcut needs an off switch
+  showRuns: false,    // draw the whole collection, not just what is owned
 
   entries: [],        // the shelf
   catalog: [],        // browsable records from the collections we crawled
@@ -64,7 +65,7 @@ export function savePrefs() {
     localStorage.setItem(PREFS, JSON.stringify({
       view: state.view, groupBy: state.groupBy, sortBy: state.sortBy,
       trueScale: state.trueScale, hideOwned: state.hideOwned,
-      shortcuts: state.shortcuts,
+      shortcuts: state.shortcuts, showRuns: state.showRuns,
     }));
   } catch (err) { /* preferences are a convenience, never a blocker */ }
 }
@@ -80,6 +81,7 @@ function loadPrefs() {
     if (typeof p.trueScale === 'boolean') state.trueScale = p.trueScale;
     if (typeof p.hideOwned === 'boolean') state.hideOwned = p.hideOwned;
     if (typeof p.shortcuts === 'boolean') state.shortcuts = p.shortcuts;
+    if (typeof p.showRuns === 'boolean') state.showRuns = p.showRuns;
   } catch (err) { /* fall through to defaults */ }
 }
 

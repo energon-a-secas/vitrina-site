@@ -8,6 +8,15 @@ export const spineUrl = (id) => `${SOURCE}/imagenes/lomo/L-${String(id).padStart
 export const coverUrl = (id) => `${SOURCE}/imagenes/portada/P-${String(id).padStart(8, '0')}.jpg`;
 export const recordUrl = (id) => `${SOURCE}/biblioteca/ver/libro/${id}/`;
 
+// Fallback copies, written by `scripts/scrape.py cache-images`. The catalogue
+// serves the originals with a one-year cache header and no hotlink protection,
+// so the page asks it first and nothing is republished. These are what the
+// shelf falls back to when a request fails: a blocked hotlink, a dead host, or
+// a laptop on a plane. Absent by default (data/images/ is gitignored), and the
+// drawn spine remains the last resort.
+export const localSpine = (id) => `data/images/lomo-${String(id).padStart(8, '0')}.jpg`;
+export const localCover = (id) => `data/images/portada-${String(id).padStart(8, '0')}.jpg`;
+
 async function getJson(path, fallback) {
   try {
     const res = await fetch(path, { cache: 'no-cache' });
@@ -182,4 +191,107 @@ export function gaps() {
     }
   });
   return out.sort((a, b) => a.missing.length - b.missing.length);
+}
+
+
+/** Leading integer of a collection number, or null when it is unnumbered. */
+function slot(raw) {
+  const m = String(raw == null ? '' : raw).match(/\d+/);
+  return m ? Number(m[0]) : null;
+}
+
+/**
+ * The complete run of every collection the shelf owns something from, with the
+ * owned volumes marked. This is the collector's actual view: Nova is numbered
+ * 0 to 363 and the shelf holds thirteen of them, so the question is which 349
+ * are missing, not which thirteen are present.
+ *
+ * A number can carry several catalogued editions (Nova 205 has six), so each
+ * slot keeps one representative: the owned copy when there is one, otherwise
+ * the oldest printing with a spine scan, which is the art worth showing.
+ */
+export function collectionRuns() {
+  // A slot holds a LIST, not one book: the catalogue numbers the whole saga
+  // del retorno as VIB 11, so three owned volumes share that number and keying
+  // by slot alone silently dropped two of them.
+  const mine = new Map();          // collection_id -> Map(slot -> [entry])
+  const unslotted = new Map();     // collection_id -> [entry]
+  state.entries.forEach((e) => {
+    const r = e.record || {};
+    if (r.collection_id == null) return;
+    const n = slot(r.collection_number);
+    if (n == null) {
+      if (!unslotted.has(r.collection_id)) unslotted.set(r.collection_id, []);
+      unslotted.get(r.collection_id).push(e);
+      return;
+    }
+    if (!mine.has(r.collection_id)) mine.set(r.collection_id, new Map());
+    const at = mine.get(r.collection_id);
+    if (!at.has(n)) at.set(n, []);
+    at.get(n).push(e);
+  });
+
+  const runs = [];
+  const ids = new Set([...mine.keys(), ...unslotted.keys()]);
+  ids.forEach((cid) => {
+    const owned = mine.get(cid) || new Map();
+    const pool = state.catalog.filter((b) => b.collection_id === cid);
+    const head = state.collections.find((c) => c.id === cid) || {};
+    const bySlot = new Map();
+    const loose = [];
+    pool.forEach((b) => {
+      const n = slot(b.collection_number);
+      if (n == null) { loose.push(b); return; }
+      const held = bySlot.get(n);
+      if (!held || better(b, held)) bySlot.set(n, b);
+    });
+
+    const slots = new Set([...bySlot.keys(), ...owned.keys()]);
+    const volumes = [];
+    Array.from(slots).sort((a, b) => a - b).forEach((n) => {
+      const here = owned.get(n);
+      if (here && here.length) {
+        // Order a shared slot the way the saga runs, by subcollection number.
+        here.slice().sort((a, b) => numberOf((a.record || {}).subcollection_number)
+                                  - numberOf((b.record || {}).subcollection_number))
+          .forEach((e) => volumes.push({ number: n, key: e.key, record: e.record, owned: true }));
+        return;
+      }
+      const rec = bySlot.get(n);
+      if (rec) volumes.push({ number: n, key: 'cat' + rec.id, record: rec, owned: false });
+    });
+
+    // Volumes the catalogue never numbered. The B de Bolsillo line numbers only
+    // two of its ninety-nine, so dropping them would hide the whole collection.
+    const ownedLoose = unslotted.get(cid) || [];
+    const ownedLooseIds = new Set(ownedLoose.map((e) => e.id));
+    ownedLoose.forEach((e) => volumes.push({ number: null, key: e.key, record: e.record, owned: true }));
+    loose.filter((b) => !ownedLooseIds.has(b.id) && !state.ownedIds.has(b.id))
+      .sort((a, b) => (yearOf(a.year) || 0) - (yearOf(b.year) || 0))
+      .forEach((b) => volumes.push({ number: null, key: 'cat' + b.id, record: b, owned: false }));
+
+    if (!volumes.length) return;
+    runs.push({
+      id: cid,
+      label: head.publisher ? `${head.name} (${head.publisher})` : (head.name || 'Collection'),
+      volumes,
+      owned: volumes.filter((v) => v.owned).length,
+      total: volumes.length,
+    });
+  });
+  return runs.sort((a, b) => b.owned - a.owned || a.label.localeCompare(b.label));
+}
+
+/** Prefer a scanned spine, then the older printing: that is the art to show. */
+function better(a, b) {
+  const sa = a.has_spine !== false, sb = b.has_spine !== false;
+  if (sa !== sb) return sa;
+  return (yearOf(a.year) || 9999) < (yearOf(b.year) || 9999);
+}
+
+/** A catalogue record the shelf does not own, addressed as `cat<id>`. */
+export function catalogEntry(key) {
+  const id = Number(String(key).replace(/^cat/, ''));
+  const rec = state.catalog.find((b) => b.id === id);
+  return rec ? { key, id, shelf: null, note: null, record: rec, notOwned: true } : null;
 }

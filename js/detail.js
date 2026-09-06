@@ -5,22 +5,31 @@ import { $, escHtml, toast } from './utils.js';
 import { markSelected } from './render.js';
 import {
   title, authorLine, bookYear, coverFor, spineFor, hasSpine, recordUrl,
+  catalogEntry, localCover, localSpine,
 } from './data.js';
 
 let hideTimer = null;
 let opener = null;
 
 export function openBook(key) {
-  const entry = findEntry(key);
+  const entry = findEntry(key) || catalogEntry(key);
   if (!entry) return;
   const drawer = $('#drawer');
   clearTimeout(hideTimer);
   if (drawer.hidden) opener = document.activeElement;
   state.selected = key;
+  const r0 = (entry.record || {}).id;
   $('#drawerBody').innerHTML = detailMarkup(entry);
   drawer.hidden = false;
   const art = $('.detail__spine');
-  if (art) art.addEventListener('error', () => art.remove(), { once: true });
+  if (art) art.addEventListener('error', () => {
+    if (r0 != null && !art.dataset.triedLocal) { art.dataset.triedLocal = '1'; art.src = localSpine(r0); return; }
+    art.remove();
+  });
+  const face = $('.detail__cover');
+  if (face && face.tagName === 'IMG') face.addEventListener('error', () => {
+    if (r0 != null && !face.dataset.triedLocal) { face.dataset.triedLocal = '1'; face.src = localCover(r0); }
+  });
   document.body.classList.add('modal-open');
   requestAnimationFrame(() => drawer.classList.add('is-open'));
   $('.drawer__panel').focus();
@@ -85,6 +94,7 @@ function detailMarkup(entry) {
         <h2 id="drawerTitle" class="detail__title">${escHtml(title(entry))}</h2>
         <p class="detail__by">${escHtml(authorLine(entry))}${y ? ` &middot; ${y}` : ''}</p>
 
+        ${entry.notOwned ? '<p class="detail__warn">This one is in the catalogue, not on your shelf.</p>' : ''}
         ${entry.note ? `<p class="detail__note">${escHtml(entry.note)}</p>` : ''}
 
         <dl class="facts">
@@ -104,8 +114,10 @@ function detailMarkup(entry) {
 
         <div class="detail__actions">
           ${r.id != null ? `<a class="btn btn--secondary btn--sm" href="${escHtml(recordUrl(r.id))}" target="_blank" rel="noopener noreferrer">Read the catalogue record</a>` : ''}
-          <button type="button" class="btn btn--ghost btn--sm" data-act="note" data-key="${escHtml(entry.key)}">${entry.note ? 'Edit note' : 'Add a note'}</button>
-          <button type="button" class="btn btn--danger btn--sm" data-act="remove" data-key="${escHtml(entry.key)}">Take off the shelf</button>
+          ${entry.notOwned
+            ? `<button type="button" class="btn btn--primary btn--sm" data-add="${r.id}">Put it on the shelf</button>`
+            : `<button type="button" class="btn btn--ghost btn--sm" data-act="note" data-key="${escHtml(entry.key)}">${entry.note ? 'Edit note' : 'Add a note'}</button>
+               <button type="button" class="btn btn--danger btn--sm" data-act="remove" data-key="${escHtml(entry.key)}">Take off the shelf</button>`}
         </div>
 
         ${hasSpine(entry) ? '' : '<p class="detail__warn">The catalogue has no spine scan for this edition, so the shelf draws one.</p>'}

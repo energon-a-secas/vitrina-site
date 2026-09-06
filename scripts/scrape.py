@@ -23,6 +23,7 @@ import json
 import os
 import re
 import sys
+import time
 import unicodedata
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -285,39 +286,76 @@ def cmd_spines(args):
     print("\n%d of %d editions have a scanned spine (%d newly checked)" % (have, len(known), checked))
 
 
-# ── cache-images ─────────────────────────────────────────────────────────────
+# ── cache-images ─────────────────────────────────────────────────────────
 
 def cmd_cache_images(args):
-    """Optional offline copy of the shelf's own images, gitignored.
+    """Download a local copy of the images, as a fallback for the live ones.
 
-    The site serves these with a one-year cache header and no hotlink
-    protection, so the published page links them directly and nothing is
-    republished. This mode exists only so the shelf still renders if that ever
-    changes, or on a plane."""
+    The catalogue serves these itself with a one-year cache header and no
+    hotlink protection, so the page asks it first and this repo republishes
+    nothing. These copies are what the shelf falls back to when that request
+    fails: a blocked hotlink, a dead host, or a laptop with no network. The
+    directory is gitignored, so a published page simply never finds them and
+    draws a spine instead.
+
+    Default is the shelf's own books. `--catalog` adds every browsable record,
+    which is about 1550 files and, at one request every 0.6s, roughly a quarter
+    of an hour.
+    """
+    import urllib.error
     import urllib.request
+
+    ids = []
     lib = load(LIBRARY)
-    if not lib:
-        sys.exit("no %s" % LIBRARY)
+    if lib:
+        ids += [b["id"] for b in lib["books"] if b.get("id") is not None]
+    if args.catalog:
+        cat = load(CATALOG)
+        if cat:
+            ids += [b["id"] for b in cat["books"] if b.get("id") is not None]
+    ids = sorted(set(ids))
+    if not ids:
+        sys.exit("nothing to cache; run detail first")
+
     os.makedirs(IMAGES, exist_ok=True)
-    got = skipped = 0
-    for rec in lib["books"]:
-        if rec.get("id") is None:
-            continue
-        for kind, url in (("lomo", tf.SPINE % rec["id"]), ("portada", tf.COVER % rec["id"])):
-            dest = os.path.join(IMAGES, "%s-%08d.jpg" % (kind, rec["id"]))
+    got = skipped = missing = failed = 0
+    total_bytes = 0
+    last = [0.0]
+    for n, bid in enumerate(ids, 1):
+        for kind, url in (("lomo", tf.SPINE % bid), ("portada", tf.COVER % bid)):
+            dest = os.path.join(IMAGES, "%s-%08d.jpg" % (kind, bid))
             if os.path.exists(dest):
                 skipped += 1
                 continue
+            wait = args.delay - (time.time() - last[0])
+            if wait > 0:
+                time.sleep(wait)
+            last[0] = time.time()
             req = urllib.request.Request(url, headers={"User-Agent": tf.UA})
             try:
                 with urllib.request.urlopen(req, timeout=30) as resp:
                     data = resp.read()
+                    ctype = resp.headers.get("Content-Type", "")
+            except urllib.error.HTTPError:
+                # No scan for that edition. Expected, and not a failure.
+                missing += 1
+                continue
             except Exception:                                  # noqa: BLE001
+                failed += 1
+                continue
+            if not ctype.startswith("image/"):
+                missing += 1
                 continue
             with open(dest, "wb") as fh:
                 fh.write(data)
             got += 1
-    print("%d images cached, %d already present -> %s" % (got, skipped, IMAGES))
+            total_bytes += len(data)
+        if n % 50 == 0:
+            print("  %d/%d books, %d cached" % (n, len(ids), got), flush=True)
+
+    print("\n%d images cached (%.1f MB), %d already present, %d never scanned, %d failed"
+          % (got, total_bytes / 1048576.0, skipped, missing, failed))
+    print("-> %s  (gitignored: the published page uses the catalogue directly)" % IMAGES)
 
 
 def main():
@@ -330,6 +368,11 @@ def main():
         p.add_argument("--refresh", action="store_true", help="ignore the HTML cache")
         if name == "catalog":
             p.add_argument("--collections", type=int, nargs="*", help="collection ids (default: the shelf's own)")
+        if name == "cache-images":
+            p.add_argument("--catalog", action="store_true",
+                           help="also cache every browsable record (about 1550 files, ~15 min)")
+            p.add_argument("--delay", type=float, default=0.6,
+                           help="seconds between image requests (default 0.6)")
         if name == "spines":
             p.add_argument("--catalog", action="store_true",
                            help="also check the 774 browsable records (about 12 minutes; "

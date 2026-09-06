@@ -57,6 +57,9 @@ and this is a way to stand in front of them.
 - **Group and order** -- by your own shelf labels, by the catalogue's
   collection, by author, series or decade; ordered by collection number, which
   is how they would actually stand
+- **The whole collection** -- one toggle draws every catalogued volume of each
+  collection you own from, your books lit and the rest dimmed, so Nova reads as
+  13 of 365 rather than 13. Click a dimmed one to put it on the shelf
 - **Gaps in your series** -- volumes the catalogue numbers in a series you
   already collect, one click from the shelf
 - **Add from the catalogue** -- 774 records across the five collections this
@@ -99,7 +102,14 @@ python3 scripts/scrape.py resolve   # my list -> candidate editions
 python3 scripts/scrape.py detail    # picked editions -> data/library.json
 python3 scripts/scrape.py catalog   # the collections my books live in
 python3 scripts/scrape.py spines    # which editions have a scanned spine
+python3 scripts/scrape.py cache-images            # local fallback copies
+python3 scripts/scrape.py cache-images --catalog  # ...for every browsable record
 ```
+
+Images are asked of the catalogue first, then of `data/images/` if a copy was
+cached there, and only then does the shelf draw a spine instead. That middle
+step is gitignored, so a published page never finds it and falls straight
+through to the drawn spine.
 
 `scripts/rank.py` scores the candidates for each wanted title and writes one
 brief per book, which is what makes choosing between four editions of the same

@@ -52,6 +52,9 @@ export function bindEvents() {
   $('#trueScale').addEventListener('change', (ev) => {
     state.trueScale = ev.target.checked; savePrefs(); render();
   });
+  $('#showRuns').addEventListener('change', (ev) => {
+    state.showRuns = ev.target.checked; savePrefs(); render();
+  });
 
   // Header actions
   $('#addBtn').addEventListener('click', addDialog);
@@ -62,6 +65,11 @@ export function bindEvents() {
   // Drawer
   $('#drawer').addEventListener('click', (ev) => {
     if (ev.target.closest('[data-drawer-close]')) { closeBook(); return; }
+    const add = ev.target.closest('[data-add]');
+    if (add) {
+      if (addFromCatalog(add.dataset.add)) { closeBook(); render(); }
+      return;
+    }
     const act = ev.target.closest('[data-act]');
     if (!act) return;
     if (act.dataset.act === 'note') editNote(act.dataset.key);

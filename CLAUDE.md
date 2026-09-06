@@ -78,3 +78,22 @@ captured at all (see the comment in `tf.parse_book`), and `data/.cache/` and
 `data/images/` are gitignored. If the catalogue ever blocks hotlinking,
 `scripts/scrape.py cache-images` builds a local copy and `data.js` is the one
 place that maps an id to an image URL.
+
+**A collection number is not a unique key.** The catalogue numbers the whole
+saga del retorno as VIB 11, so three owned volumes share that number. In
+`collectionRuns()` a slot holds a LIST; keying it by number alone silently
+dropped two of the four VIB books and the count read 37 of 39. A slot with
+several owned volumes orders them by `subcollection_number`.
+
+**`.stage` needs an explicit width.** `main` is a flex column, and `margin: 0
+auto` on a flex item disables cross-axis stretch. With no definite width the
+browser sizes the item to max-content and clamps it to `max-width`, so the
+13,900px Nova row in the whole-collection view pinned the stage at a flat
+1400px and scrolled the whole page sideways. `width: 100%` fixes it;
+`min-width: 0` alone does not. Same shape, same fix, on `.provenance`.
+
+**Images have a three-step chain.** The catalogue first, then `data/images/`
+(written by `scrape.py cache-images`, gitignored), then the drawn spine. The
+middle step exists so the shelf survives a blocked hotlink or no network; on
+the published page it simply 404s and the drawn spine takes over. `data.js` is
+the only place an id becomes an image URL.

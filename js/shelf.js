@@ -10,7 +10,7 @@
 // typographic, so nobody mistakes it for the real cover.
 
 import { escHtml, hueOf, numberOf } from './utils.js';
-import { title, authorLine, bookHeight, spineFor, bookYear, hasSpine } from './data.js';
+import { title, authorLine, bookHeight, spineFor, bookYear, hasSpine, localSpine } from './data.js';
 
 export const UNIT_PX = 15;          // pixels per centimetre of book height
 const MIN_THICK_CM = 0.9;
@@ -23,7 +23,7 @@ export function thicknessCm(entry) {
   return Math.min(MAX_THICK_CM, Math.max(MIN_THICK_CM, pages / 190));
 }
 
-export function spineMarkup(entry, { trueScale = true } = {}) {
+export function spineMarkup(entry, { trueScale = true, ghost = false, number = null } = {}) {
   const h = trueScale ? bookHeight(entry) : 19;
   const est = thicknessCm(entry) * UNIT_PX;
   // `has_spine: false` is the catalogue's own answer, recorded by
@@ -36,13 +36,15 @@ export function spineMarkup(entry, { trueScale = true } = {}) {
   const hue = hueOf(t);
 
   const inner = src
-    ? `<img class="spine__img" src="${escHtml(src)}" alt="" loading="lazy" decoding="async">`
+    ? `<img class="spine__img" src="${escHtml(src)}" alt="" loading="lazy" decoding="async"${entry.record && entry.record.id != null ? ` data-book-id="${entry.record.id}"` : ''}>`
     : '';
 
-  return `<button type="button" class="spine${src ? '' : ' spine--drawn'}"
-      data-key="${escHtml(entry.key)}"
+  const cls = `spine${src ? '' : ' spine--drawn'}${ghost ? ' spine--ghost' : ''}`;
+  const name = ghost ? `${label}. Not on your shelf` : label;
+  return `<button type="button" class="${cls}"
+      data-key="${escHtml(entry.key)}"${number != null ? ` data-number="${escHtml(number)}"` : ''}
       style="--h:${h * UNIT_PX}px; --est:${est}px; --hue:${hue};"
-      title="${escHtml(label)}" aria-label="${escHtml(label)}">
+      title="${escHtml(name)}" aria-label="${escHtml(name)}">
       ${inner}
       <span class="spine__drawn" aria-hidden="true">
         <span class="spine__drawn-title">${escHtml(t)}</span>
@@ -69,12 +71,29 @@ export function measureSpines(root) {
     };
     if (img.complete) {
       if (img.naturalWidth) apply();
-      else fallback(btn, img);
+      else onError(btn, img, apply);
     } else {
       img.addEventListener('load', apply, { once: true });
-      img.addEventListener('error', () => fallback(btn, img), { once: true });
+      img.addEventListener('error', () => onError(btn, img, apply), { once: true });
     }
   });
+}
+
+/**
+ * One retry against the local cache before giving up on the image.
+ * `data/images/` is written by `scrape.py cache-images` and is gitignored, so
+ * on the published page this step simply 404s and the drawn spine takes over.
+ */
+function onError(btn, img, apply) {
+  const id = img.dataset.bookId;
+  if (id && !img.dataset.triedLocal) {
+    img.dataset.triedLocal = '1';
+    img.addEventListener('load', apply, { once: true });
+    img.addEventListener('error', () => fallback(btn, img), { once: true });
+    img.src = localSpine(id);
+    return;
+  }
+  fallback(btn, img);
 }
 
 function fallback(btn, img) {
@@ -100,4 +119,23 @@ export function shelfMarkup(group, opts) {
 
 export function cssId(s) {
   return String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'x';
+}
+
+/** One collection, whole: every catalogued volume with the owned ones lit. */
+export function runMarkup(run, opts) {
+  const books = run.volumes.map((v) => spineMarkup(
+    { key: v.key, record: v.record },
+    { ...opts, ghost: !v.owned, number: v.number }
+  )).join('');
+  return `<section class="shelfrow shelfrow--run" aria-labelledby="run-${cssId(run.label)}">
+      <header class="shelfrow__head">
+        <h2 class="shelfrow__label" id="run-${cssId(run.label)}">${escHtml(run.label)}</h2>
+        <span class="shelfrow__count">${run.owned} of ${run.total}</span>
+        <span class="shelfrow__hint">the lit ones are yours</span>
+      </header>
+      <div class="shelfrow__case">
+        <div class="shelfrow__books">${books}</div>
+        <div class="shelfrow__board" aria-hidden="true"></div>
+      </div>
+    </section>`;
 }
