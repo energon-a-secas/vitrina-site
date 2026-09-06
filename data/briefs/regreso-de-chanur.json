@@ -1,0 +1,65 @@
+{
+ "want": {
+  "slug": "regreso-de-chanur",
+  "title": "El regreso de Chanur",
+  "authors": [
+   "C. J. Cherryh"
+  ],
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "series": "Chanur",
+  "queries": [
+   "El regreso de Chanur"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 157,
+   "title": "El regreso de Chanur",
+   "year": "may 1989",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "23",
+   "subcollection": "La Saga de Chanur",
+   "subcollection_id": 1701,
+   "subcollection_number": "4",
+   "isbn": "8440607520",
+   "format": "Rústica con solapas - 12×19 cm - 573 páginas",
+   "translators": [
+    "Albert Soler"
+   ],
+   "cover_art": [
+    "Juan Giménez"
+   ],
+   "series": [
+    "Chanur"
+   ],
+   "series_ids": [
+    208
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/157/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000157.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000157.jpg",
+   "dimensions": "12×19",
+   "pages": 573,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  }
+ ]
+}

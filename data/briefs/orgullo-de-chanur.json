@@ -1,0 +1,158 @@
+{
+ "want": {
+  "slug": "orgullo-de-chanur",
+  "title": "El orgullo de Chanur",
+  "authors": [
+   "C. J. Cherryh"
+  ],
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "series": "Chanur",
+  "queries": [
+   "El orgullo de Chanur"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 299,
+   "title": "El orgullo de Chanur",
+   "year": "abr 1988",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "2",
+   "subcollection": "La Saga de Chanur",
+   "subcollection_id": 1701,
+   "subcollection_number": "1",
+   "isbn": "8477358567",
+   "format": "Rústica con solapas - 12×19 cm - 308 páginas",
+   "translators": [
+    "Albert Solé"
+   ],
+   "cover_art": [
+    "Arte+Diseño",
+    "La Manufactura"
+   ],
+   "series": [
+    "Chanur"
+   ],
+   "series_ids": [
+    208
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/299/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000299.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000299.jpg",
+   "dimensions": "12×19",
+   "pages": 308,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 11156,
+   "title": "El orgullo de Chanur",
+   "year": "2004",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "La Factoría de Ideas",
+   "publisher_country": "España",
+   "collection": "Ventana Abierta",
+   "collection_id": 1060,
+   "collection_number": "1",
+   "subcollection": "La Saga de Chanur",
+   "subcollection_id": 3090,
+   "subcollection_number": "1",
+   "isbn": "849502442X",
+   "format": "Rústica - 13×21 cm - 299 páginas",
+   "translators": [
+    "Albert Solé"
+   ],
+   "cover_art": [
+    "Thomas Schlück",
+    "Michael Whelan"
+   ],
+   "series": [
+    "Chanur"
+   ],
+   "series_ids": [
+    208
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/11156/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00011156.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00011156.jpg",
+   "dimensions": "13×21",
+   "pages": 299,
+   "has_spine": true,
+   "score": 35,
+   "why": [
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 52738,
+   "title": "El orgullo de Chanur",
+   "year": "dic 2014",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "La Factoría de Ideas",
+   "publisher_country": "España",
+   "collection": "Ventana Abierta (digital)",
+   "collection_id": 6819,
+   "collection_number": null,
+   "subcollection": "La Saga de Chanur",
+   "subcollection_id": 3090,
+   "subcollection_number": "1",
+   "isbn": "9788490186077",
+   "format": "Edición digital - ePUB",
+   "translators": [
+    "Albert Solé"
+   ],
+   "cover_art": [
+    "Thomas Schlück",
+    "Michael Whelan"
+   ],
+   "series": [
+    "Chanur"
+   ],
+   "series_ids": [
+    208
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/52738/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00052738.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00052738.jpg",
+   "dimensions": null,
+   "pages": null,
+   "has_spine": false,
+   "score": -40,
+   "why": [
+    "NO scanned spine",
+    "digital edition, not a paperback"
+   ]
+  }
+ ]
+}

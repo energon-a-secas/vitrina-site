@@ -1,0 +1,203 @@
+{
+ "want": {
+  "slug": "el-temor-de-la-fundacion",
+  "title": "El temor de la Fundación",
+  "authors": [
+   "Gregory Benford"
+  ],
+  "shelf": "Zeta Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+  "queries": [
+   "El temor de la Fundación"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 31396,
+   "title": "El temor de la fundación",
+   "year": "2011",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 4234,
+   "collection_number": "277",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498723847",
+   "format": "Rústica con solapas - 12,5×20 cm - 650 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Thinkstock"
+   ],
+   "series": [
+    "Segunda trilogía de la Fundación"
+   ],
+   "series_ids": [
+    2175
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/31396/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00031396.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00031396.jpg",
+   "dimensions": "5×20",
+   "pages": 650,
+   "has_spine": false,
+   "score": 95,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "NO scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 342,
+   "title": "El temor de la fundación",
+   "year": "jun 1998",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "113",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440684851",
+   "format": "Rústica con solapas - 15×23 cm - 519 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Samuel Gómez"
+   ],
+   "series": [
+    "Segunda trilogía de la Fundación"
+   ],
+   "series_ids": [
+    2175
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/342/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000342.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000342.jpg",
+   "dimensions": "15×23",
+   "pages": 519,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 15396,
+   "title": "El temor de la Fundación",
+   "year": "2006",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Byblos",
+   "collection_id": 968,
+   "collection_number": "18",
+   "subcollection": "Byblos Gregory Benford",
+   "subcollection_id": 2892,
+   "subcollection_number": "2",
+   "isbn": "8466627936",
+   "format": "Rústica - 11×17,5 cm - 655 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Estudio Ediciones B",
+    "Júpiter"
+   ],
+   "series": [
+    "Segunda trilogía de la Fundación"
+   ],
+   "series_ids": [
+    2175
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/15396/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00015396.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00015396.jpg",
+   "dimensions": null,
+   "pages": 655,
+   "has_spine": true,
+   "score": 47,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 938,
+   "title": "El temor de la fundación",
+   "year": "1998",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Punto de Lectura",
+   "publisher_country": "España",
+   "collection": "Punto de Lectura",
+   "collection_id": 103,
+   "collection_number": "73",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8466300597",
+   "format": "Rústica - 11×17,5 cm",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Samuel Gómez"
+   ],
+   "series": [
+    "Segunda trilogía de la Fundación"
+   ],
+   "series_ids": [
+    2175
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/938/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000938.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000938.jpg",
+   "dimensions": null,
+   "pages": null,
+   "has_spine": true,
+   "score": 43,
+   "why": [
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  }
+ ]
+}

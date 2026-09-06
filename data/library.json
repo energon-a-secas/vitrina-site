@@ -1,0 +1,2629 @@
+{
+ "source": "https://tercerafundacion.net",
+ "books": [
+  {
+   "id": 622,
+   "title": "Premio UPC 1991",
+   "year": "abr 1992",
+   "authors": [
+    "Ángel Torres Quesada",
+    "Javier Negrete",
+    "Rafael Marín Trechera"
+   ],
+   "author_ids": [
+    249,
+    96,
+    7307
+   ],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "48",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440627122",
+   "format": "Rústica con solapas - 15×22 cm - 290 páginas",
+   "translators": [],
+   "cover_art": [
+    "Óscar H. Chichoni"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/622/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000622.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000622.jpg",
+   "dimensions": "15×22",
+   "pages": 290,
+   "work_id": null,
+   "contents": [
+    {
+     "pages": "pp. 5–19",
+     "entry": "Presentación [Premio UPC 1991], prólogo de Miquel Barceló"
+    },
+    {
+     "pages": "pp. 21–97",
+     "entry": "Mundo de dioses, novela corta de Rafael Marín Trechera 1º del Premio UPC (Mejor Novela corta, 1991)"
+    },
+    {
+     "pages": "pp. 99–191",
+     "entry": "El círculo de piedra, novela corta de Ángel Torres Quesada 1º del Premio UPC (Mejor Novela corta, 1991) Serie: El aliento de la oscuridad"
+    },
+    {
+     "pages": "pp. 193–290",
+     "entry": "La luna quieta, novela corta de Javier Negrete 2º del Premio UPC (Mejor Novela corta, 1991)"
+    }
+   ],
+   "note": null,
+   "slug": "premio-upc-1991",
+   "shelf": "Nova",
+   "note_mine": null,
+   "listed_as": "Nova ciencia ficción",
+   "has_spine": true
+  },
+  {
+   "id": 162,
+   "title": "La telaraña entre los mundos",
+   "year": "nov 1989",
+   "authors": [
+    "Charles Sheffield"
+   ],
+   "author_ids": [
+    126
+   ],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "21",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440610890",
+   "format": "Rústica con solapas - 12×19 cm - 368 páginas",
+   "translators": [
+    "Diana Trujillo"
+   ],
+   "cover_art": [
+    "Juan Giménez"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [
+    "17º del Premio Locus (Mejor Novela de ciencia ficción, 1980)"
+   ],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/162/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000162.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000162.jpg",
+   "dimensions": "12×19",
+   "pages": 368,
+   "work_id": 341,
+   "contents": [
+    {
+     "pages": "pp. 5–13",
+     "entry": "Presentación [La telaraña entre los mundos], prólogo de Miquel Barceló"
+    },
+    {
+     "pages": "pp. 15–353",
+     "entry": "La telaraña entre los mundos (The Web Between the Worlds), novela (1979)"
+    },
+    {
+     "pages": "pp. 355–357",
+     "entry": "Carta abierta al Boletín de la Asociación de Escritores de Ciencia Ficción de Estados Unidos (An Open Letter to the Bulletin of the Science Fiction Writers of America), artículo de Arthur C. Clarke (1979)"
+    },
+    {
+     "pages": "pp. 359–362",
+     "entry": "Puesta al día sobre el \"tallo-de-habichuela\": tallos-de-habichuela dinámicos y el truco-de-la-cuerda hindú (Beanstalk Update: Dynamic Beanstalks and Indian Rope Tricks), artículo (1988)"
+    },
+    {
+     "pages": "pp. 367–368",
+     "entry": "Referencia bibliográfica de Charles Sheffield [La telaraña entre los mundos], epílogo de Miquel Barceló"
+    }
+   ],
+   "note": null,
+   "slug": "telarana-entre-los-mundos",
+   "shelf": "Nova",
+   "note_mine": null,
+   "listed_as": "Nova ciencia ficción",
+   "has_spine": true
+  },
+  {
+   "id": 217,
+   "title": "Mareas de luz",
+   "year": "oct 1991",
+   "authors": [
+    "Gregory Benford"
+   ],
+   "author_ids": [
+    90
+   ],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "43",
+   "subcollection": "Ciclo del Centro Galáctico",
+   "subcollection_id": 1614,
+   "subcollection_number": "4",
+   "isbn": "8440622546",
+   "format": "Rústica con solapas - 15×22 cm - 476 páginas",
+   "translators": [
+    "Márgara Auerbach"
+   ],
+   "cover_art": [
+    "Eloy Sánchez Vizcaíno"
+   ],
+   "series": [
+    "Ciclo del Centro Galáctico"
+   ],
+   "series_ids": [
+    199
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/217/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000217.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000217.jpg",
+   "dimensions": "15×22",
+   "pages": 476,
+   "work_id": 184,
+   "contents": [
+    {
+     "pages": "pp. 5–8",
+     "entry": "Presentación [Mareas de luz], prólogo de Miquel Barceló"
+    },
+    {
+     "pages": "pp. 9–471",
+     "entry": "Mareas de luz (Tides of Light), novela (1989)"
+    },
+    {
+     "pages": "pp. 475–476",
+     "entry": "Referencia bibliográfica de Gregory Benford [Mareas de luz], epílogo de Miquel Barceló"
+    }
+   ],
+   "note": null,
+   "slug": "mareas-de-luz",
+   "shelf": "Nova",
+   "note_mine": null,
+   "listed_as": "Nova ciencia ficción",
+   "has_spine": true
+  },
+  {
+   "id": 338,
+   "title": "Mendigos y opulentos",
+   "year": "oct 1996",
+   "authors": [
+    "Nancy Kress"
+   ],
+   "author_ids": [
+    101
+   ],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "87",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440666918",
+   "format": "Rústica con solapas - 15×22 cm - 366 páginas",
+   "translators": [
+    "Elsa Mateo Blanco"
+   ],
+   "cover_art": [
+    "Trazo"
+   ],
+   "series": [
+    "Los Insomnes"
+   ],
+   "series_ids": [
+    1124
+   ],
+   "awards": [
+    "2º del Premio Hugo (Mejor Novela, 1995)",
+    "2º del Premio Nebula (Mejor Novela, 1996)"
+   ],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/338/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000338.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000338.jpg",
+   "dimensions": "15×22",
+   "pages": 366,
+   "work_id": 352,
+   "contents": [
+    {
+     "pages": "pp. 5–8",
+     "entry": "Presentación [Mendigos y opulentos], prólogo de Miquel Barceló"
+    },
+    {
+     "pages": "pp. 9–361",
+     "entry": "Mendigos y opulentos (Beggars and Choosers), novela (1994)"
+    },
+    {
+     "pages": "pp. 365–366",
+     "entry": "Referencia bibliográfica de Nancy Kress [Mendigos y opulentos], epílogo de Miquel Barceló"
+    }
+   ],
+   "note": null,
+   "slug": "mendigos-y-opulentos",
+   "shelf": "Nova",
+   "note_mine": null,
+   "listed_as": "Nova ciencia ficción",
+   "has_spine": true
+  },
+  {
+   "id": 754,
+   "title": "Proteo",
+   "year": "jul 1996",
+   "authors": [
+    "Charles Sheffield"
+   ],
+   "author_ids": [
+    126
+   ],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "85",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440665903",
+   "format": "Rústica con solapas - 15×22 cm - 362 páginas",
+   "translators": [
+    "Carlos Gardini",
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Trazo"
+   ],
+   "series": [
+    "Proteo"
+   ],
+   "series_ids": [
+    1159
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/754/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000754.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000754.jpg",
+   "dimensions": "15×22",
+   "pages": 362,
+   "work_id": null,
+   "contents": [
+    {
+     "pages": "pp. 5–10",
+     "entry": "Presentación [Proteo], prólogo de Miquel Barceló"
+    },
+    {
+     "pages": "pp. 11–65",
+     "entry": "Primera parte [El ascenso de Proteo] (Book 1 [Sight of Proteus]) (1978) revisión del relato Sight of Proteus (1978) Traducción de Carlos Gardini"
+    },
+    {
+     "pages": "pp. 66–102",
+     "entry": "Segunda parte [El ascenso de Proteo] (Book 2 [Sight of Proteus]) (1978) revisión del relato Legacy (1977) Traducción de Carlos Gardini"
+    },
+    {
+     "pages": "pp. 103–166",
+     "entry": "Tercera parte [El ascenso de Proteo] (Book 3 [Sight of Proteus]) (1978) revisión del relato The Grooves of Change (1979) Traducción de Carlos Gardini"
+    },
+    {
+     "pages": "pp. 167–360",
+     "entry": "Proteo desencadenado (Proteus Unbound), novela (1988) Traducción de Rafael Marín Trechera"
+    },
+    {
+     "pages": "pp. 361–362",
+     "entry": "Referencia bibliográfica de Charles Sheffield [Proteo], epílogo de Miquel Barceló"
+    }
+   ],
+   "note": null,
+   "slug": "proteo",
+   "shelf": "Nova",
+   "note_mine": null,
+   "listed_as": "Nova ciencia ficción",
+   "has_spine": true
+  },
+  {
+   "id": 32119,
+   "title": "Fundación y caos",
+   "year": "2011",
+   "authors": [
+    "Greg Bear"
+   ],
+   "author_ids": [
+    21
+   ],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 4234,
+   "collection_number": "288",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498723908",
+   "format": "Rústica con solapas - 12,5×20 cm - 455 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [],
+   "series": [
+    "Segunda trilogía de la Fundación"
+   ],
+   "series_ids": [
+    2175
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/32119/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00032119.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00032119.jpg",
+   "dimensions": "12,5×20",
+   "pages": 455,
+   "work_id": 217,
+   "contents": [
+    {
+     "pages": "1",
+     "entry": "Presentación [Fundación y caos], prólogo de Miquel Barceló (1999)"
+    },
+    {
+     "pages": "2",
+     "entry": "Fundación y caos (Foundation and Chaos), novela (1998)"
+    }
+   ],
+   "note": null,
+   "slug": "fundacion-y-caos",
+   "shelf": "Zeta Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+   "has_spine": false
+  },
+  {
+   "id": 31396,
+   "title": "El temor de la fundación",
+   "year": "2011",
+   "authors": [
+    "Gregory Benford"
+   ],
+   "author_ids": [
+    90
+   ],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 4234,
+   "collection_number": "277",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498723847",
+   "format": "Rústica con solapas - 12,5×20 cm - 650 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Thinkstock"
+   ],
+   "series": [
+    "Segunda trilogía de la Fundación"
+   ],
+   "series_ids": [
+    2175
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/31396/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00031396.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00031396.jpg",
+   "dimensions": "12,5×20",
+   "pages": 650,
+   "work_id": 356,
+   "contents": [
+    {
+     "pages": "pp. 7–17",
+     "entry": "Presentación [El temor de la fundación], prólogo de Miquel Barceló (1998)"
+    },
+    {
+     "pages": "pp. 21–650",
+     "entry": "El temor de la fundación (Foundation's Fear), novela (1997)"
+    }
+   ],
+   "note": null,
+   "slug": "el-temor-de-la-fundacion",
+   "shelf": "Zeta Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+   "has_spine": false
+  },
+  {
+   "id": 28879,
+   "title": "El jardín de Rama",
+   "year": "may 2010",
+   "authors": [
+    "Arthur C. Clarke",
+    "Gentry Lee"
+   ],
+   "author_ids": [
+    55,
+    219
+   ],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 4234,
+   "collection_number": "208",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498723779",
+   "format": "Rústica con solapas - 12,5×20 cm - 702 páginas",
+   "translators": [
+    "Adolfo Martín Pérez"
+   ],
+   "cover_art": [
+    "Thinkstock"
+   ],
+   "series": [
+    "Rama"
+   ],
+   "series_ids": [
+    1500
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/28879/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00028879.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00028879.jpg",
+   "dimensions": "12,5×20",
+   "pages": 702,
+   "work_id": 668,
+   "contents": [
+    {
+     "pages": "pp. 9–700",
+     "entry": "El jardín de Rama (The Garden of Rama), novela (1991)"
+    }
+   ],
+   "note": null,
+   "slug": "el-jardin-de-rama",
+   "shelf": "Zeta Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+   "has_spine": true
+  },
+  {
+   "id": 196,
+   "title": "Marte se mueve",
+   "year": "nov 1995",
+   "authors": [
+    "Greg Bear"
+   ],
+   "author_ids": [
+    21
+   ],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "79",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440659423",
+   "format": "Rústica con solapas - 15×22 cm - 476 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [],
+   "series": [
+    "Reina de los Ángeles"
+   ],
+   "series_ids": [
+    1194
+   ],
+   "awards": [
+    "1º del Premio Ignotus (Mejor Novela extranjera, 1996)",
+    "1º del Premio Nebula (Mejor Novela, 1995)",
+    "1º del Premio Science Fiction Chronicle Poll (Mejor Novela, 1994)",
+    "2º del Premio Hugo (Mejor Novela, 1994)",
+    "3º del Premio John W. Campbell Memorial (Mejor Novela, 1994)"
+   ],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/196/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000196.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000196.jpg",
+   "dimensions": "15×22",
+   "pages": 476,
+   "work_id": null,
+   "contents": [
+    {
+     "pages": "pp. 5–11",
+     "entry": "Presentación [Marte se mueve], prólogo de Miquel Barceló"
+    },
+    {
+     "pages": "pp. 13–469",
+     "entry": "Marte se mueve (Moving Mars), novela (1993)"
+    },
+    {
+     "pages": "pp. 471–476",
+     "entry": "Referencia bibliográfica de Greg Bear [Marte se mueve], epílogo de Miquel Barceló"
+    }
+   ],
+   "note": null,
+   "slug": "marte-se-mueve",
+   "shelf": "B de Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "has_spine": true
+  },
+  {
+   "id": 387,
+   "title": "Radix",
+   "year": "jun 1990",
+   "authors": [
+    "A. A. Attanasio"
+   ],
+   "author_ids": [
+    142
+   ],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "27",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440613466",
+   "format": "Rústica con solapas - 12×19 cm - 657 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Óscar H. Chichoni"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [
+    "1º del Premio Cosmos 2000 (Mejor Novela, 1984)",
+    "3º del Premio Locus (Mejor Primera novela, 1982)",
+    "17º del Premio Locus (Mejor Novela de ciencia ficción, 1982)",
+    "2º del Premio Nebula (Mejor Novela, 1982)"
+   ],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/387/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000387.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000387.jpg",
+   "dimensions": "12×19",
+   "pages": 657,
+   "work_id": null,
+   "contents": [
+    {
+     "pages": "pp. 5–13",
+     "entry": "Presentación [Radix], prólogo de Miquel Barceló"
+    },
+    {
+     "pages": "pp. 15–655",
+     "entry": "Radix (Radix), novela (1981)"
+    },
+    {
+     "pages": "pp. 657–657",
+     "entry": "Referencia bibliográfica de A. A. Attanasio [Radix], epílogo de Miquel Barceló"
+    }
+   ],
+   "note": null,
+   "slug": "radix",
+   "shelf": "B de Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "has_spine": true
+  },
+  {
+   "id": 209,
+   "title": "Serpiente del sueño",
+   "year": "mar 1989",
+   "authors": [
+    "Vonda N. McIntyre"
+   ],
+   "author_ids": [
+    104
+   ],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "17",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440606346",
+   "format": "Rústica con solapas - 12×19 cm - 330 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Óscar H. Chichoni"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [
+    "1º del Premio Hugo (Mejor Novela, 1979)",
+    "1º del Premio Nebula (Mejor Novela, 1979)",
+    "1º del Premio Locus (Mejor Novela, 1979)"
+   ],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/209/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000209.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000209.jpg",
+   "dimensions": "12×19",
+   "pages": 330,
+   "work_id": 339,
+   "contents": [
+    {
+     "pages": "pp. 5–10",
+     "entry": "Presentación [Serpiente del sueño], prólogo de Miquel Barceló"
+    },
+    {
+     "pages": "pp. 11–327",
+     "entry": "Serpiente del sueño (Dreamsnake), novela (1978)"
+    },
+    {
+     "pages": "pp. 329–330",
+     "entry": "Referencia bibliográfica de Vonda N. McIntyre [Serpiente del sueño], epílogo de Miquel Barceló"
+    }
+   ],
+   "note": null,
+   "slug": "serpiente-del-sueno",
+   "shelf": "B de Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "has_spine": true
+  },
+  {
+   "id": 651,
+   "title": "El dragón en el mar",
+   "year": "sep 1991",
+   "authors": [
+    "Frank Herbert"
+   ],
+   "author_ids": [
+    42
+   ],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "40",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440622880",
+   "format": "Rústica con solapas - 15×22 cm - 255 páginas",
+   "translators": [
+    "José María García Grimalt"
+   ],
+   "cover_art": [
+    "Juan Giménez"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/651/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000651.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000651.jpg",
+   "dimensions": "15×22",
+   "pages": 255,
+   "work_id": 572,
+   "contents": [
+    {
+     "pages": "pp. 5–7",
+     "entry": "Presentación [El dragón en el mar], prólogo de Miquel Barceló"
+    },
+    {
+     "pages": "pp. 9–253",
+     "entry": "El dragón en el mar (The Dragon in the Sea), novela (1956) revisión de la novela Under Pressure (1955)"
+    },
+    {
+     "pages": "pp. 255–255",
+     "entry": "Referencia bibliográfica de Frank Herbert [El dragón en el mar], epílogo de Miquel Barceló"
+    }
+   ],
+   "note": null,
+   "slug": "el-dragon-en-el-mar",
+   "shelf": "B de Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "has_spine": true
+  },
+  {
+   "id": 299,
+   "title": "El orgullo de Chanur",
+   "year": "abr 1988",
+   "authors": [
+    "C. J. Cherryh"
+   ],
+   "author_ids": [
+    125
+   ],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "2",
+   "subcollection": "La Saga de Chanur",
+   "subcollection_id": 1701,
+   "subcollection_number": "1",
+   "isbn": "8477358567",
+   "format": "Rústica con solapas - 12×19 cm - 308 páginas",
+   "translators": [
+    "Albert Solé"
+   ],
+   "cover_art": [
+    "Arte+Diseño",
+    "La Manufactura"
+   ],
+   "series": [
+    "Chanur"
+   ],
+   "series_ids": [
+    208
+   ],
+   "awards": [
+    "2º del Premio Hugo (Mejor Novela, 1983)",
+    "21º del Premio Locus (Mejor Novela de ciencia ficción, 1982)",
+    "4º del Premio Locus (Mejor Novela de ciencia ficción, 1983)"
+   ],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/299/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000299.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000299.jpg",
+   "dimensions": "12×19",
+   "pages": 308,
+   "work_id": 329,
+   "contents": [
+    {
+     "pages": "pp. 5–8",
+     "entry": "Presentación [El orgullo de Chanur], prólogo de Miquel Barceló"
+    },
+    {
+     "pages": "pp. 9–305",
+     "entry": "El orgullo de Chanur (The Pride of Chanur), novela (1982)"
+    },
+    {
+     "pages": "pp. 307–308",
+     "entry": "Referencia bibliográfica de C. J. Cherryh [El orgullo de Chanur], epílogo de Miquel Barceló"
+    }
+   ],
+   "note": null,
+   "slug": "orgullo-de-chanur",
+   "shelf": "B de Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "has_spine": true
+  },
+  {
+   "id": 207,
+   "title": "La aventura de Chanur",
+   "year": "oct 1988",
+   "authors": [
+    "C. J. Cherryh"
+   ],
+   "author_ids": [
+    125
+   ],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "14",
+   "subcollection": "La Saga de Chanur",
+   "subcollection_id": 1701,
+   "subcollection_number": "2",
+   "isbn": "8440602359",
+   "format": "Rústica con solapas - 12×19 cm - 270 páginas",
+   "translators": [
+    "Albert Solé"
+   ],
+   "cover_art": [
+    "Sergio Camporeale"
+   ],
+   "series": [
+    "Chanur"
+   ],
+   "series_ids": [
+    208
+   ],
+   "awards": [
+    "5º del Premio Locus (Mejor Novela de ciencia ficción, 1985)"
+   ],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/207/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000207.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000207.jpg",
+   "dimensions": "12×19",
+   "pages": 270,
+   "work_id": 337,
+   "contents": [
+    {
+     "pages": "pp. 5–8",
+     "entry": "Presentación [La aventura de Chanur], prólogo de Miquel Barceló"
+    },
+    {
+     "pages": "pp. 9–268",
+     "entry": "La aventura de Chanur (Chanur's Venture), novela (1984)"
+    },
+    {
+     "pages": "pp. 269–270",
+     "entry": "Referencia bibliográfica de C. J. Cherryh [La aventura de Chanur], epílogo de Miquel Barceló"
+    }
+   ],
+   "note": null,
+   "slug": "aventura-de-chanur",
+   "shelf": "B de Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "has_spine": true
+  },
+  {
+   "id": 208,
+   "title": "La venganza de Chanur",
+   "year": "feb 1989",
+   "authors": [
+    "C. J. Cherryh"
+   ],
+   "author_ids": [
+    125
+   ],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "16",
+   "subcollection": "La Saga de Chanur",
+   "subcollection_id": 1701,
+   "subcollection_number": "3",
+   "isbn": "8440604866",
+   "format": "Rústica con solapas - 12×19 cm - 388 páginas",
+   "translators": [
+    "Albert Solé"
+   ],
+   "cover_art": [
+    "Óscar H. Chichoni"
+   ],
+   "series": [
+    "Chanur"
+   ],
+   "series_ids": [
+    208
+   ],
+   "awards": [
+    "14º del Premio Locus (Mejor Novela de ciencia ficción, 1986)"
+   ],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/208/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000208.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000208.jpg",
+   "dimensions": "12×19",
+   "pages": 388,
+   "work_id": null,
+   "contents": [
+    {
+     "pages": "pp. 5–9",
+     "entry": "Presentación [La venganza de Chanur], prólogo de Miquel Barceló"
+    },
+    {
+     "pages": "pp. 11–385",
+     "entry": "La venganza de Chanur (The Kif Strike Back), novela (1985)"
+    },
+    {
+     "pages": "pp. 387–388",
+     "entry": "Referencia bibliográfica de C. J. Cherryh [La venganza de Chanur], epílogo de Miquel Barceló"
+    }
+   ],
+   "note": null,
+   "slug": "venganza-de-chanur",
+   "shelf": "B de Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "has_spine": true
+  },
+  {
+   "id": 157,
+   "title": "El regreso de Chanur",
+   "year": "may 1989",
+   "authors": [
+    "C. J. Cherryh"
+   ],
+   "author_ids": [
+    125
+   ],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "23",
+   "subcollection": "La Saga de Chanur",
+   "subcollection_id": 1701,
+   "subcollection_number": "4",
+   "isbn": "8440607520",
+   "format": "Rústica con solapas - 12×19 cm - 573 páginas",
+   "translators": [
+    "Albert Soler"
+   ],
+   "cover_art": [
+    "Juan Giménez"
+   ],
+   "series": [
+    "Chanur"
+   ],
+   "series_ids": [
+    208
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/157/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000157.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000157.jpg",
+   "dimensions": "12×19",
+   "pages": 573,
+   "work_id": null,
+   "contents": [
+    {
+     "pages": "pp. 5–9",
+     "entry": "Presentación [El regreso de Chanur], prólogo de Miquel Barceló"
+    },
+    {
+     "pages": "pp. 11–570",
+     "entry": "El regreso de Chanur (Chanur’s Homecoming), novela (1986)"
+    },
+    {
+     "pages": "pp. 571–573",
+     "entry": "Referencia bibliográfica de C. J. Cherryh [El regreso de Chanur], epílogo de Miquel Barceló"
+    }
+   ],
+   "note": null,
+   "slug": "regreso-de-chanur",
+   "shelf": "B de Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "has_spine": true
+  },
+  {
+   "id": 681,
+   "title": "La memoria de la Tierra",
+   "year": "1997",
+   "authors": [
+    "Orson Scott Card"
+   ],
+   "author_ids": [
+    9
+   ],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "VIB",
+   "collection_id": 5,
+   "collection_number": "11",
+   "subcollection": "VIB Orson Scott Card",
+   "subcollection_id": 1556,
+   "subcollection_number": "7",
+   "isbn": "8440672063",
+   "format": "Rústica - 11×17,5 cm - 377 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Ricard Castells"
+   ],
+   "series": [
+    "El Retorno"
+   ],
+   "series_ids": [
+    209
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/681/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000681.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000681.jpg",
+   "dimensions": "11×17,5",
+   "pages": 377,
+   "work_id": 55,
+   "contents": [
+    {
+     "pages": "pp. 17–375",
+     "entry": "La memoria de la Tierra (The Memory of Earth), novela (1992)"
+    }
+   ],
+   "note": null,
+   "slug": "la-memoria-de-la-tierra",
+   "shelf": "B de Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "has_spine": true
+  },
+  {
+   "id": 682,
+   "title": "La llamada de la Tierra",
+   "year": "1997",
+   "authors": [
+    "Orson Scott Card"
+   ],
+   "author_ids": [
+    9
+   ],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "VIB",
+   "collection_id": 5,
+   "collection_number": "11",
+   "subcollection": "VIB Orson Scott Card",
+   "subcollection_id": 1556,
+   "subcollection_number": "8",
+   "isbn": "8440672071",
+   "format": "Rústica - 11×17,5 cm - 359 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Ricard Castells"
+   ],
+   "series": [
+    "El Retorno"
+   ],
+   "series_ids": [
+    209
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/682/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000682.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000682.jpg",
+   "dimensions": "11×17,5",
+   "pages": 359,
+   "work_id": 66,
+   "contents": [
+    {
+     "pages": "pp. 23–358",
+     "entry": "La llamada de la Tierra (The Call of Earth), novela (1992)"
+    }
+   ],
+   "note": null,
+   "slug": "la-llamada-de-la-tierra",
+   "shelf": "B de Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "has_spine": true
+  },
+  {
+   "id": 683,
+   "title": "Las naves de la Tierra",
+   "year": "1997",
+   "authors": [
+    "Orson Scott Card"
+   ],
+   "author_ids": [
+    9
+   ],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "VIB",
+   "collection_id": 5,
+   "collection_number": "11",
+   "subcollection": "VIB Orson Scott Card",
+   "subcollection_id": 1556,
+   "subcollection_number": "9",
+   "isbn": "844067208X",
+   "format": "Rústica - 11×17,5 cm - 445 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Ricard Castells"
+   ],
+   "series": [
+    "El Retorno"
+   ],
+   "series_ids": [
+    209
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/683/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000683.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000683.jpg",
+   "dimensions": "11×17,5",
+   "pages": 445,
+   "work_id": 648,
+   "contents": [
+    {
+     "pages": "pp. 19–442",
+     "entry": "Las naves de la Tierra (The Ships of Earth), novela (1994)"
+    }
+   ],
+   "note": null,
+   "slug": "las-naves-de-la-tierra",
+   "shelf": "B de Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "has_spine": true
+  },
+  {
+   "id": 684,
+   "title": "Retorno a la Tierra",
+   "year": "1997",
+   "authors": [
+    "Orson Scott Card"
+   ],
+   "author_ids": [
+    9
+   ],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "VIB",
+   "collection_id": 5,
+   "collection_number": "12",
+   "subcollection": "VIB Orson Scott Card",
+   "subcollection_id": 1556,
+   "subcollection_number": "0",
+   "isbn": "8440672098",
+   "format": "Rústica - 11×17,5 cm - 429 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Ricard Castells"
+   ],
+   "series": [
+    "El Retorno"
+   ],
+   "series_ids": [
+    209
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/684/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000684.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000684.jpg",
+   "dimensions": "11×17,5",
+   "pages": 429,
+   "work_id": 65,
+   "contents": [
+    {
+     "pages": "pp. 13–427",
+     "entry": "Retorno a la Tierra (Earthfall), novela (1995)"
+    }
+   ],
+   "note": null,
+   "slug": "retorno-a-la-tierra",
+   "shelf": "B de Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "has_spine": true
+  },
+  {
+   "id": 667,
+   "title": "Nacidos en la Tierra",
+   "year": "sep 1996",
+   "authors": [
+    "Orson Scott Card"
+   ],
+   "author_ids": [
+    9
+   ],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova Scott Card",
+   "collection_id": 10,
+   "collection_number": "8",
+   "subcollection": "La Saga del Retorno",
+   "subcollection_id": 1524,
+   "subcollection_number": "5",
+   "isbn": "8440666780",
+   "format": "Rústica con solapas - 14×23 cm - 428 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Trazo"
+   ],
+   "series": [
+    "El Retorno"
+   ],
+   "series_ids": [
+    209
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/667/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000667.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000667.jpg",
+   "dimensions": "14×23",
+   "pages": 428,
+   "work_id": 675,
+   "contents": [
+    {
+     "pages": "pp. 5–8",
+     "entry": "Presentación [Nacidos en la Tierra], prólogo de Miquel Barceló"
+    },
+    {
+     "pages": "pp. 13–421",
+     "entry": "Nacidos en la Tierra (Earthborn), novela (1995)"
+    },
+    {
+     "pages": "pp. 425–428",
+     "entry": "Referencia bibliográfica de Orson Scott Card [Nacidos en la Tierra], epílogo de Miquel Barceló"
+    }
+   ],
+   "note": null,
+   "slug": "nacidos-en-la-tierra",
+   "shelf": "B de Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "has_spine": true
+  },
+  {
+   "id": 663,
+   "title": "Mapas en un espejo",
+   "year": "nov 1993",
+   "authors": [
+    "Orson Scott Card"
+   ],
+   "author_ids": [
+    9
+   ],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova Scott Card",
+   "collection_id": 10,
+   "collection_number": "1",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440639988",
+   "format": "Rústica con solapas - 15×23 cm - 919 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Estudio Ediciones B"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Fantasía",
+    "Terror y misterio"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/663/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000663.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000663.jpg",
+   "dimensions": "15×23",
+   "pages": 919,
+   "work_id": 673,
+   "contents": [
+    {
+     "pages": "pp. 11–13",
+     "entry": "Introducción 1 [Mapas en un espejo] (Introduction to Book 1: The Hanged Man, Tales of Dread) (1990)"
+    },
+    {
+     "pages": "pp. 15–28",
+     "entry": "Euménides en el lavabo del cuarto piso (Eumenides in the Fourth Floor Lavatory), relato (1979)"
+    },
+    {
+     "pages": "pp. 29–40",
+     "entry": "Finiquito (Quietus), relato corto (1979) 3º del Premio Locus (Mejor Relato corto, 1980)"
+    },
+    {
+     "pages": "pp. 41–47",
+     "entry": "Ejercicios de respiración profunda (Deep Breathing Exercises), relato corto (1979)"
+    },
+    {
+     "pages": "pp. 49–58",
+     "entry": "Criadero de gordos (Fat Farm), relato corto (1980)"
+    },
+    {
+     "pages": "pp. 59–70",
+     "entry": "Bajo la tapa (Closing the Timelid), relato corto (1979)"
+    },
+    {
+     "pages": "pp. 71–81",
+     "entry": "Juegos de carretera (Freeway Games), relato corto (1990) revisión del relato corto Hard Driver (1979)"
+    },
+    {
+     "pages": "pp. 83–104",
+     "entry": "Sepulcro de canciones (A Sepulcher of Songs), relato (1981)"
+    },
+    {
+     "pages": "pp. 105–114",
+     "entry": "Censura previa (Prior Restraint), relato corto (1986)"
+    },
+    {
+     "pages": "pp. 115–142",
+     "entry": "El hombre cambiado y el rey de las palabras (The Changed Man and the King of Words), relato (1982)"
+    },
+    {
+     "pages": "pp. 143–148",
+     "entry": "Recuerdos de mi cabeza (Memories of My Head), relato corto (1990)"
+    },
+    {
+     "pages": "pp. 149–165",
+     "entry": "Niños perdidos (Lost Boys), relato corto (1989) 1º del Premio Locus (Mejor Relato corto, 1990) 2º del Premio Hugo (Mejor Relato corto, 1990) 2º del Premio Nebula (Mejor Relato corto, 1990)"
+    },
+    {
+     "pages": "pp. 167–181",
+     "entry": "Apostilla [El ahorcado. Cuentos de espanto] (Afterword to Book 1: The Hanged Man, Tales of Dread), prólogo/epílogo (1990)"
+    },
+    {
+     "pages": "pp. 185–191",
+     "entry": "Introducción 2 [Mapas en un espejo] (Introduction to Book 2: Flux, Tales of Human Futures) (1990)"
+    },
+    {
+     "pages": "pp. 193–207",
+     "entry": "Mil muertes (A Thousand Deaths), relato (1978) 8º del Premio Locus (Mejor Relato corto, 1979) Serie: Historias de Capitol"
+    },
+    {
+     "pages": "pp. 209–218",
+     "entry": "Aplaudid y cantad (Clap Hands and Sing), relato corto (1982)"
+    },
+    {
+     "pages": "pp. 219–241",
+     "entry": "Paseaperros (Dogwalker), relato (1989) 1º del Premio Locus (Mejor Relato, 1990) 2º del Premio Hugo (Mejor Relato, 1990)"
+    },
+    {
+     "pages": "pp. 243–257",
+     "entry": "Tratamos de actuar como si no fuera así (But We Try Not to Act Like It), relato corto (1979)"
+    },
+    {
+     "pages": "pp. 259–275",
+     "entry": "Planeta inhabitable (I Put My Blue Genes On), relato corto (1978)"
+    },
+    {
+     "pages": "pp. 277–293",
+     "entry": "Vida de perros (In the Doghouse), relato corto de Jay A. Parry, Orson Scott Card (1978)"
+    },
+    {
+     "pages": "pp. 295–359",
+     "entry": "El originista (The Originist), novela corta (1989)"
+    },
+    {
+     "pages": "pp. 361–371",
+     "entry": "Apostilla [Flujo. Cuentos sobre futuros humanos] (Afterword to Book 2: Flux, Tales of Human Futures), prólogo/epílogo (1990)"
+    },
+    {
+     "pages": "pp. 375–380",
+     "entry": "Introducción 3 [Mapas en un espejo] (Introduction to Book 3: Maps in a Mirror, Fables and Fantasies) (1990)"
+    },
+    {
+     "pages": "pp. 381–397",
+     "entry": "Sonata sin acompañamiento (Unaccompanied Sonata), relato corto (1979) 2º del Premio Hugo (Mejor Relato corto, 1980) 2º del Premio Nebula (Mejor Relato corto, 1980) 6º del Premio Locus (Mejor Relato corto, 1980)"
+    },
+    {
+     "pages": "pp. 399–413",
+     "entry": "Un largo viaje para matar a Richard Nixon (A Cross-Country Trip to Kill Richard Nixon), relato (1980)"
+    },
+    {
+     "pages": "pp. 415–422",
+     "entry": "La salamandra de porcelana (The Porcelain Salamander), relato corto (1981)"
+    },
+    {
+     "pages": "pp. 423–426",
+     "entry": "Mujer media (Middle Woman), relato corto de Byron Walley (1981)"
+    },
+    {
+     "pages": "pp. 427–471",
+     "entry": "El bruto y la bestia (The Bully and the Beast), novela corta (1979)"
+    },
+    {
+     "pages": "pp. 473–497",
+     "entry": "La princesa y el oso (The Princess and the Bear), relato (1980)"
+    },
+    {
+     "pages": "pp. 499–513",
+     "entry": "La magia de la arena (Sandmagic), relato (1979) Serie: Magos Primigenios"
+    },
+    {
+     "pages": "pp. 515–517",
+     "entry": "El mejor día (The Best Day), relato corto de Dinah Kirkham (1984)"
+    },
+    {
+     "pages": "pp. 519–535",
+     "entry": "Plaga de mariposas (A Plague of Butterflies), relato corto (1981)"
+    },
+    {
+     "pages": "pp. 537–576",
+     "entry": "Los monos creían que todo era jolgorio (The Monkeys Thought 'Twas All in Fun), relato (1979)"
+    },
+    {
+     "pages": "pp. 577–590",
+     "entry": "Apostilla [Mapas en un espejo. Fábulas y fantasías] (Afterword to Book 3: Maps in a Mirror, Fables and Fantasies), prólogo/epílogo (1990)"
+    },
+    {
+     "pages": "pp. 593–601",
+     "entry": "Introducción 4 [Mapas en un espejo] (Introduction to Book 4: Cruel Miracles, Tales of Death, Hope, and Holiness) (1990)"
+    },
+    {
+     "pages": "pp. 603–609",
+     "entry": "Dioses mortales (Mortal Gods), relato corto (1979)"
+    },
+    {
+     "pages": "pp. 611–623",
+     "entry": "Gracia salvadora (Saving Grace), relato corto (1987)"
+    },
+    {
+     "pages": "pp. 625–668",
+     "entry": "Ojo por ojo (Eye for Eye), novela corta (1987) 1º del Premio Hugo (Mejor Novela corta, 1988) 1º del Premio Seiun (Mejor Cuento extranjero, 1989) 26º del Premio Locus All Time Poll (Mejor Novela corta, 1999)"
+    },
+    {
+     "pages": "pp. 669–687",
+     "entry": "El cuento de Santa Amy (St. Amy's Tale), relato (1980) 7º del Premio Locus (Mejor Relato corto, 1981)"
+    },
+    {
+     "pages": "pp. 689–697",
+     "entry": "Carne de rey (Kingsmeat), relato corto (1978)"
+    },
+    {
+     "pages": "pp. 699–724",
+     "entry": "Sagrado (Holy), relato (1980)"
+    },
+    {
+     "pages": "pp. 725–732",
+     "entry": "Apostilla [Milagros crueles. Cuentos sobre la muerte, la esperanza y lo sagrado] (Afterword to Book 4: Cruel Miracles, Tales of Death, Hope, and Holiness), prólogo/epílogo (1990)"
+    },
+    {
+     "pages": "pp. 735–737",
+     "entry": "Introducción 5 [Mapas en un espejo] (Introduction to Book 5: Lost Songs, The Hidden Stories) (1990)"
+    },
+    {
+     "pages": "pp. 739–774",
+     "entry": "El juego de Ender (Ender's Game), relato (1977) 1º del Premio Ignotus (Mejor Cuento extranjero, 1994) 2º del Premio Hugo (Mejor Relato, 1978) Finalista del Premio Locus (Mejor Relato, 1978) Serie: Ender Wiggin"
+    },
+    {
+     "pages": "pp. 775–803",
+     "entry": "El pájaro cantor de Mikal (Mikal's Songbird), relato (1978) 2º del Premio Hugo (Mejor Relato, 1979) 2º del Premio Nebula (Mejor Relato, 1979) 3º del Premio Locus (Mejor Relato, 1979)"
+    },
+    {
+     "pages": "pp. 805–817",
+     "entry": "El aprendiz Alvin y el arado inservible (Prentice Alvin and the No-Good Plow), poema (1989)"
+    },
+    {
+     "pages": "pp. 819–831",
+     "entry": "Negligencia (Malpractice), relato corto (1977)"
+    },
+    {
+     "pages": "pp. 833–853",
+     "entry": "Seguidor (Follower), relato (1978)"
+    },
+    {
+     "pages": "pp. 855–863",
+     "entry": "Autostop (Hitching), relato corto (1978)"
+    },
+    {
+     "pages": "pp. 865–867",
+     "entry": "Espléndida novela (Damn Fine Novel), relato corto (1989)"
+    },
+    {
+     "pages": "pp. 869–871",
+     "entry": "La caja de Billy (Billy's Box), relato corto de Byron Walley (1978)"
+    },
+    {
+     "pages": "pp. 873–876",
+     "entry": "Una gran noche de hogar (The Best Family Home Evening Ever), relato corto de Byron Walley (1978)"
+    },
+    {
+     "pages": "pp. 877–879",
+     "entry": "Bicicleta (Bicicleta), relato corto de Byron Walley (1977)"
+    },
+    {
+     "pages": "pp. 881–889",
+     "entry": "Mamá y papá se están volviendo locos (I Think Mom and Dad Are Going Crazy, Jerry), relato corto de Byron Walley (1979)"
+    },
+    {
+     "pages": "pp. 891–901",
+     "entry": "Gert Fram (Gert Fram), relato corto de Byron Walley (1977)"
+    },
+    {
+     "pages": "pp. 903–919",
+     "entry": "Apostilla [Canciones perdidas. Los cuentos ocultos] (Afterword to Book 5: Lost Songs, The Hidden Stories), epílogo (1990)"
+    }
+   ],
+   "note": null,
+   "slug": "mapas-en-un-espejo",
+   "shelf": "B de Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "has_spine": true
+  },
+  {
+   "id": 36004,
+   "title": "La ciudad al final del tiempo",
+   "year": "2012",
+   "authors": [
+    "Greg Bear"
+   ],
+   "author_ids": [
+    21
+   ],
+   "publisher": "B de Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 6585,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498726381",
+   "format": "Rústica con solapas - 13×20 cm - 640 páginas",
+   "translators": [
+    "Pedro Jorge Romero"
+   ],
+   "cover_art": [
+    "Estudio Ediciones B"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [
+    "3º del Premio Locus (Mejor Novela de ciencia ficción, 2009)",
+    "Finalista del Premio Ignotus (Mejor Novela extranjera, 2011)"
+   ],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/36004/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00036004.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00036004.jpg",
+   "dimensions": "13×20",
+   "pages": 640,
+   "work_id": 19974,
+   "contents": [
+    {
+     "pages": "pp. 11–627",
+     "entry": "La ciudad al final del tiempo (City at the End of Time), novela (2008)"
+    }
+   ],
+   "note": null,
+   "slug": "ciudad-al-final-del-tiempo",
+   "shelf": "B de Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "has_spine": false
+  },
+  {
+   "id": 51943,
+   "title": "Rama revelada",
+   "year": "oct 2014",
+   "authors": [
+    "Arthur C. Clarke",
+    "Gentry Lee"
+   ],
+   "author_ids": [
+    55,
+    219
+   ],
+   "publisher": "B de Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 6585,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498729894",
+   "format": "Rústica - 13×20 cm - 792 páginas",
+   "translators": [
+    "Daniel R. Yagolkowski"
+   ],
+   "cover_art": [],
+   "series": [
+    "Rama"
+   ],
+   "series_ids": [
+    1500
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/51943/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00051943.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00051943.jpg",
+   "dimensions": "13×20",
+   "pages": 792,
+   "work_id": 609,
+   "contents": [
+    {
+     "pages": "",
+     "entry": "Rama revelada (Rama Revealed), novela (1993)"
+    }
+   ],
+   "note": null,
+   "slug": "rama-revelada",
+   "shelf": "B de Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "has_spine": false
+  },
+  {
+   "id": 52605,
+   "title": "El apagón",
+   "year": "18 mar 2015",
+   "authors": [
+    "Connie Willis"
+   ],
+   "author_ids": [
+    41
+   ],
+   "publisher": "B de Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 6585,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490700433",
+   "format": "Rústica - 13×19 cm - 624 páginas",
+   "translators": [
+    "Paula Vicens"
+   ],
+   "cover_art": [
+    "Estudio Ediciones B",
+    "Thinkstock"
+   ],
+   "series": [
+    "El apagón"
+   ],
+   "series_ids": [
+    2657
+   ],
+   "awards": [
+    "1º del Premio Nebula (Mejor Novela, 2011)",
+    "1º del Premio Locus (Mejor Novela de ciencia ficción, 2011)",
+    "1º del Premio Hugo (Mejor Novela, 2011)"
+   ],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/52605/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00052605.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00052605.jpg",
+   "dimensions": "13×19",
+   "pages": 624,
+   "work_id": 21527,
+   "contents": [
+    {
+     "pages": "pp. 11–623",
+     "entry": "El apagón (Blackout), novela (2010)"
+    }
+   ],
+   "note": null,
+   "slug": "el-apagon",
+   "shelf": "B de Bolsillo",
+   "note_mine": "46.000",
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "has_spine": true
+  },
+  {
+   "id": 39443,
+   "title": "Criopolis",
+   "year": "feb 2013",
+   "authors": [
+    "Lois McMaster Bujold"
+   ],
+   "author_ids": [
+    95
+   ],
+   "publisher": "B de Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 6585,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498727722",
+   "format": "Rústica - 13×20 cm - 394 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Dave Seeley"
+   ],
+   "series": [
+    "Miles Vorkosigan"
+   ],
+   "series_ids": [
+    1112
+   ],
+   "awards": [
+    "2º del Premio Hugo (Mejor Novela, 2011)",
+    "2º del Premio Locus (Mejor Novela de ciencia ficción, 2011)",
+    "2º del Premio Ignotus (Mejor Novela extranjera, 2012)"
+   ],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/39443/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00039443.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00039443.jpg",
+   "dimensions": "13×20",
+   "pages": 394,
+   "work_id": 20753,
+   "contents": [
+    {
+     "pages": "pp. 5–11",
+     "entry": "Presentación [Criópolis], prólogo de Miquel Barceló (2011)"
+    },
+    {
+     "pages": "pp. 12–381",
+     "entry": "Criopolis (Cryoburn), novela (2010)"
+    },
+    {
+     "pages": "pp. 383–390",
+     "entry": "Miles Vorkosigan/Naismith: su universo y su época [Criopolis], epílogo de Miquel Barceló (2011)"
+    }
+   ],
+   "note": null,
+   "slug": "criopolis",
+   "shelf": "B de Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "has_spine": true
+  },
+  {
+   "id": 49632,
+   "title": "La Tierra desprevenida",
+   "year": "2014",
+   "authors": [
+    "Aaron Johnston",
+    "Orson Scott Card"
+   ],
+   "author_ids": [
+    22348,
+    9
+   ],
+   "publisher": "B de Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 6585,
+   "collection_number": null,
+   "subcollection": "Primera Guerra Fórmica",
+   "subcollection_id": 10278,
+   "subcollection_number": "1",
+   "isbn": "9788498729498",
+   "format": "Rústica con solapas - 13×20 cm - 459 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [],
+   "series": [
+    "Ender Wiggin"
+   ],
+   "series_ids": [
+    1602
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/49632/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00049632.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00049632.jpg",
+   "dimensions": "13×20",
+   "pages": 459,
+   "work_id": 23880,
+   "contents": [
+    {
+     "pages": "",
+     "entry": "La Tierra desprevenida (Earth Unaware), novela (2012)"
+    }
+   ],
+   "note": null,
+   "slug": "la-tierra-desprevenida",
+   "shelf": "B de Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "has_spine": true
+  },
+  {
+   "id": 64,
+   "title": "Niños perdidos",
+   "year": "jun 1994",
+   "authors": [
+    "Orson Scott Card"
+   ],
+   "author_ids": [
+    9
+   ],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova Scott Card",
+   "collection_id": 10,
+   "collection_number": "3",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440644655",
+   "format": "Rústica con solapas - 15×23 cm - 416 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "R. Crawford"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Terror y misterio"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/64/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000064.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000064.jpg",
+   "dimensions": "15×23",
+   "pages": 416,
+   "work_id": null,
+   "contents": [
+    {
+     "pages": "pp. V–IX",
+     "entry": "Presentación [Niños perdidos], prólogo de Miquel Barceló"
+    },
+    {
+     "pages": "pp. 11–414",
+     "entry": "Niños perdidos (Lost Boys), novela (1992)"
+    },
+    {
+     "pages": "pp. 417–418",
+     "entry": "Referencia bibliográfica de Orson Scott Card [Niños perdidos], epílogo de Miquel Barceló"
+    }
+   ],
+   "note": null,
+   "slug": "ninos-perdidos",
+   "shelf": "B de Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "has_spine": true
+  },
+  {
+   "id": 665,
+   "title": "Lovelock",
+   "year": "oct 1995",
+   "authors": [
+    "Kathryn H. Kidd",
+    "Orson Scott Card"
+   ],
+   "author_ids": [
+    3769,
+    9
+   ],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova Scott Card",
+   "collection_id": 10,
+   "collection_number": "6",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440658346",
+   "format": "Rústica con solapas - 15×23 cm - 326 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Trazo"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/665/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000665.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000665.jpg",
+   "dimensions": "15×23",
+   "pages": 326,
+   "work_id": 674,
+   "contents": [
+    {
+     "pages": "pp. 5–9",
+     "entry": "Presentación [Lovelock], prólogo de Miquel Barceló"
+    },
+    {
+     "pages": "pp. 13–17",
+     "entry": "Prefacio. Sobre la colaboración (Foreword. On Collaboration), prólogo/epílogo de Orson Scott Card (1994)"
+    },
+    {
+     "pages": "pp. 19–317",
+     "entry": "Lovelock (Lovelock), novela (1994)"
+    },
+    {
+     "pages": "pp. 323–326",
+     "entry": "Referencia bibliográfica de Orson Scott Card y Kathryn H. Kidd [Lovelock], epílogo de Miquel Barceló"
+    }
+   ],
+   "note": null,
+   "slug": "lovelock",
+   "shelf": "B de Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "has_spine": true
+  },
+  {
+   "id": 28593,
+   "title": "La era del diamante",
+   "year": "2010",
+   "authors": [
+    "Neal Stephenson"
+   ],
+   "author_ids": [
+    99
+   ],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 4234,
+   "collection_number": "197",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498723649",
+   "format": "Rústica con solapas - 12,5×20 cm - 672 páginas",
+   "translators": [
+    "Pedro Jorge Romero"
+   ],
+   "cover_art": [
+    "Jupiterimages Corporation"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [
+    "1º del Premio Hugo (Mejor Novela, 1996)",
+    "1º del Premio Locus (Mejor Novela, 1996)",
+    "1º del Premio Science Fiction Chronicle Poll (Mejor Novela, 1996)",
+    "2º del Premio John W. Campbell Memorial (Mejor Novela, 1996)",
+    "2º del Premio Nebula (Mejor Novela, 1997)",
+    "6º del Premio Arthur C. Clarke (Mejor Novela, 1996)",
+    "2º del Premio Ignotus (Mejor Novela extranjera, 1998)"
+   ],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/28593/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00028593.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00028593.jpg",
+   "dimensions": "12,5×20",
+   "pages": 672,
+   "work_id": 12,
+   "contents": [
+    {
+     "pages": "1",
+     "entry": "Presentación [La era del diamante], prólogo de Miquel Barceló (1997)"
+    },
+    {
+     "pages": "2",
+     "entry": "La era del diamante (The Diamond Age), novela (1995)"
+    },
+    {
+     "pages": "3",
+     "entry": "Referencia bibliográfica de Neal Stephenson [La era del diamante], epílogo de Miquel Barceló (1997)"
+    }
+   ],
+   "note": null,
+   "slug": "la-era-del-diamante",
+   "shelf": "Zeta Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+   "has_spine": false
+  },
+  {
+   "id": 22734,
+   "title": "Los viajes de Tuf",
+   "year": "2009",
+   "authors": [
+    "George R. R. Martin"
+   ],
+   "author_ids": [
+    139
+   ],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 4234,
+   "collection_number": "45",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498722550",
+   "format": "Rústica con solapas - 12,5×20 cm - 556 páginas",
+   "translators": [
+    "Albert Soler"
+   ],
+   "cover_art": [
+    "Óscar H. Chichoni"
+   ],
+   "series": [
+    "Los Mil Mundos"
+   ],
+   "series_ids": [
+    4680
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/22734/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00022734.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00022734.jpg",
+   "dimensions": "12,5×20",
+   "pages": 556,
+   "work_id": 398,
+   "contents": [
+    {
+     "pages": "pp. 7–10",
+     "entry": "Presentación [Los viajes de Tuf], prólogo de Miquel Barceló (1988)"
+    },
+    {
+     "pages": "pp. 21–155",
+     "entry": "La estrella de la plaga (The Plague Star), novela corta (1985)"
+    },
+    {
+     "pages": "pp. 157–254",
+     "entry": "Los panes y los peces (Loaves and Fishes), relato (1985) 1º del Premio Analog Analytical Laboratory (Mejor Relato, 1986)"
+    },
+    {
+     "pages": "pp. 255–322",
+     "entry": "Guardianes (Guardians), relato (1981) 1º del Premio Locus (Mejor Relato, 1982) 2º del Premio Hugo (Mejor Relato, 1982)"
+    },
+    {
+     "pages": "pp. 323–382",
+     "entry": "Una segunda ración (Second Helpings), relato (1985)"
+    },
+    {
+     "pages": "pp. 383–433",
+     "entry": "Una bestia para Norm (A Beast for Norn), relato (1976)"
+    },
+    {
+     "pages": "pp. 435–484",
+     "entry": "Llamadle Moisés (Call Him Moses), relato (1978)"
+    },
+    {
+     "pages": "pp. 485–551",
+     "entry": "Maná del cielo (Manna from Heaven), relato (1985)"
+    },
+    {
+     "pages": "pp. 555–556",
+     "entry": "Referencia bibliográfica de George R. R. Martin [Los viajes de Tuf], epílogo de Miquel Barceló (1988)"
+    }
+   ],
+   "note": null,
+   "slug": "los-viajes-de-tuf",
+   "shelf": "Zeta Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+   "has_spine": true
+  },
+  {
+   "id": 22794,
+   "title": "Maestro cantor",
+   "year": "2009",
+   "authors": [
+    "Orson Scott Card"
+   ],
+   "author_ids": [
+    9
+   ],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 4234,
+   "collection_number": "46",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498722567",
+   "format": "Rústica con solapas - 12,5×20 cm - 416 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Óscar H. Chichoni"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [
+    "1º del Premio Edmond Hamilton-Leigh Brackett (Mejor Novela, 1981)",
+    "17º del Premio Locus (Mejor Novela de ciencia ficción, 1981)"
+   ],
+   "genres": [
+    "Ciencia ficción",
+    "Otros géneros"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/22794/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00022794.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00022794.jpg",
+   "dimensions": "12,5×20",
+   "pages": 416,
+   "work_id": 336,
+   "contents": [
+    {
+     "pages": "pp. 7–11",
+     "entry": "Presentación [Maestro cantor], prólogo de Miquel Barceló (1988)"
+    },
+    {
+     "pages": "pp. 15–406",
+     "entry": "Maestro cantor (Songmaster), novela (1980)"
+    },
+    {
+     "pages": "pp. 409–410",
+     "entry": "Referencia bibliográfica de Orson Scott Card [Maestro cantor], epílogo de Miquel Barceló (1988)"
+    }
+   ],
+   "note": null,
+   "slug": "maestro-cantor",
+   "shelf": "Zeta Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+   "has_spine": true
+  },
+  {
+   "id": 31404,
+   "title": "Hijos de la mente",
+   "year": "2011",
+   "authors": [
+    "Orson Scott Card"
+   ],
+   "author_ids": [
+    9
+   ],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 4234,
+   "collection_number": "269",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498724653",
+   "format": "Rústica con solapas - 12,5×20 cm - 438 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Thinkstock"
+   ],
+   "series": [
+    "Ender Wiggin"
+   ],
+   "series_ids": [
+    1602
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/31404/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00031404.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00031404.jpg",
+   "dimensions": "12,5×20",
+   "pages": 438,
+   "work_id": 355,
+   "contents": [
+    {
+     "pages": "",
+     "entry": "Hijos de la mente (Children of the Mind), novela (1996)"
+    }
+   ],
+   "note": null,
+   "slug": "hijos-de-la-mente",
+   "shelf": "Zeta Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+   "has_spine": false
+  },
+  {
+   "id": 22735,
+   "title": "La nave de un millón de años",
+   "year": "2009",
+   "authors": [
+    "Poul Anderson"
+   ],
+   "author_ids": [
+    97
+   ],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 4234,
+   "collection_number": "47",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498722574",
+   "format": "Rústica con solapas - 12,5×20 cm - 726 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Óscar H. Chichoni"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [
+    "2º del Premio Hugo (Mejor Novela, 1990)",
+    "2º del Premio Nebula (Mejor Novela, 1990)"
+   ],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/22735/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00022735.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00022735.jpg",
+   "dimensions": "12,5×20",
+   "pages": 726,
+   "work_id": 663,
+   "contents": [
+    {
+     "pages": "",
+     "entry": "La nave de un millón de años (The Boat of a Million Years), novela (1989)"
+    }
+   ],
+   "note": null,
+   "slug": "nave-de-un-millon-de-anos",
+   "shelf": "Zeta Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+   "has_spine": true
+  },
+  {
+   "id": 28744,
+   "title": "Elantris",
+   "year": "2010",
+   "authors": [
+    "Brandon Sanderson"
+   ],
+   "author_ids": [
+    13417
+   ],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 4234,
+   "collection_number": "209",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498723762",
+   "format": "Rústica con solapas - 12,5×20 cm - 648 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Alejandro Colucci"
+   ],
+   "series": [
+    "Elantris"
+   ],
+   "series_ids": [
+    1396
+   ],
+   "awards": [],
+   "genres": [
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/28744/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00028744.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00028744.jpg",
+   "dimensions": "12,5×20",
+   "pages": 648,
+   "work_id": 11221,
+   "contents": [
+    {
+     "pages": "pp. 7–13",
+     "entry": "Presentación [Elantris], prólogo de Miquel Barceló (2005)"
+    },
+    {
+     "pages": "pp. 19–646",
+     "entry": "Elantris (Elantris), novela (2005)"
+    }
+   ],
+   "note": null,
+   "slug": "elantris",
+   "shelf": "Zeta Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+   "has_spine": true
+  },
+  {
+   "id": 53731,
+   "title": "Steelheart",
+   "year": "10 jun 2015",
+   "authors": [
+    "Brandon Sanderson"
+   ],
+   "author_ids": [
+    13417
+   ],
+   "publisher": "B de Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 6585,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490700952",
+   "format": "Rústica - 13×19 cm - 416 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Mike Bryan",
+    "Ángela Carlino"
+   ],
+   "series": [
+    "Reckoner"
+   ],
+   "series_ids": [
+    2784
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/53731/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00053731.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00053731.jpg",
+   "dimensions": "13×19",
+   "pages": 416,
+   "work_id": 25828,
+   "contents": [
+    {
+     "pages": "pp. 7–15",
+     "entry": "Presentación [Steelheart], prólogo de Miquel Barceló"
+    },
+    {
+     "pages": "pp. 17–406",
+     "entry": "Steelheart (Steelheart), novela (2013)"
+    }
+   ],
+   "note": null,
+   "slug": "steelheart",
+   "shelf": "Zeta Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+   "has_spine": true
+  },
+  {
+   "id": 23634,
+   "title": "Ilión I: El asedio",
+   "year": "2009",
+   "authors": [
+    "Dan Simmons"
+   ],
+   "author_ids": [
+    38
+   ],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 4234,
+   "collection_number": "82",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498722673",
+   "format": "Rústica con solapas - 12,5×20 cm - 480 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Óscar H. Chichoni"
+   ],
+   "series": [
+    "Ilión"
+   ],
+   "series_ids": [
+    204
+   ],
+   "awards": [
+    "1º del Premio Locus (Mejor Novela, 2004)",
+    "2º del Premio Hugo (Mejor Novela, 2004)",
+    "2º del Premio Ignotus (Mejor Novela extranjera, 2004)"
+   ],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/23634/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00023634.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00023634.jpg",
+   "dimensions": "12,5×20",
+   "pages": 480,
+   "work_id": 9042,
+   "contents": [
+    {
+     "pages": "(fragmento)",
+     "entry": "Ilión (Ilium), novela (2003)"
+    }
+   ],
+   "note": null,
+   "slug": "ilion-1-el-asedio",
+   "shelf": "Zeta Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+   "has_spine": false
+  },
+  {
+   "id": 23635,
+   "title": "Ilión II: La rebelión",
+   "year": "2009",
+   "authors": [
+    "Dan Simmons"
+   ],
+   "author_ids": [
+    38
+   ],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 4234,
+   "collection_number": "98",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498722796",
+   "format": "Rústica con solapas - 12,5×20 cm - 448 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Óscar H. Chichoni"
+   ],
+   "series": [
+    "Ilión"
+   ],
+   "series_ids": [
+    204
+   ],
+   "awards": [
+    "1º del Premio Locus (Mejor Novela, 2004)",
+    "2º del Premio Hugo (Mejor Novela, 2004)",
+    "2º del Premio Ignotus (Mejor Novela extranjera, 2004)"
+   ],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/23635/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00023635.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00023635.jpg",
+   "dimensions": "12,5×20",
+   "pages": 448,
+   "work_id": 9042,
+   "contents": [
+    {
+     "pages": "(fragmento)",
+     "entry": "Ilión (Ilium), novela (2003)"
+    }
+   ],
+   "note": null,
+   "slug": "ilion-2-la-rebelion",
+   "shelf": "Zeta Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+   "has_spine": false
+  },
+  {
+   "id": 27512,
+   "title": "El libro del día del juicio final",
+   "year": "2010",
+   "authors": [
+    "Connie Willis"
+   ],
+   "author_ids": [
+    41
+   ],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 4234,
+   "collection_number": "164",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498723472",
+   "format": "Rústica con solapas - 12,5×20 cm - 784 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Trazo"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [
+    "1º del Premio Ignotus (Mejor Novela extranjera, 1995)",
+    "1º del Premio Hugo (Mejor Novela, 1993)",
+    "1º del Premio Nebula (Mejor Novela, 1993)",
+    "1º del Premio Locus (Mejor Novela, 1993)",
+    "1º del Premio Gigamesh (Mejor Novela de ciencia ficción, 1995)",
+    "1º del Premio Italia (Mejor Novela extranjera, 1995)",
+    "1º del Premio Kurd Lasswitz (Mejor Novela extranjera, 1994)"
+   ],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/27512/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00027512.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00027512.jpg",
+   "dimensions": "12,5×20",
+   "pages": 784,
+   "work_id": 67,
+   "contents": [
+    {
+     "pages": "pp. 21–782",
+     "entry": "El libro del día del juicio final (Doomsday Book), novela (1992)"
+    }
+   ],
+   "note": null,
+   "slug": "libro-del-dia-del-juicio-final",
+   "shelf": "Zeta Bolsillo",
+   "note_mine": null,
+   "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+   "has_spine": true
+  }
+ ]
+}

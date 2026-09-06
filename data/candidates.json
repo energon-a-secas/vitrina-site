@@ -1,0 +1,7289 @@
+[
+ {
+  "want": {
+   "slug": "premio-upc-1991",
+   "title": "Premio UPC 1991",
+   "authors": [
+    "Javier Negrete",
+    "Rafael Marín",
+    "Ángel Torres Quesada"
+   ],
+   "shelf": "Nova",
+   "listed_as": "Nova ciencia ficción",
+   "queries": [
+    "Premio UPC 1991",
+    "Premio UPC"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 622,
+    "title": "Premio UPC 1991",
+    "year": "abr 1992",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "48",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8440627122",
+    "format": "Rústica con solapas - 15×22 cm - 290 páginas",
+    "translators": [],
+    "cover_art": [
+     "Óscar H. Chichoni"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/622/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000622.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000622.jpg",
+    "dimensions": "15×22",
+    "pages": 290
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "telarana-entre-los-mundos",
+   "title": "La telaraña entre los mundos",
+   "authors": [
+    "Charles Sheffield"
+   ],
+   "shelf": "Nova",
+   "listed_as": "Nova ciencia ficción",
+   "queries": [
+    "telaraña entre los mundos"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 162,
+    "title": "La telaraña entre los mundos",
+    "year": "nov 1989",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "21",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8440610890",
+    "format": "Rústica con solapas - 12×19 cm - 368 páginas",
+    "translators": [
+     "Diana Trujillo"
+    ],
+    "cover_art": [
+     "Juan Giménez"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/162/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000162.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000162.jpg",
+    "dimensions": "12×19",
+    "pages": 368
+   },
+   {
+    "id": 35365,
+    "title": "La telaraña entre los mundos",
+    "year": "2012",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Grupo AJEC",
+    "publisher_country": "España",
+    "collection": "Arrakis Ficción",
+    "collection_id": 5937,
+    "collection_number": "9",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788415156260",
+    "format": "Rústica con solapas - 16×23 cm - 240 páginas",
+    "translators": [
+     "Diana Muñoz"
+    ],
+    "cover_art": [
+     "Estudio AJEC"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/35365/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00035365.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00035365.jpg",
+    "dimensions": "16×23",
+    "pages": 240
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "mareas-de-luz",
+   "title": "Mareas de luz",
+   "authors": [
+    "Gregory Benford"
+   ],
+   "shelf": "Nova",
+   "listed_as": "Nova ciencia ficción",
+   "queries": [
+    "Mareas de luz"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 217,
+    "title": "Mareas de luz EN VENTA",
+    "year": "oct 1991",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "43",
+    "subcollection": "Ciclo del Centro Galáctico",
+    "subcollection_id": 1614,
+    "subcollection_number": "4",
+    "isbn": "8440622546",
+    "format": "Rústica con solapas - 15×22 cm - 476 páginas",
+    "translators": [
+     "Márgara Auerbach"
+    ],
+    "cover_art": [
+     "Eloy Sánchez Vizcaíno"
+    ],
+    "series": [
+     "Ciclo del Centro Galáctico"
+    ],
+    "series_ids": [
+     199
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/217/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000217.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000217.jpg",
+    "dimensions": "15×22",
+    "pages": 476
+   },
+   {
+    "id": 723,
+    "title": "Mareas de luz",
+    "year": "1998",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "VIB",
+    "collection_id": 5,
+    "collection_number": "264",
+    "subcollection": "VIB Gregory Benford",
+    "subcollection_id": 1640,
+    "subcollection_number": "4",
+    "isbn": "8440682778",
+    "format": "Rústica - 11×17,5 cm - 567 páginas",
+    "translators": [
+     "Márgara Auerbach"
+    ],
+    "cover_art": [
+     "Maya & Cardil"
+    ],
+    "series": [
+     "Ciclo del Centro Galáctico"
+    ],
+    "series_ids": [
+     199
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/723/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000723.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000723.jpg",
+    "dimensions": null,
+    "pages": 567
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "mendigos-y-opulentos",
+   "title": "Mendigos y opulentos",
+   "authors": [
+    "Nancy Kress"
+   ],
+   "shelf": "Nova",
+   "listed_as": "Nova ciencia ficción",
+   "queries": [
+    "Mendigos y opulentos"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 338,
+    "title": "Mendigos y opulentos EN VENTA",
+    "year": "oct 1996",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "87",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8440666918",
+    "format": "Rústica con solapas - 15×22 cm - 366 páginas",
+    "translators": [
+     "Elsa Mateo Blanco"
+    ],
+    "cover_art": [
+     "Trazo"
+    ],
+    "series": [
+     "Los Insomnes"
+    ],
+    "series_ids": [
+     1124
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/338/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000338.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000338.jpg",
+    "dimensions": "15×22",
+    "pages": 366
+   },
+   {
+    "id": 19216,
+    "title": "Mendigos y opulentos",
+    "year": "nov 2006",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Byblos",
+    "collection_id": 968,
+    "collection_number": "383",
+    "subcollection": "Byblos Nancy Kress",
+    "subcollection_id": 3106,
+    "subcollection_number": "2",
+    "isbn": "8466628827",
+    "format": "Rústica - 11×17,5 cm - 468 páginas",
+    "translators": [
+     "Elsa Mateo Blanco"
+    ],
+    "cover_art": [
+     "Leo Flores"
+    ],
+    "series": [
+     "Los Insomnes"
+    ],
+    "series_ids": [
+     1124
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/19216/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00019216.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00019216.jpg",
+    "dimensions": null,
+    "pages": 468
+   },
+   {
+    "id": 56291,
+    "title": "Mendigos y opulentos",
+    "year": "29 ene 2016",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Books",
+    "publisher_country": "España",
+    "collection": null,
+    "collection_id": null,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490692721",
+    "format": "Edición digital",
+    "translators": [
+     "Elsa Mateo Blanco"
+    ],
+    "cover_art": [
+     "Leo Flores"
+    ],
+    "series": [
+     "Los Insomnes"
+    ],
+    "series_ids": [
+     1124
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/56291/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00056291.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00056291.jpg",
+    "dimensions": null,
+    "pages": null
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "proteo",
+   "title": "Proteo",
+   "authors": [
+    "Charles Sheffield"
+   ],
+   "shelf": "Nova",
+   "listed_as": "Nova ciencia ficción",
+   "queries": [
+    "Proteo"
+   ]
+  },
+  "route": "libro+ficha",
+  "candidates": [
+   {
+    "id": 754,
+    "title": "Proteo",
+    "year": "jul 1996",
+    "authors": [
+     "Charles Sheffield"
+    ],
+    "author_ids": [
+     126
+    ],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "85",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8440665903",
+    "format": "Rústica con solapas - 15×22 cm - 362 páginas",
+    "translators": [
+     "Carlos Gardini",
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Trazo"
+    ],
+    "series": [
+     "Proteo"
+    ],
+    "series_ids": [
+     1159
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/754/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000754.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000754.jpg",
+    "dimensions": "15×22",
+    "pages": 362,
+    "work_id": null,
+    "blurb": "Nota de bibliotecario Opinión Usuario Frase exacta Registrarse Entrar Registrarse Entrar Toda la 3F Título ISBN (sin guiones) Persona Editorial Contenido Colección Premio Enciclopedia Galáctica Texto de contraportada Nota de bibliotecario Opinión Usuario Frase exacta Escanear ISBN Libro id:754 Proteo (jul 1996) ( Sight of Proteus , sep 1978 / Proteus Combined , 1994 ) Charles Sheffield Editorial: Ediciones B (España) Colección: Nova 85 ISBN: 8440665903 Rústica con solapas - 15×22 cm - 362 páginas Traducción: Carlos Gardini Rafael Marín Trechera Ilustración de cubierta: Trazo Serie: Proteo Ver título: Proteo Índice de contenidos pp. 5–10 Presentación [Proteo] , prólogo de Miquel Barceló pp. 11–65 Primera parte [El ascenso de Proteo] ( Book 1 [Sight of Proteus] ) (1978) revisión del relato Sight of Proteus (1978) Traducción de Carlos Gardini pp. 66–102 Segunda parte [El ascenso de Proteo] ( Book 2 [Sight of Proteus] ) (1978) revisión del relato Legacy (1977) Traducción de Carlos Gardini pp. 103–166 Tercera parte [El ascenso de Proteo] ( Book 3 [Sight of Proteus] ) (1978) revisión del relato The Grooves of Change (1979) Traducción de Carlos Gardini pp. 167–360 Proteo desencadenado ( Proteus Unbound ) , novela (1988) Traducción de Rafael Marín Trechera pp. 361–362 Referencia bibliográfica de Charles Sheffield [Proteo] , epílogo de Miquel Barceló Texto de contraportada/solapas: En el siglo XXII, la combinación de una bio-realimentación potenciada por ordenador con unas nuevas técnicas de quimioterapia ha permitido al ser humano no sólo curarse (eliminando la profesión médica), sino también alterar a voluntad su forma física. La alteración física, sin embargo, presenta aspectos oscuros, y la Agencia de Control de Formas que dirige Behrooz Wolf tiene la misión de impedir que formas ilegales o peligrosas se difundan. Mientras investiga proyectos de apariencia siniestra, Wolf encuentra pistas que lo conducen al mensaje legado hace millones de años por una especie extraterrestre. Más tarde, la recurrente imagen mental de un misterioso Bailarín le llevará a enfrentarse con los rebeldes que, desde el espacio exterior, se oponen al poder de la Tierra. Razones más que suficientes para replantear lo que significa ser humano precisamente en una época en la cual los humanos adquieren cualquier forma física si lo desean y cuando el nuevo Test de Humanidad resulta esencial para identificar a los miembros de la propia especie. Charles Sheffield, recientemente galardonado con los premios Nebula y John W. Campbell Memorial , demuestra de nuevo su excepcional habilidad en el tratamiento de ameno y sugerente de ideas especulativas de gran interés. \"Charles Sheffield es uno de los nuestros destacados escritores de ciencia ficción hard . A veces extiende sus alas con tal amplitud que puede ser comparado a soñadores cósmicos como Stapledon. Más a menudo se acomoda confortablemente en la misma estantería que Clarke, Asimov y Heilein\" ___ ANALOG ___ Libro con la colaboración de: Vorkosigan , eumenides",
+    "contents": [
+     {
+      "pages": "pp. 5–10",
+      "entry": "Presentación [Proteo] , prólogo de Miquel Barceló"
+     },
+     {
+      "pages": "pp. 11–65",
+      "entry": "Primera parte [El ascenso de Proteo] ( Book 1 [Sight of Proteus] ) (1978) revisión del relato Sight of Proteus (1978) Traducción de Carlos Gardini"
+     },
+     {
+      "pages": "pp. 66–102",
+      "entry": "Segunda parte [El ascenso de Proteo] ( Book 2 [Sight of Proteus] ) (1978) revisión del relato Legacy (1977) Traducción de Carlos Gardini"
+     },
+     {
+      "pages": "pp. 103–166",
+      "entry": "Tercera parte [El ascenso de Proteo] ( Book 3 [Sight of Proteus] ) (1978) revisión del relato The Grooves of Change (1979) Traducción de Carlos Gardini"
+     },
+     {
+      "pages": "pp. 167–360",
+      "entry": "Proteo desencadenado ( Proteus Unbound ) , novela (1988) Traducción de Rafael Marín Trechera"
+     },
+     {
+      "pages": "pp. 361–362",
+      "entry": "Referencia bibliográfica de Charles Sheffield [Proteo] , epílogo de Miquel Barceló"
+     }
+    ],
+    "note": null
+   }
+  ],
+  "compact_seen": [
+   {
+    "id": 754,
+    "title": "Proteo",
+    "authors": [
+     "Charles Sheffield"
+    ]
+   }
+  ]
+ },
+ {
+  "want": {
+   "slug": "fundacion-y-caos",
+   "title": "Fundación y Caos",
+   "authors": [
+    "Greg Bear"
+   ],
+   "shelf": "Zeta Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+   "queries": [
+    "Fundación y caos"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 225,
+    "title": "Fundación y caos EN VENTA",
+    "year": "jun 1999",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "124",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8440692919",
+    "format": "Rústica con solapas - 15×23 cm - 384 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "Samuel Gómez",
+     "Gemma Pellicer"
+    ],
+    "series": [
+     "Segunda trilogía de la Fundación"
+    ],
+    "series_ids": [
+     2175
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/225/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000225.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000225.jpg",
+    "dimensions": "15×23",
+    "pages": 384
+   },
+   {
+    "id": 940,
+    "title": "Fundación y caos",
+    "year": "sep 2000",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Punto de Lectura",
+    "publisher_country": "España",
+    "collection": "Punto de Lectura",
+    "collection_id": 103,
+    "collection_number": "74",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8466300600",
+    "format": "Rústica - 11×17,5 cm - 479 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "Gemma Pellicer"
+    ],
+    "series": [
+     "Segunda trilogía de la Fundación"
+    ],
+    "series_ids": [
+     2175
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/940/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000940.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000940.jpg",
+    "dimensions": null,
+    "pages": 479
+   },
+   {
+    "id": 15395,
+    "title": "Fundación y caos",
+    "year": "oct 2006",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Byblos",
+    "collection_id": 968,
+    "collection_number": "728",
+    "subcollection": "Byblos Greg Bear",
+    "subcollection_id": 1946,
+    "subcollection_number": "2",
+    "isbn": "846662869X",
+    "format": "Rústica - 11×17,5 cm - 459 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "Estudio Ediciones B"
+    ],
+    "series": [
+     "Segunda trilogía de la Fundación"
+    ],
+    "series_ids": [
+     2175
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/15395/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00015395.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00015395.jpg",
+    "dimensions": null,
+    "pages": 459
+   },
+   {
+    "id": 32119,
+    "title": "Fundación y caos",
+    "year": "2011",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Zeta Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 4234,
+    "collection_number": "288",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788498723908",
+    "format": "Rústica con solapas - 12,5×20 cm - 455 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [],
+    "series": [
+     "Segunda trilogía de la Fundación"
+    ],
+    "series_ids": [
+     2175
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/32119/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00032119.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00032119.jpg",
+    "dimensions": "5×20",
+    "pages": 455
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "el-temor-de-la-fundacion",
+   "title": "El temor de la Fundación",
+   "authors": [
+    "Gregory Benford"
+   ],
+   "shelf": "Zeta Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+   "queries": [
+    "El temor de la Fundación"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 938,
+    "title": "El temor de la fundación",
+    "year": "1998",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Punto de Lectura",
+    "publisher_country": "España",
+    "collection": "Punto de Lectura",
+    "collection_id": 103,
+    "collection_number": "73",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8466300597",
+    "format": "Rústica - 11×17,5 cm",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "Samuel Gómez"
+    ],
+    "series": [
+     "Segunda trilogía de la Fundación"
+    ],
+    "series_ids": [
+     2175
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/938/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000938.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000938.jpg",
+    "dimensions": null,
+    "pages": null
+   },
+   {
+    "id": 342,
+    "title": "El temor de la fundación",
+    "year": "jun 1998",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "113",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8440684851",
+    "format": "Rústica con solapas - 15×23 cm - 519 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "Samuel Gómez"
+    ],
+    "series": [
+     "Segunda trilogía de la Fundación"
+    ],
+    "series_ids": [
+     2175
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/342/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000342.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000342.jpg",
+    "dimensions": "15×23",
+    "pages": 519
+   },
+   {
+    "id": 15396,
+    "title": "El temor de la Fundación",
+    "year": "2006",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Byblos",
+    "collection_id": 968,
+    "collection_number": "18",
+    "subcollection": "Byblos Gregory Benford",
+    "subcollection_id": 2892,
+    "subcollection_number": "2",
+    "isbn": "8466627936",
+    "format": "Rústica - 11×17,5 cm - 655 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "Estudio Ediciones B",
+     "Júpiter"
+    ],
+    "series": [
+     "Segunda trilogía de la Fundación"
+    ],
+    "series_ids": [
+     2175
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/15396/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00015396.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00015396.jpg",
+    "dimensions": null,
+    "pages": 655
+   },
+   {
+    "id": 31396,
+    "title": "El temor de la fundación",
+    "year": "2011",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Zeta Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 4234,
+    "collection_number": "277",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788498723847",
+    "format": "Rústica con solapas - 12,5×20 cm - 650 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "Thinkstock"
+    ],
+    "series": [
+     "Segunda trilogía de la Fundación"
+    ],
+    "series_ids": [
+     2175
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/31396/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00031396.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00031396.jpg",
+    "dimensions": "5×20",
+    "pages": 650
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "el-jardin-de-rama",
+   "title": "El jardín de Rama",
+   "authors": [
+    "Arthur C. Clarke",
+    "Gentry Lee"
+   ],
+   "shelf": "Zeta Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+   "queries": [
+    "El jardín de Rama"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 15431,
+    "title": "El jardín de Rama",
+    "year": "ene 1993",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Éxito Internacional",
+    "collection_id": 18,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8440632894",
+    "format": "Rústica con solapas - 15×23 cm - 496 páginas",
+    "translators": [
+     "Adolfo Martín Pérez"
+    ],
+    "cover_art": [
+     "Jordi Vallhonesta"
+    ],
+    "series": [
+     "Rama"
+    ],
+    "series_ids": [
+     1500
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/15431/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00015431.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00015431.jpg",
+    "dimensions": "15×23",
+    "pages": 496
+   },
+   {
+    "id": 20311,
+    "title": "El jardín de Rama",
+    "year": "1993",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Emecé",
+    "publisher_country": "Argentina",
+    "collection": "Grandes Novelistas",
+    "collection_id": 276,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9500412810",
+    "format": "Rústica - 14×22 cm - 458 páginas",
+    "translators": [],
+    "cover_art": [],
+    "series": [
+     "Rama"
+    ],
+    "series_ids": [
+     1500
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/20311/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00020311.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00020311.jpg",
+    "dimensions": "14×22",
+    "pages": 458
+   },
+   {
+    "id": 656,
+    "title": "El jardín de Rama",
+    "year": "ene 1993",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova Éxito",
+    "collection_id": 69,
+    "collection_number": "1",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8440632894",
+    "format": "Rústica con solapas - 15×23 cm - 492 páginas",
+    "translators": [
+     "Adolfo Martín Pérez"
+    ],
+    "cover_art": [
+     "Trazo"
+    ],
+    "series": [
+     "Rama"
+    ],
+    "series_ids": [
+     1500
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/656/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000656.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000656.jpg",
+    "dimensions": "15×23",
+    "pages": 492
+   },
+   {
+    "id": 687,
+    "title": "El jardín de Rama",
+    "year": "feb 1995",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "VIB",
+    "collection_id": 5,
+    "collection_number": "17",
+    "subcollection": "VIB Arthur C. Clarke",
+    "subcollection_id": 1635,
+    "subcollection_number": "3",
+    "isbn": "8440644124",
+    "format": "Rústica con solapas - 17×24 cm - 667 páginas",
+    "translators": [
+     "Adolfo Martín Pérez"
+    ],
+    "cover_art": [
+     "Eloy Sánchez Vizcaíno"
+    ],
+    "series": [
+     "Rama"
+    ],
+    "series_ids": [
+     1500
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/687/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000687.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000687.jpg",
+    "dimensions": "17×24",
+    "pages": 667
+   },
+   {
+    "id": 3098,
+    "title": "El jardín de Rama 1",
+    "year": "2000",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Folio",
+    "publisher_country": "España",
+    "collection": "Nueva Narrativa Bestseller",
+    "collection_id": 310,
+    "collection_number": "29",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8441315167",
+    "format": "Tapa dura - 16×22 cm",
+    "translators": [
+     "Adolfo Martín Pérez"
+    ],
+    "cover_art": [],
+    "series": [
+     "Rama"
+    ],
+    "series_ids": [
+     1500
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/3098/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00003098.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00003098.jpg",
+    "dimensions": "16×22",
+    "pages": null
+   },
+   {
+    "id": 3099,
+    "title": "El jardín de Rama 2",
+    "year": "2000",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Folio",
+    "publisher_country": "España",
+    "collection": "Nueva Narrativa Bestseller",
+    "collection_id": 310,
+    "collection_number": "30",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8441315175",
+    "format": "Tapa dura - 16×22 cm",
+    "translators": [
+     "Adolfo Martín Pérez"
+    ],
+    "cover_art": [],
+    "series": [
+     "Rama"
+    ],
+    "series_ids": [
+     1500
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/3099/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00003099.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00003099.jpg",
+    "dimensions": "16×22",
+    "pages": null
+   },
+   {
+    "id": 936,
+    "title": "El jardín de Rama",
+    "year": "2000",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Punto de Lectura",
+    "publisher_country": "España",
+    "collection": "Punto de Lectura",
+    "collection_id": 103,
+    "collection_number": "103",
+    "subcollection": "Punto de Lectura Arthur C. Clarke",
+    "subcollection_id": 1783,
+    "subcollection_number": "2",
+    "isbn": "8466300848",
+    "format": "Rústica - 11×17,5 cm - 672 páginas",
+    "translators": [
+     "Adolfo Martín Pérez"
+    ],
+    "cover_art": [
+     "Leo Flores"
+    ],
+    "series": [
+     "Rama"
+    ],
+    "series_ids": [
+     1500
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/936/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000936.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000936.jpg",
+    "dimensions": null,
+    "pages": 672
+   },
+   {
+    "id": 15684,
+    "title": "El jardín de Rama",
+    "year": "oct 2007",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Byblos",
+    "collection_id": 968,
+    "collection_number": "742",
+    "subcollection": "Byblos Arthur C. Clarke / Gentry Lee",
+    "subcollection_id": 3134,
+    "subcollection_number": "1",
+    "isbn": "9788466609203",
+    "format": "Rústica - 11×17,5 cm - 701 páginas",
+    "translators": [
+     "Adolfo Martín Pérez"
+    ],
+    "cover_art": [
+     "Xavier Martínez"
+    ],
+    "series": [
+     "Rama"
+    ],
+    "series_ids": [
+     1500
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/15684/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00015684.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00015684.jpg",
+    "dimensions": null,
+    "pages": 701
+   },
+   {
+    "id": 28879,
+    "title": "El jardín de Rama",
+    "year": "may 2010",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Zeta Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 4234,
+    "collection_number": "208",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788498723779",
+    "format": "Rústica con solapas - 12,5×20 cm - 702 páginas",
+    "translators": [
+     "Adolfo Martín Pérez"
+    ],
+    "cover_art": [
+     "Thinkstock"
+    ],
+    "series": [
+     "Rama"
+    ],
+    "series_ids": [
+     1500
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/28879/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00028879.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00028879.jpg",
+    "dimensions": "5×20",
+    "pages": 702
+   },
+   {
+    "id": 53444,
+    "title": "El jardín de Rama",
+    "year": "jun 2014",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Books",
+    "publisher_country": "España",
+    "collection": null,
+    "collection_id": null,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490197998",
+    "format": "Edición digital - ePUB",
+    "translators": [
+     "Adolfo Martín Pérez"
+    ],
+    "cover_art": [
+     "Thinkstock"
+    ],
+    "series": [
+     "Rama"
+    ],
+    "series_ids": [
+     1500
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/53444/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00053444.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00053444.jpg",
+    "dimensions": null,
+    "pages": null
+   },
+   {
+    "id": 74291,
+    "title": "El jardín de Rama",
+    "year": "may 2023",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "B de Bolsillo",
+    "collection_id": 11402,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788498723779",
+    "format": "Rústica - 12,5×19 cm - 704 páginas",
+    "translators": [
+     "Adolfo Martín Pérez"
+    ],
+    "cover_art": [],
+    "series": [
+     "Rama"
+    ],
+    "series_ids": [
+     1500
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/74291/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00074291.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00074291.jpg",
+    "dimensions": "5×19",
+    "pages": 704
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "marte-se-mueve",
+   "title": "Marte se mueve",
+   "authors": [
+    "Greg Bear"
+   ],
+   "shelf": "B de Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "queries": [
+    "Marte se mueve"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 196,
+    "title": "Marte se mueve",
+    "year": "nov 1995",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "79",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8440659423",
+    "format": "Rústica con solapas - 15×22 cm - 476 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [],
+    "series": [
+     "Reina de los Ángeles"
+    ],
+    "series_ids": [
+     1194
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/196/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000196.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000196.jpg",
+    "dimensions": "15×22",
+    "pages": 476
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "radix",
+   "title": "Radix",
+   "authors": [
+    "A. A. Attanasio"
+   ],
+   "shelf": "B de Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "queries": [
+    "Radix"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 387,
+    "title": "Radix",
+    "year": "jun 1990",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "27",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8440613466",
+    "format": "Rústica con solapas - 12×19 cm - 657 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Óscar H. Chichoni"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/387/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000387.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000387.jpg",
+    "dimensions": "12×19",
+    "pages": 657
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "serpiente-del-sueno",
+   "title": "Serpiente del sueño",
+   "authors": [
+    "Vonda N. McIntyre"
+   ],
+   "shelf": "B de Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "queries": [
+    "Serpiente del sueño"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 209,
+    "title": "Serpiente del sueño",
+    "year": "mar 1989",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "17",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8440606346",
+    "format": "Rústica con solapas - 12×19 cm - 330 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Óscar H. Chichoni"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/209/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000209.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000209.jpg",
+    "dimensions": "12×19",
+    "pages": 330
+   },
+   {
+    "id": 15391,
+    "title": "Serpiente del sueño",
+    "year": "2007",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Byblos",
+    "collection_id": 968,
+    "collection_number": "281",
+    "subcollection": "Byblos Vonda N. McIntyre",
+    "subcollection_id": 3065,
+    "subcollection_number": "1",
+    "isbn": "9788466632645",
+    "format": "Rústica - 11×17,5 cm - 406 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "David Argemí",
+     "Estudio Ediciones B"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/15391/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00015391.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00015391.jpg",
+    "dimensions": null,
+    "pages": 406
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "el-dragon-en-el-mar",
+   "title": "El dragón en el mar",
+   "authors": [
+    "Frank Herbert"
+   ],
+   "shelf": "B de Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "queries": [
+    "El dragón en el mar"
+   ]
+  },
+  "route": "libro+ficha",
+  "candidates": [
+   {
+    "id": 651,
+    "title": "El dragón en el mar",
+    "year": "sep 1991",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "40",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8440622880",
+    "format": "Rústica con solapas - 15×22 cm - 255 páginas",
+    "translators": [
+     "José María García Grimalt"
+    ],
+    "cover_art": [
+     "Juan Giménez"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/651/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000651.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000651.jpg",
+    "dimensions": "15×22",
+    "pages": 255
+   },
+   {
+    "id": 555,
+    "title": "El dragón en el mar",
+    "year": "mar 1993",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "VIB",
+    "collection_id": 5,
+    "collection_number": "23",
+    "subcollection": "VIB Frank Herbert",
+    "subcollection_id": 1549,
+    "subcollection_number": "3",
+    "isbn": "8440635079",
+    "format": "Rústica - 11×17,5 cm - 384 páginas",
+    "translators": [
+     "José María García Grimalt"
+    ],
+    "cover_art": [
+     "Fotostock"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/555/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000555.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000555.jpg",
+    "dimensions": null,
+    "pages": 384
+   }
+  ],
+  "compact_seen": [
+   {
+    "id": 651,
+    "title": "El dragón en el mar",
+    "authors": [
+     "Frank Herbert"
+    ]
+   },
+   {
+    "id": 555,
+    "title": "El dragón en el mar",
+    "authors": [
+     "Frank Herbert"
+    ]
+   }
+  ]
+ },
+ {
+  "want": {
+   "slug": "orgullo-de-chanur",
+   "title": "El orgullo de Chanur",
+   "authors": [
+    "C. J. Cherryh"
+   ],
+   "shelf": "B de Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "series": "Chanur",
+   "queries": [
+    "El orgullo de Chanur"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 299,
+    "title": "El orgullo de Chanur",
+    "year": "abr 1988",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "2",
+    "subcollection": "La Saga de Chanur",
+    "subcollection_id": 1701,
+    "subcollection_number": "1",
+    "isbn": "8477358567",
+    "format": "Rústica con solapas - 12×19 cm - 308 páginas",
+    "translators": [
+     "Albert Solé"
+    ],
+    "cover_art": [
+     "Arte+Diseño",
+     "La Manufactura"
+    ],
+    "series": [
+     "Chanur"
+    ],
+    "series_ids": [
+     208
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/299/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000299.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000299.jpg",
+    "dimensions": "12×19",
+    "pages": 308
+   },
+   {
+    "id": 11156,
+    "title": "El orgullo de Chanur",
+    "year": "2004",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "La Factoría de Ideas",
+    "publisher_country": "España",
+    "collection": "Ventana Abierta",
+    "collection_id": 1060,
+    "collection_number": "1",
+    "subcollection": "La Saga de Chanur",
+    "subcollection_id": 3090,
+    "subcollection_number": "1",
+    "isbn": "849502442X",
+    "format": "Rústica - 13×21 cm - 299 páginas",
+    "translators": [
+     "Albert Solé"
+    ],
+    "cover_art": [
+     "Thomas Schlück",
+     "Michael Whelan"
+    ],
+    "series": [
+     "Chanur"
+    ],
+    "series_ids": [
+     208
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/11156/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00011156.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00011156.jpg",
+    "dimensions": "13×21",
+    "pages": 299
+   },
+   {
+    "id": 52738,
+    "title": "El orgullo de Chanur",
+    "year": "dic 2014",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "La Factoría de Ideas",
+    "publisher_country": "España",
+    "collection": "Ventana Abierta (digital)",
+    "collection_id": 6819,
+    "collection_number": null,
+    "subcollection": "La Saga de Chanur",
+    "subcollection_id": 3090,
+    "subcollection_number": "1",
+    "isbn": "9788490186077",
+    "format": "Edición digital - ePUB",
+    "translators": [
+     "Albert Solé"
+    ],
+    "cover_art": [
+     "Thomas Schlück",
+     "Michael Whelan"
+    ],
+    "series": [
+     "Chanur"
+    ],
+    "series_ids": [
+     208
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/52738/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00052738.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00052738.jpg",
+    "dimensions": null,
+    "pages": null
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "aventura-de-chanur",
+   "title": "La aventura de Chanur",
+   "authors": [
+    "C. J. Cherryh"
+   ],
+   "shelf": "B de Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "series": "Chanur",
+   "queries": [
+    "La aventura de Chanur"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 207,
+    "title": "La aventura de Chanur",
+    "year": "oct 1988",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "14",
+    "subcollection": "La Saga de Chanur",
+    "subcollection_id": 1701,
+    "subcollection_number": "2",
+    "isbn": "8440602359",
+    "format": "Rústica con solapas - 12×19 cm - 270 páginas",
+    "translators": [
+     "Albert Solé"
+    ],
+    "cover_art": [
+     "Sergio Camporeale"
+    ],
+    "series": [
+     "Chanur"
+    ],
+    "series_ids": [
+     208
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/207/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000207.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000207.jpg",
+    "dimensions": "12×19",
+    "pages": 270
+   },
+   {
+    "id": 13141,
+    "title": "La aventura de Chanur",
+    "year": "2004",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "La Factoría de Ideas",
+    "publisher_country": "España",
+    "collection": "Ventana Abierta",
+    "collection_id": 1060,
+    "collection_number": "5",
+    "subcollection": "La Saga de Chanur",
+    "subcollection_id": 3090,
+    "subcollection_number": "2",
+    "isbn": "8498000556",
+    "format": "Rústica - 13×21 cm - 282 páginas",
+    "translators": [
+     "Albert Solé"
+    ],
+    "cover_art": [],
+    "series": [
+     "Chanur"
+    ],
+    "series_ids": [
+     208
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/13141/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00013141.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00013141.jpg",
+    "dimensions": "13×21",
+    "pages": 282
+   },
+   {
+    "id": 52739,
+    "title": "La aventura de Chanur",
+    "year": "dic 2014",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "La Factoría de Ideas",
+    "publisher_country": "España",
+    "collection": "Ventana Abierta (digital)",
+    "collection_id": 6819,
+    "collection_number": null,
+    "subcollection": "La Saga de Chanur",
+    "subcollection_id": 3090,
+    "subcollection_number": "2",
+    "isbn": "9788490186091",
+    "format": "Edición digital - ePUB",
+    "translators": [
+     "Albert Solé"
+    ],
+    "cover_art": [],
+    "series": [
+     "Chanur"
+    ],
+    "series_ids": [
+     208
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/52739/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00052739.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00052739.jpg",
+    "dimensions": null,
+    "pages": null
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "venganza-de-chanur",
+   "title": "La venganza de Chanur",
+   "authors": [
+    "C. J. Cherryh"
+   ],
+   "shelf": "B de Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "series": "Chanur",
+   "queries": [
+    "La venganza de Chanur"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 208,
+    "title": "La venganza de Chanur",
+    "year": "feb 1989",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "16",
+    "subcollection": "La Saga de Chanur",
+    "subcollection_id": 1701,
+    "subcollection_number": "3",
+    "isbn": "8440604866",
+    "format": "Rústica con solapas - 12×19 cm - 388 páginas",
+    "translators": [
+     "Albert Solé"
+    ],
+    "cover_art": [
+     "Óscar H. Chichoni"
+    ],
+    "series": [
+     "Chanur"
+    ],
+    "series_ids": [
+     208
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/208/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000208.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000208.jpg",
+    "dimensions": "12×19",
+    "pages": 388
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "regreso-de-chanur",
+   "title": "El regreso de Chanur",
+   "authors": [
+    "C. J. Cherryh"
+   ],
+   "shelf": "B de Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "series": "Chanur",
+   "queries": [
+    "El regreso de Chanur"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 157,
+    "title": "El regreso de Chanur",
+    "year": "may 1989",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "23",
+    "subcollection": "La Saga de Chanur",
+    "subcollection_id": 1701,
+    "subcollection_number": "4",
+    "isbn": "8440607520",
+    "format": "Rústica con solapas - 12×19 cm - 573 páginas",
+    "translators": [
+     "Albert Soler"
+    ],
+    "cover_art": [
+     "Juan Giménez"
+    ],
+    "series": [
+     "Chanur"
+    ],
+    "series_ids": [
+     208
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/157/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000157.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000157.jpg",
+    "dimensions": "12×19",
+    "pages": 573
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "la-memoria-de-la-tierra",
+   "title": "La memoria de la Tierra",
+   "authors": [
+    "Orson Scott Card"
+   ],
+   "shelf": "B de Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "series": "La saga del retorno",
+   "queries": [
+    "La memoria de la Tierra"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 693,
+    "title": "La memoria de la Tierra",
+    "year": "1993",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova Scott Card",
+    "collection_id": 10,
+    "collection_number": "2",
+    "subcollection": "La Saga del Retorno",
+    "subcollection_id": 1524,
+    "subcollection_number": "1",
+    "isbn": "844064020X",
+    "format": "Rústica con solapas - 15×23 cm - 305 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "Estudio Ediciones B"
+    ],
+    "series": [
+     "El Retorno"
+    ],
+    "series_ids": [
+     209
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/693/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000693.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000693.jpg",
+    "dimensions": "15×23",
+    "pages": 305
+   },
+   {
+    "id": 8437,
+    "title": "La memoria de la Tierra",
+    "year": "nov 1993",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova Scott Card",
+    "collection_id": 10,
+    "collection_number": "2",
+    "subcollection": "La Saga del Retorno",
+    "subcollection_id": 1524,
+    "subcollection_number": "1",
+    "isbn": "844064020X",
+    "format": "Rústica con solapas - 15×23 cm - 305 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "Estudio Ediciones B"
+    ],
+    "series": [
+     "El Retorno"
+    ],
+    "series_ids": [
+     209
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/8437/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00008437.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00008437.jpg",
+    "dimensions": "15×23",
+    "pages": 305
+   },
+   {
+    "id": 681,
+    "title": "La memoria de la Tierra",
+    "year": "1997",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "VIB",
+    "collection_id": 5,
+    "collection_number": "11",
+    "subcollection": "VIB Orson Scott Card",
+    "subcollection_id": 1556,
+    "subcollection_number": "7",
+    "isbn": "8440672063",
+    "format": "Rústica - 11×17,5 cm - 377 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "Ricard Castells"
+    ],
+    "series": [
+     "El Retorno"
+    ],
+    "series_ids": [
+     209
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/681/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000681.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000681.jpg",
+    "dimensions": null,
+    "pages": 377
+   },
+   {
+    "id": 942,
+    "title": "La memoria de la Tierra",
+    "year": "2000",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Punto de Lectura",
+    "publisher_country": "España",
+    "collection": "Punto de Lectura",
+    "collection_id": 103,
+    "collection_number": "80",
+    "subcollection": "Punto de Lectura Orson Scott Card",
+    "subcollection_id": 1782,
+    "subcollection_number": "5",
+    "isbn": "8466300821",
+    "format": "Rústica - 11×17,5 cm - 384 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "MGD"
+    ],
+    "series": [
+     "El Retorno"
+    ],
+    "series_ids": [
+     209
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/942/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000942.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000942.jpg",
+    "dimensions": null,
+    "pages": 384
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "la-llamada-de-la-tierra",
+   "title": "La llamada de la Tierra",
+   "authors": [
+    "Orson Scott Card"
+   ],
+   "shelf": "B de Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "series": "La saga del retorno",
+   "queries": [
+    "La llamada de la Tierra"
+   ]
+  },
+  "route": "libro+ficha",
+  "candidates": [
+   {
+    "id": 67,
+    "title": "La llamada de la Tierra",
+    "year": "oct 1994",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova Scott Card",
+    "collection_id": 10,
+    "collection_number": "4",
+    "subcollection": "La Saga del Retorno",
+    "subcollection_id": 1524,
+    "subcollection_number": "2",
+    "isbn": "8440650671",
+    "format": "Rústica con solapas - 15×23 cm - 313 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "Estudio Ediciones B"
+    ],
+    "series": [
+     "El Retorno"
+    ],
+    "series_ids": [
+     209
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/67/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000067.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000067.jpg",
+    "dimensions": "15×23",
+    "pages": 313
+   },
+   {
+    "id": 682,
+    "title": "La llamada de la Tierra",
+    "year": "1997",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "VIB",
+    "collection_id": 5,
+    "collection_number": "11",
+    "subcollection": "VIB Orson Scott Card",
+    "subcollection_id": 1556,
+    "subcollection_number": "8",
+    "isbn": "8440672071",
+    "format": "Rústica - 11×17,5 cm - 359 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "Ricard Castells"
+    ],
+    "series": [
+     "El Retorno"
+    ],
+    "series_ids": [
+     209
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/682/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000682.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000682.jpg",
+    "dimensions": null,
+    "pages": 359
+   },
+   {
+    "id": 8191,
+    "title": "La llamada de la Tierra",
+    "year": "feb 2002",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Punto de Lectura",
+    "publisher_country": "España",
+    "collection": "Punto de Lectura",
+    "collection_id": 103,
+    "collection_number": "80",
+    "subcollection": "Punto de Lectura Orson Scott Card",
+    "subcollection_id": 1782,
+    "subcollection_number": "6",
+    "isbn": "846630567X",
+    "format": "Rústica - 11×17,5 cm - 473 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [],
+    "series": [
+     "El Retorno"
+    ],
+    "series_ids": [
+     209
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/8191/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00008191.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00008191.jpg",
+    "dimensions": null,
+    "pages": 473
+   }
+  ],
+  "compact_seen": [
+   {
+    "id": 67,
+    "title": "La llamada de la Tierra",
+    "authors": [
+     "Orson Scott Card"
+    ]
+   },
+   {
+    "id": 8191,
+    "title": "La llamada de la Tierra",
+    "authors": [
+     "Orson Scott Card"
+    ]
+   },
+   {
+    "id": 682,
+    "title": "La llamada de la Tierra",
+    "authors": [
+     "Orson Scott Card"
+    ]
+   }
+  ]
+ },
+ {
+  "want": {
+   "slug": "las-naves-de-la-tierra",
+   "title": "Las naves de la Tierra",
+   "authors": [
+    "Orson Scott Card"
+   ],
+   "shelf": "B de Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "series": "La saga del retorno",
+   "queries": [
+    "Las naves de la Tierra"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 666,
+    "title": "Las naves de la Tierra",
+    "year": "jun 1995",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova Scott Card",
+    "collection_id": 10,
+    "collection_number": "5",
+    "subcollection": "La Saga del Retorno",
+    "subcollection_id": 1524,
+    "subcollection_number": "3",
+    "isbn": "8440655797",
+    "format": "Rústica con solapas - 15×23 cm - 367 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "Rafael Garrés"
+    ],
+    "series": [
+     "El Retorno"
+    ],
+    "series_ids": [
+     209
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/666/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000666.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000666.jpg",
+    "dimensions": "15×23",
+    "pages": 367
+   },
+   {
+    "id": 683,
+    "title": "Las naves de la Tierra",
+    "year": "1997",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "VIB",
+    "collection_id": 5,
+    "collection_number": "11",
+    "subcollection": "VIB Orson Scott Card",
+    "subcollection_id": 1556,
+    "subcollection_number": "9",
+    "isbn": "844067208X",
+    "format": "Rústica - 11×17,5 cm - 445 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "Ricard Castells"
+    ],
+    "series": [
+     "El Retorno"
+    ],
+    "series_ids": [
+     209
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/683/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000683.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000683.jpg",
+    "dimensions": null,
+    "pages": 445
+   },
+   {
+    "id": 2151,
+    "title": "Las naves de la Tierra",
+    "year": "2001",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Punto de Lectura",
+    "publisher_country": "España",
+    "collection": "Punto de Lectura",
+    "collection_id": 103,
+    "collection_number": "80",
+    "subcollection": "Punto de Lectura Orson Scott Card",
+    "subcollection_id": 1782,
+    "subcollection_number": "7",
+    "isbn": "8466305750",
+    "format": "Rústica - 11×17,5 cm - 501 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [],
+    "series": [
+     "El Retorno"
+    ],
+    "series_ids": [
+     209
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/2151/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00002151.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00002151.jpg",
+    "dimensions": null,
+    "pages": 501
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "retorno-a-la-tierra",
+   "title": "Retorno a la Tierra",
+   "authors": [
+    "Orson Scott Card"
+   ],
+   "shelf": "B de Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "series": "La saga del retorno",
+   "queries": [
+    "Retorno a la Tierra"
+   ]
+  },
+  "route": "libro+ficha",
+  "candidates": [
+   {
+    "id": 66,
+    "title": "Retorno a la Tierra",
+    "year": "abr 1996",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova Scott Card",
+    "collection_id": 10,
+    "collection_number": "7",
+    "subcollection": "La Saga del Retorno",
+    "subcollection_id": 1524,
+    "subcollection_number": "4",
+    "isbn": "8440661797",
+    "format": "Rústica con solapas - 14×22 cm - 367 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [],
+    "series": [
+     "El Retorno"
+    ],
+    "series_ids": [
+     209
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/66/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000066.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000066.jpg",
+    "dimensions": "14×22",
+    "pages": 367
+   },
+   {
+    "id": 684,
+    "title": "Retorno a la Tierra",
+    "year": "1997",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "VIB",
+    "collection_id": 5,
+    "collection_number": "12",
+    "subcollection": "VIB Orson Scott Card",
+    "subcollection_id": 1556,
+    "subcollection_number": "0",
+    "isbn": "8440672098",
+    "format": "Rústica - 11×17,5 cm - 429 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "Ricard Castells"
+    ],
+    "series": [
+     "El Retorno"
+    ],
+    "series_ids": [
+     209
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/684/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000684.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000684.jpg",
+    "dimensions": null,
+    "pages": 429
+   },
+   {
+    "id": 7992,
+    "title": "Retorno a la Tierra",
+    "year": "2002",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Punto de Lectura",
+    "publisher_country": "España",
+    "collection": "Punto de Lectura",
+    "collection_id": 103,
+    "collection_number": "80",
+    "subcollection": "Punto de Lectura Orson Scott Card",
+    "subcollection_id": 1782,
+    "subcollection_number": "8",
+    "isbn": "846630942X",
+    "format": "Rústica - 11×17,5 cm - 415 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "Leo Flores"
+    ],
+    "series": [
+     "El Retorno"
+    ],
+    "series_ids": [
+     209
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/7992/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00007992.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00007992.jpg",
+    "dimensions": null,
+    "pages": 415
+   }
+  ],
+  "compact_seen": [
+   {
+    "id": 66,
+    "title": "Retorno a la Tierra",
+    "authors": [
+     "Orson Scott Card"
+    ]
+   },
+   {
+    "id": 684,
+    "title": "Retorno a la Tierra",
+    "authors": [
+     "Orson Scott Card"
+    ]
+   },
+   {
+    "id": 7992,
+    "title": "Retorno a la Tierra",
+    "authors": [
+     "Orson Scott Card"
+    ]
+   }
+  ]
+ },
+ {
+  "want": {
+   "slug": "nacidos-en-la-tierra",
+   "title": "Nacidos en la Tierra",
+   "authors": [
+    "Orson Scott Card"
+   ],
+   "shelf": "B de Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "series": "La saga del retorno",
+   "queries": [
+    "Nacidos en la Tierra"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 667,
+    "title": "Nacidos en la Tierra",
+    "year": "sep 1996",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova Scott Card",
+    "collection_id": 10,
+    "collection_number": "8",
+    "subcollection": "La Saga del Retorno",
+    "subcollection_id": 1524,
+    "subcollection_number": "5",
+    "isbn": "8440666780",
+    "format": "Rústica con solapas - 14×23 cm - 428 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "Trazo"
+    ],
+    "series": [
+     "El Retorno"
+    ],
+    "series_ids": [
+     209
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/667/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000667.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000667.jpg",
+    "dimensions": "14×23",
+    "pages": 428
+   },
+   {
+    "id": 8401,
+    "title": "Nacidos en la Tierra",
+    "year": "2003",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Punto de Lectura",
+    "publisher_country": "España",
+    "collection": "Punto de Lectura",
+    "collection_id": 103,
+    "collection_number": "80",
+    "subcollection": "Punto de Lectura Orson Scott Card",
+    "subcollection_id": 1782,
+    "subcollection_number": "9",
+    "isbn": "8466309713",
+    "format": "Rústica - 11×17,5 cm - 528 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "Leo Flores"
+    ],
+    "series": [
+     "El Retorno"
+    ],
+    "series_ids": [
+     209
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/8401/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00008401.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00008401.jpg",
+    "dimensions": null,
+    "pages": 528
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "mapas-en-un-espejo",
+   "title": "Mapas en un espejo",
+   "authors": [
+    "Orson Scott Card"
+   ],
+   "shelf": "B de Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "queries": [
+    "Mapas en un espejo"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 4258,
+    "title": "Mapas en un espejo",
+    "year": "1993",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova Scott Card",
+    "collection_id": 10,
+    "collection_number": "1",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8440639988",
+    "format": "Rústica con solapas - 15×23 cm - 919 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "Estudio Ediciones B"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo",
+     "Fantasía",
+     "Terror y misterio"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/4258/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00004258.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00004258.jpg",
+    "dimensions": "15×23",
+    "pages": 919
+   },
+   {
+    "id": 663,
+    "title": "Mapas en un espejo",
+    "year": "nov 1993",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova Scott Card",
+    "collection_id": 10,
+    "collection_number": "1",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8440639988",
+    "format": "Rústica con solapas - 15×23 cm - 919 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "Estudio Ediciones B"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo",
+     "Fantasía",
+     "Terror y misterio"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/663/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000663.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000663.jpg",
+    "dimensions": "15×23",
+    "pages": 919
+   },
+   {
+    "id": 20481,
+    "title": "Mapas en un espejo 3. Fábulas y fantasías",
+    "year": "2008",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Zeta Bolsillo",
+    "publisher_country": "España",
+    "collection": "Best-seller",
+    "collection_id": 3073,
+    "collection_number": "162",
+    "subcollection": "Best-seller Orson Scott Card",
+    "subcollection_id": 3919,
+    "subcollection_number": "4",
+    "isbn": "9788498720273",
+    "format": "Rústica con sobrecubierta - 12,5×20 cm - 320 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/20481/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00020481.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00020481.jpg",
+    "dimensions": "5×20",
+    "pages": 320
+   },
+   {
+    "id": 20482,
+    "title": "Mapas en un espejo 4. Milagros crueles. Cuentos sobre la muerte, la esperanza y lo sagrado",
+    "year": "2008",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Zeta Bolsillo",
+    "publisher_country": "España",
+    "collection": "Best-seller",
+    "collection_id": 3073,
+    "collection_number": "162",
+    "subcollection": "Best-seller Orson Scott Card",
+    "subcollection_id": 3919,
+    "subcollection_number": "5",
+    "isbn": "9788498720280",
+    "format": "Rústica con sobrecubierta - 12,5×20 cm - 208 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/20482/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00020482.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00020482.jpg",
+    "dimensions": "5×20",
+    "pages": 208
+   },
+   {
+    "id": 20479,
+    "title": "Mapas en un espejo 1. El ahorcado. Cuentos de espanto",
+    "year": "ene 2008",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Zeta Bolsillo",
+    "publisher_country": "España",
+    "collection": "Best-seller",
+    "collection_id": 3073,
+    "collection_number": "162",
+    "subcollection": "Best-seller Orson Scott Card",
+    "subcollection_id": 3919,
+    "subcollection_number": "2",
+    "isbn": "9788496778276",
+    "format": "Rústica con sobrecubierta - 12,5×20 cm - 253 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo",
+     "Terror y misterio"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/20479/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00020479.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00020479.jpg",
+    "dimensions": "5×20",
+    "pages": 253
+   },
+   {
+    "id": 20480,
+    "title": "Mapas en un espejo 2. Flujo. Cuentos sobre futuros humanos",
+    "year": "mar 2008",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Zeta Bolsillo",
+    "publisher_country": "España",
+    "collection": "Best-seller",
+    "collection_id": 3073,
+    "collection_number": "162",
+    "subcollection": "Best-seller Orson Scott Card",
+    "subcollection_id": 3919,
+    "subcollection_number": "3",
+    "isbn": "9788498720266",
+    "format": "Rústica con sobrecubierta - 12,5×20 cm - 267 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "Estudio Ediciones B"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/20480/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00020480.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00020480.jpg",
+    "dimensions": "5×20",
+    "pages": 267
+   },
+   {
+    "id": 20483,
+    "title": "Mapas en un espejo 5. Canciones perdidas. Los cuentos ocultos",
+    "year": "oct 2008",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Zeta Bolsillo",
+    "publisher_country": "España",
+    "collection": "Best-seller",
+    "collection_id": 3073,
+    "collection_number": "162",
+    "subcollection": "Best-seller Orson Scott Card",
+    "subcollection_id": 3919,
+    "subcollection_number": "6",
+    "isbn": "9788498720297",
+    "format": "Rústica con sobrecubierta - 12,5×20 cm - 264 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "Estudio Ediciones B"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/20483/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00020483.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00020483.jpg",
+    "dimensions": "5×20",
+    "pages": 264
+   },
+   {
+    "id": 52630,
+    "title": "Mapas en un espejo 1. El ahorcado. Cuentos de espanto",
+    "year": "jun 2013",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Books",
+    "publisher_country": "España",
+    "collection": null,
+    "collection_id": null,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490194829",
+    "format": "Edición digital - ePUB",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo",
+     "Terror y misterio"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/52630/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00052630.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00052630.jpg",
+    "dimensions": null,
+    "pages": null
+   },
+   {
+    "id": 52631,
+    "title": "Mapas en un espejo 2. Flujo. Cuentos sobre futuros humanos",
+    "year": "jun 2013",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Books",
+    "publisher_country": "España",
+    "collection": null,
+    "collection_id": null,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490193365",
+    "format": "Edición digital - ePUB",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/52631/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00052631.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00052631.jpg",
+    "dimensions": null,
+    "pages": null
+   },
+   {
+    "id": 52632,
+    "title": "Mapas en un espejo 3. Fábulas y fantasías",
+    "year": "jun 2013",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Books",
+    "publisher_country": "España",
+    "collection": null,
+    "collection_id": null,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490193402",
+    "format": "Edición digital - ePUB",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/52632/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00052632.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00052632.jpg",
+    "dimensions": null,
+    "pages": null
+   },
+   {
+    "id": 52633,
+    "title": "Mapas en un espejo 4. Milagros crueles. Cuentos sobre la muerte, la esperanza y lo sagrado",
+    "year": "jun 2013",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Books",
+    "publisher_country": "España",
+    "collection": null,
+    "collection_id": null,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490194836",
+    "format": "Edición digital - ePUB",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/52633/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00052633.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00052633.jpg",
+    "dimensions": null,
+    "pages": null
+   },
+   {
+    "id": 52634,
+    "title": "Mapas en un espejo 5. Canciones perdidas. Los cuentos ocultos",
+    "year": "2013",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Books",
+    "publisher_country": "España",
+    "collection": null,
+    "collection_id": null,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490194843",
+    "format": "Edición digital - ePUB",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/52634/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00052634.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00052634.jpg",
+    "dimensions": null,
+    "pages": null
+   },
+   {
+    "id": 64608,
+    "title": "Mapas en un espejo 5. Canciones perdidas. Los cuentos ocultos",
+    "year": "23 may 2019",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 6585,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490709016",
+    "format": "Rústica con sobrecubierta - 12,5×20 cm - 264 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "Estudio Ediciones B"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/64608/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00064608.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00064608.jpg",
+    "dimensions": "5×20",
+    "pages": 264
+   },
+   {
+    "id": 64609,
+    "title": "Mapas en un espejo 1. El ahorcado. Cuentos de espanto",
+    "year": "23 may 2019",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 6585,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490708972",
+    "format": "Rústica con sobrecubierta - 12,5×20 cm - 253 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo",
+     "Terror y misterio"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/64609/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00064609.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00064609.jpg",
+    "dimensions": "5×20",
+    "pages": 253
+   },
+   {
+    "id": 64610,
+    "title": "Mapas en un espejo 2. Flujo. Cuentos sobre futuros humanos",
+    "year": "23 may 2019",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 6585,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490708989",
+    "format": "Rústica con sobrecubierta - 12,5×20 cm - 267 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/64610/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00064610.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00064610.jpg",
+    "dimensions": "5×20",
+    "pages": 267
+   },
+   {
+    "id": 64611,
+    "title": "Mapas en un espejo 3. Fábulas y fantasías",
+    "year": "23 may 2019",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 6585,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490708996",
+    "format": "Rústica con sobrecubierta - 12,5×20 cm - 320 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/64611/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00064611.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00064611.jpg",
+    "dimensions": "5×20",
+    "pages": 320
+   },
+   {
+    "id": 64612,
+    "title": "Mapas en un espejo 4. Milagros crueles. Cuentos sobre la muerte, la esperanza y lo sagrado",
+    "year": "23 may 2019",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 6585,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490709009",
+    "format": "Rústica con sobrecubierta - 12,5×20 cm - 208 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/64612/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00064612.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00064612.jpg",
+    "dimensions": "5×20",
+    "pages": 208
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "ciudad-al-final-del-tiempo",
+   "title": "La ciudad al final del tiempo",
+   "authors": [
+    "Greg Bear"
+   ],
+   "shelf": "B de Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "queries": [
+    "La ciudad al final del tiempo"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 30744,
+    "title": "La ciudad al final del tiempo",
+    "year": "22 sep 2010",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "227",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788466641388",
+    "format": "Rústica con solapas - 15×23 cm - 634 páginas",
+    "translators": [
+     "Pedro Jorge Romero"
+    ],
+    "cover_art": [
+     "Estudio Ediciones B"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/30744/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00030744.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00030744.jpg",
+    "dimensions": "15×23",
+    "pages": 634
+   },
+   {
+    "id": 36004,
+    "title": "La ciudad al final del tiempo",
+    "year": "2012",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 6585,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788498726381",
+    "format": "Rústica con solapas - 13×20 cm - 640 páginas",
+    "translators": [
+     "Pedro Jorge Romero"
+    ],
+    "cover_art": [
+     "Estudio Ediciones B"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/36004/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00036004.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00036004.jpg",
+    "dimensions": "13×20",
+    "pages": 640
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "rama-revelada",
+   "title": "Rama revelada",
+   "authors": [
+    "Arthur C. Clarke",
+    "Gentry Lee"
+   ],
+   "shelf": "B de Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "queries": [
+    "Rama revelada"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 9313,
+    "title": "Rama revelada",
+    "year": "1994",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Emecé",
+    "publisher_country": "Argentina",
+    "collection": "Grandes Novelistas",
+    "collection_id": 276,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9500414066",
+    "format": "Libro - Papel - 525 páginas",
+    "translators": [
+     "Daniel R. Yagolkowski"
+    ],
+    "cover_art": [
+     "Eduardo Ruiz"
+    ],
+    "series": [
+     "Rama"
+    ],
+    "series_ids": [
+     1500
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/9313/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00009313.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00009313.jpg",
+    "dimensions": null,
+    "pages": 525
+   },
+   {
+    "id": 590,
+    "title": "Rama revelada",
+    "year": "feb 1997",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "VIB",
+    "collection_id": 5,
+    "collection_number": "17",
+    "subcollection": "VIB Arthur C. Clarke",
+    "subcollection_id": 1635,
+    "subcollection_number": "7",
+    "isbn": "8440670303",
+    "format": "Rústica - 11×17,5 cm - 796 páginas",
+    "translators": [
+     "Daniel R. Yagolkowski"
+    ],
+    "cover_art": [],
+    "series": [
+     "Rama"
+    ],
+    "series_ids": [
+     1500
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/590/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000590.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000590.jpg",
+    "dimensions": null,
+    "pages": 796
+   },
+   {
+    "id": 52640,
+    "title": "Rama revelada",
+    "year": "oct 2014",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Books",
+    "publisher_country": "España",
+    "collection": null,
+    "collection_id": null,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490198933",
+    "format": "Edición digital - ePUB",
+    "translators": [
+     "Daniel R. Yagolkowski"
+    ],
+    "cover_art": [],
+    "series": [
+     "Rama"
+    ],
+    "series_ids": [
+     1500
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/52640/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00052640.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00052640.jpg",
+    "dimensions": null,
+    "pages": null
+   },
+   {
+    "id": 51943,
+    "title": "Rama revelada",
+    "year": "oct 2014",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 6585,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788498729894",
+    "format": "Rústica - 13×20 cm - 792 páginas",
+    "translators": [
+     "Daniel R. Yagolkowski"
+    ],
+    "cover_art": [],
+    "series": [
+     "Rama"
+    ],
+    "series_ids": [
+     1500
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/51943/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00051943.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00051943.jpg",
+    "dimensions": "13×20",
+    "pages": 792
+   },
+   {
+    "id": 74290,
+    "title": "Rama revelada",
+    "year": "may 2023",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "B de Bolsillo",
+    "collection_id": 11402,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788498729894",
+    "format": "Rústica - 13×20 cm - 796 páginas",
+    "translators": [
+     "Daniel R. Yagolkowski"
+    ],
+    "cover_art": [],
+    "series": [
+     "Rama"
+    ],
+    "series_ids": [
+     1500
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/74290/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00074290.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00074290.jpg",
+    "dimensions": "13×20",
+    "pages": 796
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "el-apagon",
+   "title": "El apagón",
+   "authors": [
+    "Connie Willis"
+   ],
+   "shelf": "B de Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "note": "46.000",
+   "queries": [
+    "El apagón"
+   ]
+  },
+  "route": "libro+ficha",
+  "candidates": [
+   {
+    "id": 34097,
+    "title": "El apagón",
+    "year": "nov 2011",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "232",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788466649797",
+    "format": "Rústica con solapas - 15×23 cm - 624 páginas",
+    "translators": [
+     "Paula Vicens"
+    ],
+    "cover_art": [
+     "Estudio Ediciones B",
+     "Thinkstock"
+    ],
+    "series": [
+     "El apagón"
+    ],
+    "series_ids": [
+     2657
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/34097/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00034097.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00034097.jpg",
+    "dimensions": "15×23",
+    "pages": 624
+   },
+   {
+    "id": 52605,
+    "title": "El apagón",
+    "year": "18 mar 2015",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 6585,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490700433",
+    "format": "Rústica - 13×19 cm - 624 páginas",
+    "translators": [
+     "Paula Vicens"
+    ],
+    "cover_art": [
+     "Estudio Ediciones B",
+     "Thinkstock"
+    ],
+    "series": [
+     "El apagón"
+    ],
+    "series_ids": [
+     2657
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/52605/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00052605.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00052605.jpg",
+    "dimensions": "13×19",
+    "pages": 624
+   },
+   {
+    "id": 60365,
+    "title": "El apagón",
+    "year": "19 jul 2016",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Books",
+    "publisher_country": "España",
+    "collection": null,
+    "collection_id": null,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490692219",
+    "format": "Edición digital",
+    "translators": [
+     "Paula Vicens"
+    ],
+    "cover_art": [
+     "Thinkstock"
+    ],
+    "series": [
+     "El apagón"
+    ],
+    "series_ids": [
+     2657
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/60365/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00060365.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00060365.jpg",
+    "dimensions": null,
+    "pages": null
+   },
+   {
+    "id": 74273,
+    "title": "El apagón",
+    "year": "13 jul 2023",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "B de Bolsillo",
+    "collection_id": 11402,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788413147529",
+    "format": "Rústica - 13×19 cm - 624 páginas",
+    "translators": [
+     "Paula Vicens"
+    ],
+    "cover_art": [],
+    "series": [
+     "El apagón"
+    ],
+    "series_ids": [
+     2657
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/74273/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00074273.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00074273.jpg",
+    "dimensions": "13×19",
+    "pages": 624
+   }
+  ],
+  "compact_seen": [
+   {
+    "id": 34097,
+    "title": "El apagón",
+    "authors": [
+     "Connie Willis"
+    ]
+   },
+   {
+    "id": 74273,
+    "title": "El apagón",
+    "authors": [
+     "Connie Willis"
+    ]
+   },
+   {
+    "id": 52605,
+    "title": "El apagón",
+    "authors": [
+     "Connie Willis"
+    ]
+   },
+   {
+    "id": 60365,
+    "title": "El apagón",
+    "authors": [
+     "Connie Willis"
+    ]
+   }
+  ]
+ },
+ {
+  "want": {
+   "slug": "criopolis",
+   "title": "Criópolis",
+   "authors": [
+    "Lois McMaster Bujold"
+   ],
+   "shelf": "B de Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "series": "Miles Vorkosigan",
+   "queries": [
+    "Criópolis",
+    "Criopolis"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 32097,
+    "title": "Criopolis",
+    "year": "may 2011",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "229",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788466646918",
+    "format": "Rústica con solapas - 15×23 cm - 392 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Dave Seeley"
+    ],
+    "series": [
+     "Miles Vorkosigan"
+    ],
+    "series_ids": [
+     1112
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/32097/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00032097.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00032097.jpg",
+    "dimensions": "15×23",
+    "pages": 392
+   },
+   {
+    "id": 37407,
+    "title": "Criopolis",
+    "year": "2012",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Books",
+    "publisher_country": "España",
+    "collection": null,
+    "collection_id": null,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788466649032",
+    "format": "Edición digital - ePUB",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Dave Seeley"
+    ],
+    "series": [
+     "Miles Vorkosigan"
+    ],
+    "series_ids": [
+     1112
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/37407/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00037407.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00037407.jpg",
+    "dimensions": null,
+    "pages": null
+   },
+   {
+    "id": 39443,
+    "title": "Criopolis",
+    "year": "feb 2013",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 6585,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788498727722",
+    "format": "Rústica - 13×20 cm - 394 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Dave Seeley"
+    ],
+    "series": [
+     "Miles Vorkosigan"
+    ],
+    "series_ids": [
+     1112
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/39443/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00039443.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00039443.jpg",
+    "dimensions": "13×20",
+    "pages": 394
+   },
+   {
+    "id": 64858,
+    "title": "Criopolis",
+    "year": "20 jun 2019",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 6585,
+    "collection_number": null,
+    "subcollection": "Saga Vorkosigan",
+    "subcollection_id": 11387,
+    "subcollection_number": "15",
+    "isbn": "9788490708644",
+    "format": "Rústica - 13×20 cm - 400 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [],
+    "series": [
+     "Miles Vorkosigan"
+    ],
+    "series_ids": [
+     1112
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/64858/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00064858.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00064858.jpg",
+    "dimensions": "13×20",
+    "pages": 400
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "la-tierra-desprevenida",
+   "title": "La Tierra desprevenida",
+   "authors": [
+    "Orson Scott Card",
+    "Aaron Johnston"
+   ],
+   "shelf": "B de Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "queries": [
+    "La Tierra desprevenida"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 40912,
+    "title": "La Tierra desprevenida",
+    "year": "2013",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Books",
+    "publisher_country": "España",
+    "collection": null,
+    "collection_id": null,
+    "collection_number": null,
+    "subcollection": "Primera Guerra Fórmica (digital)",
+    "subcollection_id": 10277,
+    "subcollection_number": "1",
+    "isbn": "9788490193891",
+    "format": "Edición digital - ePUB",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Estudio Ediciones B",
+     "Thinkstock"
+    ],
+    "series": [
+     "Ender Wiggin"
+    ],
+    "series_ids": [
+     1602
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/40912/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00040912.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00040912.jpg",
+    "dimensions": null,
+    "pages": null
+   },
+   {
+    "id": 40116,
+    "title": "La Tierra desprevenida",
+    "year": "3 abr 2013",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "237",
+    "subcollection": "Primera Guerra Fórmica",
+    "subcollection_id": 10276,
+    "subcollection_number": "1",
+    "isbn": "9788466652933",
+    "format": "Rústica con solapas - 15×23 cm - 459 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Estudio Ediciones B",
+     "Thinkstock"
+    ],
+    "series": [
+     "Ender Wiggin"
+    ],
+    "series_ids": [
+     1602
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/40116/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00040116.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00040116.jpg",
+    "dimensions": "15×23",
+    "pages": 459
+   },
+   {
+    "id": 49632,
+    "title": "La Tierra desprevenida",
+    "year": "2014",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 6585,
+    "collection_number": null,
+    "subcollection": "Primera Guerra Fórmica",
+    "subcollection_id": 10278,
+    "subcollection_number": "1",
+    "isbn": "9788498729498",
+    "format": "Rústica con solapas - 13×20 cm - 459 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [],
+    "series": [
+     "Ender Wiggin"
+    ],
+    "series_ids": [
+     1602
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/49632/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00049632.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00049632.jpg",
+    "dimensions": "13×20",
+    "pages": 459
+   },
+   {
+    "id": 65252,
+    "title": "La Tierra desprevenida",
+    "year": "11 jul 2019",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 6585,
+    "collection_number": null,
+    "subcollection": "Primera Guerra Fórmica",
+    "subcollection_id": 10278,
+    "subcollection_number": "1",
+    "isbn": "9788413140070",
+    "format": "Rústica - 12,5×19 cm - 464 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [],
+    "series": [
+     "Ender Wiggin"
+    ],
+    "series_ids": [
+     1602
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/65252/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00065252.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00065252.jpg",
+    "dimensions": "5×19",
+    "pages": 464
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "ninos-perdidos",
+   "title": "Niños perdidos",
+   "authors": [
+    "Orson Scott Card"
+   ],
+   "shelf": "B de Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "queries": [
+    "Niños perdidos"
+   ]
+  },
+  "route": "libro+ficha",
+  "candidates": [
+   {
+    "id": 64,
+    "title": "Niños perdidos",
+    "year": "jun 1994",
+    "authors": [
+     "Orson Scott Card"
+    ],
+    "author_ids": [
+     9
+    ],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova Scott Card",
+    "collection_id": 10,
+    "collection_number": "3",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8440644655",
+    "format": "Rústica con solapas - 15×23 cm - 416 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "R. Crawford"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ensayo",
+     "Terror y misterio"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/64/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000064.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000064.jpg",
+    "dimensions": "15×23",
+    "pages": 416,
+    "work_id": null,
+    "blurb": "Nota de bibliotecario Opinión Usuario Frase exacta Registrarse Entrar Registrarse Entrar Toda la 3F Título ISBN (sin guiones) Persona Editorial Contenido Colección Premio Enciclopedia Galáctica Texto de contraportada Nota de bibliotecario Opinión Usuario Frase exacta Escanear ISBN Libro id:64 Niños perdidos (jun 1994) ( Lost Boys , 1992 ) Orson Scott Card Editorial: Ediciones B (España) Colección: Nova Scott Card 3 ISBN: 8440644655 Rústica con solapas - 15×23 cm - 416 páginas Traducción: Carlos Gardini Ilustración de cubierta: R. Crawford Ver título: Niños perdidos Índice de contenidos pp. V–IX Presentación [Niños perdidos] , prólogo de Miquel Barceló pp. 11–414 Niños perdidos ( Lost Boys ) , novela (1992) pp. 417–418 Referencia bibliográfica de Orson Scott Card [Niños perdidos] , epílogo de Miquel Barceló Texto de contraportada/solapas: El programador de juegos de ordenador Step Fletcher se muda, junto con su familia, a Steuben, un pueblecito de Carolina del Norte (EEUU). La familia, de religión mormona, deberá superar los problemas de la vida cotidiana, agravados por la necesidad de integrarse en el nuevo trabajo, en la nueva escuela y en la nueva comunidad. Pero la preocupación de los Fletcher por sus hijos se convertirá en espanto y terror al saber que varios niños han desaparecido de Steuben y que esos \"niños perdidos\" tienen especial relación con su hijo mayor Stevie. \"Muchos autores de relatos de terror no han aprendido la verdadera lección que brinda el éxito de Stephen King. Los relatos de King no funcionan por acumulación de truculencias, sino porque nos identificamos con los personajes antes de que empiecen las escenas truculentas.\" Con esta idea en mente, Card, el más popular autor de ciencia ficción y fantasía de los años ochenta, nos emociona y sobrecoge con las dificultades cotidianas de una familia como la suya propia, antes de que el espanto y el horror entren en sus vidas. Una obra intensa, emotiva y sorprendente del autor de \"El juego de Ender\". \"Aquí se encuentra una descripción del Card hombre, para quienes deseen ahondar en ella, junto con un enérgico retrato de su esposa y una visión realista de su vida familiar con dos niños pequeños\". -- Faren Miller en LOCUS",
+    "contents": [
+     {
+      "pages": "pp. V–IX",
+      "entry": "Presentación [Niños perdidos] , prólogo de Miquel Barceló"
+     },
+     {
+      "pages": "pp. 11–414",
+      "entry": "Niños perdidos ( Lost Boys ) , novela (1992)"
+     },
+     {
+      "pages": "pp. 417–418",
+      "entry": "Referencia bibliográfica de Orson Scott Card [Niños perdidos] , epílogo de Miquel Barceló"
+     }
+    ],
+    "note": null
+   }
+  ],
+  "compact_seen": [
+   {
+    "id": 64,
+    "title": "Niños perdidos",
+    "authors": [
+     "Orson Scott Card"
+    ]
+   }
+  ]
+ },
+ {
+  "want": {
+   "slug": "lovelock",
+   "title": "Lovelock",
+   "authors": [
+    "Orson Scott Card",
+    "Kathryn H. Kidd"
+   ],
+   "shelf": "B de Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+   "queries": [
+    "Lovelock"
+   ]
+  },
+  "route": "libro+ficha",
+  "candidates": [
+   {
+    "id": 665,
+    "title": "Lovelock",
+    "year": "oct 1995",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova Scott Card",
+    "collection_id": 10,
+    "collection_number": "6",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8440658346",
+    "format": "Rústica con solapas - 15×23 cm - 326 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Trazo"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/665/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000665.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000665.jpg",
+    "dimensions": "15×23",
+    "pages": 326
+   },
+   {
+    "id": 28174,
+    "title": "Lovelock",
+    "year": "2010",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Alamut",
+    "publisher_country": "España",
+    "collection": "Serie Fantástica",
+    "collection_id": 3800,
+    "collection_number": "24",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788498890402",
+    "format": "Rústica con solapas - 15,5×23 cm - 256 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Alejandro Terán",
+     "Maciej Garbacz"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/28174/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00028174.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00028174.jpg",
+    "dimensions": "5×23",
+    "pages": 256
+   }
+  ],
+  "compact_seen": [
+   {
+    "id": 665,
+    "title": "Lovelock",
+    "authors": [
+     "Kathryn H. Kidd",
+     "Orson Scott Card"
+    ]
+   },
+   {
+    "id": 28174,
+    "title": "Lovelock",
+    "authors": [
+     "Kathryn H. Kidd",
+     "Orson Scott Card"
+    ]
+   },
+   {
+    "id": 44179,
+    "title": "Lovelock. The Mayflower Trilogy. Book I",
+    "authors": [
+     "Kathryn H. Kidd",
+     "Orson Scott Card"
+    ]
+   }
+  ]
+ },
+ {
+  "want": {
+   "slug": "la-era-del-diamante",
+   "title": "La era del diamante",
+   "authors": [
+    "Neal Stephenson"
+   ],
+   "shelf": "Zeta Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+   "queries": [
+    "La era del diamante"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 12,
+    "title": "La era del diamante",
+    "year": "oct 1997",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "101",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "844067919X",
+    "format": "Rústica con solapas - 15×23 cm - 445 páginas",
+    "translators": [
+     "Pedro Jorge Romero"
+    ],
+    "cover_art": [
+     "Maya & Cardil"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/12/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000012.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000012.jpg",
+    "dimensions": "15×23",
+    "pages": 445
+   },
+   {
+    "id": 13336,
+    "title": "La era del diamante",
+    "year": "2004",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Byblos",
+    "collection_id": 968,
+    "collection_number": "1362",
+    "subcollection": "Byblos Neal Stephenson",
+    "subcollection_id": 1952,
+    "subcollection_number": "4",
+    "isbn": "8466617248",
+    "format": "Rústica - 11×17,5 cm - 669 páginas",
+    "translators": [
+     "Pedro Jorge Romero"
+    ],
+    "cover_art": [
+     "Leo Flores"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/13336/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00013336.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00013336.jpg",
+    "dimensions": null,
+    "pages": 669
+   },
+   {
+    "id": 28593,
+    "title": "La era del diamante",
+    "year": "2010",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Zeta Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 4234,
+    "collection_number": "197",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788498723649",
+    "format": "Rústica con solapas - 12,5×20 cm - 672 páginas",
+    "translators": [
+     "Pedro Jorge Romero"
+    ],
+    "cover_art": [
+     "Jupiterimages Corporation"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/28593/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00028593.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00028593.jpg",
+    "dimensions": "5×20",
+    "pages": 672
+   },
+   {
+    "id": 36982,
+    "title": "La era del diamante",
+    "year": "2012",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Books",
+    "publisher_country": "España",
+    "collection": null,
+    "collection_id": null,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490190128",
+    "format": "Edición digital - ePUB",
+    "translators": [
+     "Pedro Jorge Romero"
+    ],
+    "cover_art": [
+     "Jupiterimages Corporation"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/36982/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00036982.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00036982.jpg",
+    "dimensions": null,
+    "pages": null
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "los-viajes-de-tuf",
+   "title": "Los viajes de Tuf",
+   "authors": [
+    "George R. R. Martin"
+   ],
+   "shelf": "Zeta Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+   "queries": [
+    "Los viajes de Tuf"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 381,
+    "title": "Los viajes de Tuf",
+    "year": "jul 1988",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "6",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8440600127",
+    "format": "Rústica con solapas - 12×19 cm - 454 páginas",
+    "translators": [
+     "Albert Soler"
+    ],
+    "cover_art": [
+     "Sergio Camporeale"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/381/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000381.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000381.jpg",
+    "dimensions": "12×19",
+    "pages": 454
+   },
+   {
+    "id": 15958,
+    "title": "Los viajes de Tuf",
+    "year": "sep 2006",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Byblos",
+    "collection_id": 968,
+    "collection_number": "279",
+    "subcollection": "Byblos George R. R. Martin",
+    "subcollection_id": 3171,
+    "subcollection_number": "1",
+    "isbn": "8466628452",
+    "format": "Rústica - 11×17,5 cm - 556 páginas",
+    "translators": [
+     "Albert Soler"
+    ],
+    "cover_art": [
+     "Leo Flores"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/15958/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00015958.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00015958.jpg",
+    "dimensions": null,
+    "pages": 556
+   },
+   {
+    "id": 22734,
+    "title": "Los viajes de Tuf",
+    "year": "2009",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Zeta Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 4234,
+    "collection_number": "45",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788498722550",
+    "format": "Rústica con solapas - 12,5×20 cm - 556 páginas",
+    "translators": [
+     "Albert Soler"
+    ],
+    "cover_art": [
+     "Óscar H. Chichoni"
+    ],
+    "series": [
+     "Los Mil Mundos"
+    ],
+    "series_ids": [
+     4680
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/22734/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00022734.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00022734.jpg",
+    "dimensions": "5×20",
+    "pages": 556
+   },
+   {
+    "id": 33479,
+    "title": "Los viajes de Tuf",
+    "year": "2011",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Zeta Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 4234,
+    "collection_number": "45",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788498722550",
+    "format": "Rústica - 13×20 cm - 560 páginas",
+    "translators": [
+     "Albert Soler"
+    ],
+    "cover_art": [],
+    "series": [
+     "Los Mil Mundos"
+    ],
+    "series_ids": [
+     4680
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/33479/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00033479.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00033479.jpg",
+    "dimensions": "13×20",
+    "pages": 560
+   },
+   {
+    "id": 38916,
+    "title": "Los viajes de Tuf",
+    "year": "dic 2012",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "6",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788466652247",
+    "format": "Rústica con solapas - 15×23 cm - 549 páginas",
+    "translators": [
+     "Albert Soler"
+    ],
+    "cover_art": [
+     "Thinkstock"
+    ],
+    "series": [
+     "Los Mil Mundos"
+    ],
+    "series_ids": [
+     4680
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/38916/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00038916.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00038916.jpg",
+    "dimensions": "15×23",
+    "pages": 549
+   },
+   {
+    "id": 40913,
+    "title": "Los viajes de Tuf",
+    "year": "2013",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Books",
+    "publisher_country": "España",
+    "collection": null,
+    "collection_id": null,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490193297",
+    "format": "Edición digital - ePUB",
+    "translators": [
+     "Albert Soler"
+    ],
+    "cover_art": [
+     "Thinkstock"
+    ],
+    "series": [
+     "Los Mil Mundos"
+    ],
+    "series_ids": [
+     4680
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/40913/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00040913.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00040913.jpg",
+    "dimensions": null,
+    "pages": null
+   },
+   {
+    "id": 49753,
+    "title": "Los viajes de Tuf",
+    "year": "2014",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Bolsillo",
+    "publisher_country": "España",
+    "collection": "Maxi",
+    "collection_id": 7883,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788498729207",
+    "format": "Rústica - 14×21,5 cm - 552 páginas",
+    "translators": [
+     "Albert Soler"
+    ],
+    "cover_art": [
+     "Thinkstock"
+    ],
+    "series": [
+     "Los Mil Mundos"
+    ],
+    "series_ids": [
+     4680
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/49753/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00049753.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00049753.jpg",
+    "dimensions": null,
+    "pages": 552
+   },
+   {
+    "id": 68828,
+    "title": "Los viajes de Tuf",
+    "year": "abr 2018",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "6",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788417347031",
+    "format": "Tapa dura con sobrecubierta - 16×23,5 cm - 475 páginas",
+    "translators": [
+     "Albert Soler"
+    ],
+    "cover_art": [
+     "Derek Stenning"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/68828/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00068828.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00068828.jpg",
+    "dimensions": null,
+    "pages": 475
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "maestro-cantor",
+   "title": "Maestro cantor",
+   "authors": [
+    "Orson Scott Card"
+   ],
+   "shelf": "Zeta Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+   "queries": [
+    "Maestro cantor"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 244,
+    "title": "Maestro cantor",
+    "year": "nov 1988",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "13",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8440603681",
+    "format": "Rústica con solapas - 12×19 cm - 356 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Óscar H. Chichoni"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo",
+     "Otros géneros"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/244/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000244.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000244.jpg",
+    "dimensions": "12×19",
+    "pages": 356
+   },
+   {
+    "id": 9109,
+    "title": "El Maestro cantor",
+    "year": "1992",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "VIB",
+    "collection_id": 5,
+    "collection_number": "11",
+    "subcollection": "VIB Orson Scott Card",
+    "subcollection_id": 1556,
+    "subcollection_number": "1",
+    "isbn": "844062719X",
+    "format": "Rústica - 11×17,5 cm - 377 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Héctor Fernández"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Otros géneros"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/9109/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00009109.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00009109.jpg",
+    "dimensions": null,
+    "pages": 377
+   },
+   {
+    "id": 15012,
+    "title": "Maestro cantor",
+    "year": "abr 1992",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "VIB",
+    "collection_id": 5,
+    "collection_number": "11",
+    "subcollection": "VIB Orson Scott Card",
+    "subcollection_id": 1556,
+    "subcollection_number": "1",
+    "isbn": "844062719X",
+    "format": "Rústica - 11×17,5 cm - 375 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Jordi Vallhonesta"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Otros géneros"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/15012/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00015012.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00015012.jpg",
+    "dimensions": null,
+    "pages": 375
+   },
+   {
+    "id": 2041,
+    "title": "Maestro cantor",
+    "year": "abr 1992",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "VIB",
+    "collection_id": 5,
+    "collection_number": "11",
+    "subcollection": "VIB Orson Scott Card",
+    "subcollection_id": 1556,
+    "subcollection_number": "1",
+    "isbn": "844062719X",
+    "format": "Rústica - 11×17,5 cm - 377 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Jordi Vallhonesta"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Otros géneros"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/2041/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00002041.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00002041.jpg",
+    "dimensions": null,
+    "pages": 377
+   },
+   {
+    "id": 22794,
+    "title": "Maestro cantor",
+    "year": "2009",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Zeta Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 4234,
+    "collection_number": "46",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788498722567",
+    "format": "Rústica con solapas - 12,5×20 cm - 416 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Óscar H. Chichoni"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo",
+     "Otros géneros"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/22794/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00022794.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00022794.jpg",
+    "dimensions": "5×20",
+    "pages": 416
+   },
+   {
+    "id": 48037,
+    "title": "Maestro cantor",
+    "year": "2013",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Books",
+    "publisher_country": "España",
+    "collection": null,
+    "collection_id": null,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490194812",
+    "format": "Edición digital - ePUB",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Óscar H. Chichoni"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo",
+     "Otros géneros"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/48037/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00048037.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00048037.jpg",
+    "dimensions": null,
+    "pages": null
+   },
+   {
+    "id": 64607,
+    "title": "Maestro cantor",
+    "year": "23 may 2019",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 6585,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490708965",
+    "format": "Rústica con solapas - 12,5×20 cm - 416 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Óscar H. Chichoni"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo",
+     "Otros géneros"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/64607/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00064607.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00064607.jpg",
+    "dimensions": "5×20",
+    "pages": 416
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "hijos-de-la-mente",
+   "title": "Hijos de la mente",
+   "authors": [
+    "Orson Scott Card"
+   ],
+   "shelf": "Zeta Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+   "series": "Ender",
+   "queries": [
+    "Hijos de la mente"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 341,
+    "title": "Hijos de la mente",
+    "year": "oct 1997",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "100",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8440677197",
+    "format": "Rústica con solapas - 15×23 cm - 333 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Maya & Cardil"
+    ],
+    "series": [
+     "Ender Wiggin"
+    ],
+    "series_ids": [
+     1602
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/341/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000341.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000341.jpg",
+    "dimensions": "15×23",
+    "pages": 333
+   },
+   {
+    "id": 941,
+    "title": "Hijos de la mente",
+    "year": "nov 2000",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Punto de Lectura",
+    "publisher_country": "España",
+    "collection": "Punto de Lectura",
+    "collection_id": 103,
+    "collection_number": "80",
+    "subcollection": "Punto de Lectura Orson Scott Card",
+    "subcollection_id": 1782,
+    "subcollection_number": "1",
+    "isbn": "8495501279",
+    "format": "Rústica - 11×17,5 cm - 441 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [],
+    "series": [
+     "Ender Wiggin"
+    ],
+    "series_ids": [
+     1602
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/941/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000941.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000941.jpg",
+    "dimensions": null,
+    "pages": 441
+   },
+   {
+    "id": 14722,
+    "title": "Hijos de la mente",
+    "year": "jun 2005",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Byblos",
+    "collection_id": 968,
+    "collection_number": "162",
+    "subcollection": "Byblos Orson Scott Card",
+    "subcollection_id": 1892,
+    "subcollection_number": "5",
+    "isbn": "846661771X",
+    "format": "Rústica - 11×17,5 cm - 438 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Leo Flores"
+    ],
+    "series": [
+     "Ender Wiggin"
+    ],
+    "series_ids": [
+     1602
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/14722/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00014722.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00014722.jpg",
+    "dimensions": null,
+    "pages": 438
+   },
+   {
+    "id": 31404,
+    "title": "Hijos de la mente",
+    "year": "2011",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Zeta Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 4234,
+    "collection_number": "269",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788498724653",
+    "format": "Rústica con solapas - 12,5×20 cm - 438 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Thinkstock"
+    ],
+    "series": [
+     "Ender Wiggin"
+    ],
+    "series_ids": [
+     1602
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/31404/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00031404.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00031404.jpg",
+    "dimensions": "5×20",
+    "pages": 438
+   },
+   {
+    "id": 37408,
+    "title": "Hijos de la mente",
+    "year": "2012",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Books",
+    "publisher_country": "España",
+    "collection": null,
+    "collection_id": null,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788415389873",
+    "format": "Edición digital - ePUB",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Thinkstock"
+    ],
+    "series": [
+     "Ender Wiggin"
+    ],
+    "series_ids": [
+     1602
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/37408/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00037408.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00037408.jpg",
+    "dimensions": null,
+    "pages": null
+   },
+   {
+    "id": 56299,
+    "title": "Hijos de la mente",
+    "year": "2 abr 2013",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 6585,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788498728453",
+    "format": "Tapa dura - 12,5×19 cm - 440 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Thinkstock"
+    ],
+    "series": [
+     "Ender Wiggin"
+    ],
+    "series_ids": [
+     1602
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/56299/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00056299.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00056299.jpg",
+    "dimensions": "5×19",
+    "pages": 440
+   },
+   {
+    "id": 64257,
+    "title": "Hijos de la mente",
+    "year": "14 mar 2019",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 6585,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490707920",
+    "format": "Rústica - 15×23 cm - 448 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [],
+    "series": [
+     "Ender Wiggin"
+    ],
+    "series_ids": [
+     1602
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/64257/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00064257.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00064257.jpg",
+    "dimensions": "15×23",
+    "pages": 448
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "nave-de-un-millon-de-anos",
+   "title": "La nave de un millón de años",
+   "authors": [
+    "Poul Anderson"
+   ],
+   "shelf": "Zeta Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+   "queries": [
+    "La nave de un millón de años"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 648,
+    "title": "La nave de un millón de años EN VENTA",
+    "year": "jul 1991",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "39",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8440619723",
+    "format": "Rústica con solapas - 15×22 cm - 554 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "Óscar H. Chichoni"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/648/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000648.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000648.jpg",
+    "dimensions": "15×22",
+    "pages": 554
+   },
+   {
+    "id": 1768,
+    "title": "La nave de un millón de años",
+    "year": "abr 1997",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "VIB",
+    "collection_id": 5,
+    "collection_number": "236",
+    "subcollection": "VIB Poul Anderson",
+    "subcollection_id": 3109,
+    "subcollection_number": "1",
+    "isbn": "844067211X",
+    "format": "Rústica - 11×17,5 cm - 730 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/1768/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00001768.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00001768.jpg",
+    "dimensions": null,
+    "pages": 730
+   },
+   {
+    "id": 14391,
+    "title": "La nave de un millón de años",
+    "year": "2005",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Byblos",
+    "collection_id": 968,
+    "collection_number": "516",
+    "subcollection": "Byblos Poul Anderson",
+    "subcollection_id": 2798,
+    "subcollection_number": "1",
+    "isbn": "8466623159",
+    "format": "Rústica - 11×17,5 cm - 726 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "Leo Flores"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/14391/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00014391.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00014391.jpg",
+    "dimensions": null,
+    "pages": 726
+   },
+   {
+    "id": 18627,
+    "title": "La nave de un millón de años",
+    "year": "2006",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Planeta DeAgostini",
+    "publisher_country": "España",
+    "collection": "Biblioteca de Ciencia Ficción",
+    "collection_id": 2768,
+    "collection_number": "26",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8467429046",
+    "format": "Tapa dura - 13×21,5 cm - 728 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/18627/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00018627.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00018627.jpg",
+    "dimensions": null,
+    "pages": 728
+   },
+   {
+    "id": 22735,
+    "title": "La nave de un millón de años",
+    "year": "2009",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Zeta Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 4234,
+    "collection_number": "47",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788498722574",
+    "format": "Rústica con solapas - 12,5×20 cm - 726 páginas",
+    "translators": [
+     "Carlos Gardini"
+    ],
+    "cover_art": [
+     "Óscar H. Chichoni"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/22735/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00022735.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00022735.jpg",
+    "dimensions": "5×20",
+    "pages": 726
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "elantris",
+   "title": "Elantris",
+   "authors": [
+    "Brandon Sanderson"
+   ],
+   "shelf": "Zeta Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+   "queries": [
+    "Elantris"
+   ]
+  },
+  "route": "libro+ficha",
+  "candidates": [
+   {
+    "id": 15417,
+    "title": "Elantris",
+    "year": "feb 2006",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "188",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8466624236",
+    "format": "Rústica con solapas - 15×23 cm - 645 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Alejandro Colucci",
+     "Estudio Ediciones B"
+    ],
+    "series": [
+     "Elantris"
+    ],
+    "series_ids": [
+     1396
+    ],
+    "awards": [],
+    "genres": [
+     "Ensayo",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/15417/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00015417.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00015417.jpg",
+    "dimensions": "15×23",
+    "pages": 645
+   },
+   {
+    "id": 14989,
+    "title": "Elantris",
+    "year": "2007",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Círculo de Lectores",
+    "publisher_country": "España",
+    "collection": null,
+    "collection_id": null,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788467222982",
+    "format": "Tapa dura - 15×22 cm - 616 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Alejandro Colucci"
+    ],
+    "series": [
+     "Elantris"
+    ],
+    "series_ids": [
+     1396
+    ],
+    "awards": [],
+    "genres": [
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/14989/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00014989.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00014989.jpg",
+    "dimensions": "15×22",
+    "pages": 616
+   },
+   {
+    "id": 28744,
+    "title": "Elantris",
+    "year": "2010",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Zeta Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 4234,
+    "collection_number": "209",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788498723762",
+    "format": "Rústica con solapas - 12,5×20 cm - 648 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Alejandro Colucci"
+    ],
+    "series": [
+     "Elantris"
+    ],
+    "series_ids": [
+     1396
+    ],
+    "awards": [],
+    "genres": [
+     "Ensayo",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/28744/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00028744.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00028744.jpg",
+    "dimensions": "5×20",
+    "pages": 648
+   },
+   {
+    "id": 47231,
+    "title": "Elantris",
+    "year": "2013",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Books",
+    "publisher_country": "España",
+    "collection": null,
+    "collection_id": null,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490194744",
+    "format": "Edición digital - ePUB",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Alejandro Colucci",
+     "Estudio Ediciones B"
+    ],
+    "series": [
+     "Elantris"
+    ],
+    "series_ids": [
+     1396
+    ],
+    "awards": [],
+    "genres": [
+     "Ensayo",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/47231/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00047231.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00047231.jpg",
+    "dimensions": null,
+    "pages": null
+   },
+   {
+    "id": 57309,
+    "title": "Elantris",
+    "year": "13 abr 2016",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "255",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788466658843",
+    "format": "Tapa dura con sobrecubierta - 15×23 cm - 800 páginas",
+    "translators": [
+     "Manuel de los Reyes",
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [],
+    "series": [
+     "Elantris"
+    ],
+    "series_ids": [
+     1396
+    ],
+    "awards": [],
+    "genres": [
+     "Ensayo",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/57309/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00057309.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00057309.jpg",
+    "dimensions": "15×23",
+    "pages": 800
+   },
+   {
+    "id": 57314,
+    "title": "Elantris",
+    "year": "13 abr 2016",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Books",
+    "publisher_country": "España",
+    "collection": null,
+    "collection_id": null,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490694107",
+    "format": "Edición digital - ePUB",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [],
+    "series": [
+     "Elantris"
+    ],
+    "series_ids": [
+     1396
+    ],
+    "awards": [],
+    "genres": [
+     "Ensayo",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/57314/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00057314.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00057314.jpg",
+    "dimensions": null,
+    "pages": null
+   },
+   {
+    "id": 75239,
+    "title": "Elantris",
+    "year": "nov 2016",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "255",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788466658843",
+    "format": "Tapa dura con sobrecubierta - 15×23 cm - 795 páginas",
+    "translators": [
+     "Manuel de los Reyes",
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [],
+    "series": [
+     "Elantris"
+    ],
+    "series_ids": [
+     1396
+    ],
+    "awards": [],
+    "genres": [
+     "Ensayo",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/75239/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00075239.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00075239.jpg",
+    "dimensions": "15×23",
+    "pages": 795
+   },
+   {
+    "id": 62752,
+    "title": "Elantris",
+    "year": "5 jul 2018",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Bolsillo",
+    "publisher_country": "España",
+    "collection": "Maxi",
+    "collection_id": 7883,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490705834",
+    "format": "Rústica - 14×21,5 cm - 800 páginas",
+    "translators": [
+     "Manuel de los Reyes",
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [],
+    "series": [
+     "Elantris"
+    ],
+    "series_ids": [
+     1396
+    ],
+    "awards": [],
+    "genres": [
+     "Ensayo",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/62752/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00062752.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00062752.jpg",
+    "dimensions": null,
+    "pages": 800
+   },
+   {
+    "id": 68544,
+    "title": "Elantris",
+    "year": "sep 2018",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "255",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788466658843",
+    "format": "Tapa dura con sobrecubierta - 15×23 cm - 795 páginas",
+    "translators": [
+     "Manuel de los Reyes",
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [],
+    "series": [
+     "Elantris"
+    ],
+    "series_ids": [
+     1396
+    ],
+    "awards": [],
+    "genres": [
+     "Ensayo",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/68544/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00068544.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00068544.jpg",
+    "dimensions": "15×23",
+    "pages": 795
+   },
+   {
+    "id": 75255,
+    "title": "Elantris",
+    "year": "ene 2024",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "255",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788466658843",
+    "format": "Tapa dura con sobrecubierta - 15,5×23,5 cm - 787 páginas",
+    "translators": [
+     "Manuel de los Reyes",
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [],
+    "series": [
+     "Elantris"
+    ],
+    "series_ids": [
+     1396
+    ],
+    "awards": [],
+    "genres": [
+     "Ensayo",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/75255/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00075255.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00075255.jpg",
+    "dimensions": null,
+    "pages": 787
+   },
+   {
+    "id": 80542,
+    "title": "Elantris",
+    "year": "dic 2025",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "255",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788410466265",
+    "format": "Tapa dura - 15,5×23,5 cm - 789 páginas",
+    "translators": [
+     "Manuel de los Reyes",
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [],
+    "series": [
+     "Elantris"
+    ],
+    "series_ids": [
+     1396
+    ],
+    "awards": [],
+    "genres": [
+     "Ensayo",
+     "Fantasía"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/80542/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00080542.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00080542.jpg",
+    "dimensions": null,
+    "pages": 789
+   }
+  ],
+  "compact_seen": [
+   {
+    "id": 57309,
+    "title": "Elantris",
+    "authors": [
+     "Brandon Sanderson"
+    ]
+   },
+   {
+    "id": 62752,
+    "title": "Elantris",
+    "authors": [
+     "Brandon Sanderson"
+    ]
+   },
+   {
+    "id": 75239,
+    "title": "Elantris",
+    "authors": [
+     "Brandon Sanderson"
+    ]
+   },
+   {
+    "id": 68544,
+    "title": "Elantris",
+    "authors": [
+     "Brandon Sanderson"
+    ]
+   },
+   {
+    "id": 75255,
+    "title": "Elantris",
+    "authors": [
+     "Brandon Sanderson"
+    ]
+   },
+   {
+    "id": 15417,
+    "title": "Elantris",
+    "authors": [
+     "Brandon Sanderson"
+    ]
+   },
+   {
+    "id": 80542,
+    "title": "Elantris",
+    "authors": [
+     "Brandon Sanderson"
+    ]
+   },
+   {
+    "id": 47231,
+    "title": "Elantris",
+    "authors": [
+     "Brandon Sanderson"
+    ]
+   },
+   {
+    "id": 57314,
+    "title": "Elantris",
+    "authors": [
+     "Brandon Sanderson"
+    ]
+   },
+   {
+    "id": 28744,
+    "title": "Elantris",
+    "authors": [
+     "Brandon Sanderson"
+    ]
+   },
+   {
+    "id": 14989,
+    "title": "Elantris",
+    "authors": [
+     "Brandon Sanderson"
+    ]
+   },
+   {
+    "id": 44032,
+    "title": "Elantris",
+    "authors": [
+     "Brandon Sanderson"
+    ]
+   }
+  ]
+ },
+ {
+  "want": {
+   "slug": "steelheart",
+   "title": "Steelheart",
+   "authors": [
+    "Brandon Sanderson"
+   ],
+   "shelf": "Zeta Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+   "queries": [
+    "Steelheart"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 50551,
+    "title": "Steelheart",
+    "year": "2014",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Books",
+    "publisher_country": "España",
+    "collection": null,
+    "collection_id": null,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490197776",
+    "format": "Edición digital - ePUB",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Mike Bryan",
+     "Ángela Carlino"
+    ],
+    "series": [
+     "Reckoner"
+    ],
+    "series_ids": [
+     2784
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/50551/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00050551.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00050551.jpg",
+    "dimensions": null,
+    "pages": null
+   },
+   {
+    "id": 50294,
+    "title": "Steelheart",
+    "year": "may 2014",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "242",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788466652964",
+    "format": "Rústica con solapas - 15×23 cm - 408 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Mike Bryan",
+     "Ángela Carlino"
+    ],
+    "series": [
+     "Reckoner"
+    ],
+    "series_ids": [
+     2784
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/50294/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00050294.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00050294.jpg",
+    "dimensions": "15×23",
+    "pages": 408
+   },
+   {
+    "id": 53731,
+    "title": "Steelheart",
+    "year": "10 jun 2015",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 6585,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490700952",
+    "format": "Rústica - 13×19 cm - 416 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Mike Bryan",
+     "Ángela Carlino"
+    ],
+    "series": [
+     "Reckoner"
+    ],
+    "series_ids": [
+     2784
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/53731/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00053731.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00053731.jpg",
+    "dimensions": "13×19",
+    "pages": 416
+   },
+   {
+    "id": 70606,
+    "title": "Steelheart",
+    "year": "ene 2016",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "242",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788466658355",
+    "format": "Rústica con solapas - 15×23 cm - 408 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [],
+    "series": [
+     "Reckoner"
+    ],
+    "series_ids": [
+     2784
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/70606/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00070606.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00070606.jpg",
+    "dimensions": "15×23",
+    "pages": 408
+   },
+   {
+    "id": 64496,
+    "title": "Steelheart",
+    "year": "13 mar 2019",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 6585,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490700952",
+    "format": "Rústica - 13×19 cm - 416 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Mike Bryan",
+     "Ángela Carlino"
+    ],
+    "series": [
+     "Reckoner"
+    ],
+    "series_ids": [
+     2784
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/64496/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00064496.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00064496.jpg",
+    "dimensions": "13×19",
+    "pages": 416
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "ilion-1-el-asedio",
+   "title": "Ilión I: El asedio",
+   "authors": [
+    "Dan Simmons"
+   ],
+   "shelf": "Zeta Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+   "series": "Ilión",
+   "queries": [
+    "Ilión El asedio",
+    "El asedio Simmons",
+    "Ilión"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 11748,
+    "title": "Ilión I: El asedio",
+    "year": "jul 2004",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "167",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8466618988",
+    "format": "Rústica con solapas - 15×23 cm - 366 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Sara Salvador",
+     "Alejandro Colucci"
+    ],
+    "series": [
+     "Ilión"
+    ],
+    "series_ids": [
+     204
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/11748/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00011748.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00011748.jpg",
+    "dimensions": "15×23",
+    "pages": 366
+   },
+   {
+    "id": 13071,
+    "title": "Ilión II: La rebelión",
+    "year": "nov 2004",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "176",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8466615806",
+    "format": "Rústica con solapas - 15×23 cm - 344 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Sara Salvador",
+     "Alejandro Colucci"
+    ],
+    "series": [
+     "Ilión"
+    ],
+    "series_ids": [
+     204
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/13071/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00013071.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00013071.jpg",
+    "dimensions": "15×23",
+    "pages": 344
+   },
+   {
+    "id": 14723,
+    "title": "Ilión I: El asedio",
+    "year": "2006",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Byblos",
+    "collection_id": 968,
+    "collection_number": "517",
+    "subcollection": "Byblos Dan Simmons",
+    "subcollection_id": 1883,
+    "subcollection_number": "5",
+    "isbn": "8466623299",
+    "format": "Rústica - 11×17,5 cm - 492 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Alejandro Colucci"
+    ],
+    "series": [
+     "Ilión"
+    ],
+    "series_ids": [
+     204
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/14723/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00014723.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00014723.jpg",
+    "dimensions": null,
+    "pages": 492
+   },
+   {
+    "id": 14724,
+    "title": "Ilión II: La rebelión",
+    "year": "2006",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Byblos",
+    "collection_id": 968,
+    "collection_number": "517",
+    "subcollection": "Byblos Dan Simmons",
+    "subcollection_id": 1883,
+    "subcollection_number": "6",
+    "isbn": "8466627022",
+    "format": "Rústica - 11×17,5 cm - 444 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Alejandro Colucci"
+    ],
+    "series": [
+     "Ilión"
+    ],
+    "series_ids": [
+     204
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/14724/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00014724.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00014724.jpg",
+    "dimensions": null,
+    "pages": 444
+   },
+   {
+    "id": 23634,
+    "title": "Ilión I: El asedio",
+    "year": "2009",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Zeta Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 4234,
+    "collection_number": "82",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788498722673",
+    "format": "Rústica con solapas - 12,5×20 cm - 480 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Óscar H. Chichoni"
+    ],
+    "series": [
+     "Ilión"
+    ],
+    "series_ids": [
+     204
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/23634/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00023634.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00023634.jpg",
+    "dimensions": "5×20",
+    "pages": 480
+   },
+   {
+    "id": 23635,
+    "title": "Ilión II: La rebelión",
+    "year": "2009",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Zeta Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 4234,
+    "collection_number": "98",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788498722796",
+    "format": "Rústica con solapas - 12,5×20 cm - 448 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Óscar H. Chichoni"
+    ],
+    "series": [
+     "Ilión"
+    ],
+    "series_ids": [
+     204
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/23635/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00023635.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00023635.jpg",
+    "dimensions": "5×20",
+    "pages": 448
+   },
+   {
+    "id": 60140,
+    "title": "Ilión I: El asedio",
+    "year": "jul 2016",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Books",
+    "publisher_country": "España",
+    "collection": null,
+    "collection_id": null,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490692233",
+    "format": "Edición digital",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Sara Salvador",
+     "Alejandro Colucci"
+    ],
+    "series": [
+     "Ilión"
+    ],
+    "series_ids": [
+     204
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/60140/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00060140.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00060140.jpg",
+    "dimensions": null,
+    "pages": null
+   },
+   {
+    "id": 60142,
+    "title": "Ilión II: La rebelión",
+    "year": "jul 2016",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Books",
+    "publisher_country": "España",
+    "collection": null,
+    "collection_id": null,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490692240",
+    "format": "Edición digital",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Sara Salvador",
+     "Alejandro Colucci"
+    ],
+    "series": [
+     "Ilión"
+    ],
+    "series_ids": [
+     204
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/60142/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00060142.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00060142.jpg",
+    "dimensions": null,
+    "pages": null
+   },
+   {
+    "id": 64529,
+    "title": "Ilión",
+    "year": "4 abr 2019",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "301",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788417347352",
+    "format": "Tapa dura con sobrecubierta - 16×23,5 cm - 687 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [],
+    "series": [
+     "Ilión"
+    ],
+    "series_ids": [
+     204
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/64529/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00064529.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00064529.jpg",
+    "dimensions": null,
+    "pages": 687
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "ilion-2-la-rebelion",
+   "title": "Ilión II: La rebelión",
+   "authors": [
+    "Dan Simmons"
+   ],
+   "shelf": "Zeta Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+   "series": "Ilión",
+   "queries": [
+    "Ilión La rebelión",
+    "La rebelión Simmons",
+    "Ilión"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 11748,
+    "title": "Ilión I: El asedio",
+    "year": "jul 2004",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "167",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8466618988",
+    "format": "Rústica con solapas - 15×23 cm - 366 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Sara Salvador",
+     "Alejandro Colucci"
+    ],
+    "series": [
+     "Ilión"
+    ],
+    "series_ids": [
+     204
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/11748/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00011748.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00011748.jpg",
+    "dimensions": "15×23",
+    "pages": 366
+   },
+   {
+    "id": 13071,
+    "title": "Ilión II: La rebelión",
+    "year": "nov 2004",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "176",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8466615806",
+    "format": "Rústica con solapas - 15×23 cm - 344 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Sara Salvador",
+     "Alejandro Colucci"
+    ],
+    "series": [
+     "Ilión"
+    ],
+    "series_ids": [
+     204
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/13071/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00013071.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00013071.jpg",
+    "dimensions": "15×23",
+    "pages": 344
+   },
+   {
+    "id": 14723,
+    "title": "Ilión I: El asedio",
+    "year": "2006",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Byblos",
+    "collection_id": 968,
+    "collection_number": "517",
+    "subcollection": "Byblos Dan Simmons",
+    "subcollection_id": 1883,
+    "subcollection_number": "5",
+    "isbn": "8466623299",
+    "format": "Rústica - 11×17,5 cm - 492 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Alejandro Colucci"
+    ],
+    "series": [
+     "Ilión"
+    ],
+    "series_ids": [
+     204
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/14723/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00014723.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00014723.jpg",
+    "dimensions": null,
+    "pages": 492
+   },
+   {
+    "id": 14724,
+    "title": "Ilión II: La rebelión",
+    "year": "2006",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Byblos",
+    "collection_id": 968,
+    "collection_number": "517",
+    "subcollection": "Byblos Dan Simmons",
+    "subcollection_id": 1883,
+    "subcollection_number": "6",
+    "isbn": "8466627022",
+    "format": "Rústica - 11×17,5 cm - 444 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Alejandro Colucci"
+    ],
+    "series": [
+     "Ilión"
+    ],
+    "series_ids": [
+     204
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/14724/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00014724.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00014724.jpg",
+    "dimensions": null,
+    "pages": 444
+   },
+   {
+    "id": 23634,
+    "title": "Ilión I: El asedio",
+    "year": "2009",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Zeta Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 4234,
+    "collection_number": "82",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788498722673",
+    "format": "Rústica con solapas - 12,5×20 cm - 480 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Óscar H. Chichoni"
+    ],
+    "series": [
+     "Ilión"
+    ],
+    "series_ids": [
+     204
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/23634/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00023634.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00023634.jpg",
+    "dimensions": "5×20",
+    "pages": 480
+   },
+   {
+    "id": 23635,
+    "title": "Ilión II: La rebelión",
+    "year": "2009",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Zeta Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 4234,
+    "collection_number": "98",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788498722796",
+    "format": "Rústica con solapas - 12,5×20 cm - 448 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Óscar H. Chichoni"
+    ],
+    "series": [
+     "Ilión"
+    ],
+    "series_ids": [
+     204
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/23635/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00023635.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00023635.jpg",
+    "dimensions": "5×20",
+    "pages": 448
+   },
+   {
+    "id": 60140,
+    "title": "Ilión I: El asedio",
+    "year": "jul 2016",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Books",
+    "publisher_country": "España",
+    "collection": null,
+    "collection_id": null,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490692233",
+    "format": "Edición digital",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Sara Salvador",
+     "Alejandro Colucci"
+    ],
+    "series": [
+     "Ilión"
+    ],
+    "series_ids": [
+     204
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/60140/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00060140.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00060140.jpg",
+    "dimensions": null,
+    "pages": null
+   },
+   {
+    "id": 60142,
+    "title": "Ilión II: La rebelión",
+    "year": "jul 2016",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "B de Books",
+    "publisher_country": "España",
+    "collection": null,
+    "collection_id": null,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490692240",
+    "format": "Edición digital",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Sara Salvador",
+     "Alejandro Colucci"
+    ],
+    "series": [
+     "Ilión"
+    ],
+    "series_ids": [
+     204
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/60142/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00060142.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00060142.jpg",
+    "dimensions": null,
+    "pages": null
+   },
+   {
+    "id": 64529,
+    "title": "Ilión",
+    "year": "4 abr 2019",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "301",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788417347352",
+    "format": "Tapa dura con sobrecubierta - 16×23,5 cm - 687 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [],
+    "series": [
+     "Ilión"
+    ],
+    "series_ids": [
+     204
+    ],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/64529/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00064529.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00064529.jpg",
+    "dimensions": null,
+    "pages": 687
+   }
+  ],
+  "compact_seen": []
+ },
+ {
+  "want": {
+   "slug": "libro-del-dia-del-juicio-final",
+   "title": "El libro del día del Juicio Final",
+   "authors": [
+    "Connie Willis"
+   ],
+   "shelf": "Zeta Bolsillo",
+   "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+   "queries": [
+    "El libro del día del Juicio Final"
+   ]
+  },
+  "route": "titulo",
+  "candidates": [
+   {
+    "id": 68,
+    "title": "El libro del día del juicio final",
+    "year": "oct 1994",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "68",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "8440650051",
+    "format": "Rústica con solapas - 15×22 cm - 556 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Trazo"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/68/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000068.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000068.jpg",
+    "dimensions": "15×22",
+    "pages": 556
+   },
+   {
+    "id": 719,
+    "title": "El libro del día del juicio final",
+    "year": "jun 1997",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "VIB",
+    "collection_id": 5,
+    "collection_number": "244",
+    "subcollection": "VIB Connie Willis",
+    "subcollection_id": 1738,
+    "subcollection_number": "1",
+    "isbn": "8440673590",
+    "format": "Rústica - 11×17,5 cm - 768 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/719/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000719.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00000719.jpg",
+    "dimensions": null,
+    "pages": 768
+   },
+   {
+    "id": 15686,
+    "title": "El libro del día del juicio final",
+    "year": "2005",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Byblos",
+    "collection_id": 968,
+    "collection_number": "975",
+    "subcollection": "Byblos Connie Willis",
+    "subcollection_id": 1893,
+    "subcollection_number": "2",
+    "isbn": "8466623418",
+    "format": "Rústica - 11×17,5 cm - 784 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Leo Flores"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción",
+     "Ensayo"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/15686/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00015686.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00015686.jpg",
+    "dimensions": null,
+    "pages": 784
+   },
+   {
+    "id": 21282,
+    "title": "El libro del día del juicio final",
+    "year": "2008",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "La Factoría de Ideas",
+    "publisher_country": "España",
+    "collection": "Solaris Ficción",
+    "collection_id": 73,
+    "collection_number": "116",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788498004021",
+    "format": "Rústica con solapas - 15,5×23 cm - 480 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Dan dos Santos"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/21282/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00021282.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00021282.jpg",
+    "dimensions": "5×23",
+    "pages": 480
+   },
+   {
+    "id": 27512,
+    "title": "El libro del día del juicio final",
+    "year": "2010",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Zeta Bolsillo",
+    "publisher_country": "España",
+    "collection": "Ciencia Ficción",
+    "collection_id": 4234,
+    "collection_number": "164",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788498723472",
+    "format": "Rústica con solapas - 12,5×20 cm - 784 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Trazo"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/27512/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00027512.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00027512.jpg",
+    "dimensions": "5×20",
+    "pages": 784
+   },
+   {
+    "id": 52953,
+    "title": "El libro del día del juicio final",
+    "year": "feb 2014",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "La Factoría de Ideas",
+    "publisher_country": "España",
+    "collection": "Solaris Ficción (digital)",
+    "collection_id": 6818,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788490184004",
+    "format": "Edición digital - ePUB",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Dan dos Santos"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/52953/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00052953.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00052953.jpg",
+    "dimensions": null,
+    "pages": null
+   },
+   {
+    "id": 67494,
+    "title": "El libro del día del juicio final",
+    "year": "jul 2020",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova",
+    "collection_id": 3,
+    "collection_number": "68",
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788417347857",
+    "format": "Tapa dura con sobrecubierta - 16×23,5 cm - 784 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Christopher Gibbs"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/67494/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00067494.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00067494.jpg",
+    "dimensions": null,
+    "pages": 784
+   },
+   {
+    "id": 77491,
+    "title": "El libro del día del juicio final",
+    "year": "2 jul 2020",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "Nova (digital)",
+    "collection_id": 11807,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788417347925",
+    "format": "Edición digital - ePUB",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Christopher Gibbs"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/77491/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00077491.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00077491.jpg",
+    "dimensions": null,
+    "pages": null
+   },
+   {
+    "id": 74256,
+    "title": "El libro del día del juicio final",
+    "year": "13 jul 2023",
+    "authors": [],
+    "author_ids": [],
+    "publisher": "Ediciones B",
+    "publisher_country": "España",
+    "collection": "B de Bolsillo",
+    "collection_id": 11402,
+    "collection_number": null,
+    "subcollection": null,
+    "subcollection_id": null,
+    "subcollection_number": null,
+    "isbn": "9788413143842",
+    "format": "Rústica - 13×19 cm - 784 páginas",
+    "translators": [
+     "Rafael Marín Trechera"
+    ],
+    "cover_art": [
+     "Christopher Gibbs"
+    ],
+    "series": [],
+    "series_ids": [],
+    "awards": [],
+    "genres": [
+     "Ciencia ficción"
+    ],
+    "url": "https://tercerafundacion.net/biblioteca/ver/libro/74256/",
+    "spine": "https://tercerafundacion.net/imagenes/lomo/L-00074256.jpg",
+    "cover": "https://tercerafundacion.net/imagenes/portada/P-00074256.jpg",
+    "dimensions": "13×19",
+    "pages": 784
+   }
+  ],
+  "compact_seen": []
+ }
+]

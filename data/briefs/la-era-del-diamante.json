@@ -1,0 +1,187 @@
+{
+ "want": {
+  "slug": "la-era-del-diamante",
+  "title": "La era del diamante",
+  "authors": [
+   "Neal Stephenson"
+  ],
+  "shelf": "Zeta Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+  "queries": [
+   "La era del diamante"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 28593,
+   "title": "La era del diamante",
+   "year": "2010",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 4234,
+   "collection_number": "197",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498723649",
+   "format": "Rústica con solapas - 12,5×20 cm - 672 páginas",
+   "translators": [
+    "Pedro Jorge Romero"
+   ],
+   "cover_art": [
+    "Jupiterimages Corporation"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/28593/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00028593.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00028593.jpg",
+   "dimensions": "5×20",
+   "pages": 672,
+   "has_spine": false,
+   "score": 95,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "NO scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 12,
+   "title": "La era del diamante",
+   "year": "oct 1997",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "101",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "844067919X",
+   "format": "Rústica con solapas - 15×23 cm - 445 páginas",
+   "translators": [
+    "Pedro Jorge Romero"
+   ],
+   "cover_art": [
+    "Maya & Cardil"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/12/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000012.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000012.jpg",
+   "dimensions": "15×23",
+   "pages": 445,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 13336,
+   "title": "La era del diamante",
+   "year": "2004",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Byblos",
+   "collection_id": 968,
+   "collection_number": "1362",
+   "subcollection": "Byblos Neal Stephenson",
+   "subcollection_id": 1952,
+   "subcollection_number": "4",
+   "isbn": "8466617248",
+   "format": "Rústica - 11×17,5 cm - 669 páginas",
+   "translators": [
+    "Pedro Jorge Romero"
+   ],
+   "cover_art": [
+    "Leo Flores"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/13336/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00013336.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00013336.jpg",
+   "dimensions": null,
+   "pages": 669,
+   "has_spine": true,
+   "score": 47,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 36982,
+   "title": "La era del diamante",
+   "year": "2012",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Books",
+   "publisher_country": "España",
+   "collection": null,
+   "collection_id": null,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490190128",
+   "format": "Edición digital - ePUB",
+   "translators": [
+    "Pedro Jorge Romero"
+   ],
+   "cover_art": [
+    "Jupiterimages Corporation"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/36982/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00036982.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00036982.jpg",
+   "dimensions": null,
+   "pages": null,
+   "has_spine": false,
+   "score": -28,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine",
+    "digital edition, not a paperback"
+   ]
+  }
+ ]
+}

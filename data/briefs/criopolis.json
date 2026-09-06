@@ -1,0 +1,201 @@
+{
+ "want": {
+  "slug": "criopolis",
+  "title": "Criópolis",
+  "authors": [
+   "Lois McMaster Bujold"
+  ],
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "series": "Miles Vorkosigan",
+  "queries": [
+   "Criópolis",
+   "Criopolis"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 39443,
+   "title": "Criopolis",
+   "year": "feb 2013",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 6585,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498727722",
+   "format": "Rústica - 13×20 cm - 394 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Dave Seeley"
+   ],
+   "series": [
+    "Miles Vorkosigan"
+   ],
+   "series_ids": [
+    1112
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/39443/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00039443.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00039443.jpg",
+   "dimensions": "13×20",
+   "pages": 394,
+   "has_spine": true,
+   "score": 120,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "has a scanned spine"
+   ]
+  },
+  {
+   "id": 64858,
+   "title": "Criopolis",
+   "year": "20 jun 2019",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 6585,
+   "collection_number": null,
+   "subcollection": "Saga Vorkosigan",
+   "subcollection_id": 11387,
+   "subcollection_number": "15",
+   "isbn": "9788490708644",
+   "format": "Rústica - 13×20 cm - 400 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [],
+   "series": [
+    "Miles Vorkosigan"
+   ],
+   "series_ids": [
+    1112
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/64858/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00064858.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00064858.jpg",
+   "dimensions": "13×20",
+   "pages": 400,
+   "has_spine": false,
+   "score": 90,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "NO scanned spine"
+   ]
+  },
+  {
+   "id": 32097,
+   "title": "Criopolis",
+   "year": "may 2011",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "229",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788466646918",
+   "format": "Rústica con solapas - 15×23 cm - 392 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Dave Seeley"
+   ],
+   "series": [
+    "Miles Vorkosigan"
+   ],
+   "series_ids": [
+    1112
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/32097/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00032097.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00032097.jpg",
+   "dimensions": "15×23",
+   "pages": 392,
+   "has_spine": true,
+   "score": 47,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 37407,
+   "title": "Criopolis",
+   "year": "2012",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Books",
+   "publisher_country": "España",
+   "collection": null,
+   "collection_id": null,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788466649032",
+   "format": "Edición digital - ePUB",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Dave Seeley"
+   ],
+   "series": [
+    "Miles Vorkosigan"
+   ],
+   "series_ids": [
+    1112
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/37407/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00037407.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00037407.jpg",
+   "dimensions": null,
+   "pages": null,
+   "has_spine": false,
+   "score": -28,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine",
+    "digital edition, not a paperback"
+   ]
+  }
+ ]
+}

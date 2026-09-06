@@ -1,0 +1,520 @@
+{
+ "want": {
+  "slug": "elantris",
+  "title": "Elantris",
+  "authors": [
+   "Brandon Sanderson"
+  ],
+  "shelf": "Zeta Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+  "queries": [
+   "Elantris"
+  ]
+ },
+ "route": "libro+ficha",
+ "ranked": [
+  {
+   "id": 28744,
+   "title": "Elantris",
+   "year": "2010",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 4234,
+   "collection_number": "209",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498723762",
+   "format": "Rústica con solapas - 12,5×20 cm - 648 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Alejandro Colucci"
+   ],
+   "series": [
+    "Elantris"
+   ],
+   "series_ids": [
+    1396
+   ],
+   "awards": [],
+   "genres": [
+    "Ensayo",
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/28744/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00028744.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00028744.jpg",
+   "dimensions": "5×20",
+   "pages": 648,
+   "has_spine": true,
+   "score": 125,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 15417,
+   "title": "Elantris",
+   "year": "feb 2006",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "188",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8466624236",
+   "format": "Rústica con solapas - 15×23 cm - 645 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Alejandro Colucci",
+    "Estudio Ediciones B"
+   ],
+   "series": [
+    "Elantris"
+   ],
+   "series_ids": [
+    1396
+   ],
+   "awards": [],
+   "genres": [
+    "Ensayo",
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/15417/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00015417.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00015417.jpg",
+   "dimensions": "15×23",
+   "pages": 645,
+   "has_spine": true,
+   "score": 47,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 75239,
+   "title": "Elantris",
+   "year": "nov 2016",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "255",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788466658843",
+   "format": "Tapa dura con sobrecubierta - 15×23 cm - 795 páginas",
+   "translators": [
+    "Manuel de los Reyes",
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [],
+   "series": [
+    "Elantris"
+   ],
+   "series_ids": [
+    1396
+   ],
+   "awards": [],
+   "genres": [
+    "Ensayo",
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/75239/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00075239.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00075239.jpg",
+   "dimensions": "15×23",
+   "pages": 795,
+   "has_spine": true,
+   "score": 42,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "hardback"
+   ]
+  },
+  {
+   "id": 68544,
+   "title": "Elantris",
+   "year": "sep 2018",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "255",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788466658843",
+   "format": "Tapa dura con sobrecubierta - 15×23 cm - 795 páginas",
+   "translators": [
+    "Manuel de los Reyes",
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [],
+   "series": [
+    "Elantris"
+   ],
+   "series_ids": [
+    1396
+   ],
+   "awards": [],
+   "genres": [
+    "Ensayo",
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/68544/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00068544.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00068544.jpg",
+   "dimensions": "15×23",
+   "pages": 795,
+   "has_spine": true,
+   "score": 42,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "hardback"
+   ]
+  },
+  {
+   "id": 75255,
+   "title": "Elantris",
+   "year": "ene 2024",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "255",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788466658843",
+   "format": "Tapa dura con sobrecubierta - 15,5×23,5 cm - 787 páginas",
+   "translators": [
+    "Manuel de los Reyes",
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [],
+   "series": [
+    "Elantris"
+   ],
+   "series_ids": [
+    1396
+   ],
+   "awards": [],
+   "genres": [
+    "Ensayo",
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/75255/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00075255.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00075255.jpg",
+   "dimensions": null,
+   "pages": 787,
+   "has_spine": true,
+   "score": 42,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "hardback"
+   ]
+  },
+  {
+   "id": 80542,
+   "title": "Elantris",
+   "year": "dic 2025",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "255",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788410466265",
+   "format": "Tapa dura - 15,5×23,5 cm - 789 páginas",
+   "translators": [
+    "Manuel de los Reyes",
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [],
+   "series": [
+    "Elantris"
+   ],
+   "series_ids": [
+    1396
+   ],
+   "awards": [],
+   "genres": [
+    "Ensayo",
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/80542/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00080542.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00080542.jpg",
+   "dimensions": null,
+   "pages": 789,
+   "has_spine": true,
+   "score": 42,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "hardback"
+   ]
+  },
+  {
+   "id": 14989,
+   "title": "Elantris",
+   "year": "2007",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Círculo de Lectores",
+   "publisher_country": "España",
+   "collection": null,
+   "collection_id": null,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788467222982",
+   "format": "Tapa dura - 15×22 cm - 616 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Alejandro Colucci"
+   ],
+   "series": [
+    "Elantris"
+   ],
+   "series_ids": [
+    1396
+   ],
+   "awards": [],
+   "genres": [
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/14989/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00014989.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00014989.jpg",
+   "dimensions": "15×22",
+   "pages": 616,
+   "has_spine": true,
+   "score": 25,
+   "why": [
+    "has a scanned spine",
+    "hardback"
+   ]
+  },
+  {
+   "id": 57309,
+   "title": "Elantris",
+   "year": "13 abr 2016",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "255",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788466658843",
+   "format": "Tapa dura con sobrecubierta - 15×23 cm - 800 páginas",
+   "translators": [
+    "Manuel de los Reyes",
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [],
+   "series": [
+    "Elantris"
+   ],
+   "series_ids": [
+    1396
+   ],
+   "awards": [],
+   "genres": [
+    "Ensayo",
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/57309/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00057309.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00057309.jpg",
+   "dimensions": "15×23",
+   "pages": 800,
+   "has_spine": false,
+   "score": 12,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine",
+    "numbered in its collection",
+    "hardback"
+   ]
+  },
+  {
+   "id": 62752,
+   "title": "Elantris",
+   "year": "5 jul 2018",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Bolsillo",
+   "publisher_country": "España",
+   "collection": "Maxi",
+   "collection_id": 7883,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490705834",
+   "format": "Rústica - 14×21,5 cm - 800 páginas",
+   "translators": [
+    "Manuel de los Reyes",
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [],
+   "series": [
+    "Elantris"
+   ],
+   "series_ids": [
+    1396
+   ],
+   "awards": [],
+   "genres": [
+    "Ensayo",
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/62752/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00062752.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00062752.jpg",
+   "dimensions": null,
+   "pages": 800,
+   "has_spine": false,
+   "score": 12,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine"
+   ]
+  },
+  {
+   "id": 47231,
+   "title": "Elantris",
+   "year": "2013",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Books",
+   "publisher_country": "España",
+   "collection": null,
+   "collection_id": null,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490194744",
+   "format": "Edición digital - ePUB",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Alejandro Colucci",
+    "Estudio Ediciones B"
+   ],
+   "series": [
+    "Elantris"
+   ],
+   "series_ids": [
+    1396
+   ],
+   "awards": [],
+   "genres": [
+    "Ensayo",
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/47231/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00047231.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00047231.jpg",
+   "dimensions": null,
+   "pages": null,
+   "has_spine": false,
+   "score": -28,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine",
+    "digital edition, not a paperback"
+   ]
+  },
+  {
+   "id": 57314,
+   "title": "Elantris",
+   "year": "13 abr 2016",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Books",
+   "publisher_country": "España",
+   "collection": null,
+   "collection_id": null,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490694107",
+   "format": "Edición digital - ePUB",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [],
+   "series": [
+    "Elantris"
+   ],
+   "series_ids": [
+    1396
+   ],
+   "awards": [],
+   "genres": [
+    "Ensayo",
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/57314/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00057314.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00057314.jpg",
+   "dimensions": null,
+   "pages": null,
+   "has_spine": false,
+   "score": -28,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine",
+    "digital edition, not a paperback"
+   ]
+  }
+ ]
+}

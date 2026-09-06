@@ -1,0 +1,99 @@
+{
+ "want": {
+  "slug": "proteo",
+  "title": "Proteo",
+  "authors": [
+   "Charles Sheffield"
+  ],
+  "shelf": "Nova",
+  "listed_as": "Nova ciencia ficción",
+  "queries": [
+   "Proteo"
+  ]
+ },
+ "route": "libro+ficha",
+ "ranked": [
+  {
+   "id": 754,
+   "title": "Proteo",
+   "year": "jul 1996",
+   "authors": [
+    "Charles Sheffield"
+   ],
+   "author_ids": [
+    126
+   ],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "85",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440665903",
+   "format": "Rústica con solapas - 15×22 cm - 362 páginas",
+   "translators": [
+    "Carlos Gardini",
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Trazo"
+   ],
+   "series": [
+    "Proteo"
+   ],
+   "series_ids": [
+    1159
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/754/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000754.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000754.jpg",
+   "dimensions": "15×22",
+   "pages": 362,
+   "work_id": null,
+   "blurb": "Nota de bibliotecario Opinión Usuario Frase exacta Registrarse Entrar Registrarse Entrar Toda la 3F Título ISBN (sin guiones) Persona Editorial Contenido Colección Premio Enciclopedia Galáctica Texto de contraportada Nota de bibliotecario Opinión Usuario Frase exacta Escanear ISBN Libro id:754 Proteo (jul 1996) ( Sight of Proteus , sep 1978 / Proteus Combined , 1994 ) Charles Sheffield Editorial: Ediciones B (España) Colección: Nova 85 ISBN: 8440665903 Rústica con solapas - 15×22 cm - 362 páginas Traducción: Carlos Gardini Rafael Marín Trechera Ilustración de cubierta: Trazo Serie: Proteo Ver título: Proteo Índice de contenidos pp. 5–10 Presentación [Proteo] , prólogo de Miquel Barceló pp. 11–65 Primera parte [El ascenso de Proteo] ( Book 1 [Sight of Proteus] ) (1978) revisión del relato Sight of Proteus (1978) Traducción de Carlos Gardini pp. 66–102 Segunda parte [El ascenso de Proteo] ( Book 2 [Sight of Proteus] ) (1978) revisión del relato Legacy (1977) Traducción de Carlos Gardini pp. 103–166 Tercera parte [El ascenso de Proteo] ( Book 3 [Sight of Proteus] ) (1978) revisión del relato The Grooves of Change (1979) Traducción de Carlos Gardini pp. 167–360 Proteo desencadenado ( Proteus Unbound ) , novela (1988) Traducción de Rafael Marín Trechera pp. 361–362 Referencia bibliográfica de Charles Sheffield [Proteo] , epílogo de Miquel Barceló Texto de contraportada/solapas: En el siglo XXII, la combinación de una bio-realimentación potenciada por ordenador con unas nuevas técnicas de quimioterapia ha permitido al ser humano no sólo curarse (eliminando la profesión médica), sino también alterar a voluntad su forma física. La alteración física, sin embargo, presenta aspectos oscuros, y la Agencia de Control de Formas que dirige Behrooz Wolf tiene la misión de impedir que formas ilegales o peligrosas se difundan. Mientras investiga proyectos de apariencia siniestra, Wolf encuentra pistas que lo conducen al mensaje legado hace millones de años por una especie extraterrestre. Más tarde, la recurrente imagen mental de un misterioso Bailarín le llevará a enfrentarse con los rebeldes que, desde el espacio exterior, se oponen al poder de la Tierra. Razones más que suficientes para replantear lo que significa ser humano precisamente en una época en la cual los humanos adquieren cualquier forma física si lo desean y cuando el nuevo Test de Humanidad resulta esencial para identificar a los miembros de la propia especie. Charles Sheffield, recientemente galardonado con los premios Nebula y John W. Campbell Memorial , demuestra de nuevo su excepcional habilidad en el tratamiento de ameno y sugerente de ideas especulativas de gran interés. \"Charles Sheffield es uno de los nuestros destacados escritores de ciencia ficción hard . A veces extiende sus alas con tal amplitud que puede ser comparado a soñadores cósmicos como Stapledon. Más a menudo se acomoda confortablemente en la misma estantería que Clarke, Asimov y Heilein\" ___ ANALOG ___ Libro con la colaboración de: Vorkosigan , eumenides",
+   "contents": [
+    {
+     "pages": "pp. 5–10",
+     "entry": "Presentación [Proteo] , prólogo de Miquel Barceló"
+    },
+    {
+     "pages": "pp. 11–65",
+     "entry": "Primera parte [El ascenso de Proteo] ( Book 1 [Sight of Proteus] ) (1978) revisión del relato Sight of Proteus (1978) Traducción de Carlos Gardini"
+    },
+    {
+     "pages": "pp. 66–102",
+     "entry": "Segunda parte [El ascenso de Proteo] ( Book 2 [Sight of Proteus] ) (1978) revisión del relato Legacy (1977) Traducción de Carlos Gardini"
+    },
+    {
+     "pages": "pp. 103–166",
+     "entry": "Tercera parte [El ascenso de Proteo] ( Book 3 [Sight of Proteus] ) (1978) revisión del relato The Grooves of Change (1979) Traducción de Carlos Gardini"
+    },
+    {
+     "pages": "pp. 167–360",
+     "entry": "Proteo desencadenado ( Proteus Unbound ) , novela (1988) Traducción de Rafael Marín Trechera"
+    },
+    {
+     "pages": "pp. 361–362",
+     "entry": "Referencia bibliográfica de Charles Sheffield [Proteo] , epílogo de Miquel Barceló"
+    }
+   ],
+   "note": null,
+   "has_spine": true,
+   "score": 133,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  }
+ ]
+}

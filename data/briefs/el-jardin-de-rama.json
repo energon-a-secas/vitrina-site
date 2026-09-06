@@ -1,0 +1,503 @@
+{
+ "want": {
+  "slug": "el-jardin-de-rama",
+  "title": "El jardín de Rama",
+  "authors": [
+   "Arthur C. Clarke",
+   "Gentry Lee"
+  ],
+  "shelf": "Zeta Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+  "queries": [
+   "El jardín de Rama"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 28879,
+   "title": "El jardín de Rama",
+   "year": "may 2010",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 4234,
+   "collection_number": "208",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498723779",
+   "format": "Rústica con solapas - 12,5×20 cm - 702 páginas",
+   "translators": [
+    "Adolfo Martín Pérez"
+   ],
+   "cover_art": [
+    "Thinkstock"
+   ],
+   "series": [
+    "Rama"
+   ],
+   "series_ids": [
+    1500
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/28879/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00028879.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00028879.jpg",
+   "dimensions": "5×20",
+   "pages": 702,
+   "has_spine": true,
+   "score": 125,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 656,
+   "title": "El jardín de Rama",
+   "year": "ene 1993",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova Éxito",
+   "collection_id": 69,
+   "collection_number": "1",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440632894",
+   "format": "Rústica con solapas - 15×23 cm - 492 páginas",
+   "translators": [
+    "Adolfo Martín Pérez"
+   ],
+   "cover_art": [
+    "Trazo"
+   ],
+   "series": [
+    "Rama"
+   ],
+   "series_ids": [
+    1500
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/656/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000656.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000656.jpg",
+   "dimensions": "15×23",
+   "pages": 492,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 687,
+   "title": "El jardín de Rama",
+   "year": "feb 1995",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "VIB",
+   "collection_id": 5,
+   "collection_number": "17",
+   "subcollection": "VIB Arthur C. Clarke",
+   "subcollection_id": 1635,
+   "subcollection_number": "3",
+   "isbn": "8440644124",
+   "format": "Rústica con solapas - 17×24 cm - 667 páginas",
+   "translators": [
+    "Adolfo Martín Pérez"
+   ],
+   "cover_art": [
+    "Eloy Sánchez Vizcaíno"
+   ],
+   "series": [
+    "Rama"
+   ],
+   "series_ids": [
+    1500
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/687/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000687.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000687.jpg",
+   "dimensions": "17×24",
+   "pages": 667,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 15431,
+   "title": "El jardín de Rama",
+   "year": "ene 1993",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Éxito Internacional",
+   "collection_id": 18,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440632894",
+   "format": "Rústica con solapas - 15×23 cm - 496 páginas",
+   "translators": [
+    "Adolfo Martín Pérez"
+   ],
+   "cover_art": [
+    "Jordi Vallhonesta"
+   ],
+   "series": [
+    "Rama"
+   ],
+   "series_ids": [
+    1500
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/15431/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00015431.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00015431.jpg",
+   "dimensions": "15×23",
+   "pages": 496,
+   "has_spine": true,
+   "score": 50,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 15684,
+   "title": "El jardín de Rama",
+   "year": "oct 2007",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Byblos",
+   "collection_id": 968,
+   "collection_number": "742",
+   "subcollection": "Byblos Arthur C. Clarke / Gentry Lee",
+   "subcollection_id": 3134,
+   "subcollection_number": "1",
+   "isbn": "9788466609203",
+   "format": "Rústica - 11×17,5 cm - 701 páginas",
+   "translators": [
+    "Adolfo Martín Pérez"
+   ],
+   "cover_art": [
+    "Xavier Martínez"
+   ],
+   "series": [
+    "Rama"
+   ],
+   "series_ids": [
+    1500
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/15684/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00015684.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00015684.jpg",
+   "dimensions": null,
+   "pages": 701,
+   "has_spine": true,
+   "score": 47,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 936,
+   "title": "El jardín de Rama",
+   "year": "2000",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Punto de Lectura",
+   "publisher_country": "España",
+   "collection": "Punto de Lectura",
+   "collection_id": 103,
+   "collection_number": "103",
+   "subcollection": "Punto de Lectura Arthur C. Clarke",
+   "subcollection_id": 1783,
+   "subcollection_number": "2",
+   "isbn": "8466300848",
+   "format": "Rústica - 11×17,5 cm - 672 páginas",
+   "translators": [
+    "Adolfo Martín Pérez"
+   ],
+   "cover_art": [
+    "Leo Flores"
+   ],
+   "series": [
+    "Rama"
+   ],
+   "series_ids": [
+    1500
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/936/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000936.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000936.jpg",
+   "dimensions": null,
+   "pages": 672,
+   "has_spine": true,
+   "score": 35,
+   "why": [
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 3098,
+   "title": "El jardín de Rama 1",
+   "year": "2000",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Folio",
+   "publisher_country": "España",
+   "collection": "Nueva Narrativa Bestseller",
+   "collection_id": 310,
+   "collection_number": "29",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8441315167",
+   "format": "Tapa dura - 16×22 cm",
+   "translators": [
+    "Adolfo Martín Pérez"
+   ],
+   "cover_art": [],
+   "series": [
+    "Rama"
+   ],
+   "series_ids": [
+    1500
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/3098/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00003098.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00003098.jpg",
+   "dimensions": "16×22",
+   "pages": null,
+   "has_spine": true,
+   "score": 30,
+   "why": [
+    "has a scanned spine",
+    "numbered in its collection",
+    "hardback"
+   ]
+  },
+  {
+   "id": 3099,
+   "title": "El jardín de Rama 2",
+   "year": "2000",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Folio",
+   "publisher_country": "España",
+   "collection": "Nueva Narrativa Bestseller",
+   "collection_id": 310,
+   "collection_number": "30",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8441315175",
+   "format": "Tapa dura - 16×22 cm",
+   "translators": [
+    "Adolfo Martín Pérez"
+   ],
+   "cover_art": [],
+   "series": [
+    "Rama"
+   ],
+   "series_ids": [
+    1500
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/3099/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00003099.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00003099.jpg",
+   "dimensions": "16×22",
+   "pages": null,
+   "has_spine": true,
+   "score": 30,
+   "why": [
+    "has a scanned spine",
+    "numbered in its collection",
+    "hardback"
+   ]
+  },
+  {
+   "id": 74291,
+   "title": "El jardín de Rama",
+   "year": "may 2023",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "B de Bolsillo",
+   "collection_id": 11402,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498723779",
+   "format": "Rústica - 12,5×19 cm - 704 páginas",
+   "translators": [
+    "Adolfo Martín Pérez"
+   ],
+   "cover_art": [],
+   "series": [
+    "Rama"
+   ],
+   "series_ids": [
+    1500
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/74291/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00074291.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00074291.jpg",
+   "dimensions": "5×19",
+   "pages": 704,
+   "has_spine": false,
+   "score": 12,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine"
+   ]
+  },
+  {
+   "id": 20311,
+   "title": "El jardín de Rama",
+   "year": "1993",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Emecé",
+   "publisher_country": "Argentina",
+   "collection": "Grandes Novelistas",
+   "collection_id": 276,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9500412810",
+   "format": "Rústica - 14×22 cm - 458 páginas",
+   "translators": [],
+   "cover_art": [],
+   "series": [
+    "Rama"
+   ],
+   "series_ids": [
+    1500
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/20311/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00020311.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00020311.jpg",
+   "dimensions": "14×22",
+   "pages": 458,
+   "has_spine": false,
+   "score": 8,
+   "why": [
+    "NO scanned spine",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 53444,
+   "title": "El jardín de Rama",
+   "year": "jun 2014",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Books",
+   "publisher_country": "España",
+   "collection": null,
+   "collection_id": null,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490197998",
+   "format": "Edición digital - ePUB",
+   "translators": [
+    "Adolfo Martín Pérez"
+   ],
+   "cover_art": [
+    "Thinkstock"
+   ],
+   "series": [
+    "Rama"
+   ],
+   "series_ids": [
+    1500
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/53444/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00053444.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00053444.jpg",
+   "dimensions": null,
+   "pages": null,
+   "has_spine": false,
+   "score": -28,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine",
+    "digital edition, not a paperback"
+   ]
+  }
+ ]
+}

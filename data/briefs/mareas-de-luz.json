@@ -1,0 +1,111 @@
+{
+ "want": {
+  "slug": "mareas-de-luz",
+  "title": "Mareas de luz",
+  "authors": [
+   "Gregory Benford"
+  ],
+  "shelf": "Nova",
+  "listed_as": "Nova ciencia ficción",
+  "queries": [
+   "Mareas de luz"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 217,
+   "title": "Mareas de luz EN VENTA",
+   "year": "oct 1991",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "43",
+   "subcollection": "Ciclo del Centro Galáctico",
+   "subcollection_id": 1614,
+   "subcollection_number": "4",
+   "isbn": "8440622546",
+   "format": "Rústica con solapas - 15×22 cm - 476 páginas",
+   "translators": [
+    "Márgara Auerbach"
+   ],
+   "cover_art": [
+    "Eloy Sánchez Vizcaíno"
+   ],
+   "series": [
+    "Ciclo del Centro Galáctico"
+   ],
+   "series_ids": [
+    199
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/217/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000217.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000217.jpg",
+   "dimensions": "15×22",
+   "pages": 476,
+   "has_spine": true,
+   "score": 133,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 723,
+   "title": "Mareas de luz",
+   "year": "1998",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "VIB",
+   "collection_id": 5,
+   "collection_number": "264",
+   "subcollection": "VIB Gregory Benford",
+   "subcollection_id": 1640,
+   "subcollection_number": "4",
+   "isbn": "8440682778",
+   "format": "Rústica - 11×17,5 cm - 567 páginas",
+   "translators": [
+    "Márgara Auerbach"
+   ],
+   "cover_art": [
+    "Maya & Cardil"
+   ],
+   "series": [
+    "Ciclo del Centro Galáctico"
+   ],
+   "series_ids": [
+    199
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/723/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000723.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000723.jpg",
+   "dimensions": null,
+   "pages": 567,
+   "has_spine": true,
+   "score": 93,
+   "why": [
+    "publisher is the one on the shelf label",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  }
+ ]
+}

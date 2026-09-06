@@ -1,0 +1,234 @@
+{
+ "want": {
+  "slug": "rama-revelada",
+  "title": "Rama revelada",
+  "authors": [
+   "Arthur C. Clarke",
+   "Gentry Lee"
+  ],
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "queries": [
+   "Rama revelada"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 51943,
+   "title": "Rama revelada",
+   "year": "oct 2014",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 6585,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498729894",
+   "format": "Rústica - 13×20 cm - 792 páginas",
+   "translators": [
+    "Daniel R. Yagolkowski"
+   ],
+   "cover_art": [],
+   "series": [
+    "Rama"
+   ],
+   "series_ids": [
+    1500
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/51943/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00051943.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00051943.jpg",
+   "dimensions": "13×20",
+   "pages": 792,
+   "has_spine": false,
+   "score": 90,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "NO scanned spine"
+   ]
+  },
+  {
+   "id": 590,
+   "title": "Rama revelada",
+   "year": "feb 1997",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "VIB",
+   "collection_id": 5,
+   "collection_number": "17",
+   "subcollection": "VIB Arthur C. Clarke",
+   "subcollection_id": 1635,
+   "subcollection_number": "7",
+   "isbn": "8440670303",
+   "format": "Rústica - 11×17,5 cm - 796 páginas",
+   "translators": [
+    "Daniel R. Yagolkowski"
+   ],
+   "cover_art": [],
+   "series": [
+    "Rama"
+   ],
+   "series_ids": [
+    1500
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/590/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000590.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000590.jpg",
+   "dimensions": null,
+   "pages": 796,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 74290,
+   "title": "Rama revelada",
+   "year": "may 2023",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "B de Bolsillo",
+   "collection_id": 11402,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498729894",
+   "format": "Rústica - 13×20 cm - 796 páginas",
+   "translators": [
+    "Daniel R. Yagolkowski"
+   ],
+   "cover_art": [],
+   "series": [
+    "Rama"
+   ],
+   "series_ids": [
+    1500
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/74290/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00074290.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00074290.jpg",
+   "dimensions": "13×20",
+   "pages": 796,
+   "has_spine": false,
+   "score": 12,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine"
+   ]
+  },
+  {
+   "id": 9313,
+   "title": "Rama revelada",
+   "year": "1994",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Emecé",
+   "publisher_country": "Argentina",
+   "collection": "Grandes Novelistas",
+   "collection_id": 276,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9500414066",
+   "format": "Libro - Papel - 525 páginas",
+   "translators": [
+    "Daniel R. Yagolkowski"
+   ],
+   "cover_art": [
+    "Eduardo Ruiz"
+   ],
+   "series": [
+    "Rama"
+   ],
+   "series_ids": [
+    1500
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/9313/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00009313.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00009313.jpg",
+   "dimensions": null,
+   "pages": 525,
+   "has_spine": false,
+   "score": 8,
+   "why": [
+    "NO scanned spine",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 52640,
+   "title": "Rama revelada",
+   "year": "oct 2014",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Books",
+   "publisher_country": "España",
+   "collection": null,
+   "collection_id": null,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490198933",
+   "format": "Edición digital - ePUB",
+   "translators": [
+    "Daniel R. Yagolkowski"
+   ],
+   "cover_art": [],
+   "series": [
+    "Rama"
+   ],
+   "series_ids": [
+    1500
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/52640/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00052640.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00052640.jpg",
+   "dimensions": null,
+   "pages": null,
+   "has_spine": false,
+   "score": -28,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine",
+    "digital edition, not a paperback"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,196 @@
+{
+ "want": {
+  "slug": "la-tierra-desprevenida",
+  "title": "La Tierra desprevenida",
+  "authors": [
+   "Orson Scott Card",
+   "Aaron Johnston"
+  ],
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "queries": [
+   "La Tierra desprevenida"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 49632,
+   "title": "La Tierra desprevenida",
+   "year": "2014",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 6585,
+   "collection_number": null,
+   "subcollection": "Primera Guerra Fórmica",
+   "subcollection_id": 10278,
+   "subcollection_number": "1",
+   "isbn": "9788498729498",
+   "format": "Rústica con solapas - 13×20 cm - 459 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [],
+   "series": [
+    "Ender Wiggin"
+   ],
+   "series_ids": [
+    1602
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/49632/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00049632.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00049632.jpg",
+   "dimensions": "13×20",
+   "pages": 459,
+   "has_spine": true,
+   "score": 120,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "has a scanned spine"
+   ]
+  },
+  {
+   "id": 65252,
+   "title": "La Tierra desprevenida",
+   "year": "11 jul 2019",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 6585,
+   "collection_number": null,
+   "subcollection": "Primera Guerra Fórmica",
+   "subcollection_id": 10278,
+   "subcollection_number": "1",
+   "isbn": "9788413140070",
+   "format": "Rústica - 12,5×19 cm - 464 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [],
+   "series": [
+    "Ender Wiggin"
+   ],
+   "series_ids": [
+    1602
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/65252/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00065252.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00065252.jpg",
+   "dimensions": "5×19",
+   "pages": 464,
+   "has_spine": true,
+   "score": 120,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "has a scanned spine"
+   ]
+  },
+  {
+   "id": 40116,
+   "title": "La Tierra desprevenida",
+   "year": "3 abr 2013",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "237",
+   "subcollection": "Primera Guerra Fórmica",
+   "subcollection_id": 10276,
+   "subcollection_number": "1",
+   "isbn": "9788466652933",
+   "format": "Rústica con solapas - 15×23 cm - 459 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Estudio Ediciones B",
+    "Thinkstock"
+   ],
+   "series": [
+    "Ender Wiggin"
+   ],
+   "series_ids": [
+    1602
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/40116/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00040116.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00040116.jpg",
+   "dimensions": "15×23",
+   "pages": 459,
+   "has_spine": true,
+   "score": 47,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 40912,
+   "title": "La Tierra desprevenida",
+   "year": "2013",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Books",
+   "publisher_country": "España",
+   "collection": null,
+   "collection_id": null,
+   "collection_number": null,
+   "subcollection": "Primera Guerra Fórmica (digital)",
+   "subcollection_id": 10277,
+   "subcollection_number": "1",
+   "isbn": "9788490193891",
+   "format": "Edición digital - ePUB",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Estudio Ediciones B",
+    "Thinkstock"
+   ],
+   "series": [
+    "Ender Wiggin"
+   ],
+   "series_ids": [
+    1602
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/40912/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00040912.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00040912.jpg",
+   "dimensions": null,
+   "pages": null,
+   "has_spine": false,
+   "score": -28,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine",
+    "digital edition, not a paperback"
+   ]
+  }
+ ]
+}

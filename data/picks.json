@@ -1,0 +1,858 @@
+[
+ {
+  "slug": "premio-upc-1991",
+  "title": "Premio UPC 1991",
+  "authors": [
+   "Javier Negrete",
+   "Rafael Marín",
+   "Ángel Torres Quesada"
+  ],
+  "book_id": 622,
+  "shelf": "Nova",
+  "listed_as": "Nova ciencia ficción",
+  "note": null,
+  "confidence": "high",
+  "shelf_label_matches": true,
+  "reasoning": "The catalogue holds exactly one edition of this title (id 622), and it satisfies every criterion at once: Coleccion \"Nova\" number 48, Editorial \"Ediciones B\", which is precisely the owner's \"Nova ciencia ficcion\" heading. It is the 1992 rustica con solapas paperback with a scanned spine, so the shelf gets a real spine image rather than a placeholder. The record lists no individual authors because it is the collective volume of the 1991 UPC award novellas by Negrete, Marin and Torres Quesada, exactly the book the want describes, and the cover art by Oscar H. Chichoni fits the pre-2000 Nova printings this shelf exists for. No alternates and no ambiguity: nothing to overrule in the ranker's call.",
+  "concern": null,
+  "alternates": [],
+  "verified": true,
+  "verify_grounds": "The pick stands; there is nothing to overrule. data/candidates.json holds exactly one candidate for this slug (id 622) and its compact_seen is empty, so no alternate edition was seen and dropped. The deciding fields all land on 622 at once: collection \"Nova\" (collection_id 3, number 48) plus publisher \"Ediciones B\" is a literal both-field match to the owner's \"Nova ciencia ficcion\" heading, so no catalogue-vs-label concern arises. format \"Rustica con solapas - 15x22 cm - 290 paginas\" rules out the digital/hardback objection. has_spine is true and data/spines.json independently confirms \"622\": true, so the shelf gets a real spine. year \"abr 1992\" is the pre-2000 printing the shelf exists for. The one angle worth pressing, that this is an anthology rather than a novel, does not refute: want.title is itself \"Premio UPC 1991\" with three authors (Negrete, Marin, Torres Quesada), i.e. the collective award volume, so the empty authors array and the [\"Ciencia ficcion\", \"Ensayo\"] genres are the expected shape of the wanted book, not evidence of an omnibus standing in for a novel that exists separately. No title collision is visible in the record (ISBN 8440627122, Nova 48, cover art Oscar H. Chichoni); the tercerafundacion.net page could not be fetched for an external cross-check (HTTP 403), but that is a verification gap, not a defect in the pick.",
+  "overridden_to": null
+ },
+ {
+  "slug": "telarana-entre-los-mundos",
+  "title": "La telaraña entre los mundos",
+  "authors": [
+   "Charles Sheffield"
+  ],
+  "book_id": 162,
+  "shelf": "Nova",
+  "listed_as": "Nova ciencia ficción",
+  "note": null,
+  "confidence": "high",
+  "shelf_label_matches": true,
+  "reasoning": "Edition 162 is the only record matching the owner's heading on both deciding fields: Colección Nova, Editorial Ediciones B, numbered 21 in the collection. It is a single-novel paperback (rústica con solapas) of Sheffield's title, not an omnibus, and it carries a scanned spine. The only rival, 35365, is the 2012 Grupo AJEC / Arrakis Ficción reprint: right book, wrong imprint for this shelf, and a much later printing, so it loses on both the label match and the older-cover tiebreak.",
+  "concern": null,
+  "alternates": [
+   35365
+  ],
+  "verified": true,
+  "verify_grounds": "The pick stands, and the deciding fields are collection/publisher. The full pool (candidates.json, compact_seen empty) holds exactly two records. Edition 162 is Coleccion \"Nova\" + Editorial \"Ediciones B\", number 21, which is an exact match for the owner's heading \"Nova ciencia ficcion\"; the only rival, 35365, is Coleccion \"Arrakis Ficcion\" + Editorial \"Grupo AJEC\" and matches neither field, so no candidate matches the heading better and the heading needs no correction. No refutation angle survives: 162 is not an omnibus, guide or series volume (singular title, single collection number, one translator Diana Trujillo, one cover artist Juan Gimenez, empty series list; 368 pp at 12x19 cm is the same text as the rival's 240 pp at 16x23 cm, a format difference not a bundle), and the \"Ensayo\" genre tag is a catalogue artifact that also appears on unrelated records such as Premio UPC 1991. Both records are format \"Rustica con solapas\", so the pick is not a digital or hardback edition chosen over a paper one. Both have has_spine true, so the spine criterion cannot favour the rival. No record for a different work sharing the title exists. On the final tiebreak 162 is nov 1989 against 2012, the older cover the shelf is for.",
+  "overridden_to": null
+ },
+ {
+  "slug": "mareas-de-luz",
+  "title": "Mareas de luz",
+  "authors": [
+   "Gregory Benford"
+  ],
+  "book_id": 217,
+  "shelf": "Nova",
+  "listed_as": "Nova ciencia ficción",
+  "note": null,
+  "confidence": "high",
+  "shelf_label_matches": true,
+  "reasoning": "The deciding field is collection: id 217 is Ediciones B / Colección Nova nº 43, which is exactly the owner's \"Nova ciencia ficción\" heading, while the only alternative (id 723) is Ediciones B / VIB nº 264, a 1998 pocket reissue in a different collection. Both are genuinely the same novel, book 4 of the Ciclo del Centro Galáctico in Márgara Auerbach's translation, so nothing here is an omnibus or a different volume. Id 217 also has a scanned spine, is the older printing (1991), and is a rústica con solapas trade paperback at 15x22 cm, so every remaining tiebreak points the same way.",
+  "concern": "Two things worth knowing. First, the catalogue record for id 217 is titled \"Mareas de luz EN VENTA\" and is tagged with the genre \"Ensayo\" alongside \"Ciencia ficción\"; both look like catalogue-side annotation noise rather than a different book, since the ISBN, collection number, series and translator all match the novel. Second, if the copy on the shelf is a small pocket paperback (11x17,5 cm, 567 pages, Maya & Cardil cover) rather than the large trade edition (15x22 cm, 476 pages, Eloy Sánchez Vizcaíno cover), then the actual copy is id 723 in the VIB collection, which contradicts the \"Nova\" label. Neither record lists an author field, so authorship was inferred from the series and translator rather than read off the record.",
+  "alternates": [
+   723
+  ],
+  "verified": true,
+  "verify_grounds": "The deciding field is `collection`, and it decides for id 217. The candidate pool is exactly two records (candidates.json confirms it, with `compact_seen` empty, so the ranker discarded nothing before the brief). Id 217 is Ediciones B / collection \"Nova\" nº 43; the owner's heading \"Nova ciencia ficción\" maps to collection Nova + publisher Ediciones B, so 217 matches both fields. Id 723 is Ediciones B / collection \"VIB\" nº 264, matching publisher only, so the catalogue and the label agree on 217 and there is no heading conflict to report. I looked specifically for each refutation route and found none. Same work, not an omnibus or wrong volume: both records are Ciclo del Centro Galáctico (series_ids [199]) volume 4 in Márgara Auerbach's translation, i.e. Benford's Tides of Light, and no other want in the dataset claims either id. Not digital or hardback: 217 is \"Rústica con solapas - 15×22 cm - 476 páginas\", a trade paperback; 723 is a 11×17,5 cm pocket rústica. No spine advantage for the alternative: both have has_spine true, so tiebreak 3 is neutral. Not a title-sharing different work: Nova nº 43 is uniquely this record across the dataset. Two surface oddities on 217 are dataset noise, not evidence against it: the title \"Mareas de luz EN VENTA\" carries a for-sale flag scraped from the site (4 records fleet-wide do), and the extra genre \"Ensayo\" is a bulk catalogue tag present on 97 of 170 candidate records and 35 of 42 Nova records, including a fiction anthology, so it does not indicate a guide or essay volume. The remaining tiebreak also points the same way: 1991 is the older printing against 1998.",
+  "overridden_to": null
+ },
+ {
+  "slug": "mendigos-y-opulentos",
+  "title": "Mendigos y opulentos",
+  "authors": [
+   "Nancy Kress"
+  ],
+  "book_id": 338,
+  "shelf": "Nova",
+  "listed_as": "Nova ciencia ficción",
+  "note": null,
+  "confidence": "high",
+  "shelf_label_matches": true,
+  "reasoning": "Edition 338 is the only record that matches the owner's heading on both deciding fields: Colección \"Nova\" (number 87) and Editorial \"Ediciones B\", exactly the pair the label \"Nova ciencia ficción\" resolves to. It is also the one that wins every tiebreaker: a scanned spine, \"Rústica con solapas\" paperback, and the oldest printing (oct 1996) with the Trazo cover art the shelf exists to show. The 2006 record (19216) is the same publishing house but the Byblos pocket collection, not Nova, and the 2016 record (56291) is a B de Books digital edition with no spine scan. All three are the same novel by Nancy Kress in Elsa Mateo Blanco's translation, so there is no omnibus or wrong-volume risk here.",
+  "concern": "The catalogue stores this record's title as \"Mendigos y opulentos EN VENTA\": the \"EN VENTA\" tail is a tercerafundacion listing marker, not part of the book's title, so strip it before it reaches the shelf. Also note this is volume 2 of the Insomnes series (Beggars and Choosers), so the shelf will want the other volumes catalogued separately rather than expecting one book to cover the saga.",
+  "alternates": [
+   19216,
+   56291
+  ],
+  "verified": true,
+  "verify_grounds": "The pick stands, and the attempt to break it turned up nothing. The deciding field is `collection`: the label \"Nova ciencia ficcion\" resolves to Coleccion \"Nova\" + Editorial \"Ediciones B\", and id 338 is the only record in the set with collection=\"Nova\" (number 87) AND publisher=\"Ediciones B\". The other two fail on that same field: 19216 is Coleccion \"Byblos\" 383 (subcoleccion \"Byblos Nancy Kress\" 2), same house but the wrong collection, and 56291 has collection=null under the \"B de Books\" imprint. No fourth candidate exists: data/candidates.json for this slug holds exactly these three, and the cached search page (data/.cache/_biblioteca_buscar__q_Mendigos_y_opulentos_tipo_titulo.html) says \"Ediciones (3)\" for titulo id 352, with no Zeta Bolsillo or B de Bolsillo record anywhere on it. Every refutation avenue checks out clean. Not an omnibus, guide or wrong volume: the cached indice for 338 is pp. 5-8 Barcelo prologue, pp. 9-361 the novel \"Mendigos y opulentos\" (Beggars and Choosers, 1994), pp. 365-366 bibliographic reference plus Barcelo epilogue. That is one novel with editorial apparatus, which is also where the odd \"Ensayo\" genre tag comes from (all three records carry it identically). Not a title collision: all three share series \"Los Insomnes\" (id 1124) and Elsa Mateo Blanco's translation, and this is the second Beggars volume, which is the volume the want asks for, not \"Mendigos en Espana\". Not digital: format is \"Rustica con solapas - 15x22 cm - 366 paginas\"; the only digital record is 56291. No better-spined rival: 338 already has has_spine=true, so the sole competitor with a spine (19216) offers no tiebreak advantage and loses on collection anyway. Tiebreakers all point the same way regardless: oct 1996 is the oldest of the three, and the Trazo cover art is the hard-to-find one the shelf exists to display.",
+  "overridden_to": null
+ },
+ {
+  "slug": "proteo",
+  "title": "Proteo",
+  "authors": [
+   "Charles Sheffield"
+  ],
+  "book_id": 754,
+  "shelf": "Nova",
+  "listed_as": "Nova ciencia ficción",
+  "note": null,
+  "confidence": "high",
+  "shelf_label_matches": true,
+  "reasoning": "The brief holds exactly one catalogued edition, and it satisfies every rule at once: Charles Sheffield's Proteo, Editorial Ediciones B, Colección Nova number 85, which is precisely the collection plus publisher pair behind the owner's \"Nova ciencia ficción\" heading. It is a paperback (rústica con solapas), it carries a scanned spine, and at jul 1996 it is the pre-2000 printing this shelf exists to show. The deciding field is the collection/publisher pair matching the label with no competing record to weigh it against.",
+  "concern": "This Nova 85 volume is an omnibus, not a single novel: the contents run \"El ascenso de Proteo\" (Sight of Proteus, 1978) across pp. 11-166, then the complete \"Proteo desencadenado\" (Proteus Unbound, 1988) across pp. 167-360, matching the English Proteus Combined of 1994. So one spine on the shelf covers two novels of the Proteo series. If the owner remembers owning \"Proteo desencadenado\" as its own book as well, that is a different physical volume and a different catalogue record, and nothing under the query \"Proteo\" would have surfaced it here. Also worth noting: the catalogue tags this record with genres \"Ciencia ficción\" and \"Ensayo\", the latter presumably because of Miquel Barceló's prologue and epilogue, so it is not evidence against this being the novel volume.",
+  "alternates": [],
+  "verified": true,
+  "verify_grounds": "The pick stands. The brief holds exactly one candidate (id 754), and I checked it is not an artefact of a thin brief: the cached catalogue searches for \"Proteo\" (data/.cache/_biblioteca_buscar__q_Proteo_tipo_libro.html, 32 hits, and ..._tipo_titulo.html, 5 hits) return only one Charles Sheffield \"Proteo\", libro/754. Every other hit is a different work sharing the word: Hogan's \"Operación Proteo\" (libro/14302), Milagros Oya's \"Fuga de Proteo 100-D-22\", and the \"Enigmas\" anthologies credited to the Spanish house Editorial Proteo. So there is no rival edition to prefer, no paper-versus-digital choice, and no competing spine.\n\nThe deciding field is the collection/publisher pair: collection \"Nova\" (number 85) + publisher \"Ediciones B\", which is exactly the pair behind the owner's \"Nova ciencia ficción\" heading, so the label and the catalogue agree and no concern is owed. The remaining rules all point the same way: format \"Rústica con solapas\" is paperback, has_spine is true (real scanned lomo, not a placeholder), and jul 1996 is the pre-2000 printing the shelf exists to show.\n\nThe one thing worth naming, since it is the strongest available attack and it fails: this volume is an omnibus. Its contents field shows \"El ascenso de Proteo\" (Sight of Proteus, in three parts) plus \"Proteo desencadenado\" (Proteus Unbound), with the header citing the English \"Proteus Combined\" (1994), and the genre list oddly includes \"Ensayo\" because Barceló's prologue and epilogue are indexed. But the omnibus rule only bites when a plain single-novel edition exists to choose instead, and none does in Spanish in this catalogue. Nova 85 titled \"Proteo\" IS the physical object on the owner's Nova shelf, so picking it is not settling for a compilation over a novel, it is the only printing of that title that was ever made under that heading.",
+  "overridden_to": null
+ },
+ {
+  "slug": "fundacion-y-caos",
+  "title": "Fundación y Caos",
+  "authors": [
+   "Greg Bear"
+  ],
+  "book_id": 32119,
+  "shelf": "Zeta Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+  "note": null,
+  "confidence": "high",
+  "shelf_label_matches": true,
+  "reasoning": "Edition 32119 is the only record whose publisher (Zeta Bolsillo) and collection (Ciencia Ficción, number 288) both match the owner's heading exactly, and it is the right book: Greg Bear's second volume of the Segunda trilogía de la Fundación in Carlos Gardini's translation, a single novel rather than an omnibus. The deciding field is the collection plus publisher pair, which outranks the spine preference. The three spine-bearing alternatives all sit under different headings: 225 is Ediciones B / Nova, which is the owner's separate \"Nova ciencia ficción\" shelf, 15395 is the Byblos pocket line, and 940 is Punto de Lectura, a publisher absent from all three headings.",
+  "concern": "The correct edition has no scanned spine, so this book will show a drawn placeholder on the shelf. The catalogue does hold spine scans for three other printings of the same novel (the 1999 Ediciones B / Nova, the 2006 Byblos, and the 2000 Punto de Lectura), but each belongs to a different collection or publisher than the Zeta Bolsillo heading the owner wrote, so none of them can stand in without misrepresenting which physical copy is on the shelf. Worth noting that the catalogue title for record 225 is stored as \"Fundación y caos EN VENTA\", a listing artifact rather than part of the title.",
+  "alternates": [
+   225,
+   15395,
+   940
+  ],
+  "verified": true,
+  "verify_grounds": "The pick stands, and I could not construct a refutation. The full candidate pool in candidates.json is exactly four records (225, 940, 15395, 32119), all the same Greg Bear novel, all in Carlos Gardini's translation, all tagged series \"Segunda trilogía de la Fundación\", all single volumes (384/479/459/455 pages), all \"Rústica\" formats. So none of the standard refutation routes applies: 32119 is not an omnibus, guide, anthology, digital edition, wrong series volume, or a different work sharing a title. The deciding field is publisher+collection: the owner's heading \"Ciencia Ficción. Editorial Zeta Bolsillo\" resolves to publisher \"Zeta Bolsillo\" + collection \"Ciencia Ficción\", and 32119 is the only record in the pool matching both (Zeta Bolsillo, Ciencia Ficción no. 288, ISBN 9788498723908, rústica con solapas, 2011). The catalogue therefore corroborates the owner's label rather than contradicting it, so no concern about a mislabeled shelf is warranted. The three spine-bearing alternatives sit under headings that are not this one: 225 is Ediciones B / Nova (the owner's separate Nova shelf, and its title carries a catalogue \"EN VENTA\" artifact), 15395 is Ediciones B / Byblos (subcollection \"Byblos Greg Bear\" no. 2), 940 is Punto de Lectura, a publisher absent from all three headings. Rule 2 (collection AND publisher match) outranks rule 3 (spine), and rule 3 states outright that a spine is not worth choosing the wrong physical book for. Verified against spines.json: has_spine is False only for 32119 and True for the other three, so the accepted cost is a drawn placeholder on the shelf rather than a scanned spine. One non-issue worth naming so it is not mistaken for evidence later: 32119's genres include \"Ensayo\", but 225 and 15395 carry the same tag, so it is a catalogue tagging quirk on this title, not a sign the record is a companion or essay volume.",
+  "overridden_to": null
+ },
+ {
+  "slug": "el-temor-de-la-fundacion",
+  "title": "El temor de la Fundación",
+  "authors": [
+   "Gregory Benford"
+  ],
+  "book_id": 31396,
+  "shelf": "Zeta Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+  "note": null,
+  "confidence": "high",
+  "shelf_label_matches": true,
+  "reasoning": "Edition 31396 is the only record whose collection (\"Ciencia Ficción\") and publisher (\"Zeta Bolsillo\") both match the owner's heading exactly, and it is genuinely the Benford novel: same translator (Carlos Gardini) and same series (\"Segunda trilogía de la Fundación\") as every other candidate, a single 650-page paperback rather than an omnibus. The deciding field is the collection+publisher pair, which the label gets right for once. It loses on the spine test only: a HEAD request confirms L-00031396.jpg is a 404 while the 1998 Nova printing's spine (342) returns 200, but that Nova edition is a physically different book, so correctness wins over the scan.",
+  "concern": "The shelf label is accurate, but the matching Zeta Bolsillo printing (Ciencia Ficción #277, 2011, ISBN 9788498723847) has no scanned spine in the catalogue, so it will render as a drawn placeholder on the shelf. The two editions that do have spine scans are different physical books: the 1998 Nova #113 hardback-sized paperback (15x23 cm, 519 pp, Samuel Gómez cover) and the 2006 Byblos pocket edition (11x17,5 cm, 655 pp). If the owner would rather see real cover art than a placeholder, they should check whether the book on the shelf is actually the smaller Nova or Byblos printing before overriding this pick. Also worth knowing: this is one volume of Benford's Second Foundation Trilogy, so the shelf may hold companion volumes by Bear and Brin under the same heading.",
+  "alternates": [
+   342,
+   15396,
+   938
+  ],
+  "verified": true,
+  "verify_grounds": "The pick stands; the deciding field is collection+publisher, and 31396 is the only candidate that matches both. Owner's heading is \"Ciencia Ficción. Editorial Zeta Bolsillo\"; 31396 has collection \"Ciencia Ficción\" (no. 277) and publisher \"Zeta Bolsillo\". The other three miss on publisher and collection both: 342 is Ediciones B / Nova 113, 15396 is Ediciones B / Byblos 18, 938 is Punto de Lectura / Punto de Lectura 73. This is one of the cases where the owner's label is right, so there is no catalogue-vs-label conflict to report.\n\nI checked every refutation angle and none holds. Not an omnibus, guide or wrong volume: I fetched tercerafundacion.net/biblioteca/ver/libro/31396/ and its index of contents is a Miquel Barceló prologue at pp. 7-17 plus the novel itself at pp. 21-650, credited \"Gregory Benford, El temor de la fundación (Foundation's Fear), novela (1997)\" — the same single work, same translator (Carlos Gardini), same series (Segunda trilogía de la Fundación) as the Nova printing I fetched alongside it for comparison. Not digital: format is \"Rústica con solapas - 12,5×20 cm - 650 páginas\", a paperback with flaps. Not a title collision: the original-title line reads Foundation's Fear, 1997, Gregory Benford. And no better-matching candidate exists in the raw set — data/candidates.json for this slug holds exactly the same four records the brief ranked, so nothing was dropped before ranking.\n\nThe only thing 31396 loses on is the spine, and I confirmed that loss rather than assuming it: HEAD on all four returned 404 for L-00031396.jpg and 200 for L-00000342.jpg, L-00015396.jpg and L-00000938.jpg. That is real, but rule 3 is explicitly subordinate to rule 2 and says a spine is not worth choosing the wrong physical book for. The three spined candidates are all physically different books from the one the heading describes, so the placeholder is the correct outcome here.\n\nOne unrelated data glitch worth noting, which does not affect the pick: the brief's \"dimensions\" for 31396 reads \"5×20\", a bad parse of \"12,5×20 cm\" in the format string (the comma decimal split). If any downstream sizing uses that field, this book will render far too narrow.",
+  "overridden_to": null
+ },
+ {
+  "slug": "el-jardin-de-rama",
+  "title": "El jardín de Rama",
+  "authors": [
+   "Arthur C. Clarke",
+   "Gentry Lee"
+  ],
+  "book_id": 28879,
+  "shelf": "Zeta Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+  "note": null,
+  "confidence": "high",
+  "shelf_label_matches": true,
+  "reasoning": "Edition 28879 matches the owner's heading on both deciding fields: editorial Zeta Bolsillo and colección Ciencia Ficción, number 208, so no label override is needed. It is the complete single-volume novel in rústica con solapas (702 pages, Adolfo Martín Pérez translation) and it has a scanned spine, satisfying every tiebreaker at once. The closest rival, 74291, carries the same ISBN but is the 2023 B de Bolsillo reissue with no spine scan; the Folio records 3098/3099 are a two-volume hardback split of the same novel and would be the wrong physical object.",
+  "concern": null,
+  "alternates": [
+   74291,
+   15684,
+   936,
+   656
+  ],
+  "verified": true,
+  "verify_grounds": "The pick stands, and it is the only record that can satisfy the heading. \"Ciencia Ficción. Editorial Zeta Bolsillo\" decomposes to collection \"Ciencia Ficción\" + publisher \"Zeta Bolsillo\", and 28879 is the sole candidate matching both (número 208); every other record is a different imprint (Ediciones B via Nova Éxito/VIB/Éxito Internacional/Byblos/B de Bolsillo, plus Punto de Lectura, Folio, Emecé, B de Books), so no label override arises. It is the plain single-volume novel, not an omnibus or a companion: series \"Rama\", translator Adolfo Martín Pérez, and its 702 pages sit inside the pocket-format cluster for this same text (15684 Byblos 701pp, 74291 704pp, 936 672pp), with the 1993 15×23 printings at 492/496pp being the same novel at a larger trim. It is paperback (rústica con solapas) and has_spine=true. The candidates that could have refuted it each fail on a named field: 74291 shares the ISBN but is has_spine=false and its collection is \"B de Bolsillo\", not \"Ciencia Ficción\"; 3098/3099 are titled \"El jardín de Rama 1\"/\"2\" with collection numbers 29 and 30, a Folio tapa dura two-volume split of one novel, so the wrong physical object; 53444 is format \"Edición digital - ePUB\"; 20311 (Emecé, Argentina) is has_spine=false and off-heading. Rule 5 (prefer the older printing) never engages because nothing ties with 28879 on rules 2 through 4.",
+  "overridden_to": null
+ },
+ {
+  "slug": "marte-se-mueve",
+  "title": "Marte se mueve",
+  "authors": [
+   "Greg Bear"
+  ],
+  "book_id": 196,
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "note": null,
+  "confidence": "medium",
+  "shelf_label_matches": false,
+  "reasoning": "Only one catalogued edition exists (id 196), and it is unambiguously the right book: Greg Bear's Moving Mars, translated by Carlos Gardini, filed in the \"Reina de los Ángeles\" series, 476 pages, Nova number 79. The deciding fields are collection and publisher: they read Nova / Ediciones B, not the \"Ciencia Ficción / B de Bolsillo\" the owner wrote, so the catalogue overrules the label rather than the reverse. It is a paperback (rústica con solapas), pre-2000, and carries a scanned spine, so every remaining preference is satisfied by the same record; confidence is medium only because the label mismatch leaves open whether the physical copy is this printing or an uncatalogued pocket reprint.",
+  "concern": "The shelf label says \"Ciencia Ficción. Editorial B de Bolsillo\", but the catalogue holds exactly one printing of this title: Nova 79 / Ediciones B, rústica con solapas, Nov 1995. No B de Bolsillo (or Zeta Bolsillo) edition of \"Marte se mueve\" is catalogued at all, so either the copy on the shelf is in fact the Nova printing, or the owner has a pocket reprint tercerafundacion has never recorded, in which case the spine rendered here will be the tall Nova one and will not look like the book in hand. Worth a glance at the actual spine before trusting the label. Minor note: the record leaves the author field empty and tags the genre as \"Ciencia ficción, Ensayo\", which is catalogue noise; the Carlos Gardini translation, the 476 pages and the \"Reina de los Ángeles\" series link confirm it is Greg Bear's Moving Mars.",
+  "alternates": [],
+  "verified": true,
+  "verify_grounds": "No refutation is available: the \"Ediciones (1)\" field on the catalogue's title record (id:193, \"Marte se mueve\", original \"Moving Mars\" 1993) states there is exactly one catalogued Spanish edition, and it is id 196. data/candidates.json and the cached search page agree; the only other libro id on that page is 2147, which is the original-English \"Moving Mars\" record and is excluded by rule 1. So there is no rival edition to prefer, on the shelf heading or anything else. Checked the omnibus trap and it fails: the \"Índice de contenidos\" field reads pp. 13-469 \"Marte se mueve (Moving Mars), novela (1993)\", with only a Miquel Barceló prologue (pp. 5-11) and bibliographic epilogue (pp. 471-476) around it, which is standard Nova apparatus and also explains the stray \"Ensayo\" genre tag. It is not a companion, guide, anthology, or another volume of the Reina de los Ángeles sequence. Format reads \"Rústica con solapas\", so it is paperback, not digital or hardback; has_spine is true; nov 1995 is the only printing there is. The label mismatch the other reader flagged is real and their handling of it is the correct one: collection/publisher read Nova / Ediciones B, not the \"Ciencia Ficción / B de Bolsillo\" the owner wrote, and since no B de Bolsillo printing of this title is catalogued at all, honouring the heading would mean picking nothing. Catalogue overrules the label; the physical copy may still be an uncatalogued pocket reprint, which is a concern to record, not a reason to change the pick.",
+  "overridden_to": null
+ },
+ {
+  "slug": "radix",
+  "title": "Radix",
+  "authors": [
+   "A. A. Attanasio"
+  ],
+  "book_id": 387,
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "note": null,
+  "confidence": "high",
+  "shelf_label_matches": false,
+  "reasoning": "Only one catalogued edition exists, and it is genuinely Attanasio's novel: Nova number 27, 657 pages, translated by Rafael Marín Trechera with Óscar Chichoni cover art, which is the known 1990 Ediciones B printing. It is a rústica con solapas paperback with a scanned spine, so it satisfies the format and spine preferences. The deciding field is publisher/collection: it is Nova / Ediciones B, not the B de Bolsillo heading the owner wrote, but with no competing record there is nothing better to choose and the catalogue wins over the label.",
+  "concern": "The shelf label says \"Ciencia Ficción. Editorial B de Bolsillo\", but the catalogue holds only one Radix: the Nova 27 printing from Ediciones B (jun 1990). No B de Bolsillo edition of this title exists in the catalogue, so either the copy on the shelf is the Nova paperback and the heading is a misremembering, or the owner has an uncatalogued pocket reissue. The record also carries an empty author field (identity confirmed instead by title, Nova number 27, the 657-page count and Rafael Marín's translation), and its genre list oddly includes \"Ensayo\", both look like catalogue data noise rather than a different book.",
+  "alternates": [],
+  "verified": true,
+  "verify_grounds": "Deciding field is \"Ediciones (1)\" on the catalogue's own work page. The cached search HTML (data/.cache/_biblioteca_buscar__q_Radix_tipo_titulo.html) resolves the title to work id 404, Radix by A. A. Attanasio (orig. 1981, Nebula/Locus/Cosmos 2000 nominations), and that work lists exactly one edition: id 387, jun 1990, Ediciones B, Nova 27, ISBN 8440613466, rústica con solapas 12x19, 657 pp, trans. Rafael Marín Trechera, cover Óscar H. Chichoni, has_spine true. data/candidates.json for this slug carries that single candidate with an empty compact_seen, so nothing was dropped in ranking. I checked each refutation route and none applies: (a) no competing B de Bolsillo or Zeta Bolsillo record exists to match the owner's heading better; (b) it is not an omnibus, guide or wrong volume, the catalogue's índice de contenidos shows pp. 15-655 \"Radix (Radix), novela (1981)\" wrapped in a Miquel Barceló presentación (pp. 5-13) and a one-page bibliographical epílogo, which is the ordinary Nova apparatus and is also why the record carries a stray \"Ensayo\" genre tag; (c) it is paper, not digital or hardback; (d) no rival with a spine exists; (e) no other work shares the title in the catalogue, the title search returned this single work id. The publisher/collection mismatch against the owner's \"Ciencia Ficción. Editorial B de Bolsillo\" label is real and belongs in \"concern\" (the catalogue knows no B de Bolsillo printing of Radix), but with a single catalogued edition it is a labelling error, not a reason to pick differently. The pick stands.",
+  "overridden_to": null
+ },
+ {
+  "slug": "serpiente-del-sueno",
+  "title": "Serpiente del sueño",
+  "authors": [
+   "Vonda N. McIntyre"
+  ],
+  "book_id": 209,
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "note": null,
+  "confidence": "medium",
+  "shelf_label_matches": false,
+  "reasoning": "Both candidates are genuinely this novel, same translator (Rafael Marín Trechera), no omnibus or guide in the set, so rule 1 is satisfied twice and the deciding field is the tiebreak. Neither edition matches the owner's heading on collection or publisher, since the catalogue has no B de Bolsillo printing at all, so rule 2 cannot separate them; both carry a scanned spine and both are paperback, so rules 3 and 4 tie as well. That leaves rule 5, the older printing, which picks the 1989 Nova 17 with the Chichoni cover, exactly the hard-to-find art this shelf exists for. Confidence is medium rather than high only because the label points at a pocket imprint and the 2007 Byblos edition is the pocket-format alternative.",
+  "concern": "The shelf label does not match the catalogue. The owner listed this under \"Ciencia Ficción. Editorial B de Bolsillo\", but tercerafundación holds only two Spanish printings of the McIntyre novel, both from Ediciones B itself: Nova 17 (1989) and Byblos 281 (2007). No B de Bolsillo printing of this title exists in the catalogue, so the label is the owner's memory of the publishing house rather than the imprint. Worth a second look at the physical copy: if it is small-format pocket (roughly 11x17.5 cm, 406 pages, a photographic David Argemí cover) it is the 2007 Byblos edition, id 15391, which is the pocket line that preceded B de Bolsillo and is the likelier source of the \"bolsillo\" memory. The chosen Nova printing is the larger trade paperback (12x19 cm, 330 pages, Óscar H. Chichoni cover art).",
+  "alternates": [
+   15391
+  ],
+  "verified": true,
+  "verify_grounds": "The pick stands, and the deciding field is `year`. Both candidates pass rule 1 as the same single novel (Serpiente del sueño / Dreamsnake, Vonda N. McIntyre, both translated by Rafael Marín Trechera, 330 and 406 pages, no omnibus, guide, companion or series-volume confusion; the stray \"Ensayo\" genre tag appears on both records and is a catalogue quirk, not a non-fiction signal). Rule 2 is dead on both: the heading wants Colección \"Ciencia Ficción\" / Editorial \"B de Bolsillo\", and the catalogue offers only Nova/Ediciones B (209) and Byblos/Ediciones B (15391), so neither collection nor publisher matches either candidate and the label is the owner's memory being wrong rather than a pointer to a missed record. Rule 3 ties, has_spine is true on both. Rule 4 ties, format is \"Rústica con solapas\" on 209 and \"Rústica\" on 15391, both paper, nothing digital or hardback in the set. That leaves rule 5, and year \"mar 1989\" beats \"2007\", selecting 209 with the Óscar H. Chichoni cover. The only argument for 15391 is that Byblos is a pocket-format line (11×17,5 cm) and so resembles what \"B de Bolsillo\" evokes, but that is an inference about imprint character, not a field match, and rule 2 asks for collection AND publisher, which Byblos fails just as Nova does. Concern to carry forward: the catalogue contains no B de Bolsillo printing of this title at all, so the shelf heading disagrees with the record and the catalogue was trusted.",
+  "overridden_to": null
+ },
+ {
+  "slug": "el-dragon-en-el-mar",
+  "title": "El dragón en el mar",
+  "authors": [
+   "Frank Herbert"
+  ],
+  "book_id": 651,
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "note": null,
+  "confidence": "medium",
+  "shelf_label_matches": false,
+  "reasoning": "Both catalogued editions are the Herbert novel in the same García Grimalt translation, both have scanned spines and both are paperback, so the deciding field is format against the owner's heading. The owner filed this under a \"bolsillo\" (pocket) heading and did NOT use their own \"Nova ciencia ficción\" heading, which points at the pocket printing: VIB #23 (VIB Frank Herbert #3) is rústica 11×17,5 cm, while Nova #40 is the large 15×22 cm trade edition with the Juan Giménez cover. Neither record is the labelled Colección \"Ciencia Ficción\" / Editorial \"B de Bolsillo\", so the label is wrong either way, and the pocket format is the only evidence that separates the two.",
+  "concern": "The shelf label does not match the catalogue: tercerafundacion has no \"B de Bolsillo\" printing of this title at all. It lists only two Ediciones B editions, Nova #40 (sep 1991, 15×22 cm trade, Juan Giménez cover, 255 pp) and VIB #23 / VIB Frank Herbert #3 (mar 1993, 11×17,5 cm pocket, Fotostock cover, 384 pp). I chose the VIB pocket edition because the owner's heading says bolsillo and they have a separate Nova heading they chose not to use here, but that is inference from format, not a catalogue match. If the copy on the shelf is the taller book with the Giménez painting, it is 651 instead. Worth an eyeball on the actual spine before the shelf image is locked in.",
+  "alternates": [
+   651
+  ],
+  "verified": false,
+  "verify_grounds": "The deciding field is `year`, under rule 5, because every rule above it ties. Rule 1: both #651 and #555 are the Herbert novel, same ISBN-distinct printings of the same García Grimalt translation, neither an omnibus, guide, companion or wrong series volume (#651's extra \"Ensayo\" genre tag is the usual Nova critical afterword, not a different work; 255 pp at 15x22 vs 384 pp at 11x17,5 is the same text reset). Rule 2: neither matches the heading. The label reads Colección \"Ciencia Ficción\" / Editorial \"B de Bolsillo\"; #651 is Nova / Ediciones B and #555 is VIB / Ediciones B, so the catalogue contradicts the owner's memory either way and rule 2 separates nothing. Rule 3: `has_spine` true on both. Rule 4: `format` is \"Rústica con solapas\" and \"Rústica\", both paperback, no digital or hardback in the list. That exhausts the ties, and rule 5 (older printing) picks #651, sep 1991, over #555, mar 1993.\n\nThe other reader's argument imports a criterion the deciding order does not contain. Rule 4 ranks paperback above digital and hardback; it does not rank pocket trim above trade trim, so 11x17,5 vs 15x22 is not a field that decides anything here. Worse, the argument is self-undermining: it concedes the heading names an imprint that never published this title, then keeps using the discarded half of that same heading (\"bolsillo\") as the only evidence. Once the catalogue overrules the label, partial credit for the label's flavour is not available, and VIB is not B de Bolsillo in any case.\n\nRule 5's stated rationale points the same way as its letter. The shelf exists for cover art that is hard to find now: #651's `cover_art` is Juan Giménez, #555's is \"Fotostock\", a stock-photo credit. Choosing the 1993 pocket printing takes the later date and the generic cover against a rule whose whole purpose is the earlier date and the distinctive one.\n\nConcern to carry forward: the owner's heading is wrong for this book. No catalogued edition of El dragón en el mar is Colección \"Ciencia Ficción\" / Editorial \"B de Bolsillo\"; the two records are Nova #40 (Ediciones B, sep 1991) and VIB #23 / VIB Frank Herbert #3 (Ediciones B, mar 1993).\n\nThe counter-argument that keeps this at \"minor\" rather than \"blocking\": the owner had a \"Nova ciencia ficción\" heading available, and it matches #651's `collection` and `publisher` exactly, yet they filed this book elsewhere. That is real evidence against the Nova printing, and it is why the pick is arguable rather than plainly wrong. It is not, however, a field in the records, and it cuts against the explicit tiebreaker, so it does not carry the decision.\n\nBrief: data/briefs/el-dragon-en-el-mar.json",
+  "overridden_to": 651
+ },
+ {
+  "slug": "orgullo-de-chanur",
+  "title": "El orgullo de Chanur",
+  "authors": [
+   "C. J. Cherryh"
+  ],
+  "book_id": 299,
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "note": null,
+  "confidence": "medium",
+  "shelf_label_matches": false,
+  "reasoning": "All three records are the single novel, book 1 of the Chanur saga, so there is no omnibus or wrong-volume risk; the choice is purely which printing. No catalogued edition matches the owner's \"Ciencia Ficción / B de Bolsillo\" heading, so the deciding field is publisher proximity: 299 is Ediciones B, the parent house of the B de Bolsillo imprint, while the only alternatives are La Factoría de Ideas, an unrelated publisher. 299 then wins every remaining tiebreak on its own: it is a paperback (rústica con solapas), it has a scanned spine, and at abr 1988 it is the oldest printing, which is the cover art this shelf is built for. Confidence is medium rather than high only because the heading is wrong in both fields, leaving a real chance the shelf copy is the 2004 La Factoría paperback.",
+  "concern": "The shelf label does not match anything in the catalogue: there is no B de Bolsillo printing of this title, and no \"Ciencia Ficción\" collection entry either. The chosen copy is Ediciones B, colección Nova #2 (1988), the same publishing house as B de Bolsillo but a different imprint and collection, so the owner's heading is off by one imprint. If the physical book is not the 1988 Nova printing with the Arte+Diseño / La Manufactura cover, the other real paperback is La Factoría de Ideas, Ventana Abierta #1 (2004, Michael Whelan cover), which would mean the heading is wrong about the publisher entirely.",
+  "alternates": [
+   11156,
+   52738
+  ],
+  "verified": true,
+  "verify_grounds": "Pick 299 stands, and more firmly than the other reader allowed. I could not find a field that overturns it.\n\nCorrectness (rule 1): the cached catalogue page (data/.cache/_biblioteca_buscar__q_El_orgullo_de_Chanur_tipo_titulo.html, title id:329) lists exactly three editions, all three the single 1982 novel \"The Pride of Chanur\", Albert Sole translation, subcollection \"La Saga de Chanur\" 1. The contents index proves none is an omnibus: 299 is pp. 9-305 novel plus a Barcelo prologue/epilogue, 11156 is pp. 7-289 novel plus a publisher's note. No omnibus, no guide, no wrong volume, no title collision.\n\nHeading (rule 2): the deciding field is Editorial, and the catalogue contradicts the owner's label. No edition exists in Coleccion \"Ciencia Ficcion\" / Editorial \"B de Bolsillo\" for this title, so the heading is wrong in both fields for every candidate. Ediciones B is the parent house of the B de Bolsillo imprint; La Factoria de Ideas has no relation to it. Publisher proximity favours 299, and nothing favours 11156 on this axis.\n\nRemaining tiebreaks: 299 and 11156 both have has_spine true (rule 3, tie) and both are paperback, 299 \"Rustica con solapas\" vs 11156 \"Rustica\" (rule 4, tie). Rule 5 then decides on its own: abr 1988 beats 2004. The digital 52738 is excluded by rule 4 anyway (Edicion digital ePUB, has_spine false), so it is never a contender.\n\nNew evidence the other reader did not use, which removes their stated doubt: the sibling briefs show the owner's Chanur set is the Nova/Ediciones B set. data/briefs/regreso-de-chanur.json (id 157, may 1989) and data/briefs/venganza-de-chanur.json (id 208, feb 1989) each have exactly one candidate, both Nova / Ediciones B, and La Factoria never published those two volumes at all. A shelf holding all four Chanur books can only be the Nova set, so the \"real chance the shelf copy is the 2004 La Factoria paperback\" is not real: it would require a set mixed across two houses where one house printed only half the series. That lifts confidence from medium to high rather than changing the answer.\n\nResidual concern to carry forward, not a refutation: the owner's \"Ciencia Ficcion / B de Bolsillo\" heading is a misremembering. The catalogue says Coleccion Nova, number 2, Editorial Ediciones B; trust the catalogue.",
+  "overridden_to": null
+ },
+ {
+  "slug": "aventura-de-chanur",
+  "title": "La aventura de Chanur",
+  "authors": [
+   "C. J. Cherryh"
+  ],
+  "book_id": 207,
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "note": null,
+  "confidence": "medium",
+  "shelf_label_matches": false,
+  "reasoning": "All three candidates are the same Cherryh novel, volume 2 of the Chanur saga, translated by Albert Solé, so correctness does not separate them and the deciding field is publisher. The owner filed it under \"Ciencia Ficción / B de Bolsillo\", but no such edition exists in the catalogue: id 207 is Ediciones B, colección Nova 14, which is the same publishing house under a different imprint, while ids 13141 and 52739 are La Factoría de Ideas, an unrelated house. Id 207 also wins every tiebreaker: scanned spine, rústica con solapas rather than a digital file, and the oldest printing (1988) with named cover art by Sergio Camporeale. The 2004 La Factoría paperback is the only real alternative, and it would require the owner to have misremembered a different publisher entirely rather than a sibling imprint.",
+  "concern": "The shelf label does not match the catalogue. Nothing in the catalogue lists this title under colección \"Ciencia Ficción\" with publisher \"B de Bolsillo\"; the chosen copy is Ediciones B, colección Nova 14 (1988), the same house under an earlier imprint. If your copy is a small pocket-format B de Bolsillo printing rather than a 12x19 cm trade paperback with flaps and a Camporeale cover, then it is an edition tercerafundacion.net has not recorded, and the second-best match would be the 2004 La Factoría de Ideas paperback (id 13141), which also has a spine scan. Worth knowing too: this is volume 2 of the Chanur saga, not the whole saga, so a shelf built from this record shows one book and not the omnibus.",
+  "alternates": [
+   13141,
+   52739
+  ],
+  "verified": true,
+  "verify_grounds": "The pick stands, and the deciding field is `publisher`, since no candidate carries the owner's heading at all. The heading decodes to collection \"Ciencia Ficción\" + publisher \"B de Bolsillo\", and the catalogue has no such record: id 207 is Nova / Ediciones B, ids 13141 and 52739 are Ventana Abierta / La Factoría de Ideas. Ediciones B is the parent house of the B de Bolsillo pocket imprint, so 207 is one field off within the same house, while the La Factoría records are a different house and two fields off. Concern to surface: the label is wrong against the catalogue regardless of the pick, and it is wrong in a second way, since a Nova / Ediciones B copy belongs under the owner's own \"Nova ciencia ficción\" heading rather than the B de Bolsillo one. Every other test also lands on 207 rather than against it. Rule 1 does not separate the three: all carry series_ids [208], subcollection \"La Saga de Chanur\" number 2, and translator Albert Solé, so none is an omnibus, guide, companion, wrong volume, or English-original record; the \"Ensayo\" genre tag appears identically on all three and is a catalogue artifact, not evidence that 207 is non-fiction. Rule 3: 207 has has_spine true, so there is no spine-bearing candidate being passed over. Rule 4: 207 is \"Rústica con solapas\", not the ePUB (52739 is the digital one and is the only has_spine false record). Rule 5: at oct 1988 it is the oldest printing, against 2004 and 2014, with named cover art by Sergio Camporeale. The sole alternative worth weighing, 13141, ties only on spine and paperback and loses on publisher proximity and age.",
+  "overridden_to": null
+ },
+ {
+  "slug": "venganza-de-chanur",
+  "title": "La venganza de Chanur",
+  "authors": [
+   "C. J. Cherryh"
+  ],
+  "book_id": 208,
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "note": null,
+  "confidence": "high",
+  "shelf_label_matches": false,
+  "reasoning": "Only one catalogued edition exists, and it is unambiguously the right physical book: the deciding field is the subcollection, \"La Saga de Chanur\" number 3, a single 388-page volume rather than an omnibus, with Albert Solé's translation and Óscar H. Chichoni cover art. It is a rústica con solapas paperback from Feb 1989, Colección Nova number 16, and it carries a scanned spine, so every tiebreaker after identity also points here. The record's empty author field is catalogue noise; title, series and subcollection numbering identify it as Cherryh's third Chanur novel.",
+  "concern": "The shelf label does not match the catalogue. The owner listed this under \"Ciencia Ficción. Editorial B de Bolsillo\", but the only catalogued printing of this title is Colección Nova / Ediciones B (Nova number 16, Feb 1989). No B de Bolsillo or Zeta Bolsillo edition of La venganza de Chanur exists in the catalogue, so either the copy on the shelf is the Nova hardback-format trade paperback and the heading is a misremembering, or the owner has a printing the catalogue has never recorded. The Nova spine art shown will be Chichoni's, not a Bolsillo spine.",
+  "alternates": [],
+  "verified": true,
+  "verify_grounds": "The pick stands; there is nothing to overrule. Both data/briefs/venganza-de-chanur.json and the raw pool in data/candidates.json (plus data/ranked.json) contain exactly one record for this title, id 208, so no better-matching, spined, older or paper alternative exists to prefer. Identity is confirmed by subcollection_id 1701 \"La Saga de Chanur\" number 3, which sits inside a complete and internally consistent run in the same data: 299 (#1, Nova 2, 308 pp), 207 (#2, Nova 14, 270 pp), 208 (#3, Nova 16, 388 pp), 157 (#4, Nova 23, 573 pp), all Ediciones B, all 12x19 rústica con solapas, all translated by Albert Solé. 388 pages is squarely inside that run's range, so this is a single novel, not an omnibus, a guide or a companion; format is \"Rústica con solapas\", so not digital or hardback; has_spine is true; feb 1989 is the oldest and only printing. The empty \"authors\" array is provably catalogue-wide noise, it is empty on every record in candidates.json including unrelated books such as id 622. The one genuine mismatch is the deciding field for \"concern\", not for refutation: collection is \"Nova\" and publisher \"Ediciones B\", while the owner filed it under \"Ciencia Ficción. Editorial B de Bolsillo\". That heading is wrong for the entire Chanur run, all four siblings in wantlist.json carry the same \"B de Bolsillo\" label and all four resolve to Nova / Ediciones B, so the label is one consistent memory error across the series rather than evidence of an uncatalogued B de Bolsillo printing. The other reader's reasoning is sound but does not state that mismatch; it should be surfaced in \"concern\".",
+  "overridden_to": null
+ },
+ {
+  "slug": "regreso-de-chanur",
+  "title": "El regreso de Chanur",
+  "authors": [
+   "C. J. Cherryh"
+  ],
+  "book_id": 157,
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "note": null,
+  "confidence": "high",
+  "shelf_label_matches": false,
+  "reasoning": "The brief holds exactly one catalogued edition, and it is genuinely the book: \"El regreso de Chanur\", Nova 23, subcollection \"La Saga de Chanur\" number 4, series Chanur, translated by Albert Soler, 573 pages in rústica con solapas, so a single novel rather than an omnibus. The deciding field is that it is the only record of this title at all, and it satisfies every secondary preference anyway: scanned spine, paperback, pre-2000 printing with Juan Giménez cover art. Its collection and publisher are Nova / Ediciones B, not the \"Ciencia Ficción / B de Bolsillo\" the owner wrote, so the label loses to the catalogue. The empty authors array is a catalogue gap, not a different author: the series, subcollection and translator all pin it to Cherryh's Chanur books.",
+  "concern": "The shelf label does not match. You listed this under \"Ciencia Ficción. Editorial B de Bolsillo\", but the catalogue has no B de Bolsillo (or Zeta Bolsillo) printing of \"El regreso de Chanur\" at all: the only record is the May 1989 Nova 23 hardback-format paperback from Ediciones B. B de Bolsillo is Ediciones B's pocket imprint, so this is the same house under a different label, and either your copy is in fact the 1989 Nova printing or you own a pocket reissue that tercerafundacion has never catalogued. The spine shown will be the Nova one with the Juan Giménez cover. Worth knowing too: this is volume 4 of the Chanur saga in Nova's numbering, so if your shelf also holds an omnibus of the saga, that is a different physical book and this record is not it.",
+  "alternates": [],
+  "verified": true,
+  "verify_grounds": "The pick stands and cannot be refuted: the deciding field is that the candidate pool holds exactly one record, id 157, confirmed both in the brief's \"ranked\" array and upstream in data/candidates.json, so no better-matching or better-imprinted alternative exists to name. Identity is sound on the fields that would expose an omnibus or wrong volume: subcollection \"La Saga de Chanur\" number \"4\" against sibling briefs orgullo (Nova 2 / sub 1), aventura (Nova 14 / sub 2) and venganza (Nova 16 / sub 3) places 157 as volume 4, Chanur's Homecoming, a single novel; volume 3 already has its own separate record (Nova 16, feb 1989), so the 573 pages are one long novel and not two bound together, and the subcollection number is a bare \"4\" rather than a range. Secondary preferences all hold: has_spine true (verified in data/spines.json, \"157\": true), Rústica con solapas so paperback not digital or hardback, and may 1989 with Juan Giménez cover art, with no rival printing to be older than. The \"Ensayo\" genre tag and the empty authors array are catalogue gaps, not a different work: series id 208 (Chanur), the subcollection, and translator Albert Soler pin it to Cherryh. Concern worth carrying forward: the owner's heading \"Ciencia Ficción. Editorial B de Bolsillo\" is wrong here, the catalogue has this as Coleccion Nova / Editorial Ediciones B, and the same mismatch applies to all four Chanur titles, which the catalogue never published under B de Bolsillo at all.",
+  "overridden_to": null
+ },
+ {
+  "slug": "la-memoria-de-la-tierra",
+  "title": "La memoria de la Tierra",
+  "authors": [
+   "Orson Scott Card"
+  ],
+  "book_id": 681,
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "note": null,
+  "confidence": "medium",
+  "shelf_label_matches": false,
+  "reasoning": "All four candidates are the real novel (Card, El Retorno vol. 1, Gardini translation), so the decision is purely which printing. No catalogued edition is \"Ciencia Ficción / B de Bolsillo\", so the label cannot be satisfied and the deciding field is format-plus-house: 681 is Ediciones B in pocket size (rústica, 11×17,5 cm), and VIB is the Ediciones B pocket line that B de Bolsillo later replaced, which is what the owner's heading describes. Records 693 and 8437 share ISBN 844064020X and the same 15×23 cm rústica con solapas format, so they are one physical book listed twice, and it is the large Nova trade edition the owner filed under a different heading. All four have scanned spines, so the spine preference does not break the tie.",
+  "concern": "The shelf label is wrong: the catalogue has no B de Bolsillo printing of this title at all. I picked the Ediciones B pocket edition (VIB collection, 1997), which is the same house and the same pocket format the label implies, since B de Bolsillo is the successor to VIB. If your copy is actually the big 15×23 cm one with flaps, it is the Nova Scott Card edition (id 693, duplicated in the catalogue as id 8437 with the same ISBN); if it is a pocket that is not Ediciones B, it may be the Punto de Lectura 2000 printing (id 942). Cover art differs between all three, so the cover is the fastest way to confirm: VIB is Ricard Castells, Nova is Estudio Ediciones B, Punto de Lectura is MGD.",
+  "alternates": [
+   693,
+   8437,
+   942
+  ],
+  "verified": true,
+  "verify_grounds": "The pick stands; I could not find a field that overturns it. Checks run: (1) Wrong-work / omnibus / wrong-volume: the cached search page (data/.cache/_biblioteca_buscar__q_La_memoria_de_la_Tierra_tipo_titulo.html) shows the catalogue holds exactly 4 editions of Título id:55, all \"The Memory of Earth\" (1992), all Card, all El Retorno vol. 1, all Gardini. 681's índice de contenidos is a single novela at pp. 17-375, so it is not an omnibus, guide, or companion. (2) Digital: none of the four is digital; all are rústica. (3) Spine: all four have has_spine true, so the spine preference cannot break the tie. (4) Better label match: no edition is Colección \"Ciencia Ficción\" / Editorial \"B de Bolsillo\", so the heading cannot be satisfied by any candidate; this is the concern to record, not a refutation of 681. The deciding field is format+collection: 681 is VIB 11 / VIB Orson Scott Card 7, rústica 11×17,5 cm, which is the Ediciones B pocket line that B de Bolsillo later succeeded, matching the pocket imprint the owner's heading names. 693 and 8437 share ISBN 844064020X and the identical \"Rústica con solapas - 15×23 cm - 305 páginas\" record, so they are one physical trade-size book listed twice, and their collection \"Nova Scott Card\" is the owner's OTHER heading (\"Nova ciencia ficción\" / Ediciones B) - assigning it to the bolsillo shelf would contradict the owner's own separation. 942 is Punto de Lectura, a different house, so it loses on publisher. Sibling evidence confirms the reading: the owner files all five El Retorno volumes under \"Ciencia Ficción. Editorial B de Bolsillo\", and the catalogue offers the same 1997 VIB pocket printing for three of the others (682 La llamada, 683 Las naves, 684 Retorno a la Tierra), a contiguous VIB Orson Scott Card run; 681 keeps that pocket set intact. Rule 5 (older printing) would favour the 1993 Nova record, but it applies only \"when the rest ties\", and format-plus-imprint decides before it.",
+  "overridden_to": null
+ },
+ {
+  "slug": "la-llamada-de-la-tierra",
+  "title": "La llamada de la Tierra",
+  "authors": [
+   "Orson Scott Card"
+  ],
+  "book_id": 682,
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "note": null,
+  "confidence": "medium",
+  "shelf_label_matches": false,
+  "reasoning": "All three records are the same Card novel (volume 2 of El Retorno, Gardini translation), so the deciding field is format plus publisher against the owner's \"B de Bolsillo\" heading. No B de Bolsillo edition of this title exists in the catalogue; VIB is Ediciones B's own pocket line of that era (11x17,5 cm rustica), which is what a \"B de Bolsillo\" memory of an Ediciones B pocket book most plausibly is, and it has a scanned spine. The Nova record (id 67) is the 15x23 trade edition with flaps, and the owner keeps a separate \"Nova ciencia ficcion\" heading that they deliberately did not use for this book, so its older 1994 date does not win here.",
+  "concern": "The shelf label does not match anything catalogued: no B de Bolsillo printing of this title (or of any volume of La saga del retorno) exists, so the pick is Ediciones B's earlier pocket imprint, VIB. One caveat worth checking against the physical shelf: VIB only published four of the five volumes (memoria 681, llamada 682, naves 683, retorno 684) and has no \"Nacidos en la Tierra\", so if the owner's five volumes are a matched set in one line, the real set is more likely the Punto de Lectura pocket run (id 8191 here) or the Nova trade run. Comparing the spine of the copy on the shelf against ids 682, 8191 and 67 would settle it.",
+  "alternates": [
+   8191,
+   67
+  ],
+  "verified": true,
+  "verify_grounds": "The pick stands. All three candidates are the same book: same title, same series id 209 (El Retorno), same Gardini translation, so rule 1 (correct work) eliminates nobody, and there is no omnibus, guide, wrong volume, digital record or title-collision to catch. None is an omnibus: VIB 682 runs 359 pp against Nova's 313 pp, the same ~1.15 expansion the sibling volumes show at the same 11x17,5 trim (681: 305 -> 377; 683: 367 -> 445), so it is one novel reset in pocket type, not two bound together.\n\nThe deciding field is publisher plus format, not year. Rule 2 cannot be satisfied by anyone: no record for this title carries publisher \"B de Bolsillo\". That absence is real data rather than a thin scrape, since \"B de Bolsillo\" appears 19 times across the sibling briefs in this same corpus (criopolis, hijos-de-la-mente, mapas-en-un-espejo and others), so the catalogue does hold that imprint and simply never issued this title under it. That is the concern to record: the owner's heading is wrong for this book.\n\nWith rule 2 inert, the discriminator is the format field. Ediciones B's pocket line of that era is VIB (682, rustica 11x17,5); the Nova record (67) is rustica con solapas 15x23, the trade edition. A \"B de Bolsillo\" memory is a memory of a pocket book from the Ediciones B house, which is what VIB is. Reinforcing this, the owner keeps a separate \"Nova ciencia ficcion\" heading and filed the entire Retorno set (la-memoria, la-llamada, las-naves, nacidos, retorno-a-la-tierra) under \"B de Bolsillo\" instead, so choosing the Nova record here would override a distinction the owner drew consistently across five books.\n\nRules 3 and 4 tie: 67, 682 and 8191 all have has_spine true and all are rustica. Rule 5 (older printing) is explicitly the tiebreak for \"when the rest ties\", and the rest does not tie here, so 1994 does not rescue id 67. Punto de Lectura (8191) is a different house entirely (2002, no relation to Ediciones B) and is correctly last.\n\nOne wrinkle that does not change the verdict: volume 4, Nacidos en la Tierra, has no VIB record in the catalogue (only Nova 667 and Punto de Lectura 8401), so a fully uniform VIB set is not representable. That is a gap in the catalogue's coverage of the pocket line, not evidence the owner's set is the Nova trade edition, and it bears on that book's brief rather than this one.",
+  "overridden_to": null
+ },
+ {
+  "slug": "las-naves-de-la-tierra",
+  "title": "Las naves de la Tierra",
+  "authors": [
+   "Orson Scott Card"
+  ],
+  "book_id": 683,
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "note": null,
+  "confidence": "medium",
+  "shelf_label_matches": false,
+  "reasoning": "All three candidates are the real novel (book 3 of La saga del retorno, Gardini translation), so the decision falls to matching the owner's \"B de Bolsillo\" pocket heading, and no catalogued edition carries that imprint or the \"Ciencia Ficción\" collection. The deciding field is `format`: id 683 is Ediciones B's pocket line VIB at 11×17,5 cm rústica, the same house and the same bolsillo shape the owner described, whereas id 666 is the large 15×23 cm Nova Scott Card trade paperback with flaps and id 2151 is a different publisher (Punto de Lectura). Both 666 and 683 have scanned spines, so the spine rule does not separate them and the older-printing tiebreak never applies, since the rest does not tie. Picking 683 keeps the physical object the owner remembers rather than satisfying a label that exists nowhere in the catalogue.",
+  "concern": "The shelf label is wrong: tercerafundacion lists no \"B de Bolsillo\" edition (and no \"Ciencia Ficción\" collection entry) for this title at all. The three catalogued printings are Ediciones B / Nova Scott Card 1995 (large 15×23 cm with flaps), Ediciones B / VIB 1997 (pocket 11×17,5 cm), and Punto de Lectura 2001 (pocket). I chose the VIB printing because VIB was Ediciones B's pocket line before the house renamed its bolsillo imprints, so it is the closest physical object to what the owner wrote down. If the copy on the shelf is actually a tall trade paperback with flaps rather than a pocket book, the right record is id 666 instead.",
+  "alternates": [
+   666,
+   2151
+  ],
+  "verified": true,
+  "verify_grounds": "The pick stands; I could not find a field that overturns it. All three candidates are the real novel (book 3 of El Retorno, Gardini translation, single-volume page counts of 367/445/501, no omnibus, guide or wrong volume), all three are rústica paper, and all three have has_spine true, so rules 1, 3 and 4 separate nothing. The deciding field is `collection`, not `format`. Candidate 666 sits in collection \"Nova Scott Card\" (Rústica con solapas, 15x23 cm), and \"Nova\" is the owner's OTHER shelf heading (\"Nova ciencia ficción\" -> Colección Nova / Ediciones B). Filing a Nova record under the bolsillo heading would contradict the owner's own distinction between his two Ediciones B shelves, so rule 2 does not tie, and because it does not tie, rule 5's older-printing tiebreak (666 is jun 1995 vs 683's 1997) never fires. That is the only real argument against 683 and it is foreclosed by the rule's own precondition. Candidate 683 is collection VIB, Ediciones B's 11x17,5 cm pocket line, the nearest thing the catalogue holds to the remembered imprint. Corroboration from the sibling briefs: ids 681, 682, 683, 684 are a consecutive 1997 VIB pocket block covering volumes 1, 2, 3 and 5 of the saga, and the owner listed all five volumes under the same \"Ciencia Ficción. Editorial B de Bolsillo\" heading, so 683 is one book out of a coherent pocket set rather than an isolated guess. Candidate 2151 loses on publisher (Punto de Lectura, not the Ediciones B house) and on year (2001), so it is not a better spine-bearing alternative. Concern to carry forward: the catalogue has no edition of this title under publisher \"B de Bolsillo\" or collection \"Ciencia Ficción\", so the owner's heading is memory, not record. That is a real disagreement rather than a gap in the data, since the dataset does contain genuine \"B de Bolsillo / Ciencia Ficción\" records for other titles (2012-2019, roughly 13x20 cm) and none of them is this book; B de Bolsillo did not exist as an imprint in 1997. VIB is the honest stand-in, and it should be stated as such rather than presented as a match.",
+  "overridden_to": null
+ },
+ {
+  "slug": "retorno-a-la-tierra",
+  "title": "Retorno a la Tierra",
+  "authors": [
+   "Orson Scott Card"
+  ],
+  "book_id": 684,
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "note": null,
+  "confidence": "medium",
+  "shelf_label_matches": false,
+  "reasoning": "All three candidates are the same novel (book 4 of El Retorno, Gardini translation, series 209), so correctness does not separate them and the deciding field is format plus publisher. The owner's heading says \"B de Bolsillo\", and the catalogue holds no B de Bolsillo printing of this title, so the nearest real object is id 684: Ediciones B's own pocket line VIB, rústica 11x17,5 cm, 1997, with a scanned spine. Id 66 is the same house but the large 14x22 trade paperback with flaps in Nova Scott Card, which is the owner's other shelf heading rather than this one, and id 7992 is Punto de Lectura, a different publisher entirely. The VIB line also numbers volumes 1 to 4 of the saga as a set (681, 682, 683, 684), which fits a shelf where the whole saga was listed as pocket.",
+  "concern": "The shelf label does not match the catalogue: neither this title nor any volume of La saga del retorno exists under Editorial \"B de Bolsillo\" there. Every pocket printing from that house is the earlier VIB line (11x17,5 cm, 1997), which is what was chosen, so the owner's \"B de Bolsillo\" is most likely a remembered name for the Ediciones B pocket edition. If the copy on the shelf is actually the tall paperback with flaps (14x22 cm, 367 pages), it is id 66 in Nova Scott Card, April 1996, which belongs under the \"Nova\" heading instead. Worth knowing for the rest of the shelf: VIB never issued volume 5, \"Nacidos en la Tierra\", so a complete pocket saga cannot all come from one line.",
+  "alternates": [
+   66,
+   7992
+  ],
+  "verified": true,
+  "verify_grounds": "The pick stands. All three candidates are the same novel (El Retorno series 209, book 4, Gardini translation, all rústica, all has_spine true), so rules 1, 3 and 4 do not separate them and page counts (367 trade / 429 pocket / 415 pocket) rule out an omnibus or companion volume. Rule 2 decides, and the catalogue disagrees with the owner's label: there is no \"Ciencia Ficción\" / \"B de Bolsillo\" printing of this title in the candidate set, so the nearest real object wins. Id 7992 is Punto de Lectura, a different publisher, out. Id 66 and 684 are both Ediciones B; the separating field is collection plus format. Id 684 is VIB, collection 5, number 12, rústica 11x17,5 cm, the house's own pocket line and the ancestor of the bolsillo imprint the owner named. Id 66 is Nova Scott Card, collection 10, rústica con solapas 14x22 cm, which is the owner's other shelf heading (\"Nova ciencia ficción\" / Ediciones B); picking it would file the book on the wrong one of his own three shelves. Rule 5 is the only argument for id 66 (1996 vs 1997) and it applies only when the rest ties, which it does not, so a one-year gap cannot outrank the imprint and format match. Concern to carry forward: the shelf label \"Ciencia Ficción. Editorial B de Bolsillo\" is not supported by the catalogue for this title; id 684 is Ediciones B / VIB, chosen as the closest pocket printing from the same house.",
+  "overridden_to": null
+ },
+ {
+  "slug": "nacidos-en-la-tierra",
+  "title": "Nacidos en la Tierra",
+  "authors": [
+   "Orson Scott Card"
+  ],
+  "book_id": 667,
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "note": null,
+  "confidence": "medium",
+  "shelf_label_matches": false,
+  "reasoning": "Both candidates are genuinely this novel (book 5 of El Retorno, both Carlos Gardini's translation), so the decision falls to publisher and printing. Neither matches the \"B de Bolsillo\" heading, and since the label is unreachable I took the deciding field to be publishing house: id 667 is Ediciones B, the house the owner named, in its Nova Scott Card line, while id 8401 is Punto de Lectura, an unrelated publisher. Both are paperbacks with scanned spines, so the 1996 printing also wins on age, which is the cover art this shelf exists for. Id 8401 stays as the alternate because it is the pocket-sized edition and would be the better guess if the owner's memory of \"bolsillo\" is about the physical size rather than the imprint.",
+  "concern": "The shelf label says \"Ciencia Ficción. Editorial B de Bolsillo\", but the catalogue has no B de Bolsillo edition of this title at all, so the label cannot be satisfied. The same is true of all five volumes of La saga del retorno, which the owner listed under the same heading: the catalogue records are Ediciones B (Nova Scott Card, and a 1997 pocket \"VIB\" printing) and Punto de Lectura. Worth flagging that the other four volumes do have that 1997 Ediciones B \"VIB\" pocket printing and this fifth one does not, so if the physical set on the shelf is the small pocket run, volume five will be represented here by the larger 14x23 cm Nova trade paperback and its spine will not match its shelfmates.",
+  "alternates": [
+   8401
+  ],
+  "verified": true,
+  "verify_grounds": "The pick stands. Only two candidates, and both are genuinely volume 5 of El Retorno in Carlos Gardini's translation, so rule 1 separates nothing. The owner's heading (coleccion \"Ciencia Ficcion\" / editorial \"B de Bolsillo\") matches NEITHER record, so rule 2 cannot be satisfied and the catalogue is what decides: id 667 is Ediciones B, the parent house of the B de Bolsillo imprint the owner named, in its Nova Scott Card line (#8, subcoleccion La Saga del Retorno #5); id 8401 is Punto de Lectura (Santillana), a wholly unrelated house. Rules 3 and 4 are ties (both has_spine true, both rustica, neither digital nor hardback), so rule 5 breaks it and also favours 667: sep 1996 over 2003. I checked every refutation vector and none holds. 667 is not an omnibus, guide, companion or wrong volume: its subcollection number is literally 5 of La Saga del Retorno, and 8401's \"#9\" is its slot in Punto de Lectura's Card line, not a different book. The 428 vs 528 page gap is the expected inflation from a 14x23 trim to an 11x17,5 pocket trim, not added content. No spine advantage for the alternate, no paper-vs-digital issue, no title collision. Id 8401 would only win if \"bolsillo\" in the heading referred to physical pocket size rather than the imprint, and it still loses on both publisher relation and age. Standing concern, not a defect in the pick: no B de Bolsillo printing of this title exists among the candidates at all, so the heading is the owner's misremembering whichever edition is shelved.",
+  "overridden_to": null
+ },
+ {
+  "slug": "mapas-en-un-espejo",
+  "title": "Mapas en un espejo",
+  "authors": [
+   "Orson Scott Card"
+  ],
+  "book_id": 663,
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "note": null,
+  "confidence": "medium",
+  "shelf_label_matches": false,
+  "reasoning": "The owner listed the plain title with no volume number, and the only catalogued book actually called \"Mapas en un espejo\" as one physical object is the 1993 Ediciones B omnibus (Nova Scott Card no. 1, 919 pages, ISBN 8440639988), a paperback with a scanned spine. The five B de Bolsillo 2019 records match the shelf label on both collection and publisher, which is why the ranker put them on top at 90, but each is only one fifth of the work under its own subtitle, so choosing one would mean guessing which volume, and none of the five has a spine scan anyway. Correctness of the physical book outranks the label, so the omnibus wins. Records 663 and 4258 are duplicate entries for the same ISBN, format and page count; 663 is the earlier entry and carries the more precise date.",
+  "concern": "This title maps to two different physical things, so the pick may be wrong in a way only you can settle by looking at the shelf. The catalogue has it as a single 919-page omnibus (Ediciones B, collection \"Nova Scott Card\", 1993, 15x23 cm) and, separately, as the same work split into five pocket volumes, each with its own subtitle: Zeta Bolsillo 2008, B de Bolsillo 2019, and a B de Books ePUB set. Your label \"Ciencia Ficción. Editorial B de Bolsillo\" points precisely at the 2019 five-volume set, so the label is not wrong about an imprint that exists, but you listed one untitled-by-number entry and that set has no single book called just \"Mapas en un espejo\". I chose the omnibus because it is the one physical object bearing that exact title. Two consequences worth knowing: the chosen copy is Ediciones B / Nova Scott Card, not B de Bolsillo / Ciencia Ficción, so its shelf grouping will not match where you filed it; and if you actually own one or more of the five pocket volumes, tell me which numbers, because none of the 2019 B de Bolsillo records has a scanned spine and every one of them would render as a drawn placeholder (the 2008 Zeta Bolsillo volumes 1, 2, 3 and 5 do have spine scans, volume 4 does not). Also note the omnibus is a large-format 15x23 cm trade paperback, so its spine will read taller and wider than the pocket books around it.",
+  "alternates": [
+   4258,
+   64609,
+   20479
+  ],
+  "verified": true,
+  "verify_grounds": "The pick stands. The deciding field is `title`: 663 is titled exactly \"Mapas en un espejo\", the plain title the owner listed, while every label-matching alternative carries a volume number (\"Mapas en un espejo 1…5\" plus a subtitle). The omnibus objection does not apply, because 663 bundles no other work: it is the single-volume 1993 edition of Card's complete short fiction (919 pp, Gardini), and the five B de Bolsillo 2019 records (64608-64612), the five Zeta Bolsillo 2008 records and the five B de Books ePUBs are all fragments of that same text, not standalone books it swallowed (the five volumes total 1,312 pp at 12.5x20 cm against 919 at 15x23). Checked each named failure mode: no single-volume B de Bolsillo record exists in the list, so the rule-2 heading match is only reachable by guessing which fifth is on the shelf; every one of those five has has_spine false, so no better-spined candidate covers the whole work; 663 is \"Rústica con solapas\", not digital (the only ePUBs, 52630-52634, are all partial anyway); the Zeta Bolsillo records sit in collection \"Best-seller\"/\"Best-seller Orson Scott Card\", matching neither half of the heading; and no candidate is a different work sharing the title, a guide or a companion. 4258 is the same ISBN, format and page count as 663, so the duplicate choice has no shelf consequence; 663 is the earlier entry with the more precise date (\"nov 1993\"). Concern worth keeping on the record: the catalogue puts this edition in Ediciones B / \"Nova Scott Card\" no. 1, not the owner's \"Ciencia Ficción / B de Bolsillo\" heading, so the label is the owner's memory being wrong rather than a defect in the pick.",
+  "overridden_to": null
+ },
+ {
+  "slug": "ciudad-al-final-del-tiempo",
+  "title": "La ciudad al final del tiempo",
+  "authors": [
+   "Greg Bear"
+  ],
+  "book_id": 36004,
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "note": null,
+  "confidence": "high",
+  "shelf_label_matches": true,
+  "reasoning": "Both catalogued records are the same Greg Bear novel in the same Pedro Jorge Romero translation, so the choice is between two printings rather than two books. Edition 36004 matches the owner's heading on both deciding fields: collection \"Ciencia Ficción\" and publisher \"B de Bolsillo\", and it is a paperback (rústica con solapas, 13x20, 640 pp). The only thing arguing for the 2010 Nova printing (30744) is its scanned spine, and a spine never outranks being the right physical book, so the mechanical ranker's 90 vs 47 gap is correct here for once.",
+  "concern": "The chosen edition has no scanned spine, so this book will render with a drawn placeholder on the shelf. The other record (30744, Nova 227, Ediciones B, 2010) does have a spine image, but it is the earlier large-format trade edition (15x23, 634 pp), a genuinely different physical volume from the B de Bolsillo pocket printing the owner listed. If the copy on the shelf is actually the taller Nova one, switch to 30744 and the shelf label for this title is wrong.",
+  "alternates": [
+   30744
+  ],
+  "verified": true,
+  "verify_grounds": "The pick stands on collection + publisher. Owner's heading is \"Ciencia Ficción. Editorial B de Bolsillo\"; edition 36004 matches both fields exactly (collection \"Ciencia Ficción\", publisher \"B de Bolsillo\"), while the only alternative, 30744, matches neither (collection \"Nova\", publisher \"Ediciones B\" — which is the owner's separate \"Nova ciencia ficcion\" heading, so there is no label-vs-catalogue disagreement to flag). No refutation avenue holds: both records are the same Greg Bear single novel in the same Pedro Jorge Romero translation with the same cover-art credit, so neither is an omnibus, guide, companion, anthology, wrong series volume, or a different work sharing a title (30744's extra \"Ensayo\" genre tag is catalogue noise, not a different book); 36004's format field reads \"Rústica con solapas - 13×20 cm - 640 páginas\", so it is a paperback and not a digital edition. The lone field favouring 30744 is has_spine: true, and rule 3 is explicitly subordinate to rule 2 — a scanned spine never outranks the right physical book, and rule 2 is not a tie here but a two-field match against a zero-field match, so rule 5 (older printing) never engages. Cost of the pick is a drawn placeholder spine, which is the sanctioned trade.",
+  "overridden_to": null
+ },
+ {
+  "slug": "rama-revelada",
+  "title": "Rama revelada",
+  "authors": [
+   "Arthur C. Clarke",
+   "Gentry Lee"
+  ],
+  "book_id": 51943,
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "note": null,
+  "confidence": "high",
+  "shelf_label_matches": true,
+  "reasoning": "Edition 51943 is the only record whose collection (\"Ciencia Ficción\") and publisher (\"B de Bolsillo\") both match the owner's heading, and it is a rústica paperback of the single novel, not an omnibus or a different Rama volume. The deciding field is the collection+publisher pair, which outranks the spine scan in the ordering, so the 1997 VIB printing (590) loses despite being the only candidate with a scanned spine. Edition 74290 carries the identical ISBN 9788498729894 but files the same book under publisher \"Ediciones B\" with \"B de Bolsillo\" as the collection, so it is almost certainly the same physical printing catalogued a second time with the imprint fields swapped. The Emecé 1994 Argentine printing and the B de Books ePUB are excluded as a different market and a digital edition.",
+  "concern": "Two things. First, the chosen edition has no scanned spine, so it will render as a drawn placeholder; the only spine scan in the catalogue belongs to a different physical book (id 590, the feb 1997 Ediciones B \"VIB / VIB Arthur C. Clarke\" no. 17, 11x17,5 cm, a smaller pocket format), so using it would put the wrong object on the shelf. Second, ids 51943 and 74290 share ISBN 9788498729894 and the same 13x20 cm format, differing only in page count (792 vs 796) and in which of \"Ciencia Ficción\" / \"B de Bolsillo\" is recorded as collection versus publisher: they look like one printing entered twice, so if the copy in hand says \"Ediciones B\" on the spine rather than \"B de Bolsillo\", 74290 is the same book under the other record.",
+  "alternates": [
+   74290,
+   590
+  ],
+  "verified": true,
+  "verify_grounds": "The pick stands. The deciding fields are collection=\"Ciencia Ficción\" AND publisher=\"B de Bolsillo\" on 51943, the only record where both match the owner's heading as catalogued. 74290 carries the same two strings but with the fields swapped (publisher \"Ediciones B\", collection \"B de Bolsillo\") and the identical ISBN 9788498729894, so it is the same printing catalogued twice and matches neither field as labelled. Every refutation avenue fails: 51943 is not an omnibus, guide, or wrong Rama volume (same title, same series id 1500, same translator Daniel R. Yagolkowski as 590 and 9313, and 792 pp is within four pages of the known single-novel VIB printing's 796); it is \"Rústica\", not the ePUB (52640); and no better-matching candidate has a spine. Edition 590 is the only has_spine=true record, but its collection is \"VIB\" and publisher \"Ediciones B\", failing both heading fields, and it is a physically different object (11×17,5 cm vs 13×20 cm) — the ordering puts collection+publisher above the spine scan and states a spine is not worth choosing the wrong physical book for. 9313 is the Emecé Argentine market printing, correctly excluded. No catalogue-vs-label conflict: the heading is satisfiable exactly, so there is nothing to note as owner misremembering. The only cost is the drawn placeholder in place of a spine image, which the stated ordering accepts.",
+  "overridden_to": null
+ },
+ {
+  "slug": "el-apagon",
+  "title": "El apagón",
+  "authors": [
+   "Connie Willis"
+  ],
+  "book_id": 52605,
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "note": "46.000",
+  "confidence": "high",
+  "shelf_label_matches": true,
+  "reasoning": "Edition 52605 is the only record whose collection (\"Ciencia Ficción\") and publisher (\"B de Bolsillo\") both match the owner's heading exactly, and it is a rústica paperback with a scanned spine, so it wins on every tiebreaker without any correctness compromise. The two runners-up are the same book from the same house under different imprints: 34097 is the 2011 Nova trade paperback (right book, wrong shelf label) and 74273 is the 2023 reissue whose collection/publisher are swapped relative to the label and which has no spine scan. The digital B de Books record (60365) is excluded as not a physical paperback. All four share the same translator (Paula Vicens) and 624-page extent, confirming they are the same text and no omnibus is in play.",
+  "concern": "El apagón is the first half of Connie Willis's two-volume work (the second is Cese de alerta), so this shelf entry covers only that first physical book, not the whole story. Worth knowing there are three paperbacks of it in the B house: the 2015 one picked here, the 2011 Nova trade edition (15x23, numbered 232), and a 2023 Ediciones B / \"B de Bolsillo\" collection reissue with the same 13x19 size and page count but no spine scan. If the copy on the shelf is the 2023 reissue, the picked cover art will be wrong.",
+  "alternates": [
+   34097,
+   74273
+  ],
+  "verified": true,
+  "verify_grounds": "The pick stands. Deciding fields: 52605 is the only record where collection (\"Ciencia Ficción\") AND publisher (\"B de Bolsillo\") both match the owner's heading exactly; format \"Rústica - 13×19 cm - 624 páginas\" makes it a paperback; has_spine is true (independently confirmed in data/spines.json, which lists 52605 -> true, 34097 -> true, 60365 -> false, 74273 -> false). I checked data/candidates.json for a candidate the ranker might have dropped: the raw list holds exactly the same four ids, so nothing was hidden. All four records carry series \"El apagón\" (series_id 2657), translator Paula Vicens, and a 624-page extent where paged, so no omnibus, guide, companion, wrong series volume, or same-title different work is in play. The runners-up each fail on a named field: 34097 is collection \"Nova\" / publisher \"Ediciones B\", which is a different one of the owner's three headings, so rule 2 beats its rule-5 advantage of being the older (2011) printing; 74273 has collection and publisher swapped relative to the label and has_spine false; 60365 is format \"Edición digital\". No concern about the shelf label: the catalogue agrees with it here, so there is no imprint to correct.",
+  "overridden_to": null
+ },
+ {
+  "slug": "criopolis",
+  "title": "Criópolis",
+  "authors": [
+   "Lois McMaster Bujold"
+  ],
+  "book_id": 39443,
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "note": null,
+  "confidence": "high",
+  "shelf_label_matches": true,
+  "reasoning": "The deciding field is publisher plus collection: edition 39443 is Editorial \"B de Bolsillo\" in collection \"Ciencia Ficción\", exactly the owner's heading, and it is the real novel (single volume, 394 pages, Marín translation, Vorkosigan series), not an omnibus or guide. It also has a scanned spine and is a paperback, which the other label-matching candidate (64858, 2019) lacks a spine for. Edition 32097 is the older 2011 Nova / Ediciones B trade paperback with a spine, but it belongs to a different shelf heading, and 37407 is a B de Books ePUB, so neither can outrank a label-matching paperback with a spine. Between the two B de Bolsillo printings the 2013 one wins on both the spine scan and the older-printing tiebreak.",
+  "concern": "B de Bolsillo printed this twice in the same \"Ciencia Ficción\" collection: the 2013 printing chosen here (ISBN 9788498727722, 394 pp, Dave Seeley cover) and a 2019 reissue under the \"Saga Vorkosigan\" subcollection, number 15 (ISBN 9788490708644, 400 pp). Only the 2013 one has a scanned spine, so if the copy on the shelf is the 2019 reissue the spine shown will be the wrong printing. Checking the ISBN or the \"Saga Vorkosigan 15\" marking on the spine settles it.",
+  "alternates": [
+   64858,
+   32097
+  ],
+  "verified": true,
+  "verify_grounds": "The pick stands. Only two records match the owner's heading on both fields (collection \"Ciencia Ficcion\" + publisher \"B de Bolsillo\"): 39443 (feb 2013) and 64858 (20 jun 2019). The deciding field between them is has_spine: true for 39443, false for 64858, and the older-printing tiebreak points the same way. Both are the real single novel, not an omnibus or guide: 394 and 400 pages, identical Rafael Marin Trechera translation, series_ids [1112] Miles Vorkosigan, and 64858 numbers it 15 in the Saga Vorkosigan subcollection. The \"Ensayo\" genre tag that might suggest a companion volume appears identically on all four records, so it is a catalogue tagging quirk, not a property of 39443. 39443 is Rustica (paper), so the ePUB 37407 cannot displace it. 32097 has a spine but is Nova / Ediciones B, a different one of the owner's three headings, and taking it would move the book to the wrong shelf heading to gain a spine 39443 already has. No label-vs-catalogue conflict exists: B de Bolsillo really did publish Criopolis in collection Ciencia Ficcion, twice, so the owner's heading is accurate.",
+  "overridden_to": null
+ },
+ {
+  "slug": "la-tierra-desprevenida",
+  "title": "La Tierra desprevenida",
+  "authors": [
+   "Orson Scott Card",
+   "Aaron Johnston"
+  ],
+  "book_id": 49632,
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "note": null,
+  "confidence": "medium",
+  "shelf_label_matches": true,
+  "reasoning": "All four records are the same novel by Card and Johnston, first book of the Primera Guerra Fórmica trilogy within the Ender Wiggin series, same translator, so rule 1 eliminates nothing. The deciding field is publisher plus collection: only 49632 and 65252 are B de Bolsillo in the \"Ciencia Ficción\" collection, which is exactly the owner's heading, so the Nova/Ediciones B hardback-format trade edition (40116) and the B de Books ePUB (40912, no spine) both drop out. Between the two survivors everything ties (paperback, scanned spine, matching label), so rule 5 decides it and the 2014 printing wins over the 2019 reissue. Confidence is medium only because that final tiebreak is a coin-flip on which of two near-identical printings is physically on the shelf.",
+  "concern": "The shelf label is correct, but it maps to two physical printings rather than one: B de Bolsillo issued this in the \"Ciencia Ficción\" collection twice, and both carry a scanned spine. I picked the 2014 printing (ISBN 9788498729498, rústica con solapas, 13x20 cm, 459 pages) over the 2019 reissue (ISBN 9788413140070, plain rústica, 12,5x19 cm, 464 pages) on the tiebreak that favours the older cover art. If the copy on the shelf has no flaps and is slightly smaller, it is edition 65252 instead. Also worth knowing: this is volume 1 of the Primera Guerra Fórmica trilogy, so two more physical books share this shelf label if the owner has them.",
+  "alternates": [
+   65252,
+   40116,
+   40912
+  ],
+  "verified": true,
+  "verify_grounds": "Pick stands. All four records are the same novel (Card + Johnston, Primera Guerra Fórmica #1, series Ender Wiggin, translator Rafael Marín Trechera), so rule 1 eliminates nothing and there is no omnibus/guide/wrong-volume/title-collision trap here. The deciding fields are publisher + collection: only 49632 and 65252 are publisher \"B de Bolsillo\" in collection \"Ciencia Ficción\" (collection_id 6585), which is exactly the owner's heading. 40116 is collection \"Nova\" / publisher \"Ediciones B\", i.e. a different one of the owner's own three headings, so choosing it would file the book on the wrong shelf rather than correct a mislabel; 40912 is B de Books with collection null, format \"Edición digital - ePUB\" and has_spine false, losing on rules 2, 3 and 4 simultaneously. Between the two survivors rules 3 and 4 tie (both has_spine true, both rústica), so rule 5 decides and year 2014 beats 11 jul 2019. No candidate matches the heading better, none has a spine the pick lacks, and the pick is not digital. Two immaterial slips in the other reader's reasoning: 40116 is not hardback-format, it is \"Rústica con solapas - 15×23 cm\" and drops out on imprint alone; and 65252's dimensions field reads \"5×19\", a parse artifact of \"12,5×19\" (its format string is correct), which matters only if something downstream sizes spines from that field.",
+  "overridden_to": null
+ },
+ {
+  "slug": "ninos-perdidos",
+  "title": "Niños perdidos",
+  "authors": [
+   "Orson Scott Card"
+  ],
+  "book_id": 64,
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "note": null,
+  "confidence": "high",
+  "shelf_label_matches": false,
+  "reasoning": "The brief lists exactly one catalogued edition, and its contents table settles identity: pp. 11-414 is the novel Niños perdidos (Lost Boys, 1992) by Orson Scott Card, wrapped in a Miquel Barceló prologue and epilogue, so it is the single novel and not an omnibus or a guide. It is a paperback (rústica con solapas, 416 pp., Carlos Gardini translation) from jun 1994 with a scanned spine, which satisfies the spine, format and older-printing preferences outright. The deciding field is the absence of any competing record: with nothing else catalogued, the only open question is the shelf heading, and the catalogue says Ediciones B / Nova Scott Card 3, not B de Bolsillo / Ciencia Ficción.",
+  "concern": "The shelf label does not match. You listed this under \"Ciencia Ficción. Editorial B de Bolsillo\", but the only edition Tercera Fundación has is Ediciones B's Nova Scott Card 3 from jun 1994 (same publishing house, different imprint, and a different collection). No B de Bolsillo or Zeta Bolsillo pocket printing of Niños perdidos is catalogued at all. If the copy on your shelf is genuinely a small pocket paperback rather than a 15x23 cm trade paperback with flaps, the spine shown will be the wrong cover art, and the right one simply is not in the catalogue to pick.",
+  "alternates": [],
+  "verified": true,
+  "verify_grounds": "The pick stands; I could not find a field that overturns it. Identity: contents \"pp. 11-414 Niños perdidos (Lost Boys), novela (1992)\" makes id 64 the standalone novel, wrapped only in a Barceló prologue (pp. V-IX) and epilogue (pp. 417-418). That matters more than it looks, because \"Niños perdidos\" is also the title of Card's 1989 short story: the cached title search for \"Mapas en un espejo\" shows \"pp. 149-165 Niños perdidos (Lost Boys), relato corto (1989)\", and the compact libro search for \"Niños perdidos\" returns five \"Mapas en un espejo\" printings (ids 4258, 663, 20479, 64609, 52630) purely because they contain that story. Those are anthologies and id 64 is not; the trap was avoided. No better candidate exists. The upstream pool (data/candidates.json) carries the same single record, and the compact tipo=libro search, which scrape.py documents as the mode that \"finds everything\", returns 20 hits of which exactly one is a Card book titled \"Niños perdidos\" (id 64); the other same-title record, id 23720, is by Iván Mourin Rodríguez, a different work sharing the title. The catalogue's own wording corroborates: the cached page for libro/64 labels its work link \"Ver título:\", whereas every cached page for a work with siblings says \"Otras ediciones de\" (libro/66 to ficha/65, which shows \"Ediciones (3)\"). So there is no B de Bolsillo or Zeta Bolsillo pocket reissue to prefer, no digital edition being chosen over paper, and no older printing to fall back to. Preferences 3-5 are satisfied outright: has_spine true, \"Rústica con solapas - 15x23 cm - 416 páginas\", jun 1994. One caveat, not a refutation: work_id is null on this record because tf.parse_book only recognises the \"Otras ediciones de\" label, so ficha/63 was never fetched and the single-edition claim rests on that label plus the compact search rather than on the work page itself; I tried to fetch ficha/63 to close the gap and the site returned 403. Concern to carry forward: the shelf heading is wrong. The owner listed this under \"Ciencia Ficción / B de Bolsillo\" but the catalogue says Editorial Ediciones B, Colección Nova Scott Card 3 (ISBN 8440644655), and since nothing else is catalogued, the heading cannot be satisfied by any pick.",
+  "overridden_to": null
+ },
+ {
+  "slug": "lovelock",
+  "title": "Lovelock",
+  "authors": [
+   "Orson Scott Card",
+   "Kathryn H. Kidd"
+  ],
+  "book_id": 665,
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "note": null,
+  "confidence": "high",
+  "shelf_label_matches": false,
+  "reasoning": "Both candidates are genuinely the Card/Kidd novel Lovelock (Mayflower book one), same translator, no omnibus or guide in the set, so criterion 1 does not separate them. Neither matches the owner's \"Ciencia Ficción / B de Bolsillo\" heading, so criterion 2 falls back to nearest: id 665 is Ediciones B, the parent house of the B de Bolsillo imprint, while id 28174 is Alamut, an unrelated publisher. The deciding field after that is the spine scan: 665 has one and 28174 does not, and 665 is also the older printing (1995 vs 2010) and a paperback, so every remaining tiebreak points the same way.",
+  "concern": "The shelf label is wrong: the catalogue has no \"Ciencia Ficción\" / B de Bolsillo printing of Lovelock at all. Only two editions exist, the 1995 Ediciones B one in the \"Nova Scott Card\" collection (#6) and a 2010 Alamut \"Serie Fantástica\" (#24). I picked the Ediciones B one because it is at least the same publishing house as the owner's remembered imprint, and it is the only record with a scanned spine, so the shelf will render a real image. If the copy on the shelf is physically a small pocket paperback rather than a 15x23 cm trade paperback with flaps, the owner may have a printing the catalogue does not list. Minor note: record 665 tags the genre as \"Ciencia ficción, Ensayo\", which is a catalogue quirk; it is the Card/Kidd novel, translated by Rafael Marín Trechera, same translator as the Alamut edition.",
+  "alternates": [
+   28174
+  ],
+  "verified": true,
+  "verify_grounds": "The pick stands. The pool holds exactly two Spanish records (665, 28174); the only other title seen, id 44179 \"Lovelock. The Mayflower Trilogy. Book I\", is the English-language original and is correctly excluded. Both surviving records are the single Card/Kidd novel, same translator (Rafael Marín Trechera), neither an omnibus, guide, companion, anthology, nor a different volume of the Mayflower series, so criterion 1 does not separate them. Criterion 2 cannot be satisfied by anything in the pool: no candidate is Colección \"Ciencia Ficción\" / Editorial \"B de Bolsillo\", so the owner's heading is wrong and the catalogue is what decides. On the nearest-match fallback 665 is Ediciones B (the parent house whose pocket imprint is B de Bolsillo) in Colección \"Nova Scott Card\", which is in fact the owner's own OTHER heading (Nova / Ediciones B) misfiled, while 28174 is Alamut, Serie Fantástica, an unrelated house with no relation to any of the three headings. The field that then decides is has_spine: 665 true (confirmed in data/spines.json), 28174 false, and this shelf is built from spine scans. Every remaining tiebreak agrees rather than conflicting: both are \"Rústica con solapas\" so criterion 4 is a tie, and 665 is the older printing (oct 1995 vs 2010), which is the cover art the shelf exists for. No candidate is a digital edition, and no better-matching or spine-bearing alternative exists in the set. The one blemish on 665 is a stray \"Ensayo\" genre tag in the catalogue record, but its ISBN 8440658346, 326-page rústica format and novel translator confirm it is the novel, not an essay collection, so it is a tagging artifact and not grounds to switch. Worth carrying forward as a concern for the shelf: the owner listed this under \"Ciencia Ficción. Editorial B de Bolsillo\" and the catalogue holds no such edition; the physical book is the 1995 Ediciones B / Nova Scott Card no. 6 printing.",
+  "overridden_to": null
+ },
+ {
+  "slug": "la-era-del-diamante",
+  "title": "La era del diamante",
+  "authors": [
+   "Neal Stephenson"
+  ],
+  "book_id": 28593,
+  "shelf": "Zeta Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+  "note": null,
+  "confidence": "high",
+  "shelf_label_matches": true,
+  "reasoning": "Edition 28593 is the only candidate whose collection (\"Ciencia Ficción\") and publisher (\"Zeta Bolsillo\") both match the owner's heading exactly, and it is the novel itself in a paperback binding (rústica con solapas, 672 pp, Pedro Jorge Romero's translation), not an omnibus or a guide. The deciding field is the collection+publisher pair, which outranks the spine scan the ranker's runner-up (id 12, Nova 1997) offers. The other candidates are a different imprint each: Nova 1997, the Byblos pocket line 2004, and a B de Books ePUB, which is not a physical book at all.",
+  "concern": "The matching edition has no scanned spine, so it will render as a drawn placeholder. The two editions that do have spine scans (id 12, Nova / Ediciones B 1997; id 13336, Byblos pocket 2004) are different physical printings and do not match the shelf label, so neither was substituted. Also worth a look: the record's parsed dimensions read \"5×20\" while the format string says 12,5×20 cm, which would mis-size a generated spine.",
+  "alternates": [
+   12,
+   13336
+  ],
+  "verified": true,
+  "verify_grounds": "The pick stands. The deciding field is the collection+publisher pair: id 28593 is the only one of the four candidates where collection = \"Ciencia Ficción\" AND publisher = \"Zeta Bolsillo\", exactly the owner's heading, so the label and the catalogue agree and there is nothing to flag as a concern. None of the refutation avenues opens: (a) no candidate matches the heading better, the other three are Nova/Ediciones B (id 12), Byblos/Ediciones B (id 13336) and B de Books (id 36982), each a different imprint; (b) it is not an omnibus, guide, companion or wrong series volume, all four records are the same Stephenson novel in the same Pedro Jorge Romero translation with empty series lists, and 672 pp at 12,5×20 cm is the ordinary pocket reset of the same text (Byblos 669 pp at 11×17,5; Nova 445 pp at the larger 15×23 trim), while the \"Ensayo\" genre tag appears identically on all four and is a catalogue quirk, not evidence of a guide; (c) it is paper, \"Rústica con solapas\", not the ePUB (id 36982 is the only digital record); (d) no better candidate has a spine, ids 12 and 13336 do carry has_spine=true but each fails the higher-ranked imprint test, and rule 3 is explicitly subordinate to rule 2 (a spine never justifies a different physical book); (e) it is not a different work sharing the title. The only cost is the drawn placeholder spine (has_spine=false), and rule 5's preference for the older 1997 Nova printing does not apply because the rest does not tie, 28593 wins rule 2 outright.",
+  "overridden_to": null
+ },
+ {
+  "slug": "los-viajes-de-tuf",
+  "title": "Los viajes de Tuf",
+  "authors": [
+   "George R. R. Martin"
+  ],
+  "book_id": 22734,
+  "shelf": "Zeta Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+  "note": null,
+  "confidence": "high",
+  "shelf_label_matches": true,
+  "reasoning": "Record 22734 is the only edition that matches the owner's heading on both deciding fields at once: Editorial Zeta Bolsillo and Colección Ciencia Ficción, number 45, and it also carries a scanned spine. Its twin 33479 shares the ISBN and is the same physical book, but has no spine scan, so it loses on rule 3 with nothing else separating them. Every other candidate is an Ediciones B, B de Bolsillo, B de Books or hardback printing, which is the same publishing house but not the imprint on the shelf label. All eight records describe the same single-volume fix-up of the Tuf stories in Albert Soler's translation, so there is no risk of picking an omnibus or a different volume of the series.",
+  "concern": "The catalogue holds this Zeta Bolsillo printing twice under the same ISBN (9788498722550): record 22734 dated 2009 and record 33479 dated 2011. They are the same book, so the choice between them is only about which record carries the scan, and 22734 does. If the copy on the shelf turns out to be the taller Nova trade paperback or the 1988 Nova original instead, the label is right about the collection name but wrong about the imprint, and 381 or 38916 would be the record to switch to.",
+  "alternates": [
+   33479,
+   381,
+   15958,
+   38916
+  ],
+  "verified": true,
+  "verify_grounds": "The pick stands, and nothing in the candidate list contradicts it. Rule 2 is decisive and uncontested: publisher \"Zeta Bolsillo\" + collection \"Ciencia Ficcion\" is matched only by 22734 and its twin 33479 (same ISBN 9788498722550, collection number 45); every other record is Ediciones B (Nova 381/38916/68828, Byblos 15958), B de Bolsillo (Maxi 49753) or B de Books (40913), so no candidate matches the owner's heading better. Rule 1 holds: all eight records are the same single-volume Tuf fix-up in Albert Soler's translation, page counts 454-560, so there is no omnibus, guide, companion, anthology, wrong series volume, or same-title different work in the set (the stray \"Ensayo\" genre tag rides on six records including the 1988 Nova first printing, so it is a catalogue quirk, not a non-fiction companion). Against the twin 33479, three rules point the same way rather than the one the other reader cited: 22734 has the spine scan (I confirmed https://tercerafundacion.net/imagenes/lomo/L-00022734.jpg returns 200 with a 5977-byte image while L-00033479.jpg returns 404, so has_spine is accurate on both), it is \"Rustica con solapas\" against 33479's plain \"Rustica\" (rule 4), and it is the older printing at 2009 vs 2011 (rule 5). The spine-bearing alternatives 381, 15958, 38916 and 68828 all lose on rule 2 before rule 3 is reached, and 68828 is a hardback besides. The pick is not digital; the one digital record (40913, ePUB) is correctly last. One non-blocking data defect worth passing on: 22734's \"dimensions\" field reads \"5x20\", truncated from the \"12,5x20 cm\" in its own \"format\" string, so a shelf that sizes spines from \"dimensions\" will render this book far too narrow. That is a parser bug in the brief generator, not a reason to prefer another edition.",
+  "overridden_to": null
+ },
+ {
+  "slug": "maestro-cantor",
+  "title": "Maestro cantor",
+  "authors": [
+   "Orson Scott Card"
+  ],
+  "book_id": 22794,
+  "shelf": "Zeta Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+  "note": null,
+  "confidence": "high",
+  "shelf_label_matches": true,
+  "reasoning": "Edition 22794 is the only record whose collection (\"Ciencia Ficción\", id 4234) and publisher (\"Zeta Bolsillo\") both match the owner's heading exactly, and it is the deciding field here. It is a paperback (rústica con solapas, 12,5x20, 416 pp) with a scanned spine, Rafael Marín Trechera's translation and Óscar H. Chichoni cover, so it is the Card novel and not an omnibus or a guide. No trade-off was needed: the label match, the spine and the paperback format all point at the same record, so nothing older (the 1988 Nova or the 1992 VIB pocket printings) was worth preferring.",
+  "concern": "The 2019 B de Bolsillo record (64607) is the same physical book re-badged after the imprint rename: identical ISBN-era format (12,5x20, 416 pp), same translator and same Chichoni cover. If the copy on the shelf is actually that later reprint, the shelf will still show the right artwork, since only the 2009 Zeta Bolsillo printing has a spine scan. Worth a glance at the copyright page if the owner wants the record to be exact. Also note the catalogue leaves the author field empty on every one of these records; authorship is confirmed only indirectly, through the translator and cover artist.",
+  "alternates": [
+   64607,
+   244,
+   2041,
+   15012,
+   9109
+  ],
+  "verified": true,
+  "verify_grounds": "The pick stands. Publisher is the deciding field and 22794 is the only record in the whole candidate set published by Zeta Bolsillo; its collection \"Ciencia Ficción\" (id 4234) and number 46 complete an exact match to the owner's heading, which is itself accurate here (no catalogue-vs-label disagreement to report). The one rival on collection name, 64607, is B de Bolsillo with a different collection id (6585), belongs to the owner's other heading, is a 2019 reprint and has has_spine=false. Not an omnibus, guide or wrong volume: the cached catalogue page shows a single title record (id:336, Songmaster, Card, 1980) with exactly 7 editions, all present in the brief, and 22794's Índice de contenidos is Barceló's prologue pp.7-11, the novel Songmaster pp.15-406, Barceló's bibliographic epilogue pp.409-410. The stray \"Ensayo\" genre tag comes from those two Barceló apparatus pieces and appears identically on the 1988 Nova, the 2013 ePub and the 2019 record, so it does not signal a collection of essays. Not digital: rústica con solapas, 12,5x20 cm, 416 pp, versus the ePub-only 48037. Spine confirmed true in data/spines.json. The four Ediciones B records (244 Nova 1988, 9109/15012/2041 VIB 1992) are older and also have spines, but they fail both label fields, and rule 2 outranks rule 5, so preferring the 1988 Nova cover art would trade away the deciding field.",
+  "overridden_to": null
+ },
+ {
+  "slug": "hijos-de-la-mente",
+  "title": "Hijos de la mente",
+  "authors": [
+   "Orson Scott Card"
+  ],
+  "book_id": 31404,
+  "shelf": "Zeta Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+  "note": null,
+  "confidence": "high",
+  "shelf_label_matches": true,
+  "reasoning": "Edition 31404 is the only record whose collection (\"Ciencia Ficción\") and publisher (\"Zeta Bolsillo\") both match the owner's heading exactly, and it is a rústica con solapas paperback numbered 269 in that collection, translated by Rafael Marín Trechera like every other candidate. The label match is the deciding field and it outranks the spine scan, so I did not switch to 56299 (B de Bolsillo, 2013) or 341 (Nova, 1997) just because those have spine images. All candidates are the same single novel of the Ender Wiggin series, so there is no omnibus ambiguity here. The cost is that this edition has no scanned spine and will render a drawn placeholder on the shelf.",
+  "concern": "The chosen Zeta Bolsillo edition (id 31404) has no scanned spine, so it will show a drawn placeholder rather than real cover art. The nearest editions that do have spine scans are a different physical book: 56299 is the 2013 B de Bolsillo hardback (same collection name, sibling imprint, wrong binding), and 341 is the 1997 Ediciones B \"Nova\" no. 100 trade paperback at 15x23 cm, which belongs to a different shelf heading. If the copy in hand is 12.5x20 cm and ~438 pages, 31404 is right and the placeholder is unavoidable; if it is a taller 15x23 cm book, it is the Nova printing (341) and the shelf label is the thing that is wrong.",
+  "alternates": [
+   56299,
+   341,
+   14722,
+   64257,
+   941
+  ],
+  "verified": true,
+  "verify_grounds": "The deciding field is publisher, and id 31404 is the only record in the whole candidate set with publisher \"Zeta Bolsillo\"; it also carries collection \"Ciencia Ficcion\", so both halves of the owner's heading match exactly and the catalogue does not contradict the label. It is a paperback (Rustica con solapas, 438 pp, numbered 269 in the collection). Identity is clean: all seven candidates are the same single Ender Wiggin novel translated by Rafael Marin Trechera, so there is no omnibus, guide, companion, anthology or wrong-volume alternative, and no different work sharing the title. The three spine-bearing rivals each fail a rule ranked above spine: 56299 is B de Bolsillo and Tapa dura (wrong publisher plus hardback), 341 is Ediciones B / Nova (wrong publisher and wrong collection), 14722 is Ediciones B / Byblos (same). The remaining candidates are worse still: 64257 is B de Bolsillo and also has no spine, 941 is Punto de Lectura, 37408 is a B de Books ePUB. Rule 3 ranks below rule 2 and states a spine is not worth the wrong physical book, so the missing scan on 31404 is a real cost (the shelf renders a drawn placeholder) but not grounds to switch. Minor catalogue noise noted and not acted on: 341 lists genre \"Ensayo\" beside \"Ciencia ficcion\", a tagging quirk rather than evidence of a different work.",
+  "overridden_to": null
+ },
+ {
+  "slug": "nave-de-un-millon-de-anos",
+  "title": "La nave de un millón de años",
+  "authors": [
+   "Poul Anderson"
+  ],
+  "book_id": 22735,
+  "shelf": "Zeta Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+  "note": null,
+  "confidence": "high",
+  "shelf_label_matches": true,
+  "reasoning": "Edition 22735 is the only record whose collection (\"Ciencia Ficción\") and publisher (\"Zeta Bolsillo\") both match the owner's heading exactly, and it is the deciding field. It is a single-volume novel, not an omnibus or guide: Poul Anderson's The Boat of a Million Years in Carlos Gardini's translation, 726 pages, the same translator as every other record here. It is also a paperback (rústica con solapas) with a scanned spine, so no tiebreaker has to be traded away. The four alternatives are all Ediciones B or Planeta imprints the owner did not name.",
+  "concern": "Nothing blocking, but worth knowing: the 2009 Zeta Bolsillo printing reuses the Óscar H. Chichoni cover art from the 1991 Nova edition (id 648), so if the copy on the shelf is the taller 15x22 cm Nova trade paperback rather than the 12,5x20 cm pocket, the art will look the same while the spine will not. Check the spine height against the neighbours if the rendered shelf looks off. Also note the catalogue lists no author on any of these five records, so the identification rests on title plus the Gardini translation, which is consistent across all of them.",
+  "alternates": [
+   648,
+   1768,
+   14391,
+   18627
+  ],
+  "verified": true,
+  "verify_grounds": "Could not refute it. The deciding field is the collection+publisher pair, and 22735 is the only record in the set where both match the owner's heading (\"Ciencia Ficción\" / \"Zeta Bolsillo\", collection #47, 2009); the other four are Ediciones B (Nova #39 1991, VIB #236 1997, Byblos #516 2005) or Planeta DeAgostini (Biblioteca de Ciencia Ficción #26, 2006), none of which the owner named, so no candidate matches the label better. Every one of the five is the same work: identical title, all translated by Carlos Gardini, page counts 726/728/730 across the pocket and hardback printings, with the 1991 Nova record's 554 pages explained by its larger 15x22 cm trade format rather than by abridgement. So there is no omnibus, guide, companion, wrong series volume, or same-title-different-work problem to expose, and none of the records is digital. On the lower tiebreakers 22735 also wins outright rather than by concession: it is \"Rústica con solapas\" (paperback, beating the hardback 18627), and spines.json confirms has_spine true, while 18627 is the only record lacking a spine. The one rule it appears to lose is \"prefer the older printing\", which would favour the 1991 Nova #39 (648) with its pre-2000 cover, but that rule applies only when the rest ties, and here the higher-priority collection+publisher match decides; the cover-art argument is moot anyway, since 22735 carries the same Óscar H. Chichoni cover as the 1991 Nova edition. No concern to raise: the owner's label and the catalogue agree on this book.",
+  "overridden_to": null
+ },
+ {
+  "slug": "elantris",
+  "title": "Elantris",
+  "authors": [
+   "Brandon Sanderson"
+  ],
+  "book_id": 28744,
+  "shelf": "Zeta Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+  "note": null,
+  "confidence": "high",
+  "shelf_label_matches": true,
+  "reasoning": "Record 28744 is the only edition whose publisher (Zeta Bolsillo) and collection (Ciencia Ficción, number 209) both match the owner's heading exactly, and it is the single-volume Sanderson novel, not an omnibus or guide. It is a paperback (rústica con solapas, 648 pages, translated by Rafael Marín Trechera) and it carries a scanned spine, so every deciding criterion points the same way. The mechanical ranker's top score of 125 agrees, and nothing in the records contradicts it.",
+  "concern": "Nothing blocking, but worth knowing: the 2010 Zeta Bolsillo printing carries the original 645-648 page text translated by Rafael Marín Trechera alone. Every Ediciones B / Nova printing from 2016 onward is the longer 787-800 page version with Manuel de los Reyes added as co-translator, so if the copy on the shelf is a fat 800-page book rather than a slim one, it is the B de Bolsillo \"Maxi\" paperback (id 62752, no spine scan) and not this one. Also note the catalogue files Elantris under Fantasía, not science fiction, despite the collection being named Ciencia Ficción.",
+  "alternates": [
+   15417,
+   62752,
+   14989
+  ],
+  "verified": true,
+  "verify_grounds": "The pick stands. Record 28744 is the only candidate in the file whose publisher is Zeta Bolsillo, and its collection field is Ciencia Ficcion (number 209), so both halves of the owner's heading match exactly and no candidate can beat it on criterion 2. Every refutation route was checked and none applies. Not an omnibus, guide, or wrong volume: all twelve records share series Elantris / series_id 1396 and the title exactly Elantris, and 28744's 648 pages with the single translator Rafael Marin Trechera is the plain novel, not the 795-800 page later text that adds Manuel de los Reyes material. Not digital: format is Rustica con solapas, while the only ePUB records are 47231 and 57314 from B de Books. Not spine-deficient: has_spine is true, so no better-spined candidate exists. The closest rival on the label, 62752, is B de Bolsillo but sits in collection Maxi rather than Ciencia Ficcion and has has_spine false, losing on both the collection field and the spine. The older 2006 Nova paperback 15417 has a spine but fails the heading on both publisher and collection, and criterion 5 only breaks ties among otherwise-equal records, so its earlier date cannot promote it. The \"Ensayo\" genre tag on 28744 is not evidence of a guide: it appears on ten of the twelve records including every Nova printing, making it a catalogue artifact rather than a signal. No catalogue-vs-label disagreement to flag; the owner's heading is accurate for this title.",
+  "overridden_to": null
+ },
+ {
+  "slug": "steelheart",
+  "title": "Steelheart",
+  "authors": [
+   "Brandon Sanderson"
+  ],
+  "book_id": 53731,
+  "shelf": "Zeta Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+  "note": null,
+  "confidence": "high",
+  "shelf_label_matches": false,
+  "reasoning": "All five records are the same novel (Reckoner #1, translated by Rafael Marín Trechera), so the choice is purely about printing. The owner's heading names collection \"Ciencia Ficción\", which only the two pocket records carry, and those two share ISBN 9788490700952 and identical format (Rústica 13×19, 416 pp), so they are almost certainly the same physical book catalogued twice; id 53731 is the deciding pick because it has the scanned spine and is the older printing, while its 2019 twin (64496) has none. The Nova records (50294, 70606) are the larger 15×23 trade edition under Ediciones B, which contradicts the \"Bolsillo\" heading.",
+  "concern": "The shelf label says \"Editorial Zeta Bolsillo\", but the catalogue has no Zeta Bolsillo printing of Steelheart at all: the pocket edition is published by B de Bolsillo, the imprint Ediciones B used in place of Zeta Bolsillo by 2015. The collection half of the label (\"Ciencia Ficción\") does match, so the pocket book is still the right shelf, only under a different imprint name. Worth knowing too that the two B de Bolsillo records (53731 and 64496) carry the same ISBN and identical format, so they are one physical book listed twice rather than two printings to choose between; if the copy on the shelf is actually the taller 15×23 trade paperback, it is the Nova 242 edition (50294) instead.",
+  "alternates": [
+   64496,
+   50294,
+   70606
+  ],
+  "verified": true,
+  "verify_grounds": "Nothing in the candidate list refutes 53731. Rule 1 is satisfied by all five: every record is Reckoner #1, translated by Rafael Marín Trechera, ~408-416 pp, so there is no omnibus, guide, companion, anthology, wrong series volume, or title-collision to catch, and the mechanical ranker had nothing to overrule. Rule 2 narrows to the two records whose \"collection\" is literally \"Ciencia Ficción\" (53731, 64496); the Nova pair (50294, 70606) matches neither field of the heading (collection \"Nova\", publisher \"Ediciones B\") and is the 15x23 trade format, and 50551 is dropped by rule 4 as \"Edición digital - ePUB\" with collection null. Between the two survivors, which share ISBN 9788490700952 and the identical \"Rústica - 13×19 cm - 416 páginas\" format and so are the same physical book catalogued twice, the deciding field is has_spine: 53731 true, 64496 false (rule 3), and 53731 is also the older printing, 10 jun 2015 against 13 mar 2019 (rule 5). No candidate with a scanned spine matches the heading better: the two that also have spines are the Nova trade edition. Concern to carry forward, and a place the other reader was imprecise: the heading names publisher \"Zeta Bolsillo\", and no record in the list carries it. The catalogue gives \"B de Bolsillo\" for both pocket records, the same house's pocket imprint that succeeded Zeta Bolsillo before this 2014 Spanish translation existed, so the label is the owner's memory of a defunct imprint rather than a real printing. Trust the catalogue: the publisher half of the heading cannot be satisfied by any candidate, so it cannot pull the pick toward Nova, which misses both halves.",
+  "overridden_to": null
+ },
+ {
+  "slug": "ilion-1-el-asedio",
+  "title": "Ilión I: El asedio",
+  "authors": [
+   "Dan Simmons"
+  ],
+  "book_id": 23634,
+  "shelf": "Zeta Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+  "note": null,
+  "confidence": "high",
+  "shelf_label_matches": true,
+  "reasoning": "Edition 23634 is the only catalogued volume I whose collection (\"Ciencia Ficción\") and publisher (\"Zeta Bolsillo\") both match the owner's heading exactly, so the shelf label is right and the deciding field is the collection+publisher pair. It is a 2009 rústica con solapas, 480 pp, translated by Rafael Marín Trechera, cover by Óscar H. Chichoni. The Nova 2004 (11748) and Byblos 2006 (14723) printings do have scanned spines, but a spine is not worth swapping to a different physical book when the label match is unambiguous. Half the ranked list is Ilión II: La rebelión (23635, 13071, 14724, 60142), which is a different book entirely.",
+  "concern": "The chosen Zeta Bolsillo printing has no scanned spine, so it will render as a drawn placeholder on the shelf; the two editions that do have spine scans (Nova 167, 2004 and Byblos 517, 2006) are different physical printings by Ediciones B, not the one the label names. Also worth knowing: \"Ilión\" exists as more than one physical object in this catalogue. Spanish publishers split the novel into two volumes (El asedio / La rebelión), and the 2019 Nova hardback (id 64529, 687 pp) is the complete novel in a single volume, so if the copy on the shelf is a fat one-volume Ilión rather than a slim numbered pair, the right record is 64529 instead.",
+  "alternates": [
+   11748,
+   14723
+  ],
+  "verified": true,
+  "verify_grounds": "The deciding field is the collection+publisher pair, and 23634 is the only volume-I record where both match the heading \"Ciencia Ficción. Editorial Zeta Bolsillo\" (collection \"Ciencia Ficción\", publisher \"Zeta Bolsillo\", 2009, rústica con solapas, 480 pp, trans. Rafael Marín Trechera, cover Óscar H. Chichoni). No refutation angle lands: it is the plain single novel, not the omnibus (that is 64529, \"Ilión\", 687 pp tapa dura, Nova 2019, which is also the wrong imprint and a hardback), not volume II (23635, 13071, 14724, 60142 are \"Ilión II: La rebelión\"), and not the digital record (60140, B de Books, edición digital). The two spine-bearing alternatives, 11748 (Nova/Ediciones B, 2004, 366 pp, cover Salvador/Colucci) and 14723 (Byblos/Ediciones B, 2006, 492 pp, cover Colucci), are physically different books under a different imprint, so their has_spine:true is a rule-3 preference that cannot outrank the rule-2 exact imprint match. The catalogue agrees with the owner's label, so there is no concern to raise; the pick's only cost is the drawn placeholder from has_spine:false.",
+  "overridden_to": null
+ },
+ {
+  "slug": "ilion-2-la-rebelion",
+  "title": "Ilión II: La rebelión",
+  "authors": [
+   "Dan Simmons"
+  ],
+  "book_id": 23635,
+  "shelf": "Zeta Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+  "note": null,
+  "confidence": "high",
+  "shelf_label_matches": true,
+  "reasoning": "Edition 23635 is the only catalogued record that is both the second Ilión volume and a Zeta Bolsillo printing in the Ciencia Ficción collection, which is exactly the owner's heading, numbered 98 and issued in 2009 as rústica con solapas. The ranker gave it 95, but it gave the same 95 to 23634, which is volume I (El asedio), so the deciding field was the title, not the score. The two spine-scanned alternatives (13071 Nova 2004 and 14724 Byblos 2006) are Ediciones B imprints, and collection plus publisher agreement outranks the spine, so the label match wins over the picture. The 2019 Nova record 64529 is titled plainly \"Ilión\" at 687 pages in hardback, which is the whole novel in one volume rather than this second half.",
+  "concern": "The chosen Zeta Bolsillo printing has no scanned spine, so it will render as a drawn placeholder on the shelf. The two editions that do have spine scans (13071, Ediciones B / Nova, nov 2004; 14724, Ediciones B / Byblos, 2006) are different imprints and would contradict the shelf label, so they were not chosen. Also worth knowing: Ilión exists both as two separate books and as a single volume, since record 64529 is a 2019 Nova hardback catalogued simply as \"Ilión\" at 687 pages, which is the complete novel rather than this second half.",
+  "alternates": [
+   13071,
+   14724
+  ],
+  "verified": true,
+  "verify_grounds": "The pick stands on publisher + collection. Edition 23635 is the only record in the candidate list that is simultaneously the second Ilión volume (\"Ilión II: La rebelión\", 448 pp, ISBN 9788498722796) and carries publisher \"Zeta Bolsillo\" with collection \"Ciencia Ficción\" (numbered 98, 2009), which is exactly the owner's heading. The catalogue agrees with the label here, so there is no imprint concern. The alternatives fail on a higher-priority field than the one they win on: 13071 (Nova, nov 2004) and 14724 (Byblos, 2006) are the correct volume II and do have scanned spines, but both are Ediciones B imprints, and collection-plus-publisher agreement outranks the spine, so their picture cannot promote them. 60142 is volume II but \"Edición digital\" from B de Books, excluded while a rústica con solapas exists. Everything else is the wrong object: 23634, 11748 and 14723 are volume I (El asedio), 60140 is volume I and digital, and 64529 is titled plainly \"Ilión\" at 687 pages in tapa dura con sobrecubierta, i.e. the whole novel in one hardback rather than this second half. No omnibus, guide, companion, anthology or shared-title substitution affects 23635. Its only drawback is has_spine false, so the shelf draws a placeholder, which the stated ordering accepts as the price of the correct physical book.",
+  "overridden_to": null
+ },
+ {
+  "slug": "libro-del-dia-del-juicio-final",
+  "title": "El libro del día del Juicio Final",
+  "authors": [
+   "Connie Willis"
+  ],
+  "book_id": 27512,
+  "shelf": "Zeta Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+  "note": null,
+  "confidence": "high",
+  "shelf_label_matches": true,
+  "reasoning": "The deciding field is the collection+publisher pair: edition 27512 is Colección \"Ciencia Ficción\" from Zeta Bolsillo (number 164, 2010), which is exactly the heading the owner wrote, and it is the only record in the brief from that imprint. It is also a paperback (rústica con solapas, 784 pp) with a scanned spine, so the label match costs nothing on the other criteria. Every other candidate is a different imprint of the same novel: Nova 1994 (68), VIB 1997 (719), Byblos 2005 (15686), the 2020 hardback and 2023 B de Bolsillo from Ediciones B, plus two La Factoría de Ideas printings and two ePUBs. All nine records are the same single-volume novel in the same Rafael Marín Trechera translation, so there is no omnibus or wrong-volume risk here.",
+  "concern": null,
+  "alternates": [
+   68,
+   719,
+   15686
+  ],
+  "verified": true,
+  "verify_grounds": "The pick stands; I could not find a field that beats it. Deciding field is collection+publisher: id 27512 is Colección \"Ciencia Ficción\" no. 164, Editorial Zeta Bolsillo (España), which is exactly the owner's heading \"Ciencia Ficción. Editorial Zeta Bolsillo\". I fetched the record (https://tercerafundacion.net/biblioteca/ver/libro/27512/) and the work page it links to (https://tercerafundacion.net/biblioteca/ver/ficha/67): the work has exactly nine editions and their ids (68, 719, 15686, 21282, 27512, 52953, 67494, 74256, 77491) are precisely the brief's nine candidates, so the candidate list is complete and 27512 is the only Zeta Bolsillo record in existence for this title. No candidate matches the label better. Checks against the specific failure modes: (a) not an omnibus, guide or wrong volume - the record's \"Índice de contenidos\" is a single entry, \"El libro del día del juicio final (Doomsday Book), novela (1992)\", pp. 21-782, by Connie Willis, Rafael Marín Trechera translation; the 784-page count agrees with the Byblos 2005, the 2020 hardback and the 2023 B de Bolsillo, so nothing extra is bound in (by contrast the Nova 1994, id 68, carries a Barceló prólogo and epílogo). (b) Not a digital edition: \"Rústica con solapas - 12,5×20 cm - 784 páginas\"; the two ePUBs (77491, 52953) and the hardback (67494, \"Tapa dura con sobrecubierta\") lose on criterion 4. (c) Spine confirmed real, not just a flag: https://tercerafundacion.net/imagenes/lomo/L-00027512.jpg returns HTTP 200, image/jpeg, 11090 bytes. (d) Not a title collision: original title Doomsday Book (1992), Hugo/Nebula/Locus 1993, correct author. The older-printing tiebreak (criterion 5) never engages, because criterion 2 is decided outright before it - the 1994 Nova and 1997 VIB printings are older but sit under different imprints than the heading. The owner's label agrees with the catalogue here, so there is nothing to flag as a concern.",
+  "overridden_to": null
+ }
+]

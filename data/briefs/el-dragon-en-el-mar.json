@@ -1,0 +1,102 @@
+{
+ "want": {
+  "slug": "el-dragon-en-el-mar",
+  "title": "El dragón en el mar",
+  "authors": [
+   "Frank Herbert"
+  ],
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "queries": [
+   "El dragón en el mar"
+  ]
+ },
+ "route": "libro+ficha",
+ "ranked": [
+  {
+   "id": 651,
+   "title": "El dragón en el mar",
+   "year": "sep 1991",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "40",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440622880",
+   "format": "Rústica con solapas - 15×22 cm - 255 páginas",
+   "translators": [
+    "José María García Grimalt"
+   ],
+   "cover_art": [
+    "Juan Giménez"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/651/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000651.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000651.jpg",
+   "dimensions": "15×22",
+   "pages": 255,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 555,
+   "title": "El dragón en el mar",
+   "year": "mar 1993",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "VIB",
+   "collection_id": 5,
+   "collection_number": "23",
+   "subcollection": "VIB Frank Herbert",
+   "subcollection_id": 1549,
+   "subcollection_number": "3",
+   "isbn": "8440635079",
+   "format": "Rústica - 11×17,5 cm - 384 páginas",
+   "translators": [
+    "José María García Grimalt"
+   ],
+   "cover_art": [
+    "Fotostock"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/555/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000555.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000555.jpg",
+   "dimensions": null,
+   "pages": 384,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  }
+ ]
+}

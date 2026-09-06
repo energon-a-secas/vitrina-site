@@ -1,0 +1,102 @@
+{
+ "want": {
+  "slug": "lovelock",
+  "title": "Lovelock",
+  "authors": [
+   "Orson Scott Card",
+   "Kathryn H. Kidd"
+  ],
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "queries": [
+   "Lovelock"
+  ]
+ },
+ "route": "libro+ficha",
+ "ranked": [
+  {
+   "id": 665,
+   "title": "Lovelock",
+   "year": "oct 1995",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova Scott Card",
+   "collection_id": 10,
+   "collection_number": "6",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440658346",
+   "format": "Rústica con solapas - 15×23 cm - 326 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Trazo"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/665/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000665.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000665.jpg",
+   "dimensions": "15×23",
+   "pages": 326,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 28174,
+   "title": "Lovelock",
+   "year": "2010",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Alamut",
+   "publisher_country": "España",
+   "collection": "Serie Fantástica",
+   "collection_id": 3800,
+   "collection_number": "24",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498890402",
+   "format": "Rústica con solapas - 15,5×23 cm - 256 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Alejandro Terán",
+    "Maciej Garbacz"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/28174/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00028174.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00028174.jpg",
+   "dimensions": "5×23",
+   "pages": 256,
+   "has_spine": false,
+   "score": 5,
+   "why": [
+    "NO scanned spine",
+    "numbered in its collection"
+   ]
+  }
+ ]
+}

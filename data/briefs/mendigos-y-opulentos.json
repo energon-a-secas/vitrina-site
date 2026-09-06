@@ -1,0 +1,157 @@
+{
+ "want": {
+  "slug": "mendigos-y-opulentos",
+  "title": "Mendigos y opulentos",
+  "authors": [
+   "Nancy Kress"
+  ],
+  "shelf": "Nova",
+  "listed_as": "Nova ciencia ficción",
+  "queries": [
+   "Mendigos y opulentos"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 338,
+   "title": "Mendigos y opulentos EN VENTA",
+   "year": "oct 1996",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "87",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440666918",
+   "format": "Rústica con solapas - 15×22 cm - 366 páginas",
+   "translators": [
+    "Elsa Mateo Blanco"
+   ],
+   "cover_art": [
+    "Trazo"
+   ],
+   "series": [
+    "Los Insomnes"
+   ],
+   "series_ids": [
+    1124
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/338/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000338.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000338.jpg",
+   "dimensions": "15×22",
+   "pages": 366,
+   "has_spine": true,
+   "score": 133,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 19216,
+   "title": "Mendigos y opulentos",
+   "year": "nov 2006",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Byblos",
+   "collection_id": 968,
+   "collection_number": "383",
+   "subcollection": "Byblos Nancy Kress",
+   "subcollection_id": 3106,
+   "subcollection_number": "2",
+   "isbn": "8466628827",
+   "format": "Rústica - 11×17,5 cm - 468 páginas",
+   "translators": [
+    "Elsa Mateo Blanco"
+   ],
+   "cover_art": [
+    "Leo Flores"
+   ],
+   "series": [
+    "Los Insomnes"
+   ],
+   "series_ids": [
+    1124
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/19216/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00019216.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00019216.jpg",
+   "dimensions": null,
+   "pages": 468,
+   "has_spine": true,
+   "score": 85,
+   "why": [
+    "publisher is the one on the shelf label",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 56291,
+   "title": "Mendigos y opulentos",
+   "year": "29 ene 2016",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Books",
+   "publisher_country": "España",
+   "collection": null,
+   "collection_id": null,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490692721",
+   "format": "Edición digital",
+   "translators": [
+    "Elsa Mateo Blanco"
+   ],
+   "cover_art": [
+    "Leo Flores"
+   ],
+   "series": [
+    "Los Insomnes"
+   ],
+   "series_ids": [
+    1124
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/56291/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00056291.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00056291.jpg",
+   "dimensions": null,
+   "pages": null,
+   "has_spine": false,
+   "score": -28,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine",
+    "digital edition, not a paperback"
+   ]
+  }
+ ]
+}

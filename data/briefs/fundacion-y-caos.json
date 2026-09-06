@@ -1,0 +1,200 @@
+{
+ "want": {
+  "slug": "fundacion-y-caos",
+  "title": "Fundación y Caos",
+  "authors": [
+   "Greg Bear"
+  ],
+  "shelf": "Zeta Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+  "queries": [
+   "Fundación y caos"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 32119,
+   "title": "Fundación y caos",
+   "year": "2011",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 4234,
+   "collection_number": "288",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498723908",
+   "format": "Rústica con solapas - 12,5×20 cm - 455 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [],
+   "series": [
+    "Segunda trilogía de la Fundación"
+   ],
+   "series_ids": [
+    2175
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/32119/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00032119.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00032119.jpg",
+   "dimensions": "5×20",
+   "pages": 455,
+   "has_spine": false,
+   "score": 95,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "NO scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 225,
+   "title": "Fundación y caos EN VENTA",
+   "year": "jun 1999",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "124",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440692919",
+   "format": "Rústica con solapas - 15×23 cm - 384 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Samuel Gómez",
+    "Gemma Pellicer"
+   ],
+   "series": [
+    "Segunda trilogía de la Fundación"
+   ],
+   "series_ids": [
+    2175
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/225/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000225.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000225.jpg",
+   "dimensions": "15×23",
+   "pages": 384,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 15395,
+   "title": "Fundación y caos",
+   "year": "oct 2006",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Byblos",
+   "collection_id": 968,
+   "collection_number": "728",
+   "subcollection": "Byblos Greg Bear",
+   "subcollection_id": 1946,
+   "subcollection_number": "2",
+   "isbn": "846662869X",
+   "format": "Rústica - 11×17,5 cm - 459 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Estudio Ediciones B"
+   ],
+   "series": [
+    "Segunda trilogía de la Fundación"
+   ],
+   "series_ids": [
+    2175
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/15395/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00015395.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00015395.jpg",
+   "dimensions": null,
+   "pages": 459,
+   "has_spine": true,
+   "score": 47,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 940,
+   "title": "Fundación y caos",
+   "year": "sep 2000",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Punto de Lectura",
+   "publisher_country": "España",
+   "collection": "Punto de Lectura",
+   "collection_id": 103,
+   "collection_number": "74",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8466300600",
+   "format": "Rústica - 11×17,5 cm - 479 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Gemma Pellicer"
+   ],
+   "series": [
+    "Segunda trilogía de la Fundación"
+   ],
+   "series_ids": [
+    2175
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/940/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000940.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000940.jpg",
+   "dimensions": null,
+   "pages": 479,
+   "has_spine": true,
+   "score": 35,
+   "why": [
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,81 @@
+{
+ "want": {
+  "slug": "ninos-perdidos",
+  "title": "Niños perdidos",
+  "authors": [
+   "Orson Scott Card"
+  ],
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "queries": [
+   "Niños perdidos"
+  ]
+ },
+ "route": "libro+ficha",
+ "ranked": [
+  {
+   "id": 64,
+   "title": "Niños perdidos",
+   "year": "jun 1994",
+   "authors": [
+    "Orson Scott Card"
+   ],
+   "author_ids": [
+    9
+   ],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova Scott Card",
+   "collection_id": 10,
+   "collection_number": "3",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440644655",
+   "format": "Rústica con solapas - 15×23 cm - 416 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "R. Crawford"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ensayo",
+    "Terror y misterio"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/64/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000064.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000064.jpg",
+   "dimensions": "15×23",
+   "pages": 416,
+   "work_id": null,
+   "blurb": "Nota de bibliotecario Opinión Usuario Frase exacta Registrarse Entrar Registrarse Entrar Toda la 3F Título ISBN (sin guiones) Persona Editorial Contenido Colección Premio Enciclopedia Galáctica Texto de contraportada Nota de bibliotecario Opinión Usuario Frase exacta Escanear ISBN Libro id:64 Niños perdidos (jun 1994) ( Lost Boys , 1992 ) Orson Scott Card Editorial: Ediciones B (España) Colección: Nova Scott Card 3 ISBN: 8440644655 Rústica con solapas - 15×23 cm - 416 páginas Traducción: Carlos Gardini Ilustración de cubierta: R. Crawford Ver título: Niños perdidos Índice de contenidos pp. V–IX Presentación [Niños perdidos] , prólogo de Miquel Barceló pp. 11–414 Niños perdidos ( Lost Boys ) , novela (1992) pp. 417–418 Referencia bibliográfica de Orson Scott Card [Niños perdidos] , epílogo de Miquel Barceló Texto de contraportada/solapas: El programador de juegos de ordenador Step Fletcher se muda, junto con su familia, a Steuben, un pueblecito de Carolina del Norte (EEUU). La familia, de religión mormona, deberá superar los problemas de la vida cotidiana, agravados por la necesidad de integrarse en el nuevo trabajo, en la nueva escuela y en la nueva comunidad. Pero la preocupación de los Fletcher por sus hijos se convertirá en espanto y terror al saber que varios niños han desaparecido de Steuben y que esos \"niños perdidos\" tienen especial relación con su hijo mayor Stevie. \"Muchos autores de relatos de terror no han aprendido la verdadera lección que brinda el éxito de Stephen King. Los relatos de King no funcionan por acumulación de truculencias, sino porque nos identificamos con los personajes antes de que empiecen las escenas truculentas.\" Con esta idea en mente, Card, el más popular autor de ciencia ficción y fantasía de los años ochenta, nos emociona y sobrecoge con las dificultades cotidianas de una familia como la suya propia, antes de que el espanto y el horror entren en sus vidas. Una obra intensa, emotiva y sorprendente del autor de \"El juego de Ender\". \"Aquí se encuentra una descripción del Card hombre, para quienes deseen ahondar en ella, junto con un enérgico retrato de su esposa y una visión realista de su vida familiar con dos niños pequeños\". -- Faren Miller en LOCUS",
+   "contents": [
+    {
+     "pages": "pp. V–IX",
+     "entry": "Presentación [Niños perdidos] , prólogo de Miquel Barceló"
+    },
+    {
+     "pages": "pp. 11–414",
+     "entry": "Niños perdidos ( Lost Boys ) , novela (1992)"
+    },
+    {
+     "pages": "pp. 417–418",
+     "entry": "Referencia bibliográfica de Orson Scott Card [Niños perdidos] , epílogo de Miquel Barceló"
+    }
+   ],
+   "note": null,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  }
+ ]
+}

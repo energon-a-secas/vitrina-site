@@ -1,0 +1,156 @@
+{
+ "want": {
+  "slug": "las-naves-de-la-tierra",
+  "title": "Las naves de la Tierra",
+  "authors": [
+   "Orson Scott Card"
+  ],
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "series": "La saga del retorno",
+  "queries": [
+   "Las naves de la Tierra"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 666,
+   "title": "Las naves de la Tierra",
+   "year": "jun 1995",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova Scott Card",
+   "collection_id": 10,
+   "collection_number": "5",
+   "subcollection": "La Saga del Retorno",
+   "subcollection_id": 1524,
+   "subcollection_number": "3",
+   "isbn": "8440655797",
+   "format": "Rústica con solapas - 15×23 cm - 367 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Rafael Garrés"
+   ],
+   "series": [
+    "El Retorno"
+   ],
+   "series_ids": [
+    209
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo",
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/666/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000666.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000666.jpg",
+   "dimensions": "15×23",
+   "pages": 367,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 683,
+   "title": "Las naves de la Tierra",
+   "year": "1997",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "VIB",
+   "collection_id": 5,
+   "collection_number": "11",
+   "subcollection": "VIB Orson Scott Card",
+   "subcollection_id": 1556,
+   "subcollection_number": "9",
+   "isbn": "844067208X",
+   "format": "Rústica - 11×17,5 cm - 445 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Ricard Castells"
+   ],
+   "series": [
+    "El Retorno"
+   ],
+   "series_ids": [
+    209
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/683/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000683.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000683.jpg",
+   "dimensions": null,
+   "pages": 445,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 2151,
+   "title": "Las naves de la Tierra",
+   "year": "2001",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Punto de Lectura",
+   "publisher_country": "España",
+   "collection": "Punto de Lectura",
+   "collection_id": 103,
+   "collection_number": "80",
+   "subcollection": "Punto de Lectura Orson Scott Card",
+   "subcollection_id": 1782,
+   "subcollection_number": "7",
+   "isbn": "8466305750",
+   "format": "Rústica - 11×17,5 cm - 501 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [],
+   "series": [
+    "El Retorno"
+   ],
+   "series_ids": [
+    209
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/2151/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00002151.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00002151.jpg",
+   "dimensions": null,
+   "pages": 501,
+   "has_spine": true,
+   "score": 35,
+   "why": [
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  }
+ ]
+}

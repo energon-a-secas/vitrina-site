@@ -1,0 +1,100 @@
+{
+ "want": {
+  "slug": "ciudad-al-final-del-tiempo",
+  "title": "La ciudad al final del tiempo",
+  "authors": [
+   "Greg Bear"
+  ],
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "queries": [
+   "La ciudad al final del tiempo"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 36004,
+   "title": "La ciudad al final del tiempo",
+   "year": "2012",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 6585,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498726381",
+   "format": "Rústica con solapas - 13×20 cm - 640 páginas",
+   "translators": [
+    "Pedro Jorge Romero"
+   ],
+   "cover_art": [
+    "Estudio Ediciones B"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/36004/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00036004.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00036004.jpg",
+   "dimensions": "13×20",
+   "pages": 640,
+   "has_spine": false,
+   "score": 90,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "NO scanned spine"
+   ]
+  },
+  {
+   "id": 30744,
+   "title": "La ciudad al final del tiempo",
+   "year": "22 sep 2010",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "227",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788466641388",
+   "format": "Rústica con solapas - 15×23 cm - 634 páginas",
+   "translators": [
+    "Pedro Jorge Romero"
+   ],
+   "cover_art": [
+    "Estudio Ediciones B"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/30744/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00030744.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00030744.jpg",
+   "dimensions": "15×23",
+   "pages": 634,
+   "has_spine": true,
+   "score": 47,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  }
+ ]
+}

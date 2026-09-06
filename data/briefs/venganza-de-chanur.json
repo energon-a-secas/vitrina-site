@@ -1,0 +1,65 @@
+{
+ "want": {
+  "slug": "venganza-de-chanur",
+  "title": "La venganza de Chanur",
+  "authors": [
+   "C. J. Cherryh"
+  ],
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "series": "Chanur",
+  "queries": [
+   "La venganza de Chanur"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 208,
+   "title": "La venganza de Chanur",
+   "year": "feb 1989",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "16",
+   "subcollection": "La Saga de Chanur",
+   "subcollection_id": 1701,
+   "subcollection_number": "3",
+   "isbn": "8440604866",
+   "format": "Rústica con solapas - 12×19 cm - 388 páginas",
+   "translators": [
+    "Albert Solé"
+   ],
+   "cover_art": [
+    "Óscar H. Chichoni"
+   ],
+   "series": [
+    "Chanur"
+   ],
+   "series_ids": [
+    208
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/208/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000208.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000208.jpg",
+   "dimensions": "12×19",
+   "pages": 388,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  }
+ ]
+}

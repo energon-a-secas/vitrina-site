@@ -1,0 +1,719 @@
+{
+ "want": {
+  "slug": "mapas-en-un-espejo",
+  "title": "Mapas en un espejo",
+  "authors": [
+   "Orson Scott Card"
+  ],
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "queries": [
+   "Mapas en un espejo"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 64608,
+   "title": "Mapas en un espejo 5. Canciones perdidas. Los cuentos ocultos",
+   "year": "23 may 2019",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 6585,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490709016",
+   "format": "Rústica con sobrecubierta - 12,5×20 cm - 264 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Estudio Ediciones B"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/64608/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00064608.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00064608.jpg",
+   "dimensions": "5×20",
+   "pages": 264,
+   "has_spine": false,
+   "score": 90,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "NO scanned spine"
+   ]
+  },
+  {
+   "id": 64609,
+   "title": "Mapas en un espejo 1. El ahorcado. Cuentos de espanto",
+   "year": "23 may 2019",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 6585,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490708972",
+   "format": "Rústica con sobrecubierta - 12,5×20 cm - 253 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo",
+    "Terror y misterio"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/64609/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00064609.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00064609.jpg",
+   "dimensions": "5×20",
+   "pages": 253,
+   "has_spine": false,
+   "score": 90,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "NO scanned spine"
+   ]
+  },
+  {
+   "id": 64610,
+   "title": "Mapas en un espejo 2. Flujo. Cuentos sobre futuros humanos",
+   "year": "23 may 2019",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 6585,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490708989",
+   "format": "Rústica con sobrecubierta - 12,5×20 cm - 267 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/64610/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00064610.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00064610.jpg",
+   "dimensions": "5×20",
+   "pages": 267,
+   "has_spine": false,
+   "score": 90,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "NO scanned spine"
+   ]
+  },
+  {
+   "id": 64611,
+   "title": "Mapas en un espejo 3. Fábulas y fantasías",
+   "year": "23 may 2019",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 6585,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490708996",
+   "format": "Rústica con sobrecubierta - 12,5×20 cm - 320 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo",
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/64611/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00064611.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00064611.jpg",
+   "dimensions": "5×20",
+   "pages": 320,
+   "has_spine": false,
+   "score": 90,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "NO scanned spine"
+   ]
+  },
+  {
+   "id": 64612,
+   "title": "Mapas en un espejo 4. Milagros crueles. Cuentos sobre la muerte, la esperanza y lo sagrado",
+   "year": "23 may 2019",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 6585,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490709009",
+   "format": "Rústica con sobrecubierta - 12,5×20 cm - 208 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/64612/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00064612.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00064612.jpg",
+   "dimensions": "5×20",
+   "pages": 208,
+   "has_spine": false,
+   "score": 90,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "NO scanned spine"
+   ]
+  },
+  {
+   "id": 4258,
+   "title": "Mapas en un espejo",
+   "year": "1993",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova Scott Card",
+   "collection_id": 10,
+   "collection_number": "1",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440639988",
+   "format": "Rústica con solapas - 15×23 cm - 919 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Estudio Ediciones B"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo",
+    "Fantasía",
+    "Terror y misterio"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/4258/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00004258.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00004258.jpg",
+   "dimensions": "15×23",
+   "pages": 919,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 663,
+   "title": "Mapas en un espejo",
+   "year": "nov 1993",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova Scott Card",
+   "collection_id": 10,
+   "collection_number": "1",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440639988",
+   "format": "Rústica con solapas - 15×23 cm - 919 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Estudio Ediciones B"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo",
+    "Fantasía",
+    "Terror y misterio"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/663/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000663.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000663.jpg",
+   "dimensions": "15×23",
+   "pages": 919,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 20481,
+   "title": "Mapas en un espejo 3. Fábulas y fantasías",
+   "year": "2008",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Best-seller",
+   "collection_id": 3073,
+   "collection_number": "162",
+   "subcollection": "Best-seller Orson Scott Card",
+   "subcollection_id": 3919,
+   "subcollection_number": "4",
+   "isbn": "9788498720273",
+   "format": "Rústica con sobrecubierta - 12,5×20 cm - 320 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo",
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/20481/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00020481.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00020481.jpg",
+   "dimensions": "5×20",
+   "pages": 320,
+   "has_spine": true,
+   "score": 47,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 20479,
+   "title": "Mapas en un espejo 1. El ahorcado. Cuentos de espanto",
+   "year": "ene 2008",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Best-seller",
+   "collection_id": 3073,
+   "collection_number": "162",
+   "subcollection": "Best-seller Orson Scott Card",
+   "subcollection_id": 3919,
+   "subcollection_number": "2",
+   "isbn": "9788496778276",
+   "format": "Rústica con sobrecubierta - 12,5×20 cm - 253 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo",
+    "Terror y misterio"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/20479/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00020479.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00020479.jpg",
+   "dimensions": "5×20",
+   "pages": 253,
+   "has_spine": true,
+   "score": 47,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 20480,
+   "title": "Mapas en un espejo 2. Flujo. Cuentos sobre futuros humanos",
+   "year": "mar 2008",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Best-seller",
+   "collection_id": 3073,
+   "collection_number": "162",
+   "subcollection": "Best-seller Orson Scott Card",
+   "subcollection_id": 3919,
+   "subcollection_number": "3",
+   "isbn": "9788498720266",
+   "format": "Rústica con sobrecubierta - 12,5×20 cm - 267 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Estudio Ediciones B"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/20480/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00020480.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00020480.jpg",
+   "dimensions": "5×20",
+   "pages": 267,
+   "has_spine": true,
+   "score": 47,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 20483,
+   "title": "Mapas en un espejo 5. Canciones perdidas. Los cuentos ocultos",
+   "year": "oct 2008",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Best-seller",
+   "collection_id": 3073,
+   "collection_number": "162",
+   "subcollection": "Best-seller Orson Scott Card",
+   "subcollection_id": 3919,
+   "subcollection_number": "6",
+   "isbn": "9788498720297",
+   "format": "Rústica con sobrecubierta - 12,5×20 cm - 264 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Estudio Ediciones B"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/20483/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00020483.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00020483.jpg",
+   "dimensions": "5×20",
+   "pages": 264,
+   "has_spine": true,
+   "score": 47,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 20482,
+   "title": "Mapas en un espejo 4. Milagros crueles. Cuentos sobre la muerte, la esperanza y lo sagrado",
+   "year": "2008",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Best-seller",
+   "collection_id": 3073,
+   "collection_number": "162",
+   "subcollection": "Best-seller Orson Scott Card",
+   "subcollection_id": 3919,
+   "subcollection_number": "5",
+   "isbn": "9788498720280",
+   "format": "Rústica con sobrecubierta - 12,5×20 cm - 208 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/20482/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00020482.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00020482.jpg",
+   "dimensions": "5×20",
+   "pages": 208,
+   "has_spine": false,
+   "score": 17,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 52630,
+   "title": "Mapas en un espejo 1. El ahorcado. Cuentos de espanto",
+   "year": "jun 2013",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Books",
+   "publisher_country": "España",
+   "collection": null,
+   "collection_id": null,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490194829",
+   "format": "Edición digital - ePUB",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo",
+    "Terror y misterio"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/52630/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00052630.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00052630.jpg",
+   "dimensions": null,
+   "pages": null,
+   "has_spine": false,
+   "score": -28,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine",
+    "digital edition, not a paperback"
+   ]
+  },
+  {
+   "id": 52631,
+   "title": "Mapas en un espejo 2. Flujo. Cuentos sobre futuros humanos",
+   "year": "jun 2013",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Books",
+   "publisher_country": "España",
+   "collection": null,
+   "collection_id": null,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490193365",
+   "format": "Edición digital - ePUB",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/52631/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00052631.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00052631.jpg",
+   "dimensions": null,
+   "pages": null,
+   "has_spine": false,
+   "score": -28,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine",
+    "digital edition, not a paperback"
+   ]
+  },
+  {
+   "id": 52632,
+   "title": "Mapas en un espejo 3. Fábulas y fantasías",
+   "year": "jun 2013",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Books",
+   "publisher_country": "España",
+   "collection": null,
+   "collection_id": null,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490193402",
+   "format": "Edición digital - ePUB",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo",
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/52632/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00052632.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00052632.jpg",
+   "dimensions": null,
+   "pages": null,
+   "has_spine": false,
+   "score": -28,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine",
+    "digital edition, not a paperback"
+   ]
+  },
+  {
+   "id": 52633,
+   "title": "Mapas en un espejo 4. Milagros crueles. Cuentos sobre la muerte, la esperanza y lo sagrado",
+   "year": "jun 2013",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Books",
+   "publisher_country": "España",
+   "collection": null,
+   "collection_id": null,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490194836",
+   "format": "Edición digital - ePUB",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/52633/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00052633.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00052633.jpg",
+   "dimensions": null,
+   "pages": null,
+   "has_spine": false,
+   "score": -28,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine",
+    "digital edition, not a paperback"
+   ]
+  },
+  {
+   "id": 52634,
+   "title": "Mapas en un espejo 5. Canciones perdidas. Los cuentos ocultos",
+   "year": "2013",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Books",
+   "publisher_country": "España",
+   "collection": null,
+   "collection_id": null,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490194843",
+   "format": "Edición digital - ePUB",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/52634/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00052634.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00052634.jpg",
+   "dimensions": null,
+   "pages": null,
+   "has_spine": false,
+   "score": -28,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine",
+    "digital edition, not a paperback"
+   ]
+  }
+ ]
+}

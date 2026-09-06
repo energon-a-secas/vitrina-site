@@ -1,0 +1,60 @@
+{
+ "want": {
+  "slug": "radix",
+  "title": "Radix",
+  "authors": [
+   "A. A. Attanasio"
+  ],
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "queries": [
+   "Radix"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 387,
+   "title": "Radix",
+   "year": "jun 1990",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "27",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440613466",
+   "format": "Rústica con solapas - 12×19 cm - 657 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Óscar H. Chichoni"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/387/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000387.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000387.jpg",
+   "dimensions": "12×19",
+   "pages": 657,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  }
+ ]
+}

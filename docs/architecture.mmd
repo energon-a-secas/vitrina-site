@@ -1,0 +1,48 @@
+---
+config:
+  theme: base
+  themeVariables:
+    primaryColor: "#0f172a"
+    primaryTextColor: "#e2e8f0"
+    primaryBorderColor: "#0063e5"
+    lineColor: "#38bdf8"
+    secondaryColor: "#1e293b"
+    tertiaryColor: "#1e293b"
+    clusterBkg: "#f0f7ff"
+    clusterBorder: "#bfdbfe"
+    edgeLabelBackground: "#e8f0ff"
+    mainBkg: "#0f172a"
+    nodeBorder: "#0063e5"
+    titleColor: "#1e1b4b"
+    fontFamily: "ui-sans-serif, system-ui, -apple-system, sans-serif"
+    fontSize: "13px"
+---
+flowchart TB
+    User([Reader]) --> HTML["index.html<br>App shell"]
+
+    subgraph Frontend["Frontend (ES Modules)"]
+        HTML --> app["app.js<br>Entry point"]
+        app --> state["state.js<br>The shelf, localStorage"]
+        app --> data["data.js<br>Load, group, order, series gaps"]
+        app --> render["render.js<br>Shelf / Covers / Browse"]
+        app --> events["events.js<br>Every listener"]
+        render --> shelf["shelf.js<br>cm to pixels, aspect to width"]
+        render --> browse["browse.js<br>Catalogue, owned marked"]
+        events --> detail["detail.js<br>One book, turned around"]
+        events --> modals["modals.js<br>Add, import, report"]
+    end
+
+    state <-->|"vitrina_shelf_v1"| Storage[("localStorage")]
+    data -->|"fetch"| Files[("data/library.json<br>data/catalog.json")]
+
+    subgraph Build["Offline, run by hand"]
+        wantlist["data/wantlist.json<br>What I own"] --> scrape["scrape.py<br>1.2s apart, cached"]
+        scrape --> tf["tf.py<br>Parser, no network"]
+        scrape --> rank["rank.py<br>Scores editions,<br>one brief per book"]
+        rank --> picks["data/picks.json<br>Which edition, and why"]
+        picks --> scrape
+        scrape --> Files
+    end
+
+    scrape -.->|"HTML, cached on disk"| TF["tercerafundacion.net<br>Volunteer catalogue"]
+    shelf -.->|"spine and cover images,<br>hotlinked, never copied"| TF

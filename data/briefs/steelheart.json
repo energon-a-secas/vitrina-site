@@ -1,0 +1,248 @@
+{
+ "want": {
+  "slug": "steelheart",
+  "title": "Steelheart",
+  "authors": [
+   "Brandon Sanderson"
+  ],
+  "shelf": "Zeta Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+  "queries": [
+   "Steelheart"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 53731,
+   "title": "Steelheart",
+   "year": "10 jun 2015",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 6585,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490700952",
+   "format": "Rústica - 13×19 cm - 416 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Mike Bryan",
+    "Ángela Carlino"
+   ],
+   "series": [
+    "Reckoner"
+   ],
+   "series_ids": [
+    2784
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/53731/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00053731.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00053731.jpg",
+   "dimensions": "13×19",
+   "pages": 416,
+   "has_spine": true,
+   "score": 82,
+   "why": [
+    "same publishing house, different imprint",
+    "collection is the one on the shelf label",
+    "has a scanned spine"
+   ]
+  },
+  {
+   "id": 64496,
+   "title": "Steelheart",
+   "year": "13 mar 2019",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 6585,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490700952",
+   "format": "Rústica - 13×19 cm - 416 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Mike Bryan",
+    "Ángela Carlino"
+   ],
+   "series": [
+    "Reckoner"
+   ],
+   "series_ids": [
+    2784
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/64496/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00064496.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00064496.jpg",
+   "dimensions": "13×19",
+   "pages": 416,
+   "has_spine": false,
+   "score": 52,
+   "why": [
+    "same publishing house, different imprint",
+    "collection is the one on the shelf label",
+    "NO scanned spine"
+   ]
+  },
+  {
+   "id": 50294,
+   "title": "Steelheart",
+   "year": "may 2014",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "242",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788466652964",
+   "format": "Rústica con solapas - 15×23 cm - 408 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Mike Bryan",
+    "Ángela Carlino"
+   ],
+   "series": [
+    "Reckoner"
+   ],
+   "series_ids": [
+    2784
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/50294/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00050294.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00050294.jpg",
+   "dimensions": "15×23",
+   "pages": 408,
+   "has_spine": true,
+   "score": 47,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 70606,
+   "title": "Steelheart",
+   "year": "ene 2016",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "242",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788466658355",
+   "format": "Rústica con solapas - 15×23 cm - 408 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [],
+   "series": [
+    "Reckoner"
+   ],
+   "series_ids": [
+    2784
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/70606/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00070606.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00070606.jpg",
+   "dimensions": "15×23",
+   "pages": 408,
+   "has_spine": true,
+   "score": 47,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 50551,
+   "title": "Steelheart",
+   "year": "2014",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Books",
+   "publisher_country": "España",
+   "collection": null,
+   "collection_id": null,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490197776",
+   "format": "Edición digital - ePUB",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Mike Bryan",
+    "Ángela Carlino"
+   ],
+   "series": [
+    "Reckoner"
+   ],
+   "series_ids": [
+    2784
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/50551/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00050551.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00050551.jpg",
+   "dimensions": null,
+   "pages": null,
+   "has_spine": false,
+   "score": -28,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine",
+    "digital edition, not a paperback"
+   ]
+  }
+ ]
+}

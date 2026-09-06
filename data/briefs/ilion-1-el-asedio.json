@@ -1,0 +1,435 @@
+{
+ "want": {
+  "slug": "ilion-1-el-asedio",
+  "title": "Ilión I: El asedio",
+  "authors": [
+   "Dan Simmons"
+  ],
+  "shelf": "Zeta Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+  "series": "Ilión",
+  "queries": [
+   "Ilión El asedio",
+   "El asedio Simmons",
+   "Ilión"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 23634,
+   "title": "Ilión I: El asedio",
+   "year": "2009",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 4234,
+   "collection_number": "82",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498722673",
+   "format": "Rústica con solapas - 12,5×20 cm - 480 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Óscar H. Chichoni"
+   ],
+   "series": [
+    "Ilión"
+   ],
+   "series_ids": [
+    204
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/23634/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00023634.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00023634.jpg",
+   "dimensions": "5×20",
+   "pages": 480,
+   "has_spine": false,
+   "score": 95,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "NO scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 23635,
+   "title": "Ilión II: La rebelión",
+   "year": "2009",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 4234,
+   "collection_number": "98",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498722796",
+   "format": "Rústica con solapas - 12,5×20 cm - 448 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Óscar H. Chichoni"
+   ],
+   "series": [
+    "Ilión"
+   ],
+   "series_ids": [
+    204
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/23635/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00023635.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00023635.jpg",
+   "dimensions": "5×20",
+   "pages": 448,
+   "has_spine": false,
+   "score": 95,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "NO scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 11748,
+   "title": "Ilión I: El asedio",
+   "year": "jul 2004",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "167",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8466618988",
+   "format": "Rústica con solapas - 15×23 cm - 366 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Sara Salvador",
+    "Alejandro Colucci"
+   ],
+   "series": [
+    "Ilión"
+   ],
+   "series_ids": [
+    204
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/11748/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00011748.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00011748.jpg",
+   "dimensions": "15×23",
+   "pages": 366,
+   "has_spine": true,
+   "score": 47,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 13071,
+   "title": "Ilión II: La rebelión",
+   "year": "nov 2004",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "176",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8466615806",
+   "format": "Rústica con solapas - 15×23 cm - 344 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Sara Salvador",
+    "Alejandro Colucci"
+   ],
+   "series": [
+    "Ilión"
+   ],
+   "series_ids": [
+    204
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/13071/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00013071.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00013071.jpg",
+   "dimensions": "15×23",
+   "pages": 344,
+   "has_spine": true,
+   "score": 47,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 14723,
+   "title": "Ilión I: El asedio",
+   "year": "2006",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Byblos",
+   "collection_id": 968,
+   "collection_number": "517",
+   "subcollection": "Byblos Dan Simmons",
+   "subcollection_id": 1883,
+   "subcollection_number": "5",
+   "isbn": "8466623299",
+   "format": "Rústica - 11×17,5 cm - 492 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Alejandro Colucci"
+   ],
+   "series": [
+    "Ilión"
+   ],
+   "series_ids": [
+    204
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/14723/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00014723.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00014723.jpg",
+   "dimensions": null,
+   "pages": 492,
+   "has_spine": true,
+   "score": 47,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 14724,
+   "title": "Ilión II: La rebelión",
+   "year": "2006",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Byblos",
+   "collection_id": 968,
+   "collection_number": "517",
+   "subcollection": "Byblos Dan Simmons",
+   "subcollection_id": 1883,
+   "subcollection_number": "6",
+   "isbn": "8466627022",
+   "format": "Rústica - 11×17,5 cm - 444 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Alejandro Colucci"
+   ],
+   "series": [
+    "Ilión"
+   ],
+   "series_ids": [
+    204
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/14724/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00014724.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00014724.jpg",
+   "dimensions": null,
+   "pages": 444,
+   "has_spine": true,
+   "score": 47,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 64529,
+   "title": "Ilión",
+   "year": "4 abr 2019",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "301",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788417347352",
+   "format": "Tapa dura con sobrecubierta - 16×23,5 cm - 687 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [],
+   "series": [
+    "Ilión"
+   ],
+   "series_ids": [
+    204
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/64529/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00064529.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00064529.jpg",
+   "dimensions": null,
+   "pages": 687,
+   "has_spine": true,
+   "score": 42,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "hardback"
+   ]
+  },
+  {
+   "id": 60140,
+   "title": "Ilión I: El asedio",
+   "year": "jul 2016",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Books",
+   "publisher_country": "España",
+   "collection": null,
+   "collection_id": null,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490692233",
+   "format": "Edición digital",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Sara Salvador",
+    "Alejandro Colucci"
+   ],
+   "series": [
+    "Ilión"
+   ],
+   "series_ids": [
+    204
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/60140/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00060140.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00060140.jpg",
+   "dimensions": null,
+   "pages": null,
+   "has_spine": false,
+   "score": -28,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine",
+    "digital edition, not a paperback"
+   ]
+  },
+  {
+   "id": 60142,
+   "title": "Ilión II: La rebelión",
+   "year": "jul 2016",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Books",
+   "publisher_country": "España",
+   "collection": null,
+   "collection_id": null,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490692240",
+   "format": "Edición digital",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Sara Salvador",
+    "Alejandro Colucci"
+   ],
+   "series": [
+    "Ilión"
+   ],
+   "series_ids": [
+    204
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/60142/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00060142.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00060142.jpg",
+   "dimensions": null,
+   "pages": null,
+   "has_spine": false,
+   "score": -28,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine",
+    "digital edition, not a paperback"
+   ]
+  }
+ ]
+}

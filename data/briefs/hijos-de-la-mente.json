@@ -1,0 +1,332 @@
+{
+ "want": {
+  "slug": "hijos-de-la-mente",
+  "title": "Hijos de la mente",
+  "authors": [
+   "Orson Scott Card"
+  ],
+  "shelf": "Zeta Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+  "series": "Ender",
+  "queries": [
+   "Hijos de la mente"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 31404,
+   "title": "Hijos de la mente",
+   "year": "2011",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 4234,
+   "collection_number": "269",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498724653",
+   "format": "Rústica con solapas - 12,5×20 cm - 438 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Thinkstock"
+   ],
+   "series": [
+    "Ender Wiggin"
+   ],
+   "series_ids": [
+    1602
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/31404/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00031404.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00031404.jpg",
+   "dimensions": "5×20",
+   "pages": 438,
+   "has_spine": false,
+   "score": 95,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "NO scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 56299,
+   "title": "Hijos de la mente",
+   "year": "2 abr 2013",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 6585,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498728453",
+   "format": "Tapa dura - 12,5×19 cm - 440 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Thinkstock"
+   ],
+   "series": [
+    "Ender Wiggin"
+   ],
+   "series_ids": [
+    1602
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/56299/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00056299.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00056299.jpg",
+   "dimensions": "5×19",
+   "pages": 440,
+   "has_spine": true,
+   "score": 77,
+   "why": [
+    "same publishing house, different imprint",
+    "collection is the one on the shelf label",
+    "has a scanned spine",
+    "hardback"
+   ]
+  },
+  {
+   "id": 341,
+   "title": "Hijos de la mente",
+   "year": "oct 1997",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "100",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440677197",
+   "format": "Rústica con solapas - 15×23 cm - 333 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Maya & Cardil"
+   ],
+   "series": [
+    "Ender Wiggin"
+   ],
+   "series_ids": [
+    1602
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/341/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000341.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000341.jpg",
+   "dimensions": "15×23",
+   "pages": 333,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 64257,
+   "title": "Hijos de la mente",
+   "year": "14 mar 2019",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 6585,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490707920",
+   "format": "Rústica - 15×23 cm - 448 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [],
+   "series": [
+    "Ender Wiggin"
+   ],
+   "series_ids": [
+    1602
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/64257/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00064257.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00064257.jpg",
+   "dimensions": "15×23",
+   "pages": 448,
+   "has_spine": false,
+   "score": 52,
+   "why": [
+    "same publishing house, different imprint",
+    "collection is the one on the shelf label",
+    "NO scanned spine"
+   ]
+  },
+  {
+   "id": 14722,
+   "title": "Hijos de la mente",
+   "year": "jun 2005",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Byblos",
+   "collection_id": 968,
+   "collection_number": "162",
+   "subcollection": "Byblos Orson Scott Card",
+   "subcollection_id": 1892,
+   "subcollection_number": "5",
+   "isbn": "846661771X",
+   "format": "Rústica - 11×17,5 cm - 438 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Leo Flores"
+   ],
+   "series": [
+    "Ender Wiggin"
+   ],
+   "series_ids": [
+    1602
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/14722/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00014722.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00014722.jpg",
+   "dimensions": null,
+   "pages": 438,
+   "has_spine": true,
+   "score": 47,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 941,
+   "title": "Hijos de la mente",
+   "year": "nov 2000",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Punto de Lectura",
+   "publisher_country": "España",
+   "collection": "Punto de Lectura",
+   "collection_id": 103,
+   "collection_number": "80",
+   "subcollection": "Punto de Lectura Orson Scott Card",
+   "subcollection_id": 1782,
+   "subcollection_number": "1",
+   "isbn": "8495501279",
+   "format": "Rústica - 11×17,5 cm - 441 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [],
+   "series": [
+    "Ender Wiggin"
+   ],
+   "series_ids": [
+    1602
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/941/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000941.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000941.jpg",
+   "dimensions": null,
+   "pages": 441,
+   "has_spine": true,
+   "score": 35,
+   "why": [
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 37408,
+   "title": "Hijos de la mente",
+   "year": "2012",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Books",
+   "publisher_country": "España",
+   "collection": null,
+   "collection_id": null,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788415389873",
+   "format": "Edición digital - ePUB",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Thinkstock"
+   ],
+   "series": [
+    "Ender Wiggin"
+   ],
+   "series_ids": [
+    1602
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/37408/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00037408.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00037408.jpg",
+   "dimensions": null,
+   "pages": null,
+   "has_spine": false,
+   "score": -28,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine",
+    "digital edition, not a paperback"
+   ]
+  }
+ ]
+}

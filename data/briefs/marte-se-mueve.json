@@ -1,0 +1,62 @@
+{
+ "want": {
+  "slug": "marte-se-mueve",
+  "title": "Marte se mueve",
+  "authors": [
+   "Greg Bear"
+  ],
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "queries": [
+   "Marte se mueve"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 196,
+   "title": "Marte se mueve",
+   "year": "nov 1995",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "79",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440659423",
+   "format": "Rústica con solapas - 15×22 cm - 476 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [],
+   "series": [
+    "Reina de los Ángeles"
+   ],
+   "series_ids": [
+    1194
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/196/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000196.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000196.jpg",
+   "dimensions": "15×22",
+   "pages": 476,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "want": {
+  "slug": "premio-upc-1991",
+  "title": "Premio UPC 1991",
+  "authors": [
+   "Javier Negrete",
+   "Rafael Marín",
+   "Ángel Torres Quesada"
+  ],
+  "shelf": "Nova",
+  "listed_as": "Nova ciencia ficción",
+  "queries": [
+   "Premio UPC 1991",
+   "Premio UPC"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 622,
+   "title": "Premio UPC 1991",
+   "year": "abr 1992",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "48",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440627122",
+   "format": "Rústica con solapas - 15×22 cm - 290 páginas",
+   "translators": [],
+   "cover_art": [
+    "Óscar H. Chichoni"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/622/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000622.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000622.jpg",
+   "dimensions": "15×22",
+   "pages": 290,
+   "has_spine": true,
+   "score": 133,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  }
+ ]
+}

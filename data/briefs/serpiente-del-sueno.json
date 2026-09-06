@@ -1,0 +1,103 @@
+{
+ "want": {
+  "slug": "serpiente-del-sueno",
+  "title": "Serpiente del sueño",
+  "authors": [
+   "Vonda N. McIntyre"
+  ],
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "queries": [
+   "Serpiente del sueño"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 209,
+   "title": "Serpiente del sueño",
+   "year": "mar 1989",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "17",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440606346",
+   "format": "Rústica con solapas - 12×19 cm - 330 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Óscar H. Chichoni"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/209/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000209.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000209.jpg",
+   "dimensions": "12×19",
+   "pages": 330,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 15391,
+   "title": "Serpiente del sueño",
+   "year": "2007",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Byblos",
+   "collection_id": 968,
+   "collection_number": "281",
+   "subcollection": "Byblos Vonda N. McIntyre",
+   "subcollection_id": 3065,
+   "subcollection_number": "1",
+   "isbn": "9788466632645",
+   "format": "Rústica - 11×17,5 cm - 406 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "David Argemí",
+    "Estudio Ediciones B"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/15391/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00015391.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00015391.jpg",
+   "dimensions": null,
+   "pages": 406,
+   "has_spine": true,
+   "score": 47,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  }
+ ]
+}

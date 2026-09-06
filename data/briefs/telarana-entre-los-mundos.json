@@ -1,0 +1,102 @@
+{
+ "want": {
+  "slug": "telarana-entre-los-mundos",
+  "title": "La telaraña entre los mundos",
+  "authors": [
+   "Charles Sheffield"
+  ],
+  "shelf": "Nova",
+  "listed_as": "Nova ciencia ficción",
+  "queries": [
+   "telaraña entre los mundos"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 162,
+   "title": "La telaraña entre los mundos",
+   "year": "nov 1989",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "21",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440610890",
+   "format": "Rústica con solapas - 12×19 cm - 368 páginas",
+   "translators": [
+    "Diana Trujillo"
+   ],
+   "cover_art": [
+    "Juan Giménez"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/162/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000162.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000162.jpg",
+   "dimensions": "12×19",
+   "pages": 368,
+   "has_spine": true,
+   "score": 133,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 35365,
+   "title": "La telaraña entre los mundos",
+   "year": "2012",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Grupo AJEC",
+   "publisher_country": "España",
+   "collection": "Arrakis Ficción",
+   "collection_id": 5937,
+   "collection_number": "9",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788415156260",
+   "format": "Rústica con solapas - 16×23 cm - 240 páginas",
+   "translators": [
+    "Diana Muñoz"
+   ],
+   "cover_art": [
+    "Estudio AJEC"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/35365/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00035365.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00035365.jpg",
+   "dimensions": "16×23",
+   "pages": 240,
+   "has_spine": true,
+   "score": 35,
+   "why": [
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  }
+ ]
+}

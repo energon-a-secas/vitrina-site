@@ -1,0 +1,372 @@
+{
+ "want": {
+  "slug": "los-viajes-de-tuf",
+  "title": "Los viajes de Tuf",
+  "authors": [
+   "George R. R. Martin"
+  ],
+  "shelf": "Zeta Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+  "queries": [
+   "Los viajes de Tuf"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 22734,
+   "title": "Los viajes de Tuf",
+   "year": "2009",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 4234,
+   "collection_number": "45",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498722550",
+   "format": "Rústica con solapas - 12,5×20 cm - 556 páginas",
+   "translators": [
+    "Albert Soler"
+   ],
+   "cover_art": [
+    "Óscar H. Chichoni"
+   ],
+   "series": [
+    "Los Mil Mundos"
+   ],
+   "series_ids": [
+    4680
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/22734/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00022734.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00022734.jpg",
+   "dimensions": "5×20",
+   "pages": 556,
+   "has_spine": true,
+   "score": 125,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 33479,
+   "title": "Los viajes de Tuf",
+   "year": "2011",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 4234,
+   "collection_number": "45",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498722550",
+   "format": "Rústica - 13×20 cm - 560 páginas",
+   "translators": [
+    "Albert Soler"
+   ],
+   "cover_art": [],
+   "series": [
+    "Los Mil Mundos"
+   ],
+   "series_ids": [
+    4680
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/33479/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00033479.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00033479.jpg",
+   "dimensions": "13×20",
+   "pages": 560,
+   "has_spine": false,
+   "score": 95,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "NO scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 381,
+   "title": "Los viajes de Tuf",
+   "year": "jul 1988",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "6",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440600127",
+   "format": "Rústica con solapas - 12×19 cm - 454 páginas",
+   "translators": [
+    "Albert Soler"
+   ],
+   "cover_art": [
+    "Sergio Camporeale"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/381/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000381.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000381.jpg",
+   "dimensions": "12×19",
+   "pages": 454,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 15958,
+   "title": "Los viajes de Tuf",
+   "year": "sep 2006",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Byblos",
+   "collection_id": 968,
+   "collection_number": "279",
+   "subcollection": "Byblos George R. R. Martin",
+   "subcollection_id": 3171,
+   "subcollection_number": "1",
+   "isbn": "8466628452",
+   "format": "Rústica - 11×17,5 cm - 556 páginas",
+   "translators": [
+    "Albert Soler"
+   ],
+   "cover_art": [
+    "Leo Flores"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/15958/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00015958.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00015958.jpg",
+   "dimensions": null,
+   "pages": 556,
+   "has_spine": true,
+   "score": 47,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 38916,
+   "title": "Los viajes de Tuf",
+   "year": "dic 2012",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "6",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788466652247",
+   "format": "Rústica con solapas - 15×23 cm - 549 páginas",
+   "translators": [
+    "Albert Soler"
+   ],
+   "cover_art": [
+    "Thinkstock"
+   ],
+   "series": [
+    "Los Mil Mundos"
+   ],
+   "series_ids": [
+    4680
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/38916/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00038916.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00038916.jpg",
+   "dimensions": "15×23",
+   "pages": 549,
+   "has_spine": true,
+   "score": 47,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 68828,
+   "title": "Los viajes de Tuf",
+   "year": "abr 2018",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "6",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788417347031",
+   "format": "Tapa dura con sobrecubierta - 16×23,5 cm - 475 páginas",
+   "translators": [
+    "Albert Soler"
+   ],
+   "cover_art": [
+    "Derek Stenning"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/68828/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00068828.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00068828.jpg",
+   "dimensions": null,
+   "pages": 475,
+   "has_spine": true,
+   "score": 42,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "hardback"
+   ]
+  },
+  {
+   "id": 49753,
+   "title": "Los viajes de Tuf",
+   "year": "2014",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Bolsillo",
+   "publisher_country": "España",
+   "collection": "Maxi",
+   "collection_id": 7883,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498729207",
+   "format": "Rústica - 14×21,5 cm - 552 páginas",
+   "translators": [
+    "Albert Soler"
+   ],
+   "cover_art": [
+    "Thinkstock"
+   ],
+   "series": [
+    "Los Mil Mundos"
+   ],
+   "series_ids": [
+    4680
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/49753/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00049753.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00049753.jpg",
+   "dimensions": null,
+   "pages": 552,
+   "has_spine": false,
+   "score": 12,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine"
+   ]
+  },
+  {
+   "id": 40913,
+   "title": "Los viajes de Tuf",
+   "year": "2013",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Books",
+   "publisher_country": "España",
+   "collection": null,
+   "collection_id": null,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490193297",
+   "format": "Edición digital - ePUB",
+   "translators": [
+    "Albert Soler"
+   ],
+   "cover_art": [
+    "Thinkstock"
+   ],
+   "series": [
+    "Los Mil Mundos"
+   ],
+   "series_ids": [
+    4680
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/40913/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00040913.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00040913.jpg",
+   "dimensions": null,
+   "pages": null,
+   "has_spine": false,
+   "score": -28,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine",
+    "digital edition, not a paperback"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,204 @@
+{
+ "want": {
+  "slug": "la-memoria-de-la-tierra",
+  "title": "La memoria de la Tierra",
+  "authors": [
+   "Orson Scott Card"
+  ],
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "series": "La saga del retorno",
+  "queries": [
+   "La memoria de la Tierra"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 693,
+   "title": "La memoria de la Tierra",
+   "year": "1993",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova Scott Card",
+   "collection_id": 10,
+   "collection_number": "2",
+   "subcollection": "La Saga del Retorno",
+   "subcollection_id": 1524,
+   "subcollection_number": "1",
+   "isbn": "844064020X",
+   "format": "Rústica con solapas - 15×23 cm - 305 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Estudio Ediciones B"
+   ],
+   "series": [
+    "El Retorno"
+   ],
+   "series_ids": [
+    209
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/693/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000693.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000693.jpg",
+   "dimensions": "15×23",
+   "pages": 305,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 8437,
+   "title": "La memoria de la Tierra",
+   "year": "nov 1993",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova Scott Card",
+   "collection_id": 10,
+   "collection_number": "2",
+   "subcollection": "La Saga del Retorno",
+   "subcollection_id": 1524,
+   "subcollection_number": "1",
+   "isbn": "844064020X",
+   "format": "Rústica con solapas - 15×23 cm - 305 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Estudio Ediciones B"
+   ],
+   "series": [
+    "El Retorno"
+   ],
+   "series_ids": [
+    209
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/8437/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00008437.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00008437.jpg",
+   "dimensions": "15×23",
+   "pages": 305,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 681,
+   "title": "La memoria de la Tierra",
+   "year": "1997",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "VIB",
+   "collection_id": 5,
+   "collection_number": "11",
+   "subcollection": "VIB Orson Scott Card",
+   "subcollection_id": 1556,
+   "subcollection_number": "7",
+   "isbn": "8440672063",
+   "format": "Rústica - 11×17,5 cm - 377 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Ricard Castells"
+   ],
+   "series": [
+    "El Retorno"
+   ],
+   "series_ids": [
+    209
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/681/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000681.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000681.jpg",
+   "dimensions": null,
+   "pages": 377,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 942,
+   "title": "La memoria de la Tierra",
+   "year": "2000",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Punto de Lectura",
+   "publisher_country": "España",
+   "collection": "Punto de Lectura",
+   "collection_id": 103,
+   "collection_number": "80",
+   "subcollection": "Punto de Lectura Orson Scott Card",
+   "subcollection_id": 1782,
+   "subcollection_number": "5",
+   "isbn": "8466300821",
+   "format": "Rústica - 11×17,5 cm - 384 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "MGD"
+   ],
+   "series": [
+    "El Retorno"
+   ],
+   "series_ids": [
+    209
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/942/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000942.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000942.jpg",
+   "dimensions": null,
+   "pages": 384,
+   "has_spine": true,
+   "score": 35,
+   "why": [
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  }
+ ]
+}

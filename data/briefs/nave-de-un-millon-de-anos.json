@@ -1,0 +1,222 @@
+{
+ "want": {
+  "slug": "nave-de-un-millon-de-anos",
+  "title": "La nave de un millón de años",
+  "authors": [
+   "Poul Anderson"
+  ],
+  "shelf": "Zeta Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+  "queries": [
+   "La nave de un millón de años"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 22735,
+   "title": "La nave de un millón de años",
+   "year": "2009",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 4234,
+   "collection_number": "47",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498722574",
+   "format": "Rústica con solapas - 12,5×20 cm - 726 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Óscar H. Chichoni"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/22735/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00022735.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00022735.jpg",
+   "dimensions": "5×20",
+   "pages": 726,
+   "has_spine": true,
+   "score": 125,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 648,
+   "title": "La nave de un millón de años EN VENTA",
+   "year": "jul 1991",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "39",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440619723",
+   "format": "Rústica con solapas - 15×22 cm - 554 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Óscar H. Chichoni"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/648/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000648.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000648.jpg",
+   "dimensions": "15×22",
+   "pages": 554,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 1768,
+   "title": "La nave de un millón de años",
+   "year": "abr 1997",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "VIB",
+   "collection_id": 5,
+   "collection_number": "236",
+   "subcollection": "VIB Poul Anderson",
+   "subcollection_id": 3109,
+   "subcollection_number": "1",
+   "isbn": "844067211X",
+   "format": "Rústica - 11×17,5 cm - 730 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/1768/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00001768.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00001768.jpg",
+   "dimensions": null,
+   "pages": 730,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 14391,
+   "title": "La nave de un millón de años",
+   "year": "2005",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Byblos",
+   "collection_id": 968,
+   "collection_number": "516",
+   "subcollection": "Byblos Poul Anderson",
+   "subcollection_id": 2798,
+   "subcollection_number": "1",
+   "isbn": "8466623159",
+   "format": "Rústica - 11×17,5 cm - 726 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Leo Flores"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/14391/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00014391.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00014391.jpg",
+   "dimensions": null,
+   "pages": 726,
+   "has_spine": true,
+   "score": 47,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 18627,
+   "title": "La nave de un millón de años",
+   "year": "2006",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Planeta DeAgostini",
+   "publisher_country": "España",
+   "collection": "Biblioteca de Ciencia Ficción",
+   "collection_id": 2768,
+   "collection_number": "26",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8467429046",
+   "format": "Tapa dura - 13×21,5 cm - 728 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/18627/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00018627.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00018627.jpg",
+   "dimensions": null,
+   "pages": 728,
+   "has_spine": false,
+   "score": 0,
+   "why": [
+    "NO scanned spine",
+    "numbered in its collection",
+    "hardback"
+   ]
+  }
+ ]
+}

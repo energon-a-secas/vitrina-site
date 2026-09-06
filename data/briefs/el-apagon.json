@@ -1,0 +1,197 @@
+{
+ "want": {
+  "slug": "el-apagon",
+  "title": "El apagón",
+  "authors": [
+   "Connie Willis"
+  ],
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "note": "46.000",
+  "queries": [
+   "El apagón"
+  ]
+ },
+ "route": "libro+ficha",
+ "ranked": [
+  {
+   "id": 52605,
+   "title": "El apagón",
+   "year": "18 mar 2015",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 6585,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490700433",
+   "format": "Rústica - 13×19 cm - 624 páginas",
+   "translators": [
+    "Paula Vicens"
+   ],
+   "cover_art": [
+    "Estudio Ediciones B",
+    "Thinkstock"
+   ],
+   "series": [
+    "El apagón"
+   ],
+   "series_ids": [
+    2657
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/52605/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00052605.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00052605.jpg",
+   "dimensions": "13×19",
+   "pages": 624,
+   "has_spine": true,
+   "score": 120,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "has a scanned spine"
+   ]
+  },
+  {
+   "id": 34097,
+   "title": "El apagón",
+   "year": "nov 2011",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "232",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788466649797",
+   "format": "Rústica con solapas - 15×23 cm - 624 páginas",
+   "translators": [
+    "Paula Vicens"
+   ],
+   "cover_art": [
+    "Estudio Ediciones B",
+    "Thinkstock"
+   ],
+   "series": [
+    "El apagón"
+   ],
+   "series_ids": [
+    2657
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/34097/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00034097.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00034097.jpg",
+   "dimensions": "15×23",
+   "pages": 624,
+   "has_spine": true,
+   "score": 47,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 74273,
+   "title": "El apagón",
+   "year": "13 jul 2023",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "B de Bolsillo",
+   "collection_id": 11402,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788413147529",
+   "format": "Rústica - 13×19 cm - 624 páginas",
+   "translators": [
+    "Paula Vicens"
+   ],
+   "cover_art": [],
+   "series": [
+    "El apagón"
+   ],
+   "series_ids": [
+    2657
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/74273/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00074273.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00074273.jpg",
+   "dimensions": "13×19",
+   "pages": 624,
+   "has_spine": false,
+   "score": 12,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine"
+   ]
+  },
+  {
+   "id": 60365,
+   "title": "El apagón",
+   "year": "19 jul 2016",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "B de Books",
+   "publisher_country": "España",
+   "collection": null,
+   "collection_id": null,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490692219",
+   "format": "Edición digital",
+   "translators": [
+    "Paula Vicens"
+   ],
+   "cover_art": [
+    "Thinkstock"
+   ],
+   "series": [
+    "El apagón"
+   ],
+   "series_ids": [
+    2657
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/60365/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00060365.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00060365.jpg",
+   "dimensions": null,
+   "pages": null,
+   "has_spine": false,
+   "score": -28,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine",
+    "digital edition, not a paperback"
+   ]
+  }
+ ]
+}

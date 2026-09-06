@@ -1,0 +1,387 @@
+{
+ "want": {
+  "slug": "libro-del-dia-del-juicio-final",
+  "title": "El libro del día del Juicio Final",
+  "authors": [
+   "Connie Willis"
+  ],
+  "shelf": "Zeta Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial Zeta Bolsillo",
+  "queries": [
+   "El libro del día del Juicio Final"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 27512,
+   "title": "El libro del día del juicio final",
+   "year": "2010",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Zeta Bolsillo",
+   "publisher_country": "España",
+   "collection": "Ciencia Ficción",
+   "collection_id": 4234,
+   "collection_number": "164",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498723472",
+   "format": "Rústica con solapas - 12,5×20 cm - 784 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Trazo"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/27512/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00027512.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00027512.jpg",
+   "dimensions": "5×20",
+   "pages": 784,
+   "has_spine": true,
+   "score": 125,
+   "why": [
+    "publisher is the one on the shelf label",
+    "collection is the one on the shelf label",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 68,
+   "title": "El libro del día del juicio final",
+   "year": "oct 1994",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "68",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "8440650051",
+   "format": "Rústica con solapas - 15×22 cm - 556 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Trazo"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/68/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000068.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000068.jpg",
+   "dimensions": "15×22",
+   "pages": 556,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 719,
+   "title": "El libro del día del juicio final",
+   "year": "jun 1997",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "VIB",
+   "collection_id": 5,
+   "collection_number": "244",
+   "subcollection": "VIB Connie Willis",
+   "subcollection_id": 1738,
+   "subcollection_number": "1",
+   "isbn": "8440673590",
+   "format": "Rústica - 11×17,5 cm - 768 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/719/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000719.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000719.jpg",
+   "dimensions": null,
+   "pages": 768,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 15686,
+   "title": "El libro del día del juicio final",
+   "year": "2005",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Byblos",
+   "collection_id": 968,
+   "collection_number": "975",
+   "subcollection": "Byblos Connie Willis",
+   "subcollection_id": 1893,
+   "subcollection_number": "2",
+   "isbn": "8466623418",
+   "format": "Rústica - 11×17,5 cm - 784 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Leo Flores"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/15686/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00015686.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00015686.jpg",
+   "dimensions": null,
+   "pages": 784,
+   "has_spine": true,
+   "score": 47,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 67494,
+   "title": "El libro del día del juicio final",
+   "year": "jul 2020",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "68",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788417347857",
+   "format": "Tapa dura con sobrecubierta - 16×23,5 cm - 784 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Christopher Gibbs"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/67494/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00067494.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00067494.jpg",
+   "dimensions": null,
+   "pages": 784,
+   "has_spine": true,
+   "score": 42,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "hardback"
+   ]
+  },
+  {
+   "id": 21282,
+   "title": "El libro del día del juicio final",
+   "year": "2008",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "La Factoría de Ideas",
+   "publisher_country": "España",
+   "collection": "Solaris Ficción",
+   "collection_id": 73,
+   "collection_number": "116",
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788498004021",
+   "format": "Rústica con solapas - 15,5×23 cm - 480 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Dan dos Santos"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/21282/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00021282.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00021282.jpg",
+   "dimensions": "5×23",
+   "pages": 480,
+   "has_spine": true,
+   "score": 35,
+   "why": [
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 74256,
+   "title": "El libro del día del juicio final",
+   "year": "13 jul 2023",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "B de Bolsillo",
+   "collection_id": 11402,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788413143842",
+   "format": "Rústica - 13×19 cm - 784 páginas",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Christopher Gibbs"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/74256/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00074256.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00074256.jpg",
+   "dimensions": "13×19",
+   "pages": 784,
+   "has_spine": false,
+   "score": 12,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine"
+   ]
+  },
+  {
+   "id": 77491,
+   "title": "El libro del día del juicio final",
+   "year": "2 jul 2020",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova (digital)",
+   "collection_id": 11807,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788417347925",
+   "format": "Edición digital - ePUB",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Christopher Gibbs"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/77491/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00077491.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00077491.jpg",
+   "dimensions": null,
+   "pages": null,
+   "has_spine": false,
+   "score": -28,
+   "why": [
+    "same publishing house, different imprint",
+    "NO scanned spine",
+    "digital edition, not a paperback"
+   ]
+  },
+  {
+   "id": 52953,
+   "title": "El libro del día del juicio final",
+   "year": "feb 2014",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "La Factoría de Ideas",
+   "publisher_country": "España",
+   "collection": "Solaris Ficción (digital)",
+   "collection_id": 6818,
+   "collection_number": null,
+   "subcollection": null,
+   "subcollection_id": null,
+   "subcollection_number": null,
+   "isbn": "9788490184004",
+   "format": "Edición digital - ePUB",
+   "translators": [
+    "Rafael Marín Trechera"
+   ],
+   "cover_art": [
+    "Dan dos Santos"
+   ],
+   "series": [],
+   "series_ids": [],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/52953/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00052953.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00052953.jpg",
+   "dimensions": null,
+   "pages": null,
+   "has_spine": false,
+   "score": -40,
+   "why": [
+    "NO scanned spine",
+    "digital edition, not a paperback"
+   ]
+  }
+ ]
+}

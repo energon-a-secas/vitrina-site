@@ -1,0 +1,111 @@
+{
+ "want": {
+  "slug": "nacidos-en-la-tierra",
+  "title": "Nacidos en la Tierra",
+  "authors": [
+   "Orson Scott Card"
+  ],
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "series": "La saga del retorno",
+  "queries": [
+   "Nacidos en la Tierra"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 667,
+   "title": "Nacidos en la Tierra",
+   "year": "sep 1996",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova Scott Card",
+   "collection_id": 10,
+   "collection_number": "8",
+   "subcollection": "La Saga del Retorno",
+   "subcollection_id": 1524,
+   "subcollection_number": "5",
+   "isbn": "8440666780",
+   "format": "Rústica con solapas - 14×23 cm - 428 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Trazo"
+   ],
+   "series": [
+    "El Retorno"
+   ],
+   "series_ids": [
+    209
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo",
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/667/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000667.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000667.jpg",
+   "dimensions": "14×23",
+   "pages": 428,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 8401,
+   "title": "Nacidos en la Tierra",
+   "year": "2003",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Punto de Lectura",
+   "publisher_country": "España",
+   "collection": "Punto de Lectura",
+   "collection_id": 103,
+   "collection_number": "80",
+   "subcollection": "Punto de Lectura Orson Scott Card",
+   "subcollection_id": 1782,
+   "subcollection_number": "9",
+   "isbn": "8466309713",
+   "format": "Rústica - 11×17,5 cm - 528 páginas",
+   "translators": [
+    "Carlos Gardini"
+   ],
+   "cover_art": [
+    "Leo Flores"
+   ],
+   "series": [
+    "El Retorno"
+   ],
+   "series_ids": [
+    209
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Fantasía"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/8401/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00008401.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00008401.jpg",
+   "dimensions": null,
+   "pages": 528,
+   "has_spine": true,
+   "score": 35,
+   "why": [
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,151 @@
+{
+ "want": {
+  "slug": "aventura-de-chanur",
+  "title": "La aventura de Chanur",
+  "authors": [
+   "C. J. Cherryh"
+  ],
+  "shelf": "B de Bolsillo",
+  "listed_as": "Ciencia Ficción. Editorial B de Bolsillo",
+  "series": "Chanur",
+  "queries": [
+   "La aventura de Chanur"
+  ]
+ },
+ "route": "titulo",
+ "ranked": [
+  {
+   "id": 207,
+   "title": "La aventura de Chanur",
+   "year": "oct 1988",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "Ediciones B",
+   "publisher_country": "España",
+   "collection": "Nova",
+   "collection_id": 3,
+   "collection_number": "14",
+   "subcollection": "La Saga de Chanur",
+   "subcollection_id": 1701,
+   "subcollection_number": "2",
+   "isbn": "8440602359",
+   "format": "Rústica con solapas - 12×19 cm - 270 páginas",
+   "translators": [
+    "Albert Solé"
+   ],
+   "cover_art": [
+    "Sergio Camporeale"
+   ],
+   "series": [
+    "Chanur"
+   ],
+   "series_ids": [
+    208
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/207/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00000207.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00000207.jpg",
+   "dimensions": "12×19",
+   "pages": 270,
+   "has_spine": true,
+   "score": 55,
+   "why": [
+    "same publishing house, different imprint",
+    "has a scanned spine",
+    "numbered in its collection",
+    "pre-2000 printing, the covers this shelf is for"
+   ]
+  },
+  {
+   "id": 13141,
+   "title": "La aventura de Chanur",
+   "year": "2004",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "La Factoría de Ideas",
+   "publisher_country": "España",
+   "collection": "Ventana Abierta",
+   "collection_id": 1060,
+   "collection_number": "5",
+   "subcollection": "La Saga de Chanur",
+   "subcollection_id": 3090,
+   "subcollection_number": "2",
+   "isbn": "8498000556",
+   "format": "Rústica - 13×21 cm - 282 páginas",
+   "translators": [
+    "Albert Solé"
+   ],
+   "cover_art": [],
+   "series": [
+    "Chanur"
+   ],
+   "series_ids": [
+    208
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/13141/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00013141.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00013141.jpg",
+   "dimensions": "13×21",
+   "pages": 282,
+   "has_spine": true,
+   "score": 35,
+   "why": [
+    "has a scanned spine",
+    "numbered in its collection"
+   ]
+  },
+  {
+   "id": 52739,
+   "title": "La aventura de Chanur",
+   "year": "dic 2014",
+   "authors": [],
+   "author_ids": [],
+   "publisher": "La Factoría de Ideas",
+   "publisher_country": "España",
+   "collection": "Ventana Abierta (digital)",
+   "collection_id": 6819,
+   "collection_number": null,
+   "subcollection": "La Saga de Chanur",
+   "subcollection_id": 3090,
+   "subcollection_number": "2",
+   "isbn": "9788490186091",
+   "format": "Edición digital - ePUB",
+   "translators": [
+    "Albert Solé"
+   ],
+   "cover_art": [],
+   "series": [
+    "Chanur"
+   ],
+   "series_ids": [
+    208
+   ],
+   "awards": [],
+   "genres": [
+    "Ciencia ficción",
+    "Ensayo"
+   ],
+   "url": "https://tercerafundacion.net/biblioteca/ver/libro/52739/",
+   "spine": "https://tercerafundacion.net/imagenes/lomo/L-00052739.jpg",
+   "cover": "https://tercerafundacion.net/imagenes/portada/P-00052739.jpg",
+   "dimensions": null,
+   "pages": null,
+   "has_spine": false,
+   "score": -40,
+   "why": [
+    "NO scanned spine",
+    "digital edition, not a paperback"
+   ]
+  }
+ ]
+}
