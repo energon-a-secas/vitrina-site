@@ -92,11 +92,26 @@ browser sizes the item to max-content and clamps it to `max-width`, so the
 1400px and scrolled the whole page sideways. `width: 100%` fixes it;
 `min-width: 0` alone does not. Same shape, same fix, on `.provenance`.
 
-**Images have a three-step chain.** The catalogue first, then `data/images/`
-(written by `scrape.py cache-images`, gitignored), then the drawn spine. The
-middle step exists so the shelf survives a blocked hotlink or no network; on
-the published page it simply 404s and the drawn spine takes over. `data.js` is
-the only place an id becomes an image URL.
+**Images have a four-step chain, and the first step is ours.**
+
+1. `assets/thumbs/` for the shelf's own books. Committed and served by this
+   site, built by `scripts/thumbs.py` from the cache below, sized to what the
+   page actually paints. Only the 39 books on the shelf have one.
+2. The catalogue, for everything else. The whole-collection view draws 564
+   spines and 525 of them are hotlinked, which is deliberate: this repo
+   republishes a copy of what is on the page every time, and nothing more.
+3. `data/images/` (gitignored, from `scrape.py cache-images`), so the shelf
+   survives a blocked hotlink or no network in development.
+4. The drawn spine.
+
+Each step is tried at most once per image, tracked with a `data-tried*` flag on
+the element, so a source that fails twice cannot loop. `data.js` is the only
+place an id becomes an image URL, and `assets/thumbs/index.json` is what tells
+the page a thumbnail exists rather than guessing and eating a 404.
+
+**Regenerate thumbnails after changing the shelf.** `scrape.py cache-images`
+then `scripts/thumbs.py`. A book added to `picks.json` without this keeps
+working, it just hotlinks like a catalogue volume.
 
 **The search box has to reach every view.** `renderRuns()` originally ignored
 `state.query`, and because `showRuns` persists in prefs a returning visitor

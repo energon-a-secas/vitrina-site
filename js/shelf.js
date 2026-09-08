@@ -10,7 +10,7 @@
 // typographic, so nobody mistakes it for the real cover.
 
 import { escHtml, hueOf, numberOf } from './utils.js';
-import { title, authorLine, bookHeight, spineFor, bookYear, hasSpine, localSpine, hasLocalSpine } from './data.js';
+import { title, authorLine, bookHeight, spineFor, bookYear, hasSpine, localSpine, hasLocalSpine, spineUrl, hasThumbSpine } from './data.js';
 
 export const UNIT_PX = 15;          // pixels per centimetre of book height
 const MIN_THICK_CM = 0.9;
@@ -84,14 +84,28 @@ export function measureSpines(root) {
  * `data/images/` is written by `scrape.py cache-images` and is gitignored, so
  * on the published page this step simply 404s and the drawn spine takes over.
  */
+/**
+ * Walk down the sources for a spine, one step per failure.
+ *
+ *   our thumbnail  (only the shelf's own books have one, and it is the default)
+ *   the catalogue  (every volume, and the only source for the other 525)
+ *   the local cache (gitignored, so this step exists in development only)
+ *   the drawn spine
+ *
+ * Each step is attempted at most once per image, tracked on the element, so a
+ * source that fails twice cannot loop.
+ */
 function onError(btn, img, apply) {
   const id = img.dataset.bookId;
-  if (id && hasLocalSpine(id) && !img.dataset.triedLocal) {
-    img.dataset.triedLocal = '1';
+  const next = (mark, url) => {
+    img.dataset[mark] = '1';
     img.addEventListener('load', apply, { once: true });
-    img.addEventListener('error', () => fallback(btn, img), { once: true });
-    img.src = localSpine(id);
-    return;
+    img.addEventListener('error', () => onError(btn, img, apply), { once: true });
+    img.src = url;
+  };
+  if (id) {
+    if (hasThumbSpine(id) && !img.dataset.triedRemote) return next('triedRemote', spineUrl(id));
+    if (hasLocalSpine(id) && !img.dataset.triedLocal) return next('triedLocal', localSpine(id));
   }
   fallback(btn, img);
 }

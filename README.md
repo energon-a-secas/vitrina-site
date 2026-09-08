@@ -104,12 +104,15 @@ python3 scripts/scrape.py catalog   # the collections my books live in
 python3 scripts/scrape.py spines    # which editions have a scanned spine
 python3 scripts/scrape.py cache-images            # local fallback copies
 python3 scripts/scrape.py cache-images --catalog  # ...for every browsable record
+python3 scripts/thumbs.py                         # WebP thumbnails of your own books
 ```
 
-Images are asked of the catalogue first, then of `data/images/` if a copy was
-cached there, and only then does the shelf draw a spine instead. That middle
-step is gitignored, so a published page never finds it and falls straight
-through to the drawn spine.
+Your own books are served from `assets/thumbs/`, sized to what the page paints:
+the shelf's 31 spines drop from 218 KB to 84 KB and its 39 covers from 1.4 MB
+to 563 KB. Everything else is asked of the catalogue, which is most of what the
+whole-collection view draws and is why this repo carries a copy of what is on
+the page and nothing more. If a request fails the shelf tries the catalogue,
+then the gitignored `data/images/` cache, then gives up and draws a spine.
 
 `scripts/rank.py` scores the candidates for each wanted title and writes one
 brief per book, which is what makes choosing between four editions of the same

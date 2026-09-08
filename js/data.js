@@ -25,6 +25,20 @@ const cached = { spine: new Set(), cover: new Set() };
 export const hasLocalSpine = (id) => cached.spine.has(Number(id));
 export const hasLocalCover = (id) => cached.cover.has(Number(id));
 
+// Thumbnails of the shelf's own books, built by `scripts/thumbs.py` and, unlike
+// the cache above, committed and served by this site. A spine is 7 KB at the
+// source and is drawn about 30px wide; these are sized to what the page paints,
+// which takes the shelf's 31 spines from 218 KB to 84 KB and its 39 covers from
+// 1.4 MB to 563 KB. Only the books on the shelf have one. The other 525 volumes
+// in the whole-collection view stay hotlinked, which is the point: this
+// republishes a copy of what is already on the page every time, and nothing more.
+const thumbs = { spine: new Set(), cover: new Set() };
+const pad = (id) => String(id).padStart(8, '0');
+export const thumbSpine = (id) => `assets/thumbs/lomo-${pad(id)}.webp`;
+export const thumbCover = (id) => `assets/thumbs/portada-${pad(id)}.webp`;
+export const hasThumbSpine = (id) => thumbs.spine.has(Number(id));
+export const hasThumbCover = (id) => thumbs.cover.has(Number(id));
+
 async function getJson(path, fallback, { quiet = false } = {}) {
   try {
     const res = await fetch(path, { cache: 'no-cache' });
@@ -37,14 +51,19 @@ async function getJson(path, fallback, { quiet = false } = {}) {
 }
 
 export async function loadData() {
-  const [library, catalog, images] = await Promise.all([
+  const [library, catalog, images, thumbIndex] = await Promise.all([
     getJson('data/library.json', { books: [] }),
     getJson('data/catalog.json', { books: [], collections: [] }),
     getJson('data/images/index.json', null, { quiet: true }),
+    getJson('assets/thumbs/index.json', null, { quiet: true }),
   ]);
   if (images) {
     (images.spine || []).forEach((id) => cached.spine.add(id));
     (images.cover || []).forEach((id) => cached.cover.add(id));
+  }
+  if (thumbIndex) {
+    (thumbIndex.spine || []).forEach((id) => thumbs.spine.add(id));
+    (thumbIndex.cover || []).forEach((id) => thumbs.cover.add(id));
   }
   state.catalog = (catalog.books || []).filter((b) => b && b.id != null);
   state.collections = catalog.collections || [];
@@ -90,13 +109,15 @@ export function hasSpine(entry) {
 export function spineFor(entry) {
   const r = entry.record || {};
   if (r.spine_custom) return r.spine_custom;
-  return r.id != null ? spineUrl(r.id) : null;
+  if (r.id == null) return null;
+  return hasThumbSpine(r.id) ? thumbSpine(r.id) : spineUrl(r.id);
 }
 
 export function coverFor(entry) {
   const r = entry.record || {};
   if (r.cover_custom) return r.cover_custom;
-  return r.id != null ? coverUrl(r.id) : null;
+  if (r.id == null) return null;
+  return hasThumbCover(r.id) ? thumbCover(r.id) : coverUrl(r.id);
 }
 
 // ── Grouping ─────────────────────────────────────────────────────────────────
