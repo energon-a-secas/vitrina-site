@@ -16,7 +16,11 @@ export const state = {
   hideOwned: false,
   browseCollection: '',
   shortcuts: true,    // WCAG 2.1.4: a single-key shortcut needs an off switch
-  showRuns: false,    // draw the whole collection, not just what is owned
+  // The whole collection is the default view. A shelf of 39 answers "what do I
+  // have"; the run of 564 answers "what am I missing", which is the question a
+  // collector actually opens this with. It also means first paint is 564 spines
+  // rather than 39, which is why the rows below are render-gated.
+  showRuns: true,
 
   entries: [],        // the shelf
   catalog: [],        // browsable records from the collections we crawled

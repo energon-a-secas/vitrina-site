@@ -36,7 +36,7 @@ export function spineMarkup(entry, { trueScale = true, ghost = false, number = n
   const hue = hueOf(t);
 
   const inner = src
-    ? `<img class="spine__img" src="${escHtml(src)}" alt="" loading="lazy" decoding="async"${entry.record && entry.record.id != null ? ` data-book-id="${entry.record.id}"` : ''}>`
+    ? `<img class="spine__img" src="${escHtml(src)}" alt="" loading="lazy" decoding="async" fetchpriority="low"${entry.record && entry.record.id != null ? ` data-book-id="${entry.record.id}"` : ''}>`
     : '';
 
   const cls = `spine${src ? '' : ' spine--drawn'}${ghost ? ' spine--ghost' : ''}`;

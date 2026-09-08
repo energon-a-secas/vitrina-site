@@ -833,7 +833,17 @@ main#main { padding-bottom: var(--space-8); }
 
 /* ── A shelf row ──────────────────────────────────────────────────────────── */
 
-.shelfrow { margin-bottom: 52px; }
+.shelfrow { margin-bottom: 52px;
+  /* The whole-collection view puts 564 spines across five rows into the
+     document, and Nova alone is 365 of them in a 13,900px strip. Without this
+     the browser lays out and paints every one of them at first load, including
+     the ~90% that are outside their row's own horizontal scroll. Gating on
+     visibility lets it skip the rows nobody is looking at; the intrinsic size
+     keeps the page's scroll height honest so the scrollbar does not jump as
+     rows come into view. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 420px;
+}
 
 .shelfrow__head {
   display: flex;
