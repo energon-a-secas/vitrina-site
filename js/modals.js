@@ -4,11 +4,32 @@ import { state, addEntry, restoreSeed, reindex, save } from './state.js';
 import { $, escHtml, toast, download, plural } from './utils.js';
 import { title, bookYear, hasSpine, bookHeight } from './data.js';
 import { resolveIsbn, explain, loadScanIndex } from './scan.js';
+import { cameraPossible, startScanner } from './camera.js';
 
 let hideTimer = null;
 let opener = null;
 
+/**
+ * Work a dialog must undo when it closes. The camera is why this exists: a
+ * getUserMedia stream outlives the markup that started it, so closing the
+ * dialog without stopping it leaves the indicator light on and the radio warm.
+ */
+let cleanups = [];
+
+/** Register teardown for the dialog being opened right now. */
+export function onModalClose(fn) {
+  if (typeof fn === 'function') cleanups.push(fn);
+}
+
+function runCleanups() {
+  const pending = cleanups;
+  cleanups = [];
+  pending.forEach((fn) => { try { fn(); } catch { /* teardown must not throw */ } });
+}
+
 export function openModal(heading, body, footer) {
+  // A dialog replaced without closing still has to release what it held.
+  runCleanups();
   $('#modalTitle').textContent = heading;
   $('#modalBody').innerHTML = body;
   $('#modalFooter').innerHTML = footer || '';
@@ -30,6 +51,7 @@ export function openModal(heading, body, footer) {
 export function closeModal() {
   const m = $('#modal');
   if (!m || m.hidden) return;
+  runCleanups();
   m.classList.remove('is-open');
   if (!$('#drawer') || $('#drawer').hidden) document.body.classList.remove('modal-open');
   clearTimeout(hideTimer);
@@ -88,8 +110,13 @@ export function scanDialog() {
        </label>
      </form>
      <p class="dialog__note" id="isbnNote"></p>
+     <div class="scanner" id="scanner" hidden>
+       <video id="scanVideo" class="scanner__video" muted playsinline></video>
+       <p class="scanner__status" id="scanStatus" role="status" aria-live="polite"></p>
+     </div>
      <div id="isbnResults" class="candidates" role="group" aria-label="Matching editions"></div>`,
-    `<button type="button" class="btn btn--ghost" data-modal-close>Close</button>`);
+    `<button type="button" class="btn btn--ghost" data-modal-close>Close</button>
+     <button type="button" class="btn btn--secondary" id="scanBtn" hidden>Scan with the camera</button>`);
 
   const input = $('#isbnInput');
   const note = $('#isbnNote');
@@ -119,6 +146,46 @@ export function scanDialog() {
       </button>`).join('');
   };
   input.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(run, 180); });
+
+  // The camera button only appears when a camera can actually be asked for.
+  // A dead button that explains itself after the click is worse than no button.
+  const scanBtn = $('#scanBtn');
+  const box = $('#scanner');
+  const video = $('#scanVideo');
+  const status = $('#scanStatus');
+  if (!scanBtn || !cameraPossible()) return;
+  scanBtn.hidden = false;
+
+  let session = null;
+  const stopScanning = () => {
+    if (session) { session.stop(); session = null; }
+    box.hidden = true;
+    scanBtn.textContent = 'Scan with the camera';
+  };
+  // Closing the dialog must free the camera. Without this the stream survives
+  // the dialog and the indicator light stays on.
+  onModalClose(stopScanning);
+
+  scanBtn.addEventListener('click', async () => {
+    if (session) { stopScanning(); return; }
+    box.hidden = false;
+    scanBtn.textContent = 'Stop the camera';
+    status.textContent = '';
+    try {
+      session = await startScanner(video, (value) => {
+        session = null;
+        stopScanning();
+        input.value = value;
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+      }, (msg) => { status.textContent = msg; });
+    } catch (err) {
+      session = null;
+      box.hidden = true;
+      scanBtn.textContent = 'Scan with the camera';
+      note.textContent = err.message;
+      note.className = 'dialog__note dialog__note--warn';
+    }
+  });
 }
 
 function shelfNames() {

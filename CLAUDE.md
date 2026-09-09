@@ -138,3 +138,32 @@ books and the board scroll.
 `clientWidth`, so `data-scroll` and the edge fades cannot be exercised there.
 That is why `scrollState()` in `shelf.js` is a pure function with its own test
 (`make validate`) rather than logic buried in a listener.
+
+**Scanning has three tiers, cheapest first.** The native `BarcodeDetector`
+costs nothing and exists on Android Chrome. The `barcode-detector` ponyfill
+(Sec-ant, MIT, zxing wasm) is fetched only when the native one is missing AND
+somebody opens the camera: measured 441 KB brotli for the wasm, pulled at
+runtime from jsdelivr by the module itself, not by us. Typing the number is
+always there and is why the dialog leads with a text field. `js/camera.js`
+picks the tier; nothing else needs to know which one ran.
+
+**A camera stream outlives the dialog that started it.** `openModal` and
+`closeModal` both run `runCleanups()`, and the scanner registers its teardown
+with `onModalClose`. Without that the indicator light stays on after the dialog
+closes. Any future dialog holding a resource registers the same way.
+
+**`node --check` on a `.js` file is not a syntax check for these modules.**
+Node reads a bare `.js` as CommonJS, where `import` is invalid anyway, and it
+passed a genuine double comma inside an import list while the browser refused
+the whole module graph and the page lost every handler. `tests/syntax.test.mjs`
+copies each module to `.mjs` first, which is what makes node parse it under
+module rules. It was tripped both ways before being trusted.
+
+**Vitrina still has no Content-Security-Policy**, and one should not be written
+from a resource dump: images are lazy and the ponyfill loads on demand, so a
+page that has merely been opened under-reports its own hosts. The list from
+source is `cdn.neorgon.org`, `tercerafundacion.net`, `esm.sh`,
+`fastly.jsdelivr.net` (the wasm, fetched from inside the ponyfill),
+`neorgon.goatcounter.com`, `gc.zgo.at`, `static.cloudflareinsights.com`, plus
+`data:` and `blob:`, and it needs `wasm-unsafe-eval`. Verify it against a page
+that has actually scrolled the shelf and opened the scanner.
