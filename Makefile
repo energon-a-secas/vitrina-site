@@ -28,3 +28,4 @@ kill:
 .PHONY: validate
 validate:
 	@node tests/shelf.test.mjs
+	@node tests/isbn.test.mjs
