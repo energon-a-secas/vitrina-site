@@ -29,3 +29,4 @@ kill:
 validate:
 	@node tests/shelf.test.mjs
 	@node tests/isbn.test.mjs
+	@node tests/syntax.test.mjs

@@ -3,6 +3,7 @@
 import { state, addEntry, restoreSeed, reindex, save } from './state.js';
 import { $, escHtml, toast, download, plural } from './utils.js';
 import { title, bookYear, hasSpine, bookHeight } from './data.js';
+import { resolveIsbn, explain, loadScanIndex } from './scan.js';
 
 let hideTimer = null;
 let opener = null;
@@ -65,6 +66,59 @@ export function addDialog() {
      </form>`,
     `<button type="button" class="btn btn--ghost" data-modal-close>Cancel</button>
      <button type="button" class="btn btn--primary" id="addSave">Put it on the shelf</button>`);
+}
+
+/**
+ * Add by ISBN. Type it or scan it later; the resolution is the same either way.
+ *
+ * The result is always a list, never a pick. An ISBN identifies a work far more
+ * often than it identifies a printing: 48 keys in this catalogue cover 109
+ * editions, and choosing for somebody would put the wrong one on a shelf whose
+ * whole subject is which printing they own.
+ */
+export function scanDialog() {
+  openModal('Add by ISBN',
+    `<p class="dialog__lead">The number under the barcode, 10 or 13 digits. Hyphens and spaces are fine.
+      Resolved against the catalogue on your machine, so this works with no network.</p>
+     <form class="form" id="isbnForm" onsubmit="return false">
+       <label class="form__row">
+         <span>ISBN</span>
+         <input name="isbn" id="isbnInput" inputmode="numeric" autocomplete="off"
+                maxlength="24" placeholder="9788466653954" aria-describedby="isbnNote">
+       </label>
+     </form>
+     <p class="dialog__note" id="isbnNote"></p>
+     <div id="isbnResults" class="candidates" role="group" aria-label="Matching editions"></div>`,
+    `<button type="button" class="btn btn--ghost" data-modal-close>Close</button>`);
+
+  const input = $('#isbnInput');
+  const note = $('#isbnNote');
+  const results = $('#isbnResults');
+  if (!input) return;
+  input.focus();
+
+  // Warm the index while they are still typing, so the first lookup is instant.
+  void loadScanIndex().catch(() => {});
+
+  let timer = null;
+  const run = async () => {
+    const raw = input.value.trim();
+    if (!raw) { note.textContent = ''; results.innerHTML = ''; return; }
+    const res = await resolveIsbn(raw);
+    if (input.value.trim() !== raw) return;          // they kept typing
+    note.textContent = explain(res);
+    note.className = 'dialog__note' + (res.candidates.length ? '' : ' dialog__note--warn');
+    results.innerHTML = res.candidates.map((c) => `
+      <button type="button" class="candidate" data-add="${c.id}">
+        <span class="candidate__title">${escHtml(c.title || 'Untitled')}</span>
+        <span class="candidate__meta">${escHtml([
+          c.author, c.year,
+          c.collection ? `${c.collection}${c.collectionNumber ? ' ' + c.collectionNumber : ''}` : null,
+          c.publisher,
+        ].filter(Boolean).join(' \u00b7 '))}</span>
+      </button>`).join('');
+  };
+  input.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(run, 180); });
 }
 
 function shelfNames() {

@@ -7,7 +7,7 @@ import { openBook, closeBook, editNote, takeOff, closeIfGone } from './detail.js
 import { showMore, addFromCatalog, resetBrowsePaging } from './browse.js';
 import {
   addDialog, saveFromAddDialog, closeModal, exportShelf, importDialog,
-  applyImport, resetShelf, reportDialog,
+  applyImport, resetShelf, reportDialog, scanDialog
 } from './modals.js';
 
 export function bindEvents() {
@@ -58,6 +58,7 @@ export function bindEvents() {
 
   // Header actions
   $('#addBtn').addEventListener('click', addDialog);
+  $('#isbnBtn').addEventListener('click', scanDialog);
   $('#statsBtn').addEventListener('click', reportDialog);
   $('#exportBtn').addEventListener('click', exportShelf);
   $('#importBtn').addEventListener('click', importDialog);

@@ -1345,3 +1345,32 @@ main#main { padding-bottom: var(--space-8); }
   .spine:hover, .spine:focus-visible, .spine.is-open { transform: none; }
   .cover:hover .cover__frame, .cover:focus-visible .cover__frame { transform: none; }
 }
+
+/* Add-by-ISBN results. A list, never a pick: one ISBN in this catalogue can
+   name four printings, and the difference between them is the whole point of
+   a shelf built from real spines. */
+.candidates {
+  display: grid;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  max-height: 46vh;
+  overflow-y: auto;
+}
+.candidate {
+  display: grid;
+  gap: 2px;
+  text-align: left;
+  padding: var(--space-3);
+  background: var(--surface-2);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: border-color 160ms var(--ease-out), background 160ms var(--ease-out);
+}
+.candidate:hover,
+.candidate:focus-visible { border-color: var(--accent); background: var(--surface-3); }
+.candidate__title { font-weight: 600; color: var(--text-primary); }
+.candidate__meta { font-size: var(--text-xs); color: var(--text-muted); }
+
+.dialog__note { font-size: var(--text-sm); color: var(--text-muted); margin-top: var(--space-2); min-height: 1.2em; }
+.dialog__note--warn { color: var(--accent-bright); }
