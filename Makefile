@@ -9,7 +9,7 @@ help:
 	@echo "  make serve    Start dev server → http://localhost:$(PORT)"
 	@echo "  make kill     Kill this project's HTTP server"
 	@echo "  make validate Run the tests (plain node, no install)"
-	@echo "  make routes   Regenerate /shelf/ and /demo/ from templates/app.html.tmpl"
+	@echo "  make routes   Regenerate /shelf/ and /demo/ from _templates/app.html"
 	@echo ""
 
 # ── Dev server ────────────────────────────────────────────────────────────────

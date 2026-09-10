@@ -70,6 +70,19 @@ export function save() {
 
 export function savePrefs() {
   try {
+    // On the demo, how a visitor arranges somebody else's shelf stays in
+    // memory. It used to be saved to the key /shelf/ reads, so browsing the
+    // demo in Browse sent a first-time visitor to their own shelf in Browse too,
+    // straight past the empty state that shows them how to start. The shortcuts
+    // switch is the exception: it is an accessibility choice about the person,
+    // not about the shelf, so it follows them.
+    if (state.readOnly) {
+      const raw = localStorage.getItem(PREFS);
+      const kept = raw ? JSON.parse(raw) : {};
+      kept.shortcuts = state.shortcuts;
+      localStorage.setItem(PREFS, JSON.stringify(kept));
+      return;
+    }
     localStorage.setItem(PREFS, JSON.stringify({
       view: state.view, groupBy: state.groupBy, sortBy: state.sortBy,
       trueScale: state.trueScale, hideOwned: state.hideOwned,
@@ -212,9 +225,26 @@ export function findEntry(key) {
   return state.entries.find((e) => e.key === key) || null;
 }
 
+/** Returns whether the copy was saved, so a caller only reports success when it was. */
 export function restoreSeed() {
-  if (state.readOnly) { refuseEdit(); return; }
+  if (state.readOnly) { refuseEdit(); return false; }
   state.entries = state.seed.map((e) => ({ ...e }));
   reindex();
-  save();
+  return save();
+}
+
+/** How many books storage holds for /shelf/, whatever this tab last read. */
+export function storedShelfSize() {
+  const saved = loadSaved();
+  return saved ? saved.length : 0;
+}
+
+/**
+ * Copy that names whose books these are. On /shelf/ they are the visitor's; on
+ * /demo/ they belong to somebody else, and "the lit ones are yours" told every
+ * visitor they owned the maintainer's collection. Any new string that says
+ * "your" about the books goes through here.
+ */
+export function whose(yours, demo) {
+  return state.readOnly ? demo : yours;
 }

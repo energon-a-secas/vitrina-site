@@ -1181,7 +1181,7 @@ main#main { padding-bottom: var(--space-8); }
   cursor: pointer;
   transition: border-color var(--dur) var(--ease-out), color var(--dur) var(--ease-out);
 }
-.chip:hover { border-color: var(--accent); border-style: solid; color: var(--text-primary); }
+button.chip:hover { border-color: var(--accent); border-style: solid; color: var(--text-primary); }
 
 /* ── Empty state and provenance ───────────────────────────────────────────── */
 
@@ -1397,9 +1397,9 @@ main#main { padding-bottom: var(--space-8); }
 /* Routes. /shelf/ is yours and editable; /demo/ is a real shelf and is not.
    data-mode is written into <body> by scripts/routes.py, so these controls are
    hidden before any script runs rather than flashing on the demo and vanishing.
-   Every one of them already carries data-add or data-act, which is why this
-   needs no template changes. The state layer refuses edits as well; this is
-   what keeps them out of sight. */
+   Rendered edit controls carry data-add or data-act and the header's are named
+   by id, so this needs no markup of its own. The state layer refuses edits as
+   well; this rule only keeps them out of sight. */
 body[data-mode="demo"] [data-add],
 body[data-mode="demo"] [data-act],
 body[data-mode="demo"] #addBtn,

@@ -10,6 +10,7 @@
 // typographic, so nobody mistakes it for the real cover.
 
 import { escHtml, hueOf, numberOf } from './utils.js';
+import { whose } from './state.js';
 import { title, authorLine, bookHeight, spineFor, bookYear, hasSpine, localSpine, hasLocalSpine, spineUrl, hasThumbSpine } from './data.js';
 
 export const UNIT_PX = 15;          // pixels per centimetre of book height
@@ -40,7 +41,7 @@ export function spineMarkup(entry, { trueScale = true, ghost = false, number = n
     : '';
 
   const cls = `spine${src ? '' : ' spine--drawn'}${ghost ? ' spine--ghost' : ''}`;
-  const name = ghost ? `${label}. Not on your shelf` : label;
+  const name = ghost ? `${label}. ${whose('Not on your shelf', 'Not on this shelf')}` : label;
   return `<button type="button" class="${cls}"
       data-key="${escHtml(entry.key)}"${number != null ? ` data-number="${escHtml(number)}"` : ''}
       style="--h:${h * UNIT_PX}px; --est:${est}px; --hue:${hue};"
@@ -194,8 +195,8 @@ export function runMarkup(run, opts) {
           ? `${run.total} of ${run.full} match`
           : `${run.owned} of ${run.total}`}</span>
         <span class="shelfrow__hint">${run.filtered
-          ? `${run.owned} of them yours`
-          : 'the lit ones are yours'}</span>
+          ? `${run.owned} of them ${whose('yours', 'on this shelf')}`
+          : whose('the lit ones are yours', 'the lit ones are on this shelf')}</span>
       </header>
       <div class="shelfrow__case-wrap">
         <div class="shelfrow__case">

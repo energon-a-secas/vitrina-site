@@ -1,6 +1,6 @@
 // ── View rendering ───────────────────────────────────────────────────────────
 
-import { state } from './state.js';
+import { state, whose } from './state.js';
 import { $, $$, escHtml, plural } from './utils.js';
 import { shelves, title, authorLine, bookYear, coverFor, hasSpine, collectionRuns } from './data.js';
 import { shelfMarkup, runMarkup, measureSpines, markScrollable } from './shelf.js';
@@ -62,7 +62,7 @@ function renderRuns(view) {
   const el = $('#count');
   if (el) {
     el.textContent = state.query
-      ? `${total} matching, ${owned} of them yours`
+      ? `${total} matching, ${owned} of them ${whose('yours', 'on this shelf')}`
       : (total ? `${owned} of ${total} across ${runs.length} collections` : '');
   }
   // An empty shelf is not a missing catalogue. collectionRuns() draws the
@@ -83,11 +83,11 @@ function renderRuns(view) {
     view.innerHTML = state.query
       ? `<div class="empty">
           <p class="empty__lead">Nothing in these collections matches that.</p>
-          <p class="empty__hint">The search covers every catalogued volume here, not just yours.</p>
+          <p class="empty__hint">The search covers every catalogued volume here, not just ${whose('yours', 'the ones on this shelf')}.</p>
         </div>`
       : `<div class="empty">
           <p class="empty__lead">No collection to draw yet.</p>
-          <p class="empty__hint">This needs <code>data/catalog.json</code>. Run <code>python3 scripts/scrape.py catalog</code>.</p>
+          <p class="empty__hint">The catalogue did not load, so there is nothing to draw the collections from. Reload the page to try again.</p>
         </div>`;
     return;
   }
@@ -131,7 +131,7 @@ function empty() {
   return `<div class="empty">
       <p class="empty__lead">${state.query ? 'Nothing on the shelf matches that.' : 'The shelf is empty.'}</p>
       <p class="empty__hint">${state.query
-        ? 'Clear the search, or look in <strong>Browse</strong> for a book you have not added yet.'
+        ? `Clear the search, or look in <strong>Browse</strong> for a book ${whose('you have not added yet', 'this shelf does not have')}.`
         : 'Scan or type a number with <strong>Add by ISBN</strong>, pick from the catalogue in <strong>Browse</strong>, or start from a real collection.'}</p>
       ${state.query || state.readOnly ? '' : `<p class="empty__actions">
         <button type="button" class="btn btn--secondary btn--sm" data-copy-demo>Start from the demo shelf</button>

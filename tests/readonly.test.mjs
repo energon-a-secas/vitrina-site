@@ -10,12 +10,13 @@
 // empty, where it used to start as a copy of the maintainer's books.
 
 const writes = [];
+const store = new Map();
 let refusals = 0;
 globalThis.window = globalThis;
 globalThis.localStorage = {
-  getItem: () => null,
-  setItem: (key) => { writes.push(key); },
-  removeItem: () => {},
+  getItem: (key) => (store.has(key) ? store.get(key) : null),
+  setItem: (key, value) => { writes.push(key); store.set(key, String(value)); },
+  removeItem: (key) => { store.delete(key); },
 };
 globalThis.CustomEvent = class { constructor(type) { this.type = type; } };
 globalThis.document = {
@@ -28,6 +29,7 @@ globalThis.document = {
 
 const S = await import('../js/state.js');
 const SHELF = 'vitrina_shelf_v1';
+const PREFS = 'vitrina_prefs_v1';
 
 let failed = 0;
 function eq(actual, expected, what) {
@@ -51,12 +53,27 @@ const firstKey = S.state.entries[0].key;
 eq(S.addEntry({ id: 999, title: 'Sneaked in' }), null, 'addEntry refuses on the demo');
 eq(S.removeEntry(firstKey), false, 'removeEntry refuses on the demo');
 eq(S.updateEntry(firstKey, { note: 'scribbled' }), null, 'updateEntry refuses on the demo');
-S.restoreSeed();
+eq(S.restoreSeed(), false, 'restoreSeed reports that nothing was copied');
 eq(S.save(), false, 'save refuses on the demo, whatever calls it');
+eq(S.whose('yours', 'on this shelf'), 'on this shelf', "the demo never calls the maintainer's books yours");
 
 eq(JSON.stringify(S.state.entries), before, 'no demo entry changed');
 eq(writes.filter((k) => k === SHELF).length, 0, "the visitor's saved shelf was never written");
 eq(refusals, 4, 'each of the four refused edits is announced');
+
+// Arranging the demo leaves your own shelf's preferences where they were. It
+// used to save them, so browsing the demo in Browse opened /shelf/ in Browse,
+// past the empty state that shows a new visitor how to start. The shortcuts
+// switch is the exception: it is about the person, not the shelf.
+store.set(PREFS, JSON.stringify({ view: 'covers', showRuns: false, shortcuts: true }));
+S.state.view = 'browse';
+S.state.showRuns = true;
+S.state.shortcuts = false;
+S.savePrefs();
+const prefs = JSON.parse(store.get(PREFS));
+eq(prefs.view, 'covers', "browsing the demo does not move your shelf's view");
+eq(prefs.showRuns, false, 'nor its whole-collection switch');
+eq(prefs.shortcuts, false, 'the shortcuts switch does follow the person');
 
 // ── Your shelf ──────────────────────────────────────────────────────────────
 writes.length = 0;
@@ -64,8 +81,17 @@ S.hydrate(library, 'shelf');
 eq(S.state.readOnly, false, 'your own shelf is editable');
 eq(S.state.entries.length, 0, "a first visit starts empty, not as the maintainer's shelf");
 
-S.restoreSeed();
+eq(S.whose('yours', 'on this shelf'), 'yours', 'on your own shelf the books are yours');
+eq(S.storedShelfSize(), 0, 'nothing is stored before the first copy');
+// Another tab fills the shelf while this one still shows the empty state. The
+// copy button must see storage, not this tab's memory, or it overwrites that.
+store.set(SHELF, JSON.stringify({ v: 1, entries: [{ key: 'tf7', id: 7, record: { id: 7, title: 'From another tab' } }] }));
+eq(S.state.entries.length, 0, 'this tab still believes the shelf is empty');
+eq(S.storedShelfSize(), 1, 'storage knows another tab filled it');
+store.delete(SHELF);
+eq(S.restoreSeed(), true, 'starting from the demo reports that the copy was saved');
 eq(S.state.entries.length, 2, 'starting from the demo copies it in');
+eq(S.storedShelfSize(), 2, 'another tab reads the copied shelf from storage');
 eq(writes.includes(SHELF), true, 'and that copy is saved');
 eq(S.addEntry({ id: 555, title: 'Mine' }) !== null, true, 'adding works on your own shelf');
 

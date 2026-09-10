@@ -63,6 +63,8 @@ export function closeModal() {
 // ── Add a book by hand ───────────────────────────────────────────────────────
 
 export function addDialog() {
+  // The `a` shortcut reaches this on the demo, where the header button is hidden.
+  if (state.readOnly) { document.dispatchEvent(new CustomEvent('vitrina:read-only')); return; }
   openModal('Add a book',
     `<p class="dialog__lead">For a book the catalogue does not have, or a copy you want to describe yourself.
       To add a catalogued edition instead, use <strong>Browse</strong>: it brings the cover and the spine with it.</p>
@@ -209,10 +211,13 @@ export function saveFromAddDialog() {
     cover_custom: String(data.cover_custom || '').trim() || null,
     spine_custom: String(data.spine_custom || '').trim() || null,
   };
-  addEntry(record, {
+  const entry = addEntry(record, {
     shelf: String(data.shelf || '').trim() || 'Added by hand',
     note: String(data.note || '').trim() || null,
   });
+  // addEntry refuses on the demo and says so. Toasting success after it used to
+  // overwrite that notice with "added to the shelf" while nothing was added.
+  if (!entry) return false;
   toast(`${record.title} added to the shelf`);
   return true;
 }
@@ -226,6 +231,7 @@ export function exportShelf() {
 }
 
 export function importDialog() {
+  if (state.readOnly) { document.dispatchEvent(new CustomEvent('vitrina:read-only')); return; }
   openModal('Import a shelf',
     `<p class="dialog__lead">Paste a shelf exported from here, or pick the file. Importing replaces what is on the shelf now, so export first if you want to keep it.</p>
      <label class="form__row" for="importFile"><span>Choose an exported shelf</span></label>
@@ -272,8 +278,7 @@ export function applyImport(text) {
 
 export function resetShelf() {
   if (!window.confirm('Replace your shelf with the demo shelf? Everything on your shelf now is lost.')) return false;
-  restoreSeed();
-  toast('Your shelf now matches the demo. Take off what you do not own.');
+  if (restoreSeed()) toast('Your shelf now matches the demo shelf. Take off what you do not own.');
   return true;
 }
 
@@ -306,7 +311,7 @@ export function reportDialog() {
         <ul class="contents__list">${noSpine.map((e) => `<li>${escHtml(title(e))}</li>`).join('')}</ul></details>` : ''}
      <label class="check check--block">
        <input type="checkbox" id="shortcutsToggle"${state.shortcuts ? ' checked' : ''}>
-       <span>Single-key shortcuts (<kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>/</kbd> <kbd>a</kbd>). Turn this off if they get in the way of speech or switch input.</span>
+       <span>Single-key shortcuts (<kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>/</kbd>${state.readOnly ? '' : ' <kbd>a</kbd>'}). Turn this off if they get in the way of speech or switch input.</span>
      </label>`,
     '<button type="button" class="btn btn--primary" data-modal-close>Close</button>');
 }

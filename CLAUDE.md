@@ -4,8 +4,9 @@ A display case for Spanish-language science fiction paperbacks. Every book is
 its real scanned spine, hotlinked from tercerafundacion.net, standing at a
 height derived from the edition's dimensions in centimetres with the width taken
 from the scan's own aspect ratio. Three views: the shelf, a cover gallery, and
-774 catalogue records to browse and add from. The shelf is seeded from
-`data/library.json` and then lives in `localStorage`.
+774 catalogue records to browse and add from. `data/library.json` is the
+maintainer's own shelf, shown read-only at `/demo/`; a visitor's shelf at
+`/shelf/` starts empty and lives in `localStorage`.
 
 **Live:** vitrina.neorgon.com · **Port:** 8881
 
@@ -73,9 +74,13 @@ and VIB. `entry.shelf` keeps the owner's own filing because that is how the
 books physically stand; `Group: Collection` shows what the catalogue says. Never
 silently rewrite one into the other.
 
-**Nothing third-party is stored.** Images are hotlinked, back cover copy is not
+**The only third-party copies stored are the demo shelf's thumbnails.**
+`assets/thumbs/` holds small copies of the 39 books in `library.json` (step 1 of
+the image chain below). Every other image is hotlinked, back cover copy is not
 captured at all (see the comment in `tf.parse_book`), and `data/.cache/` and
-`data/images/` are gitignored. If the catalogue ever blocks hotlinking,
+`data/images/` are gitignored. The page copy has to match: the provenance line
+kept saying "Nothing is copied here" after the thumbnails were committed. If the
+catalogue ever blocks hotlinking,
 `scripts/scrape.py cache-images` builds a local copy and `data.js` is the one
 place that maps an id to an image URL.
 
@@ -171,12 +176,18 @@ that has actually scrolled the shelf and opened the scanner.
 **Three addresses, one app, and the home page is not the app.** `/` is a static
 home page that loads no app code. The app runs at `/shelf/` (your own shelf,
 kept in this browser, editable) and `/demo/` (a real collection, read-only).
-Both pages are generated from `templates/app.html.tmpl` by `scripts/routes.py`.
+Both pages are generated from `_templates/app.html` by `scripts/routes.py`.
 Never edit `shelf/index.html` or `demo/index.html` by hand: `make validate` runs
 `routes.py --check` and fails on drift, tripped both by a hand edit and by a
 template change left ungenerated. The only per-route differences are the head,
-the header subtitle, the footer line, the demo banner, and `data-mode` on
-`<body>`.
+the header subtitle, the hide-owned label, the footer line, the demo banner, and
+`data-mode` on `<body>`. The template is a `.html` file in an underscore
+directory on purpose: Jekyll leaves `_templates/` out of the published site, and
+the fleet fixers (`roll-hub-icon.py`, `no-em-dash.py`, the favicon kit) walk
+`.html` only, so a hub icon roll rewrites the template and both pages together
+instead of leaving `--check` red. `routes.py` also refuses a template that lost
+a placeholder or kept a mistyped one, and a page that came out without its
+`data-mode`, which is the attribute the whole read-only layer keys on.
 
 **Every URL the page resolves is root-absolute.** The app used to live at `/`
 and fetched `data/library.json` relative to the page, which at `/demo/` becomes
@@ -187,15 +198,19 @@ relative: they resolve against the module file, not the page. A
 `#main` into a jump to the home page.
 
 **The demo is read-only in two layers, and only one of them holds.** CSS keyed
-on `body[data-mode="demo"]` hides the edit controls before any script runs, and
-needed no template changes because every one already carries `data-add` or
-`data-act`. The header kit moves overflow controls rather than cloning them, so
+on `body[data-mode="demo"]` hides the edit controls before any script runs:
+rendered ones by `data-add` or `data-act`, the header's by id. The header kit moves overflow controls rather than cloning them, so
 their ids survive and the rule still applies inside the mobile menu. That layer
 is cosmetic. The one that holds is `state.js`: `addEntry`, `removeEntry`,
 `updateEntry` and `restoreSeed` return early when `state.readOnly`, and `save()`
 refuses as a backstop. `tests/readonly.test.mjs` asserts that the visitor's
 saved shelf is never written from the demo, and was tripped by deleting the
-addEntry gate (3 failures) and the save backstop (2).
+addEntry gate (3 failures) and the save backstop (2). Anything that toasts after
+an edit has to check what the edit returned: `saveFromAddDialog` and
+`addFromCatalog` used to report "added" or "already on your shelf" straight over
+the read-only notice. Preferences are not the shelf but had the same leak: on the
+demo `savePrefs()` keeps only the shortcuts switch, or arranging the demo would
+open a visitor's own shelf in Browse.
 
 **`/shelf/` starts empty, and both empty states have to agree.** It used to seed
 from `library.json`, handing every first-time visitor the maintainer's books as
@@ -204,6 +219,8 @@ default, an empty shelf reaches `renderRuns()`, which draws the collections the
 shelf owns from, finds none, and used to fall through to a developer message
 telling the visitor to run the scraper. It now hands an empty shelf to
 `empty()`, which offers "Start from the demo shelf", that is, `restoreSeed()`.
+The button checks `storedShelfSize()` first: a tab left open on the empty state
+would otherwise overwrite a shelf filled in another tab since.
 
 **Public profiles at a custom address are not built, and GitHub Pages decides
 their shape.** Pages serves the site's own `404.html` for any unknown path, with
@@ -212,4 +229,16 @@ real directory; a per-person address cannot be one, and a profile served
 through `404.html` answers 404 to every crawler and link preview.
 fitprofile-site hands out `/p/<id>` links built exactly that way, and every one
 of them opens its 404 page.
+
+**Every surface that renders `data-add` needs its own click branch.** The stage,
+the drawer and the modal each delegate clicks separately. Add by ISBN lists its
+editions as `data-add` buttons inside the modal, whose handler had no such
+branch, so from the day scanning shipped, picking an edition did nothing. It was
+verified by watching the lookup resolve, which is not the same as clicking the
+result.
+
+**Copy on `/demo/` must not call the books the visitor's.** "The lit ones are
+yours" on the maintainer's shelf told every visitor they owned it. Strings that
+name an owner go through `whose(yours, demo)` in `state.js`, and so does any new
+one that says "your" about the books.
 

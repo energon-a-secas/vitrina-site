@@ -1,6 +1,6 @@
 // ── The detail drawer: one book, pulled off the shelf ────────────────────────
 
-import { state, findEntry, removeEntry, updateEntry } from './state.js';
+import { state, findEntry, removeEntry, updateEntry, whose } from './state.js';
 import { $, escHtml, toast } from './utils.js';
 import { markSelected } from './render.js';
 import {
@@ -101,7 +101,7 @@ function detailMarkup(entry) {
         <h2 id="drawerTitle" class="detail__title">${escHtml(title(entry))}</h2>
         <p class="detail__by">${escHtml(authorLine(entry))}${y ? ` &middot; ${y}` : ''}</p>
 
-        ${entry.notOwned ? '<p class="detail__warn">This one is in the catalogue, not on your shelf.</p>' : ''}
+        ${entry.notOwned ? `<p class="detail__warn">This one is in the catalogue, not on ${whose('your shelf', 'this shelf')}.</p>` : ''}
         ${entry.note ? `<p class="detail__note">${escHtml(entry.note)}</p>` : ''}
 
         <dl class="facts">
@@ -114,7 +114,7 @@ function detailMarkup(entry) {
           ${row('Translation', r.translators)}
           ${row('Cover art', r.cover_art)}
           ${row('Awards', r.awards)}
-          ${row('Listed by you as', entry.listed_as || (r.listed_as || null))}
+          ${row(whose('Listed by you as', 'Listed by its owner as'), entry.listed_as || (r.listed_as || null))}
         </dl>
 
         ${contents}

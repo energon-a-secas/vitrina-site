@@ -4,7 +4,7 @@
 // every edition in the collections the shelf touches, and marks the ones
 // already standing on the shelf.
 
-import { state, addEntry } from './state.js';
+import { state, addEntry, whose } from './state.js';
 import { $, escHtml, fold, toast, plural, numberOf } from './utils.js';
 import { coverUrl, gaps } from './data.js';
 
@@ -54,13 +54,13 @@ export function renderBrowse() {
   const owned = list.filter((b) => state.ownedIds.has(b.id)).length;
 
   $('#count').textContent = state.catalog.length
-    ? `${list.length} in the catalogue, ${owned} on your shelf`
-    : 'catalogue not built yet';
+    ? `${list.length} in the catalogue, ${owned} ${whose('on your shelf', 'on this shelf')}`
+    : 'catalogue did not load';
 
   if (!state.catalog.length) {
     view.innerHTML = `<div class="empty">
-        <p class="empty__lead">The catalogue file is not here yet.</p>
-        <p class="empty__hint">Run <code>python3 scripts/scrape.py catalog</code> to build <code>data/catalog.json</code> from the collections your shelf already touches.</p>
+        <p class="empty__lead">The catalogue did not load.</p>
+        <p class="empty__hint">Reload the page to try again.</p>
       </div>`;
     return;
   }
@@ -81,13 +81,13 @@ function browseCard(b) {
   return `<article class="bcard${own ? ' is-own' : ''}">
       <div class="bcard__art">
         <img src="${escHtml(coverUrl(b.id))}" alt="" loading="lazy" decoding="async">
-        ${own ? '<span class="bcard__own">On your shelf</span>' : ''}
+        ${own ? `<span class="bcard__own">${whose('On your shelf', 'On this shelf')}</span>` : ''}
       </div>
       <h3 class="bcard__title">${escHtml(b.title)}</h3>
       <p class="bcard__by">${escHtml((b.authors || []).slice(0, 2).join(', ') || 'Unknown')}</p>
       <p class="bcard__meta">${escHtml(b.collection || '')}${num ? ' ' + escHtml(num) : ''}${b.year ? ' &middot; ' + escHtml(b.year) : ''}</p>
       <button type="button" class="btn btn--ghost btn--sm bcard__add" data-add="${b.id}"${own ? ' disabled' : ''}>
-        ${own ? 'Already yours' : 'Add to shelf'}
+        ${own ? whose('Already yours', 'On this shelf') : 'Add to shelf'}
       </button>
     </article>`;
 }
@@ -95,16 +95,20 @@ function browseCard(b) {
 function gapsMarkup() {
   const g = gaps();
   if (!g.length) return '';
+  // On the demo every data-add control is hidden, which left each row naming a
+  // series and then nothing after it. There the missing volumes are plain text.
   const top = g.slice(0, 4);
   return `<section class="gaps">
-      <h2 class="gaps__title">Gaps in your series</h2>
-      <p class="gaps__lead">Volumes the catalogue numbers in a series you already collect.</p>
+      <h2 class="gaps__title">${whose('Gaps in your series', 'Gaps in the series on this shelf')}</h2>
+      <p class="gaps__lead">Volumes the catalogue numbers in a series ${whose('you already collect', 'this shelf already collects')}.</p>
       <ul class="gaps__list">
         ${top.map((s) => `<li>
             <strong>${escHtml(s.series)}</strong>
             <span class="gaps__have">${plural(s.have, 'volume', 'volumes')} on the shelf</span>
             <span class="gaps__missing">${s.missing.map((b) =>
-              `<button type="button" class="chip" data-add="${b.id}" title="Add to shelf">${escHtml(b.subcollection_number || '?')}. ${escHtml(b.title)}</button>`).join('')}</span>
+              (state.readOnly
+                ? `<span class="chip chip--static">${escHtml(b.subcollection_number || '?')}. ${escHtml(b.title)}</span>`
+                : `<button type="button" class="chip" data-add="${b.id}" title="Add to shelf">${escHtml(b.subcollection_number || '?')}. ${escHtml(b.title)}</button>`)).join('')}</span>
           </li>`).join('')}
       </ul>
     </section>`;
@@ -118,7 +122,9 @@ export function addFromCatalog(id) {
   const rec = state.catalog.find((b) => b.id === Number(id));
   if (!rec) { toast('That book is not in the catalogue file', 'bad'); return false; }
   const entry = addEntry({ ...rec }, { shelf: rec.publisher === 'Ediciones B' && rec.collection === 'Nova' ? 'Nova' : rec.collection });
-  if (!entry) { toast('Already on your shelf'); return false; }
+  // On the demo addEntry has already announced the refusal, and this toast
+  // replaced it with the wrong reason.
+  if (!entry) { if (!state.readOnly) toast('Already on your shelf'); return false; }
   toast(`${rec.title} added to the shelf`);
   return true;
 }

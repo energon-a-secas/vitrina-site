@@ -130,7 +130,7 @@ ES modules require an HTTP server (not `file://`):
 ```bash
 make serve      # http://localhost:8881
 make validate   # the tests, plain node, no install
-make routes     # regenerate /shelf/ and /demo/ from templates/app.html.tmpl
+make routes     # regenerate /shelf/ and /demo/ from _templates/app.html
 ```
 
 ---

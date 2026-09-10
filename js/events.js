@@ -1,6 +1,6 @@
 // ── Event wiring. No inline onclick anywhere in the markup. ──────────────────
 
-import { state, savePrefs, restoreSeed } from './state.js';
+import { state, savePrefs, restoreSeed, storedShelfSize } from './state.js';
 import { $, debounce, toast } from './utils.js';
 import { render } from './render.js';
 import { openBook, closeBook, editNote, takeOff, closeIfGone } from './detail.js';
@@ -24,11 +24,21 @@ export function bindEvents() {
   // Opening a book, adding one, paging the catalogue
   $('#stage').addEventListener('click', (ev) => {
     if (ev.target.closest('[data-copy-demo]')) {
-      if (!state.readOnly) {
-        restoreSeed();
-        render();
-        toast('Your shelf now matches the demo. Take off what you do not own.');
+      if (state.readOnly) return;
+      // A tab left open on the empty state knows nothing of a shelf filled in
+      // another tab since, and copying the demo from here would overwrite it.
+      if (storedShelfSize() > 0) {
+        toast('Your shelf has books added in another tab. Reload the page to see them.', 'bad');
+        return;
       }
+      const saved = restoreSeed();
+      render();
+      // The button that had focus went away with the empty state, which dropped
+      // keyboard focus back to the top of the document. Land on the first book.
+      const first = $('#stage').querySelector('.spine:not(.spine--ghost), .cover');
+      if (first) first.focus();
+      // A failed save has already said so; a success toast would replace it.
+      if (saved) toast('Your shelf now matches the demo shelf. Take off what you do not own.');
       return;
     }
     const add = ev.target.closest('[data-add]');
@@ -92,6 +102,14 @@ export function bindEvents() {
       if (saveFromAddDialog()) { closeModal(); render(); }
       return;
     }
+    // Add by ISBN lists its editions as data-add buttons inside this dialog.
+    // The stage and the drawer each had a branch for data-add and this handler
+    // did not, so from the day scanning shipped, picking an edition did nothing.
+    const add = ev.target.closest('[data-add]');
+    if (add) {
+      if (addFromCatalog(add.dataset.add)) { closeModal(); render(); }
+      return;
+    }
     if (ev.target.closest('#importSave')) {
       const text = $('#importText').value.trim();
       if (!text) { $('#importFile').click(); return; }
@@ -120,8 +138,9 @@ export function bindEvents() {
   });
 
   // A shelf that cannot be saved must not keep reporting that it was.
-  // Fires only if an edit control slipped past the demo's CSS. Say where the
-  // editable shelf is rather than failing silently.
+  // Fires when anything reaches an edit on the demo: the `a` shortcut, or a
+  // control that slipped past its CSS. Say where the editable shelf is rather
+  // than failing silently.
   document.addEventListener('vitrina:read-only', () => {
     toast('This is a read-only shelf. Your own is at /shelf/.', 'bad');
   });

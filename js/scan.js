@@ -90,10 +90,12 @@ export function explain(result) {
     case 'not-an-isbn':
       return 'That is not an ISBN. A book barcode is 13 digits, and the number printed above it is 10 or 13.';
     case 'index-unavailable':
-      return 'The scan index did not load. Run python3 scripts/scan_index.py, or reload the page.';
+      return 'The scan index did not load. Reload the page and try again.';
     case 'not-in-catalogue':
       return result.valid
-        ? 'A real ISBN, but not in the collections scraped so far. Widen the scrape to cover its line.'
+        // Visitors read this, so it says what they can do. It used to end by telling
+        // them to widen the scrape, which only the maintainer can act on.
+        ? 'A real ISBN, but not one Vitrina has catalogued yet. It only knows the collections gathered so far, so add this book by hand with Add a book.'
         : 'Not found, and the check digit does not add up either, so the number may be mistyped.';
     default:
       return result.candidates.length > 1
