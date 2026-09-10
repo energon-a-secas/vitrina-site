@@ -9,6 +9,7 @@ help:
 	@echo "  make serve    Start dev server → http://localhost:$(PORT)"
 	@echo "  make kill     Kill this project's HTTP server"
 	@echo "  make validate Run the tests (plain node, no install)"
+	@echo "  make routes   Regenerate /shelf/ and /demo/ from templates/app.html.tmpl"
 	@echo ""
 
 # ── Dev server ────────────────────────────────────────────────────────────────
@@ -30,3 +31,10 @@ validate:
 	@node tests/shelf.test.mjs
 	@node tests/isbn.test.mjs
 	@node tests/syntax.test.mjs
+	@node tests/readonly.test.mjs
+	@python3 scripts/routes.py --check
+
+# ── Routes ────────────────────────────────────────────────────────────────────
+.PHONY: routes
+routes:
+	@python3 scripts/routes.py

@@ -25,7 +25,9 @@ export const state = {
   entries: [],        // the shelf
   catalog: [],        // browsable records from the collections we crawled
   collections: [],    // catalog collection headers
-  seed: [],           // library.json, kept so "reset to the original shelf" works
+  seed: [],           // library.json, the demo shelf: /demo/ shows it, /shelf/ can copy it
+  mode: 'shelf',      // 'shelf' is your own and editable; 'demo' is a real shelf shown read-only
+  readOnly: false,    // true on /demo/: no edit reaches state, and save() never writes
   ownedIds: new Set(),
   selected: null,     // entry key currently open in the drawer
   loaded: false,
@@ -48,6 +50,8 @@ let warnedAboutStorage = false;
 
 /** True when the shelf reached storage. Callers report their own failure. */
 export function save() {
+  // Whatever called this, the demo is never written anywhere.
+  if (state.readOnly) return false;
   try {
     localStorage.setItem(KEY, JSON.stringify({ v: 1, entries: state.entries }));
     return true;
@@ -104,14 +108,28 @@ function loadSaved() {
 }
 
 /**
- * Seed from library.json the first time, then let the browser copy win.
- * `seed` is kept so the shelf can be restored after an edit goes wrong.
+ * Two shelves, decided by the page, not by anything a visitor can toggle.
+ *
+ * On /demo/ the entries are library.json exactly as the maintainer keeps it, and
+ * the visitor's saved shelf is neither read nor written.
+ *
+ * On /shelf/ the entries are the visitor's saved shelf, and a first visit starts
+ * EMPTY. It used to start as a copy of the maintainer's books, so every new
+ * visitor was handed somebody else's collection as their own, and the first edit
+ * saved it that way. The demo is still one click away as a starting point, via
+ * restoreSeed(), and `seed` is kept for exactly that.
  */
-export function hydrate(library) {
+export function hydrate(library, mode = 'shelf') {
   loadPrefs();
+  state.mode = mode === 'demo' ? 'demo' : 'shelf';
+  state.readOnly = state.mode === 'demo';
   state.seed = library.map(toEntry);
-  const saved = loadSaved();
-  state.entries = saved ? saved.map(normalise) : state.seed.map((e) => ({ ...e }));
+  if (state.readOnly) {
+    state.entries = state.seed.map((e) => ({ ...e }));
+  } else {
+    const saved = loadSaved();
+    state.entries = saved ? saved.map(normalise) : [];
+  }
   reindex();
   state.loaded = true;
 }
@@ -140,7 +158,19 @@ function normalise(e) {
   };
 }
 
+/**
+ * The demo is a real shelf, not the visitor's. Every mutation checks this and
+ * returns before touching state, and save() refuses as a backstop, so no path
+ * can write the demo into somebody's saved shelf. The page hides the controls
+ * too; the event is for anything that slips past that.
+ */
+function refuseEdit(result) {
+  document.dispatchEvent(new CustomEvent('vitrina:read-only'));
+  return result;
+}
+
 export function addEntry(record, { shelf = null, note = null } = {}) {
+  if (state.readOnly) return refuseEdit(null);
   if (record.id != null && state.ownedIds.has(record.id)) return null;
   const entry = {
     key: record.id != null ? 'tf' + record.id : entryKey({}),
@@ -158,6 +188,7 @@ export function addEntry(record, { shelf = null, note = null } = {}) {
 }
 
 export function removeEntry(key) {
+  if (state.readOnly) return refuseEdit(false);
   const before = state.entries.length;
   state.entries = state.entries.filter((e) => e.key !== key);
   if (state.entries.length !== before) {
@@ -169,6 +200,7 @@ export function removeEntry(key) {
 }
 
 export function updateEntry(key, patch) {
+  if (state.readOnly) return refuseEdit(null);
   const entry = state.entries.find((e) => e.key === key);
   if (!entry) return null;
   Object.assign(entry, patch);
@@ -181,6 +213,7 @@ export function findEntry(key) {
 }
 
 export function restoreSeed() {
+  if (state.readOnly) { refuseEdit(); return; }
   state.entries = state.seed.map((e) => ({ ...e }));
   reindex();
   save();

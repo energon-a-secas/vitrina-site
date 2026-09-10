@@ -1,8 +1,8 @@
 {
   "name": "Vitrina",
   "short_name": "Vitrina",
-  "start_url": ".",
-  "scope": ".",
+  "start_url": "/shelf/",
+  "scope": "/",
   "icons": [
     {
       "src": "web-app-manifest-192x192.png",

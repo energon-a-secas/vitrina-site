@@ -18,7 +18,7 @@ let indexPromise = null;
 /** Load once, cache the promise so concurrent callers share one request. */
 export function loadScanIndex() {
   if (!indexPromise) {
-    indexPromise = fetch('data/scan-index.json', { cache: 'no-cache' })
+    indexPromise = fetch('/data/scan-index.json', { cache: 'no-cache' })
       .then((r) => {
         if (!r.ok) throw new Error(`${r.status} ${r.statusText}`);
         return r.json();

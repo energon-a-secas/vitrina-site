@@ -232,11 +232,14 @@ export function importDialog() {
      <input type="file" id="importFile" accept="application/json,.json" class="form__file" aria-label="Choose an exported shelf file">
      <textarea id="importText" class="form__area" rows="8" placeholder="or paste the JSON here" spellcheck="false" aria-label="Paste exported shelf JSON"></textarea>`,
     `<button type="button" class="btn btn--ghost" data-modal-close>Cancel</button>
-     <button type="button" class="btn btn--ghost" id="resetShelf">Back to the original shelf</button>
+     <button type="button" class="btn btn--ghost" id="resetShelf">Start from the demo shelf</button>
      <button type="button" class="btn btn--primary" id="importSave">Replace the shelf</button>`);
 }
 
 export function applyImport(text) {
+  // Import replaces the whole shelf, so it is the likeliest way to write the
+  // demo over somebody's own; state refuses too, this says why first.
+  if (state.readOnly) { toast('This is a read-only shelf. Import into your own at /shelf/.', 'bad'); return false; }
   let blob;
   try {
     blob = JSON.parse(text);
@@ -268,9 +271,9 @@ export function applyImport(text) {
 }
 
 export function resetShelf() {
-  if (!window.confirm('Put the original shelf back? Anything you added here is lost.')) return false;
+  if (!window.confirm('Replace your shelf with the demo shelf? Everything on your shelf now is lost.')) return false;
   restoreSeed();
-  toast('Original shelf restored');
+  toast('Your shelf now matches the demo. Take off what you do not own.');
   return true;
 }
 

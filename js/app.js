@@ -9,7 +9,7 @@ import { $ } from './utils.js';
 
 async function init() {
   const library = await loadData();
-  hydrate(library);
+  hydrate(library, document.body.dataset.mode);
 
   $('#groupBy').value = state.groupBy;
   $('#sortBy').value = state.sortBy;

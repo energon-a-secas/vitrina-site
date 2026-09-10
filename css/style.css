@@ -1393,3 +1393,96 @@ main#main { padding-bottom: var(--space-8); }
   margin-top: var(--space-2);
   min-height: 1.2em;
 }
+
+/* Routes. /shelf/ is yours and editable; /demo/ is a real shelf and is not.
+   data-mode is written into <body> by scripts/routes.py, so these controls are
+   hidden before any script runs rather than flashing on the demo and vanishing.
+   Every one of them already carries data-add or data-act, which is why this
+   needs no template changes. The state layer refuses edits as well; this is
+   what keeps them out of sight. */
+body[data-mode="demo"] [data-add],
+body[data-mode="demo"] [data-act],
+body[data-mode="demo"] #addBtn,
+body[data-mode="demo"] #isbnBtn,
+body[data-mode="demo"] #importBtn,
+body[data-mode="demo"] #resetShelf { display: none !important; }
+
+/* main is a flex column, so a width-capped child needs width:100% and a zero
+   min-width, the same fix .stage needed. */
+.demo-banner {
+  max-width: 1400px;
+  width: 100%;
+  min-width: 0;
+  margin: var(--space-4) auto 0;
+  padding: var(--space-3) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+.demo-banner__text { margin: 0; max-width: 70ch; font-size: var(--text-sm); color: var(--text-secondary); }
+.demo-banner__text strong { color: var(--text-primary); }
+
+.empty__actions {
+  margin-top: var(--space-4);
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+/* Home page. Fallbacks on the spacing and radius tokens this stylesheet has
+   not used before, so an absent token degrades to a sensible value rather than
+   to zero. */
+.landing {
+  max-width: 1100px;
+  width: 100%;
+  min-width: 0;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6) var(--space-12, 48px);
+}
+.landing-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-8);
+}
+.landing-hero__title {
+  margin: 0 0 var(--space-4);
+  font-size: clamp(1.9rem, 4.2vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+.landing-hero__lead { margin: 0 0 var(--space-6); max-width: 52ch; font-size: var(--text-lg); color: var(--text-secondary); }
+.landing-hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.landing-hero__preview { margin: 0; }
+.landing-hero__preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md, 12px);
+  box-shadow: 0 24px 60px -30px rgba(0, 0, 0, .9);
+}
+.landing-points {
+  list-style: none;
+  margin: var(--space-12, 48px) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-6);
+}
+.landing-points li {
+  padding: var(--space-5, 20px);
+  background: var(--surface-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md, 12px);
+}
+.landing-points h3 { margin: 0 0 var(--space-2); font-size: var(--text-base); color: var(--text-primary); }
+.landing-points p { margin: 0; font-size: var(--text-sm); color: var(--text-muted); }
+@media (max-width: 760px) {
+  .landing-hero,
+  .landing-points { grid-template-columns: minmax(0, 1fr); }
+}

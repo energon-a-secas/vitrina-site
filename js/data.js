@@ -14,8 +14,8 @@ export const recordUrl = (id) => `${SOURCE}/biblioteca/ver/libro/${id}/`;
 // shelf falls back to when a request fails: a blocked hotlink, a dead host, or
 // a laptop on a plane. Absent by default (data/images/ is gitignored), and the
 // drawn spine remains the last resort.
-export const localSpine = (id) => `data/images/lomo-${String(id).padStart(8, '0')}.jpg`;
-export const localCover = (id) => `data/images/portada-${String(id).padStart(8, '0')}.jpg`;
+export const localSpine = (id) => `/data/images/lomo-${String(id).padStart(8, '0')}.jpg`;
+export const localCover = (id) => `/data/images/portada-${String(id).padStart(8, '0')}.jpg`;
 
 // What is actually in that directory, written by `cache-images`. Without it the
 // page cannot tell a cached image from one that was never fetched, and every
@@ -34,8 +34,8 @@ export const hasLocalCover = (id) => cached.cover.has(Number(id));
 // republishes a copy of what is already on the page every time, and nothing more.
 const thumbs = { spine: new Set(), cover: new Set() };
 const pad = (id) => String(id).padStart(8, '0');
-export const thumbSpine = (id) => `assets/thumbs/lomo-${pad(id)}.webp`;
-export const thumbCover = (id) => `assets/thumbs/portada-${pad(id)}.webp`;
+export const thumbSpine = (id) => `/assets/thumbs/lomo-${pad(id)}.webp`;
+export const thumbCover = (id) => `/assets/thumbs/portada-${pad(id)}.webp`;
 export const hasThumbSpine = (id) => thumbs.spine.has(Number(id));
 export const hasThumbCover = (id) => thumbs.cover.has(Number(id));
 
@@ -52,10 +52,10 @@ async function getJson(path, fallback, { quiet = false } = {}) {
 
 export async function loadData() {
   const [library, catalog, images, thumbIndex] = await Promise.all([
-    getJson('data/library.json', { books: [] }),
-    getJson('data/catalog.json', { books: [], collections: [] }),
-    getJson('data/images/index.json', null, { quiet: true }),
-    getJson('assets/thumbs/index.json', null, { quiet: true }),
+    getJson('/data/library.json', { books: [] }),
+    getJson('/data/catalog.json', { books: [], collections: [] }),
+    getJson('/data/images/index.json', null, { quiet: true }),
+    getJson('/assets/thumbs/index.json', null, { quiet: true }),
   ]);
   if (images) {
     (images.spine || []).forEach((id) => cached.spine.add(id));

@@ -57,6 +57,9 @@ and this is a way to stand in front of them.
 - **Group and order** -- by your own shelf labels, by the catalogue's
   collection, by author, series or decade; ordered by collection number, which
   is how they would actually stand
+- **A real shelf to look at first** -- `/demo/` shows a real collection
+  read-only, so the finished thing is visible before you start your own at
+  `/shelf/`, which begins empty
 - **The whole collection** -- one toggle draws every catalogued volume of each
   collection you own from, your books lit and the rest dimmed, so Nova reads as
   13 of 365 rather than 13. Click a dimmed one to put it on the shelf
@@ -127,6 +130,7 @@ ES modules require an HTTP server (not `file://`):
 ```bash
 make serve      # http://localhost:8881
 make validate   # the tests, plain node, no install
+make routes     # regenerate /shelf/ and /demo/ from templates/app.html.tmpl
 ```
 
 ---

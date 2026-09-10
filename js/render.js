@@ -65,6 +65,20 @@ function renderRuns(view) {
       ? `${total} matching, ${owned} of them yours`
       : (total ? `${owned} of ${total} across ${runs.length} collections` : '');
   }
+  // An empty shelf is not a missing catalogue. collectionRuns() draws the
+  // collections the shelf owns from, so nothing owned means no runs, and this
+  // used to fall through to a message telling a first-time visitor on /shelf/
+  // to run the scraper. Their shelf is simply empty; empty() says how to start.
+  if (!runs.length && !state.query) {
+    if (!state.entries.length) { view.innerHTML = empty(); return; }
+    if (state.catalog.length) {
+      view.innerHTML = `<div class="empty">
+          <p class="empty__lead">Nothing on this shelf belongs to a catalogued collection.</p>
+          <p class="empty__hint">The whole-collection view draws the collections your books come from. Turn off <strong>Whole collection</strong> to see the books added by hand.</p>
+        </div>`;
+      return;
+    }
+  }
   if (!runs.length) {
     view.innerHTML = state.query
       ? `<div class="empty">
@@ -118,7 +132,11 @@ function empty() {
       <p class="empty__lead">${state.query ? 'Nothing on the shelf matches that.' : 'The shelf is empty.'}</p>
       <p class="empty__hint">${state.query
         ? 'Clear the search, or look in <strong>Browse</strong> for a book you have not added yet.'
-        : 'Open <strong>Browse</strong> to add books from the catalogue, or <strong>Add a book</strong> to enter one by hand.'}</p>
+        : 'Scan or type a number with <strong>Add by ISBN</strong>, pick from the catalogue in <strong>Browse</strong>, or start from a real collection.'}</p>
+      ${state.query || state.readOnly ? '' : `<p class="empty__actions">
+        <button type="button" class="btn btn--secondary btn--sm" data-copy-demo>Start from the demo shelf</button>
+        <a class="btn btn--ghost btn--sm" href="/demo/">See the demo first</a>
+      </p>`}
     </div>`;
 }
 

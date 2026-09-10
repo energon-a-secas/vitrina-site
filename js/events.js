@@ -1,6 +1,6 @@
 // ── Event wiring. No inline onclick anywhere in the markup. ──────────────────
 
-import { state, savePrefs } from './state.js';
+import { state, savePrefs, restoreSeed } from './state.js';
 import { $, debounce, toast } from './utils.js';
 import { render } from './render.js';
 import { openBook, closeBook, editNote, takeOff, closeIfGone } from './detail.js';
@@ -23,6 +23,14 @@ export function bindEvents() {
 
   // Opening a book, adding one, paging the catalogue
   $('#stage').addEventListener('click', (ev) => {
+    if (ev.target.closest('[data-copy-demo]')) {
+      if (!state.readOnly) {
+        restoreSeed();
+        render();
+        toast('Your shelf now matches the demo. Take off what you do not own.');
+      }
+      return;
+    }
     const add = ev.target.closest('[data-add]');
     if (add) { if (addFromCatalog(add.dataset.add)) render(); return; }
     if (ev.target.closest('#moreBtn')) { showMore(); render(); return; }
@@ -112,6 +120,12 @@ export function bindEvents() {
   });
 
   // A shelf that cannot be saved must not keep reporting that it was.
+  // Fires only if an edit control slipped past the demo's CSS. Say where the
+  // editable shelf is rather than failing silently.
+  document.addEventListener('vitrina:read-only', () => {
+    toast('This is a read-only shelf. Your own is at /shelf/.', 'bad');
+  });
+
   document.addEventListener('vitrina:storage-blocked', () => {
     toast('This browser is not letting the page store anything, so the shelf will not be here next time', 'bad');
   });
