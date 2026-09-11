@@ -27,6 +27,7 @@ import time
 import unicodedata
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import catalog_ids  # noqa: E402
 import tf  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -195,7 +196,15 @@ DERIVABLE = ("url", "spine", "cover", "author_ids", "series_ids",
 def cmd_catalog(args):
     """Crawl the listing pages of every collection the shelf touches, so the
     app can browse what is missing. Listings carry the full record, so no
-    detail page is fetched here."""
+    detail page is fetched here.
+
+    The result is merged into the existing catalog.json, never written over it.
+    Account shelves store a catalogue book as tf<id> and resolve the record from
+    this file in the browser, so a record dropped here turns that book into "A
+    book no longer in the catalogue" for everybody who has it. Records of
+    collections this run did not crawl, and records a listing no longer shows,
+    are kept as last seen; `catalog_ids.py --check` in make validate fails on
+    any id that goes missing."""
     ids = args.collections
     if not ids:
         lib = load(LIBRARY) or {"books": []}
@@ -233,12 +242,15 @@ def cmd_catalog(args):
         if head.get("count") is None:
             head["count"] = got
         collections.append(head)
+    crawled = len(books)
+    merged = catalog_ids.merge_catalog(load(CATALOG), tf.BASE, collections, books)
+    collections, books = merged["collections"], merged["books"]
     books.sort(key=lambda r: (r.get("collection_id") or 0,
                               _numkey(r.get("collection_number")), r["id"]))
-    tf.dump(CATALOG, {"source": tf.BASE, "collections": collections, "books": books})
+    tf.dump(CATALOG, merged)
     orphans = [b["id"] for b in books if not b.get("collection_id")]
-    print("\n%s  (%d books across %d collections, cache %d hit / %d fetched)"
-          % (CATALOG, len(books), len(collections), fetch.hits, fetch.misses))
+    print("\n%s  (%d books across %d collections, %d crawled now and %d kept from before, cache %d hit / %d fetched)"
+          % (CATALOG, len(books), len(collections), crawled, len(books) - crawled, fetch.hits, fetch.misses))
     if orphans:
         print("WARNING: %d records carry no collection: %s" % (len(orphans), orphans[:10]))
 

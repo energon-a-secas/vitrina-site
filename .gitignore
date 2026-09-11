@@ -44,3 +44,6 @@ data/.cache/
 # Optional offline image copy. The published page hotlinks the source instead,
 # so these are a fallback for local work, never something the repo ships.
 data/images/
+
+# Convex codegen output, rebuilt by every convex dev and deploy run from convex/.
+convex/_generated/
