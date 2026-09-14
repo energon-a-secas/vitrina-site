@@ -45,6 +45,7 @@ validate:
 	@node tests/backend.test.mjs
 	@node tests/remote-images.test.mjs
 	@node tests/escaping.test.mjs
+	@node tests/header-menu.test.mjs
 	@node tests/handles-mirror.test.mjs
 	@node tests/convex-entries.test.mjs
 	@node tests/convex-shelf.test.mjs

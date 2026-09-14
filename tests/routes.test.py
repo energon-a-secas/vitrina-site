@@ -58,10 +58,18 @@ for route in routes.ROUTES:
     with open(os.path.join(ROOT, route, "index.html"), encoding="utf-8") as fh:
         pages[route] = fh.read()
 
-convex = re.compile(r'<meta name="neo-convex-url" content="([^"]*)">')
-eq(convex.findall(pages["shelf"]), [routes.CONVEX_URL], "/shelf/ names the production deployment")
-eq(convex.findall(pages["u"]), [routes.CONVEX_URL], "and so does /u/")
-eq(convex.findall(pages["demo"]), [], "/demo/ names none, so no account shelf can be read there")
+# Every deployment host on the page and every neo-convex-url meta however its
+# attributes are written, with patterns of this file's own, so a weakened
+# pattern in routes.py cannot pass its own pages.
+convex_host = re.compile(r"[a-z0-9-]+\.convex\.(?:cloud|site)", re.I)
+convex_name = re.compile(r"""name\s*=\s*["']?neo-convex-url\b""", re.I)
+PROD_HOST = routes.CONVEX_URL.split("//", 1)[1]
+for route, expected in (("shelf", [PROD_HOST]), ("u", [PROD_HOST]), ("demo", [])):
+    page = pages[route]
+    eq((convex_host.findall(page), len(convex_name.findall(page)), page.count(routes.CONVEX_META.strip())),
+       (expected, len(expected), len(expected)),
+       "/%s/ names %s" % (route, "the production deployment, once, in one meta" if expected
+                          else "no deployment at all, so no account shelf can be read there"))
 
 head = pages["u"].split("</head>", 1)[0]
 first_request = min(at for at in (head.find("<link "), head.find("<script")) if at >= 0)
@@ -83,10 +91,16 @@ with open(os.path.join(ROOT, "js", "state.js"), encoding="utf-8") as fh:
 EXPORT = re.search(r"^export const MODES\b.*$", STATE, re.M).group(0)
 
 
-def site_copy(tmp, state_source):
+with open(os.path.join(ROOT, "_templates", "app.html"), encoding="utf-8") as fh:
+    TEMPLATE = fh.read()
+
+
+def site_copy(tmp, state_source, template=TEMPLATE):
     for rel in ("scripts/routes.py", "_templates/app.html"):
         os.makedirs(os.path.dirname(os.path.join(tmp, rel)), exist_ok=True)
         shutil.copy(os.path.join(ROOT, rel), os.path.join(tmp, rel))
+    with open(os.path.join(tmp, "_templates", "app.html"), "w", encoding="utf-8") as fh:
+        fh.write(template)
     os.makedirs(os.path.join(tmp, "js"), exist_ok=True)
     with open(os.path.join(tmp, "js", "state.js"), "w", encoding="utf-8") as fh:
         fh.write(state_source)
@@ -105,6 +119,16 @@ try:
     site_copy(tmp, STATE.replace(EXPORT, "const MODES = ['shelf', 'demo', 'profile'];"))
     run = subprocess.run([sys.executable, os.path.join(tmp, "scripts", "routes.py"), "--check"], capture_output=True, text=True)
     eq(run.returncode != 0 and "MODES" in run.stdout + run.stderr, True, "so is a state.js that stopped exporting MODES")
+
+    # A second meta above the production one, which is the one backend.js would
+    # read. The first guard matched a single spelling and let both of these out.
+    for extra in ('<meta content="https://not-this-one-123.convex.cloud" name="neo-convex-url">',
+                  "<meta name='neo-convex-url' content='https://not-this-one-123.convex.cloud'>"):
+        site_copy(tmp, STATE, TEMPLATE.replace("{{CONVEX_META}}", "  %s\n{{CONVEX_META}}" % extra, 1))
+        run = subprocess.run([sys.executable, os.path.join(tmp, "scripts", "routes.py")], capture_output=True, text=True)
+        eq(run.returncode != 0 and "not-this-one-123.convex.cloud" in run.stdout + run.stderr, True,
+           "a template carrying %s is refused, naming the deployment" % extra)
+        eq([route for route in routes.ROUTES if os.path.exists(os.path.join(tmp, route))], [], "and no page is written")
 finally:
     shutil.rmtree(tmp, ignore_errors=True)
 

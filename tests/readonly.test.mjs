@@ -37,6 +37,7 @@ globalThis.document = {
 };
 
 const S = await import('../js/state.js');
+const P = await import('../js/syncplan.js');
 const SHELF = 'vitrina_shelf_v1';
 const PREFS = 'vitrina_prefs_v1';
 const OWN_UUID = /^own-[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
@@ -117,10 +118,27 @@ eq(S.restoreSeed(), true, 'starting from the demo reports that the copy was save
 eq(S.state.entries.length, library.length, 'starting from the demo copies it in');
 eq(S.storedShelfSize(), library.length, 'another tab reads the copied shelf from storage');
 eq(shelfWrites().length > 0, true, 'and that copy is saved');
+// It brings the demo's shelf labels and nothing else of the maintainer's. It used
+// to keep his note and listed_as, and a browser shelf can move to an account
+// later, where they would have arrived on a visitor's account shelf as theirs.
+const MAINTAINERS = ['Bolsillo, the maintainer calls it', "the maintainer's own copy", 'a note in the catalogue record'];
+const copied = S.findEntry('tf103') || {};
+eq([copied.shelf, copied.note, copied.listed_as], ['B de Bolsillo', null, null], "a book copied from the demo keeps its shelf label and none of the maintainer's note or listed_as");
+eq(MAINTAINERS.filter((text) => (store.get(SHELF) || '').includes(text)), [], 'and storage holds none of them, on an entry or inside its record');
+const seededShelf = (() => { try { return JSON.parse(store.get(SHELF)).entries; } catch (err) { return []; } })();
+const sentLater = P.normaliseBrowserShelf(seededShelf, P.indexById(library), null, () => '00000000-0000-4000-8000-000000000000').map(P.toServerEntry);
+eq([sentLater.length, sentLater.filter((e) => !e || e.note !== null || e.listedAs !== null).length], [library.length, 0],
+  'so moving that shelf to an account later sends no note or listed_as with any of its books');
 eq(S.addEntry({ id: 555, title: 'Mine' }) !== null, true, 'adding works on your own shelf');
 const byHand = S.addEntry({ id: null, title: 'Added by hand' }) || {};
 eq(OWN_UUID.test(byHand.key), true, 'a book added by hand is keyed own- and a random UUID');
 eq((storedKeys() || []).includes(byHand.key), true, 'and saved under that key');
+eq(S.importEntries([
+  { key: 'own-file-1', id: null, record: { title: 'From a file' } },
+  { key: 'own-file-1', id: null, note: 'the second copy had a note', record: { title: 'From a file' } },
+]), { added: 1, skipped: 1 }, 'importing into the browser shelf replaces it, copies sharing a key collapsed first');
+eq([S.state.entries.map((e) => e.key), storedKeys(), noteOf('own-file-1')], [['own-file-1'], ['own-file-1'], 'the second copy had a note'],
+  'so memory and storage hold that book once, with the note either copy had');
 
 // A page with no mode, or a mode nobody wrote, is your shelf. Read-only is
 // something a page has to ask for by name.
@@ -179,6 +197,7 @@ eq(calls.map((c) => c[0]), ['add', 'add', 'update', 'remove', 'addMany', 'addMan
 const batches = calls.filter((c) => c[0] === 'addMany');
 eq(batches.map((c) => c[1]), ['seed', 'import'], 'which is told what kind of batch it is');
 eq((batches[0] ? batches[0][2] : []).slice().sort(), ['tf102', 'tf103'], 'and a seed sends only the demo books the account lacked');
+eq(batches[1] ? batches[1][2] : null, ['own-import-1'], 'and an import only the books the account lacked, not tf101 with the note from the file');
 eq(shelfWrites().length - baseline, 0, 'while the account shelf is shown, not one edit wrote vitrina_shelf_v1');
 
 eq(S.rewriteBrowserShelf((stored) => stored.concat([{ key: 'own-browser-2', id: null, record: { title: 'Also in this browser' } }])), true,
@@ -213,14 +232,67 @@ eq(S.addEntry({ id: 104, title: 'Half an adapter' }), null, 'and so does one who
 eq(calls.length, 6, 'no refused edit reached the adapter');
 eq(shelfWrites().length - baseline, 2, 'nor storage');
 
+// While an account shelf is on its way or failed, memory holds no shelf, and
+// rewriting or clearing the stored browser shelf does not put that one there.
+for (const [enter, waiting] of [[S.useAccountLoading, 'account-loading'], [S.useAccountError, 'account-error']]) {
+  const generationBefore = S.state.generation;
+  enter();
+  S.rewriteBrowserShelf(() => [{ key: 'tf7', id: 7, note: 'kept in this browser', record: { id: 7, title: 'Browser book' } }]);
+  const afterRewrite = S.state.entries.length;
+  S.clearBrowserShelf();
+  eq([S.state.source, S.state.generation > generationBefore, afterRewrite, S.state.entries.length], [waiting, true, 0, 0],
+    `${waiting}: a new generation, and no shelf in memory when the stored one is rewritten or cleared`);
+}
+
 // Signed out again: the browser shelf, straight from storage.
 S.setPersistence(adapter);
 store.set(SHELF, JSON.stringify({ v: 1, entries: [{ key: 'tf7', id: 7, record: { id: 7, title: 'Browser book' } }] }));
+const generationAtSignOut = S.state.generation;
 eq(S.useLocalShelf(), true, 'signing out returns to the browser shelf');
-eq([S.state.source, S.state.entries.map((e) => e.key)], ['local', ['tf7']], 'read fresh from storage');
+eq([S.state.source, S.state.entries.map((e) => e.key), S.state.generation > generationAtSignOut], ['local', ['tf7'], true],
+  'read fresh from storage, under a new generation');
 S.addEntry({ id: 104, title: 'Back in the browser' });
 eq(calls.length, 6, 'an edit to the browser shelf never reaches the account adapter, even while one is installed');
 eq(storedKeys(), ['tf7', 'tf104'], 'it is saved in this browser instead');
+
+// A browser only ever used signed in has no shelf stored. Signing out there
+// leaves memory empty, not holding the account shelf under the local source,
+// where the next edit would save all of it.
+S.useAccountShelf([{ key: 'tf101', id: 101, note: MARKER, record: { id: 101, title: 'Demo one' } }]);
+store.delete(SHELF);
+S.useLocalShelf();
+eq([S.state.source, S.state.entries.map((e) => e.key)], ['local', []], 'with nothing stored, signing out shows an empty browser shelf');
+S.addEntry({ id: 105, title: 'First book kept in this browser' });
+eq(storedKeys(), ['tf105'], 'and the first edit saves that book alone');
+
+// A shelf with a null in it is built before the source moves. A null in the
+// stored shelf, or a row fromServerEntry could not read, used to throw after the
+// source had changed, leaving the other shelf in memory under it.
+const attempt = (fn) => { try { return fn(); } catch (err) { return `threw: ${err.message}`; } };
+const BROWSER_BOOK = { key: 'tf7', id: 7, note: 'kept only in this browser', record: { id: 7, title: 'Browser book' } };
+S.useAccountShelf([{ key: 'tf101', id: 101, note: MARKER, record: { id: 101, title: 'Demo one' } }]);
+store.set(SHELF, JSON.stringify({ v: 1, entries: [null, BROWSER_BOOK] }));
+eq(attempt(() => S.useLocalShelf()), true, 'a null in the stored shelf does not stop a sign-out');
+eq([S.state.source, S.state.entries.map((e) => e.key)], ['local', ['tf7']], 'which shows the stored books around it and nothing of the account');
+S.addEntry({ id: 106, title: 'After a null' });
+eq(storedKeys(), ['tf7', 'tf106'], 'and the next edit saves only those');
+store.set(SHELF, JSON.stringify({ v: 1, entries: [null, BROWSER_BOOK] }));
+eq(attempt(() => { S.hydrate(library, 'shelf'); return S.state.entries.map((e) => e.key); }), ['tf7'], 'nor does it stop /shelf/ from opening');
+
+store.set(SHELF, JSON.stringify({ v: 1, entries: [BROWSER_BOOK] }));
+S.useLocalShelf();
+const callsBefore = calls.length;
+const unreadable = [
+  { key: 'tf101', id: 101, shelf: 'Leídos', note: MARKER, listedAs: null, added: null, record: null },
+  { key: 'imp0', id: null, record: { title: 'In neither grammar' } },
+];
+eq(attempt(() => S.useAccountShelf(unreadable.map((row) => P.fromServerEntry(row, P.indexById(library), null)))), true,
+  'a row fromServerEntry cannot read does not stop the account shelf from showing');
+eq([S.state.source, S.state.entries.map((e) => e.key)], ['account', ['tf101']], 'which holds the rows it could read and nothing of the browser shelf');
+S.updateEntry('tf101', { note: `${MARKER} again` });
+S.removeEntry('tf7');
+eq(calls.slice(callsBefore), [['update', 'tf101', ['note']]], 'so an edit reaches the account adapter only for an account book');
+
 eq(shelfWrites().filter((w) => leaks(w.value)).length, 0, 'no write to vitrina_shelf_v1 in this whole run held the account note or an account-only field');
 eq(shelfWrites().length > 0, true, 'and there were writes to look at');
 
@@ -229,7 +301,17 @@ store.set(PREFS, JSON.stringify({ view: 'covers', showRuns: true, shortcuts: tru
 const readsBefore = shelfReads();
 const writesBefore = shelfWrites().length;
 const refusalsBefore = announced('vitrina:read-only');
-S.hydrate(library, 'profile', [{ key: 'tf101', id: 101, shelf: 'Nova', record: { id: 101, title: 'Demo one' } }]);
+// /u/ shows the books it was given and nothing else. Given none, or an empty
+// list, it is an empty shelf, never a reason to read the browser shelf, which
+// is stored right now.
+S.hydrate(library, 'profile');
+const givenNothing = S.state.entries.length;
+S.hydrate(library, 'profile', []);
+eq([givenNothing, S.state.entries.length, shelfReads() - readsBefore], [0, 0, 0],
+  'a shared shelf given no books, or an empty list, shows none and reads no stored shelf');
+const generationAtProfile = S.state.generation;
+S.hydrate(library, 'profile', [{ key: 'tf101', id: 101, shelf: 'Nova', record: { id: 101, title: 'Demo one' } }, null]);
+eq(S.state.generation > generationAtProfile, true, 'opening a page moves the generation too');
 eq([S.state.mode, S.state.readOnly, S.state.source], ['profile', true, 'profile'], 'a shared shelf is read-only');
 eq(S.state.entries.map((e) => e.key), ['tf101'], 'and shows the books it was given, not the browser shelf');
 eq([S.state.view, S.state.showRuns], ['shelf', false], 'it opens on the shelf view, without the whole collection');

@@ -30,6 +30,19 @@ eq(/onerror/i.test(unquoted(img)), false, 'a hostile record id stays inside its 
 eq(img.includes('data-book-id="1&quot; onerror=&quot;x"'), true, 'escaped, not dropped');
 eq(/\sonerror\s*=/i.test(unquoted(markup)), false, 'and no onerror attribute appears anywhere in the spine');
 
+// A title, an author and a collection number are text somebody wrote too, and
+// they land in the spine's title and aria-label attributes and in its drawn
+// label, on a lit spine and on a ghost one in the whole-collection view.
+// Only the tags are searched: in the drawn label the same words are escaped text,
+// which is where they belong.
+const HOSTILE_TEXT = '" onfocus="x';
+const tagsOf = (html) => (unquoted(html).match(/<[^>]*>/g) || []).join('\n');
+const labelled = spineMarkup({ key: 'tf2', record: { id: 2, title: `A title${HOSTILE_TEXT}`, authors: [`An author${HOSTILE_TEXT}`], collection_number: `12${HOSTILE_TEXT}` } });
+eq(labelled.includes('title="A title&quot; onfocus=&quot;x'), true, 'a hostile title is escaped inside the title attribute');
+eq(/\son\w+\s*=/i.test(tagsOf(labelled)), false, 'and no title, author or collection number becomes an attribute of its own');
+const ghost = spineMarkup({ key: 'cat3', record: { id: 3, title: `Ghost${HOSTILE_TEXT}` } }, { ghost: true, number: `4${HOSTILE_TEXT}` });
+eq(/\son\w+\s*=/i.test(tagsOf(ghost)), false, 'nor on a ghost spine');
+
 const JS = new URL('../js/', import.meta.url);
 const raw = [];
 let seen = 0;

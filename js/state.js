@@ -7,12 +7,14 @@
 // state.source says whose shelf memory holds: the one kept in this browser
 // (local); a signed-in person's (account, reached through account-loading, or
 // account-error when it could not be read); the demo's; or a shared shelf's
-// (profile). vitrina_shelf_v1 holds the browser shelf and nothing else. save()
-// writes it only while the source is local, and rewriteBrowserShelf() and
-// clearBrowserShelf() read nothing but storage itself. Nothing that came from an
-// account can reach that key, so a browser two people share never shows one of
-// them the other's shelf. tests/readonly.test.mjs holds this with a note only
-// an account row carries.
+// (profile). vitrina_shelf_v1 holds the browser shelf and nothing else. Edits
+// write it only through the local adapter, which persistence() hands out only
+// while the source is local; rewriteBrowserShelf() and clearBrowserShelf() read
+// nothing but storage. Nothing from an account can reach that key, so a browser
+// two people share never shows one of them the other's shelf.
+// tests/readonly.test.mjs holds this through every exported function, with a
+// note only an account row carries. save() checks the source again, but no
+// exported path reaches it with another source: a backstop no test can trip.
 
 import { bibliographic, collapseByKey } from './syncplan.js';
 import { mintUuid } from './utils.js';
@@ -179,14 +181,11 @@ export function hydrate(library, mode = 'shelf', entries = []) {
   loadPrefs();
   state.mode = MODES.includes(mode) ? mode : 'shelf';
   state.readOnly = READ_ONLY_MODES.includes(state.mode);
-  state.generation += 1;
   state.seed = library.map(toEntry);
   if (state.mode === 'demo') {
-    state.source = 'demo';
-    state.entries = state.seed.map((e) => ({ ...e }));
+    show('demo', state.seed.map((e) => ({ ...e })));
   } else if (state.mode === 'profile') {
-    state.source = 'profile';
-    state.entries = (Array.isArray(entries) ? entries : []).map(normalise);
+    show('profile', entriesFrom(entries));
     // A shared shelf opens on its books, not on the whole run of every
     // collection they come from. For this visit only: loadPrefs() has already
     // run, nothing here saves, and on a read-only page savePrefs() keeps nothing
@@ -195,11 +194,8 @@ export function hydrate(library, mode = 'shelf', entries = []) {
     state.view = 'shelf';
     state.showRuns = false;
   } else {
-    state.source = 'local';
-    const saved = loadSaved();
-    state.entries = saved ? saved.map(normalise) : [];
+    show('local', entriesFrom(loadSaved()));
   }
-  reindex();
   state.loaded = true;
 }
 
@@ -230,6 +226,20 @@ function normalise(e) {
     added: e.added || null,
     record: e.record || {},
   };
+}
+
+// A shelf is built before show() moves anything. A null in storage, in a file,
+// or from a row fromServerEntry could not read used to throw after the source
+// had changed, leaving the other shelf in memory under the new source.
+function entriesFrom(list) {
+  return (Array.isArray(list) ? list : []).filter((e) => e && typeof e === 'object').map(normalise);
+}
+
+function show(source, entries) {
+  state.source = source;
+  state.generation += 1;
+  state.entries = entries;
+  reindex();
 }
 
 // ── Who may edit, and where an edit goes ─────────────────────────────────────
@@ -344,28 +354,30 @@ export function findEntry(key) {
  * reports success when it was.
  *
  * The browser shelf becomes a copy of the demo, as it always did. An account
- * shelf only gains the demo's books it lacks, with the demo's shelf labels and
- * nothing else of the maintainer's: no notes, no listed_as, no dates.
+ * shelf only gains the demo's books it lacks. Either way a book brings the
+ * demo's shelf label and nothing else of the maintainer's: no notes, no
+ * listed_as, no dates. The browser copy used to keep them, and a browser shelf
+ * can move to an account later, which put the maintainer's note on a visitor's
+ * account shelf as theirs.
  */
 export function restoreSeed() {
   if (state.readOnly) { refuseEdit(); return false; }
   const persist = persistence();
   if (!persist) { refuseNotReady(); return false; }
   if (state.source === 'local') {
-    state.entries = state.seed.map((e) => ({ ...e }));
+    state.entries = state.seed.map(demoCopy);
     reindex();
     return persist.addMany(state.entries, { kind: 'seed' }) !== false;
   }
   const have = new Set(state.entries.map((e) => e.key));
-  const gained = state.seed
-    .filter((e) => e.id != null && !have.has(e.key))
-    .map((e) => ({
-      key: e.key, id: e.id, slug: e.slug, shelf: e.shelf,
-      note: null, listed_as: null, added: null, record: bibliographic(e.record),
-    }));
+  const gained = state.seed.filter((e) => e.id != null && !have.has(e.key)).map(demoCopy);
   state.entries.push(...gained);
   reindex();
   return persist.addMany(gained, { kind: 'seed' }) !== false;
+}
+
+function demoCopy(e) {
+  return { key: e.key, id: e.id, slug: e.slug, shelf: e.shelf, note: null, listed_as: null, added: null, record: bibliographic(e.record) };
 }
 
 /**
@@ -380,8 +392,8 @@ export function importEntries(list) {
   if (state.readOnly) return refuseEdit(null);
   const persist = persistence();
   if (!persist) return refuseNotReady(null);
-  const incoming = (Array.isArray(list) ? list : []).filter((e) => e && typeof e === 'object');
-  const unique = collapseByKey(incoming.map(normalise));
+  const incoming = entriesFrom(list);
+  const unique = collapseByKey(incoming);
   if (state.source === 'local') {
     state.entries = unique;
     reindex();
@@ -405,21 +417,14 @@ export function importEntries(list) {
  */
 export function useAccountShelf(entries) {
   if (state.readOnly) return false;
-  state.source = 'account';
-  state.generation += 1;
-  state.entries = (Array.isArray(entries) ? entries : []).map(normalise);
-  reindex();
+  show('account', entriesFrom(entries));
   return true;
 }
 
 /** Back to the shelf kept in this browser, read fresh from storage: after a sign-out, or before a different person's shelf loads. */
 export function useLocalShelf() {
   if (state.readOnly) return false;
-  state.source = 'local';
-  state.generation += 1;
-  const saved = loadSaved();
-  state.entries = saved ? saved.map(normalise) : [];
-  reindex();
+  show('local', entriesFrom(loadSaved()));
   return true;
 }
 
@@ -435,10 +440,7 @@ export function useAccountError() {
 
 function awaitAccount(source) {
   if (state.readOnly) return false;
-  state.source = source;
-  state.generation += 1;
-  state.entries = [];
-  reindex();
+  show(source, []);
   return true;
 }
 
@@ -456,7 +458,7 @@ export function rewriteBrowserShelf(transform) {
   const before = (loadSaved() || []).filter((e) => e && typeof e === 'object');
   const result = transform(before.map((e) => ({ ...e })));
   if (!Array.isArray(result)) return false;
-  const next = result.filter((e) => e && typeof e === 'object').map(normalise);
+  const next = entriesFrom(result);
   if (JSON.stringify(next) !== JSON.stringify(before) && !writeBrowserShelf(next)) return false;
   if (state.source === 'local') {
     state.entries = next.map((e) => ({ ...e }));

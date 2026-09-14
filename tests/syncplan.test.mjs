@@ -146,6 +146,21 @@ eq(keys.some((k) => k.startsWith('imp')), false, 'and never mints imp<index> aga
 eq(new Set(keys).size, keys.length, 'every key it mints is its own');
 eq(keys.map(P.idFromKey), [622, null, 900, null, null, null], 'the id follows the key');
 
+// ── Entries for an imported file ────────────────────────────────────────────
+// modals.js used to build these inline, where no test could reach the rule that
+// record.id follows the key: an id the file wrote went straight into
+// data-book-id and the image URLs.
+const file = [
+  { key: 'own-x', id: HOSTILE, shelf: 'Leídos', note: 'from a file', record: { id: HOSTILE, title: 'From a file' } },
+  { id: 622, title: 'Premio UPC 1991' },
+];
+const fromFile = P.importedEntries(file, P.importKeys(file, LIBRARY, CATALOG, mint));
+eq(fromFile.map((e) => [e.key, e.id, e.record.id]), [['own-x', null, null], ['tf622', 622, 622]],
+  'record.id follows the key, never the file: none for a book added by hand, the catalogue id for a catalogue book');
+eq([fromFile[0].shelf, fromFile[0].note, fromFile[1].record.title], ['Leídos', 'from a file', 'Premio UPC 1991'],
+  "the file's labels and notes come with it, and a raw catalogue record is its own record");
+eq(JSON.stringify(fromFile).includes('onerror'), false, 'nothing of a hostile id survives');
+
 // ── What the account strip counts ───────────────────────────────────────────
 const browser = [{ key: 'tf622' }, { key: 'tf900' }, { key: 'own-hand-1' }, { key: 'tf622' }];
 eq(P.keysMissingFromAccount(browser, ['tf900'], []), ['tf622', 'own-hand-1'], 'N counts the browser books the account lacks, once each');

@@ -5,7 +5,7 @@ import { $, escHtml, toast, download, plural, mintUuid } from './utils.js';
 import { title, bookYear, hasSpine, bookHeight } from './data.js';
 import { resolveIsbn, explain, loadScanIndex } from './scan.js';
 import { cameraPossible, startScanner } from './camera.js';
-import { importKeys, idFromKey, indexById } from './syncplan.js';
+import { importKeys, importedEntries, indexById } from './syncplan.js';
 
 let hideTimer = null;
 let opener = null;
@@ -265,22 +265,10 @@ export function applyImport(text) {
   // catalogue book is tf<id> however the file named it, and anything else keeps
   // a valid own key or gets a new own-<uuid>. imp<index> was in neither
   // grammar, so no account shelf could ever have taken it.
+  // importedEntries keeps record.id to what the key names, never what the file
+  // wrote, and is pure so tests/syncplan.test.mjs can hold it to that.
   const keys = importKeys(usable, indexById(state.seed.map((e) => e.record)), indexById(state.catalog), mintUuid);
-  const result = importEntries(usable.map((e, i) => {
-    const id = idFromKey(keys[i]);
-    return {
-      key: keys[i],
-      id,
-      slug: e.slug || null,
-      shelf: e.shelf || null,
-      note: e.note || null,
-      listed_as: e.listed_as || null,
-      added: e.added || null,
-      // record.id follows the key, so a file cannot put an id of its own
-      // choosing into data-book-id or an image URL.
-      record: { ...(e.record || e), id },
-    };
-  }));
+  const result = importEntries(importedEntries(usable, keys));
   // A refusal has already been announced by state.
   if (!result) return false;
   toast(`${plural(result.added, 'book', 'books')} imported`);

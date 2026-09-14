@@ -7,7 +7,7 @@ import {
   title, authorLine, bookYear, coverFor, spineFor, hasSpine, recordUrl,
   catalogEntry, localCover, localSpine, hasLocalSpine, hasLocalCover,
   spineUrl, coverUrl, hasThumbSpine, hasThumbCover,
-  remoteImagesOff, scansWithheld, SCANS_WITHHELD,
+  showNoSpineWarning, scansWithheld, SCANS_WITHHELD,
 } from './data.js';
 
 let hideTimer = null;
@@ -135,7 +135,7 @@ function detailMarkup(entry) {
 
         ${withheld
           ? `<p class="detail__warn">${escHtml(SCANS_WITHHELD)}</p>`
-          : (remoteImagesOff() || hasSpine(entry) ? '' : '<p class="detail__warn">The catalogue has no spine scan for this edition, so the shelf draws one.</p>')}
+          : (showNoSpineWarning(entry) ? '<p class="detail__warn">The catalogue has no spine scan for this edition, so the shelf draws one.</p>' : '')}
       </div>
     </div>`;
 }

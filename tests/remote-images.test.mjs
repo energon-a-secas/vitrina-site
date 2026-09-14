@@ -37,8 +37,12 @@ eq(data.REMOTE_IMAGES, true, 'the shipped constant leaves remote images on');
 eq(data.spineUrl(622).endsWith('/imagenes/lomo/L-00000622.jpg'), true, 'with the switch off the spine builder names the catalogue scan');
 eq(data.coverUrl(622).endsWith('/imagenes/portada/P-00000622.jpg'), true, 'and so does the cover builder');
 eq(data.coverFor(CUSTOM_COVER), 'https://example.invalid/c.jpg', "and a hand-added book's own cover URL is used");
+const NO_SCAN = { record: { id: 622, has_spine: false } };
+eq([data.showNoSpineWarning(NO_SCAN), data.showNoSpineWarning({ record: { id: 622 } })], [true, false],
+  'a book the catalogue has no spine scan for is flagged, and a book with one is not');
 
 store.set(FLAG, '1');
+eq(data.showNoSpineWarning(NO_SCAN), false, 'under the flag the no-spine flag is hidden: no scan is shown for any book, so none is missing');
 eq(data.spineUrl(622), '', 'under the flag the spine builder returns an empty string');
 eq(data.coverUrl(622), '', 'and so does the cover builder');
 eq([data.spineFor({ record: { id: 622 } }), data.coverFor({ record: { id: 622 } })], [null, null], 'spineFor and coverFor find nothing to show');
@@ -70,6 +74,7 @@ try {
   const off = await import(pathToFileURL(copy).href);
   eq([off.REMOTE_IMAGES, off.spineUrl(622), off.coverUrl(622)], [false, '', ''], 'with the constant false both builders return an empty string, flag or no flag');
   eq([off.coverFor(CUSTOM_COVER), off.spineFor(CUSTOM_SPINE)], [null, null], 'and custom image URLs are withheld');
+  eq(off.showNoSpineWarning(NO_SCAN), false, 'and the no-spine flag is hidden');
 } finally {
   rmSync(dir, { recursive: true, force: true });
 }
@@ -85,6 +90,14 @@ for (const name of readdirSync(JS).filter((file) => file.endsWith('.js') && !fil
   });
 }
 eq(unchecked, [], 'no img.src is set straight from spineUrl or coverUrl, where an empty string would slip through');
+
+// The covers view and the drawer each draw a no-spine warning, and each has to
+// ask showNoSpineWarning, or it flags scans that are only withheld.
+const warnings = [['render.js', 'cover__flag'], ['detail.js', 'no spine scan for this edition']].map(([name, marker]) => {
+  const line = readFileSync(new URL(name, JS), 'utf8').split('\n').find((text) => text.includes(marker)) || '';
+  return [name, line.includes('showNoSpineWarning(')];
+});
+eq(warnings, [['render.js', true], ['detail.js', true]], 'render.js and detail.js decide their no-spine warnings through showNoSpineWarning');
 
 console.log(failed ? `\n${failed} failed` : '\nall passed');
 process.exit(failed ? 1 : 0);

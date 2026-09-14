@@ -35,6 +35,8 @@ export const FN = Object.freeze({
     setSuspended: 'admin:setSuspended',
     purgeByHandle: 'admin:purgeByHandle',
     releaseHandle: 'admin:releaseHandle',
+    setSubjectSuspended: 'admin:setSubjectSuspended',
+    purgeBySubject: 'admin:purgeBySubject',
   }),
 });
 

@@ -286,6 +286,31 @@ export function importKeys(list, libraryById, catalogById, mintUuid) {
 }
 
 /**
+ * Browser entries for the books of an imported file, each under the key
+ * importKeys gave it. record.id follows the key and never the file, so a file
+ * cannot put an id of its own choosing into data-book-id or an image URL: a
+ * book added by hand gets none, a catalogue book the id its key names. A raw
+ * catalogue record in the file, with no record of its own, is its own record.
+ */
+export function importedEntries(list, keys) {
+  return (Array.isArray(list) ? list : []).map((raw, i) => {
+    const e = isObject(raw) ? raw : {};
+    const key = Array.isArray(keys) && typeof keys[i] === 'string' ? keys[i] : null;
+    const id = idFromKey(key);
+    return {
+      key,
+      id,
+      slug: e.slug || null,
+      shelf: e.shelf || null,
+      note: e.note || null,
+      listed_as: e.listed_as || null,
+      added: e.added || null,
+      record: { ...(isObject(e.record) ? e.record : e), id },
+    };
+  });
+}
+
+/**
  * Keys of the browser shelf that the account does not have and that were never
  * moved from this browser. A book moved and then taken off the account shelf
  * is not offered again: that removal was the person's answer.

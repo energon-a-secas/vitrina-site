@@ -191,13 +191,16 @@ export function bindEvents() {
  * handed to the kit's menu as rows of their own; at desktop width they come
  * back. They are moved, never cloned, so the listeners above survive, and so do
  * the ids the read-only CSS hides them by.
+ *
+ * Exported for tests/header-menu.test.mjs, which drives it on a stand-in header.
  */
-function bindShelfMenu() {
+export function bindShelfMenu() {
   const trigger = $('#shelfMenuBtn');
   const menu = $('#shelfMenu');
   if (!trigger || !menu) return;
   const group = trigger.parentElement;
   const actions = trigger.closest('.header-actions');
+  const bar = trigger.closest('.header-bar');
   const items = Array.from(menu.children);
 
   const isOpen = () => menu.classList.contains('open');
@@ -253,6 +256,14 @@ function bindShelfMenu() {
   document.addEventListener('click', (ev) => {
     if (isOpen() && !group.contains(ev.target)) close();
   });
+  // The app-mode header hides as the page scrolls down. The kit holds it on
+  // screen while one of its own menus is open, which this one is not, or while
+  // focus is inside the bar, which opening this menu always arranges. Focus can
+  // still leave with the menu open (a click on the menu's own padding), and then
+  // the bar would slide away with the menu in it and come back still open.
+  window.addEventListener('scroll', () => {
+    if (isOpen() && !(bar && bar.contains(document.activeElement))) close();
+  }, { passive: true });
 
   const phone = window.matchMedia('(max-width: 700px)');
   const place = () => {
@@ -265,6 +276,14 @@ function bindShelfMenu() {
       group.hidden = false;
     }
     if (window.NeoHeader && typeof window.NeoHeader.syncOverflow === 'function') window.NeoHeader.syncOverflow();
+    // Leaving the phone width, the kit puts every control it folded back in
+    // front of its ⋯ toggle, which lands Add a book after Add by ISBN, the one
+    // control it never folds. The template has Add a book first.
+    const add = $('#addBtn');
+    const isbn = $('#isbnBtn');
+    if (!phone.matches && add && isbn && add.parentElement === actions && isbn.parentElement === actions) {
+      actions.insertBefore(add, isbn);
+    }
   };
   phone.addEventListener('change', place);
   place();

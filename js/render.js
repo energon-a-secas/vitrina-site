@@ -3,8 +3,8 @@
 import { state, whose } from './state.js';
 import { $, $$, escHtml, plural } from './utils.js';
 import {
-  shelves, title, authorLine, bookYear, coverFor, hasSpine, collectionRuns,
-  remoteImagesOff, scansWithheld, SCANS_WITHHELD,
+  shelves, title, authorLine, bookYear, coverFor, collectionRuns,
+  showNoSpineWarning, scansWithheld, SCANS_WITHHELD,
 } from './data.js';
 import { shelfMarkup, runMarkup, measureSpines, markScrollable } from './shelf.js';
 import { renderBrowse } from './browse.js';
@@ -125,7 +125,7 @@ function coverCard(entry) {
   return `<button type="button" class="cover" data-key="${escHtml(entry.key)}" aria-label="${escHtml(name)}">
       <span class="cover__frame">
         ${src ? `<img src="${escHtml(src)}" alt="" loading="lazy" decoding="async">` : `<span class="cover__none" aria-hidden="true">${scansWithheld(entry) ? 'not shown' : 'no scan'}</span>`}
-        ${remoteImagesOff() || hasSpine(entry) ? '' : '<span class="cover__flag" aria-hidden="true" title="No spine scan in the catalogue">no spine</span>'}
+        ${showNoSpineWarning(entry) ? '<span class="cover__flag" aria-hidden="true" title="No spine scan in the catalogue">no spine</span>' : ''}
       </span>
       <span class="cover__title">${escHtml(title(entry))}</span>
       <span class="cover__meta">${escHtml(authorLine(entry))}${y ? ` &middot; ${y}` : ''}</span>

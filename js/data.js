@@ -133,6 +133,16 @@ export function hasSpine(entry) {
   return r.id != null && r.has_spine !== false;
 }
 
+/**
+ * Whether to flag a book as having no spine scan. Never while remote images are
+ * off (plan section 3.7): then no scan is shown for any book, and the flag
+ * would call a scan missing that is only withheld. The covers view and the
+ * drawer both ask this, so the rule has one home and one test.
+ */
+export function showNoSpineWarning(entry) {
+  return !remoteImagesOff() && !hasSpine(entry);
+}
+
 // Where an image comes from, with remote images allowed or not. spineFor and
 // coverFor ask with the switch as it stands; scansWithheld asks both ways.
 function spineSource(entry, allowRemote) {
