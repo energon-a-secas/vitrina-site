@@ -1,6 +1,6 @@
 import type { GenericDatabaseReader, GenericDatabaseWriter } from "convex/server";
-import { CALL_MAX, MAX_ENTRIES } from "./limits.ts";
-import { checkEntry, checkNote, checkShelf } from "./entries.ts";
+import { CALL_MAX, MAX_ENTRIES, SHELF_BYTES_MAX } from "./limits.ts";
+import { checkEntry, checkNote, checkShelf, storedBytes } from "./entries.ts";
 import type { Entry } from "./entries.ts";
 import { enforce } from "./rate.ts";
 import { done, fail } from "./result.ts";
@@ -9,13 +9,16 @@ import { erasingFailure, isErasing, isSuspendedSubject, profileBySubject, publis
 import type { PublishingEnv } from "./profilesCore.ts";
 
 // The account shelf: one entries row per book, plus a shelfMeta row whose count
-// every insert and delete here patches in the same transaction, so the 2000
-// book cap is one indexed read instead of a count over the whole shelf.
+// and bytes every insert, fill, update and delete here patches in the same
+// transaction, so the 2000 book cap and the byte budget are one indexed read
+// instead of a pass over the whole shelf.
 
 type Reader = GenericDatabaseReader<any>;
 type Db = GenericDatabaseWriter<any>;
 
 const FILLABLE = ["shelf", "note", "listedAs", "added"] as const;
+
+const SPACE_MESSAGE = "Your account shelf is out of room: its notes and books added by hand use all the space one shelf has.";
 
 export async function readMeta(db: Reader, subject: string): Promise<any> {
   return await db.query("shelfMeta").withIndex("by_subject", (q: any) => q.eq("clerkSubject", subject)).first();
@@ -141,10 +144,10 @@ export async function upsertEntriesCore(
   const meta = await readMeta(db, subject);
   const count = meta ? meta.count : 0;
   if (count + fresh.length > MAX_ENTRIES) {
-    return fail("shelf-full", `Your account shelf holds ${MAX_ENTRIES} books, the most it can.`, { max: MAX_ENTRIES, count });
+    return fail("shelf-full", `Your account shelf holds ${MAX_ENTRIES} books, the most it can.`, { max: MAX_ENTRIES, count, reason: "books" });
   }
 
-  let filled = 0;
+  const fills: { row: any; patch: Record<string, unknown> }[] = [];
   for (const { row, entry } of existing) {
     if (args.fillEmpty !== true) {
       skipped++;
@@ -158,9 +161,24 @@ export async function upsertEntriesCore(
       skipped++;
       continue;
     }
+    fills.push({ row, patch });
+  }
+
+  // The count cap alone let a shelf of books at the widest the entry rules
+  // allow outgrow the 16 MiB one function may read, and then shelf:mine and
+  // profiles:byHandle failed for that shelf. So what a call adds is weighed
+  // too, before anything is written.
+  const bytes = meta ? (meta.bytes ?? 0) : 0;
+  let growth = 0;
+  for (const entry of fresh) growth += storedBytes(entry);
+  for (const { row, patch } of fills) growth += storedBytes({ ...row, ...patch }) - storedBytes(row);
+  if (bytes + growth > SHELF_BYTES_MAX) {
+    return fail("shelf-full", SPACE_MESSAGE, { max: MAX_ENTRIES, count, reason: "space", bytes, maxBytes: SHELF_BYTES_MAX });
+  }
+
+  for (const { row, patch } of fills) {
     patch.updatedAt = now;
     await db.patch("entries", row._id, patch);
-    filled++;
   }
 
   for (const entry of fresh) {
@@ -178,11 +196,12 @@ export async function upsertEntriesCore(
   }
 
   const total = count + fresh.length;
-  if (fresh.length > 0) {
-    if (meta) await db.patch("shelfMeta", meta._id, { count: total });
-    else await db.insert("shelfMeta", { clerkSubject: subject, count: total });
+  if (fresh.length > 0 || fills.length > 0) {
+    const next = { count: total, bytes: bytes + growth };
+    if (meta) await db.patch("shelfMeta", meta._id, next);
+    else await db.insert("shelfMeta", { clerkSubject: subject, ...next });
   }
-  return done({ added: fresh.length, skipped, filled, total });
+  return done({ added: fresh.length, skipped, filled: fills.length, total });
 }
 
 // ── updateEntry ──────────────────────────────────────────────────────────────
@@ -213,8 +232,17 @@ export async function updateEntryCore(
   const row = typeof args.key === "string" ? await findEntry(db, subject, args.key) : null;
   if (!row) return fail("not-found", "That book is not on your account shelf.");
   if (Object.keys(patch).length > 0) {
+    const meta = await readMeta(db, subject);
+    const bytes = meta ? (meta.bytes ?? 0) : 0;
+    const growth = storedBytes({ ...row, ...patch }) - storedBytes(row);
+    // Only growth is refused: shortening or clearing a note on a full shelf is
+    // how its owner makes room.
+    if (growth > 0 && bytes + growth > SHELF_BYTES_MAX) {
+      return fail("shelf-full", SPACE_MESSAGE, { max: MAX_ENTRIES, count: meta ? meta.count : 0, reason: "space", bytes, maxBytes: SHELF_BYTES_MAX });
+    }
     patch.updatedAt = now;
     await db.patch("entries", row._id, patch);
+    if (meta) await db.patch("shelfMeta", meta._id, { bytes: Math.max(0, bytes + growth) });
   }
   return done();
 }
@@ -231,6 +259,6 @@ export async function removeEntryCore(db: Db, subject: string, args: { key: unkn
   if (!row) return done({ removed: false });
   await db.delete("entries", row._id);
   const meta = await readMeta(db, subject);
-  if (meta) await db.patch("shelfMeta", meta._id, { count: Math.max(0, meta.count - 1) });
+  if (meta) await db.patch("shelfMeta", meta._id, { count: Math.max(0, meta.count - 1), bytes: Math.max(0, (meta.bytes ?? 0) - storedBytes(row)) });
   return done({ removed: true });
 }

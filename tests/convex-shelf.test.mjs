@@ -7,7 +7,8 @@
 
 import { createFakeDb } from './support/fakedb.mjs';
 import { mineCore, removeEntryCore, updateEntryCore, upsertEntriesCore } from '../convex/lib/shelfCore.ts';
-import { CALL_MAX, LIMITS, MAX_ENTRIES, RATE_PRUNE_MAX } from '../convex/lib/limits.ts';
+import { CALL_MAX, LIMITS, MAX_ENTRIES, RATE_PRUNE_MAX, SHELF_BYTES_MAX } from '../convex/lib/limits.ts';
+import { storedBytes } from '../convex/lib/entries.ts';
 
 let failed = 0;
 function eq(actual, expected, what) {
@@ -213,13 +214,67 @@ const metaCount = (db, subject) => { const m = db.rows('shelfMeta').find((r) => 
   for (let i = 1; i <= MAX_ENTRIES + 1; i++) {
     await big.insert('entries', { clerkSubject: ALICE, key: 'tf' + i, catalogId: i, shelf: null, note: null, listedAs: null, added: null, record: null, updatedAt: T0 });
   }
-  await big.insert('shelfMeta', { clerkSubject: ALICE, count: MAX_ENTRIES + 1 });
+  await big.insert('shelfMeta', { clerkSubject: ALICE, count: MAX_ENTRIES + 1, bytes: 0 });
   const truncated = await mineCore(big, ALICE, {});
   eq([truncated.entries.length, truncated.truncated, truncated.count], [MAX_ENTRIES, true, MAX_ENTRIES + 1],
     'a shelf past the cap returns the cap and says it was truncated');
 
   await big.insert('erasures', { clerkSubject: ALICE, at: T0 });
   eq(await mineCore(big, ALICE, {}), { erasing: true, remaining: MAX_ENTRIES + 1 }, 'while erasing, mine says only how many books are left');
+}
+
+// ── The byte budget ─────────────────────────────────────────────────────────
+// The count cap alone let a shelf of books at the widest the entry rules allow
+// outgrow the 16 MiB one Convex function may read, so shelf:mine and
+// profiles:byHandle would have failed for it. shelfMeta.bytes is the budget.
+{
+  const db = createFakeDb();
+  const wide = (i) => ({
+    key: `own-wide-${i}`, catalogId: null, shelf: '€'.repeat(80), note: '€'.repeat(1000), listedAs: '€'.repeat(200), added: null,
+    record: {
+      title: '€'.repeat(200), authors: Array.from({ length: 10 }, () => '€'.repeat(200)), year: '€'.repeat(20), pages: 1,
+      publisher: '€'.repeat(120), collection: '€'.repeat(120), dimensions: '€'.repeat(20),
+      cover_custom: 'https://example.com/' + 'a'.repeat(480), spine_custom: 'https://example.com/' + 'b'.repeat(480),
+    },
+  });
+  const first = await upsert(db, ALICE, [wide(0)], T0);
+  eq(first.ok, true, 'the widest book the entry rules allow is accepted');
+  const weight = db.rows('entries').length ? storedBytes(db.rows('entries')[0]) : 0;
+  eq(weight > 12000, true, `and weighs ${weight} bytes against the budget`);
+
+  let n = 1;
+  let refusal = null;
+  while (!refusal && n < MAX_ENTRIES + 200) {
+    const answer = await upsert(db, ALICE, Array.from({ length: 50 }, () => wide(n++)), T0 + n);
+    if (!answer.ok) refusal = answer;
+  }
+  const rows = db.rows('entries').filter((row) => row.clerkSubject === ALICE);
+  const meta = db.rows('shelfMeta').find((row) => row.clerkSubject === ALICE);
+  eq([refusal && refusal.code, refusal && refusal.reason], ['shelf-full', 'space'],
+    `a shelf of them is refused for space at ${rows.length} books, long before ${MAX_ENTRIES}`);
+  eq(meta.bytes, rows.reduce((sum, row) => sum + storedBytes(row), 0), 'shelfMeta.bytes is exactly the weight of the rows');
+  eq(meta.bytes <= SHELF_BYTES_MAX, true, 'and never passes the budget');
+  eq(meta.count, rows.length, 'the refused call wrote nothing');
+
+  const gone = rows[0];
+  const before = meta.bytes;
+  await removeEntryCore(db, ALICE, { key: gone.key }, T0 + 9000);
+  eq(db.rows('shelfMeta').find((row) => row.clerkSubject === ALICE).bytes, before - storedBytes(gone), 'removing a book gives its bytes back');
+}
+{
+  const db = createFakeDb();
+  await upsert(db, ALICE, [book(1)], T0);
+  const key = db.rows('entries')[0].key;
+  eq((await updateEntryCore(db, ALICE, { key, note: 'x'.repeat(500) }, T0 + 1)).ok, true, 'a 500-character note fits an empty shelf');
+  const meta = () => db.rows('shelfMeta').find((row) => row.clerkSubject === ALICE);
+  eq(meta().bytes, storedBytes(db.rows('entries')[0]), 'and its bytes are counted');
+  await db.patch('shelfMeta', meta()._id, { bytes: SHELF_BYTES_MAX - 10 });
+  const grown = await updateEntryCore(db, ALICE, { key, note: 'x'.repeat(900) }, T0 + 2);
+  eq([grown.code, grown.reason], ['shelf-full', 'space'], 'a longer note that would pass the budget is refused');
+  eq(db.rows('entries')[0].note.length, 500, 'and not written');
+  const cleared = await updateEntryCore(db, ALICE, { key, note: null }, T0 + 3);
+  eq(cleared.ok, true, 'clearing the note on a full shelf always works');
+  eq(meta().bytes < SHELF_BYTES_MAX - 10, true, 'and gives its bytes back');
 }
 
 console.log(failed ? `\n${failed} failed` : '\nall passed');

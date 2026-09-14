@@ -1,5 +1,6 @@
 import type { GenericDatabaseWriter } from "convex/server";
 import { LIMIT_NAMES, PURGE_BATCH, RATE_SWEEP_AGE_MS, RATE_SWEEP_BATCH, SWEEP_DELAY_MS } from "./limits.ts";
+import { storedBytes } from "./entries.ts";
 import { bucketFor } from "./rate.ts";
 import { readMeta } from "./shelfCore.ts";
 
@@ -44,7 +45,10 @@ export async function purgeBatchCore(db: Db, subject: string): Promise<{ more: b
   for (const row of rows) await db.delete("entries", row._id);
   if (rows.length === PURGE_BATCH) {
     const meta = await readMeta(db, subject);
-    if (meta) await db.patch("shelfMeta", meta._id, { count: Math.max(0, meta.count - rows.length) });
+    if (meta) {
+      const weight = rows.reduce((sum: number, row: any) => sum + storedBytes(row), 0);
+      await db.patch("shelfMeta", meta._id, { count: Math.max(0, meta.count - rows.length), bytes: Math.max(0, (meta.bytes ?? 0) - weight) });
+    }
     return { more: true, deleted: rows.length };
   }
 

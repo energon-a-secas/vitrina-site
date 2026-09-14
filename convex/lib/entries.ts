@@ -11,6 +11,8 @@
 // js/shelf.js writes into data-book-id, which is how a hostile id became an
 // onerror handler.
 
+import { ROW_OVERHEAD_BYTES } from "./limits.ts";
+
 export const OWN_KEY_RE = /^own[a-z0-9-]{1,60}$/;
 export const ADDED_RE = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
 
@@ -221,4 +223,15 @@ export function checkEntry(raw: unknown): Checked<Entry> {
     ok: true,
     value: { key, catalogId, shelf: shelf.value, note: note.value, listedAs: listedAs.value, added, record },
   };
+}
+
+/**
+ * What one stored row weighs against SHELF_BYTES_MAX: the UTF-8 length of its
+ * shelf fields as JSON, plus ROW_OVERHEAD_BYTES for the fields Convex and the
+ * handler add. It estimates Convex's own document size closely enough that the
+ * budget keeps a whole-shelf read far under 16 MiB.
+ */
+export function storedBytes(row: { key: unknown; catalogId: unknown; shelf: unknown; note: unknown; listedAs: unknown; added: unknown; record: unknown }): number {
+  const fields = { key: row.key, catalogId: row.catalogId, shelf: row.shelf, note: row.note, listedAs: row.listedAs, added: row.added, record: row.record };
+  return ROW_OVERHEAD_BYTES + new TextEncoder().encode(JSON.stringify(fields)).length;
 }

@@ -29,7 +29,7 @@ async function shelf(db, subject, n) {
   for (let i = 1; i <= n; i++) {
     await db.insert('entries', { clerkSubject: subject, key: 'tf' + i, catalogId: i, shelf: null, note: 'n', listedAs: null, added: null, record: null, updatedAt: T0 });
   }
-  await db.insert('shelfMeta', { clerkSubject: subject, count: n });
+  await db.insert('shelfMeta', { clerkSubject: subject, count: n, bytes: 0 });
 }
 async function rates(db, subject, perBucket) {
   for (const name of LIMIT_NAMES) {
@@ -70,7 +70,7 @@ const rowsFor = (db, table, subject) => db.rows(table).filter((r) => r.clerkSubj
 
   // Something wrote in the gap; the sweep repeats the deletion.
   await db.insert('rateEvents', { bucket: bucketFor(ALICE, 'data.delete'), at: T0 + 2 });
-  await db.insert('shelfMeta', { clerkSubject: ALICE, count: 0 });
+  await db.insert('shelfMeta', { clerkSubject: ALICE, count: 0, bytes: 0 });
   eq(await sweepCore(db, ALICE), { more: false, restart: false, erased: true }, 'the sweep ends the erasure');
   eq([bucketsOf(db, ALICE), metaOf(db, ALICE)], [LIMIT_NAMES.map(() => 0), []], 'after deleting the rate rows and shelfMeta again');
   eq(rowsFor(db, 'erasures', ALICE), 0, 'the erasures row is deleted');

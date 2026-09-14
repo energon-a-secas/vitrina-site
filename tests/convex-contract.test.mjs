@@ -15,7 +15,7 @@
 
 import { readFileSync, readdirSync } from 'node:fs';
 import {
-  CALL_MAX, HOLD_MS, LIMIT_NAMES, LIMITS, MAX_ENTRIES, PURGE_BATCH, RATE_PRUNE_MAX, RATE_SWEEP_AGE_MS, RATE_SWEEP_BATCH, SWEEP_DELAY_MS,
+  CALL_MAX, HOLD_MS, LIMIT_NAMES, LIMITS, MAX_ENTRIES, PURGE_BATCH, RATE_PRUNE_MAX, RATE_SWEEP_AGE_MS, RATE_SWEEP_BATCH, ROW_OVERHEAD_BYTES, SHELF_BYTES_MAX, SWEEP_DELAY_MS,
 } from '../convex/lib/limits.ts';
 
 let failed = 0;
@@ -41,11 +41,16 @@ eq(LIMITS, {
   'data.delete': { max: 60, windowMs: HOUR },
 }, 'rate limits: 10 claims an hour, 3 changes in 30 days, 30 publish changes an hour, 600 shelf writes an hour, 60 deletion requests an hour');
 eq([...LIMIT_NAMES], ['handle.claim', 'handle.change', 'profile.publish', 'shelf.write', 'data.delete'], 'and the purge deletes exactly those five buckets');
+eq({ SHELF_BYTES_MAX, ROW_OVERHEAD_BYTES }, { SHELF_BYTES_MAX: 8 * 1024 * 1024, ROW_OVERHEAD_BYTES: 150 },
+  'an account shelf weighs at most 8 MiB, counting 150 bytes a row for what the budget does not weigh');
 
 // ── The guarantees that rest on them ────────────────────────────────────────
 // A Clerk token for Convex lives 60 s (plan section 1). The sweep is what ends
 // an erasure, so it has to wait out any token minted before the deletion.
 eq(SWEEP_DELAY_MS > 60 * 1000, true, 'purge:sweep waits longer than a Clerk token lives');
+// A Convex function reads at most 16 MiB, and shelf:mine and profiles:byHandle
+// read a whole shelf, so the byte budget has to leave that read well clear.
+eq(SHELF_BYTES_MAX <= 8 * 1024 * 1024, true, 'a whole shelf at its byte budget reads at most half of the 16 MiB a function may read');
 // The daily sweep deletes by age alone, so a row younger than a window would
 // be gone while that window still counts it, lifting the limit early.
 eq(Object.entries(LIMITS).filter(([, limit]) => RATE_SWEEP_AGE_MS <= limit.windowMs).map(([name]) => name), [],

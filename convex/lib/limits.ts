@@ -9,6 +9,19 @@ const DAY = 24 * HOUR;
 /** The most books one account shelf holds, checked against shelfMeta.count. */
 export const MAX_ENTRIES = 2000;
 
+/**
+ * The most bytes one account shelf's rows may weigh, checked against
+ * shelfMeta.bytes. A Convex function reads at most 16 MiB, and shelf:mine and
+ * profiles:byHandle read the whole shelf, so 2000 books at the widest the entry
+ * rules allow (about 14.6 KB each) would have stopped such a shelf loading at
+ * all past about 1,150 of them. 8 MiB keeps a whole read under half the limit;
+ * ordinary catalogue books weigh a few hundred bytes and never come near it.
+ */
+export const SHELF_BYTES_MAX = 8 * 1024 * 1024;
+
+/** Bytes counted per row for what the budget does not weigh: clerkSubject, _id, _creationTime, updatedAt. */
+export const ROW_OVERHEAD_BYTES = 150;
+
 /** The most entries one upsertEntries call may carry; the client sends chunks of this. */
 export const CALL_MAX = 200;
 

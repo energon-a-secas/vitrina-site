@@ -35,7 +35,7 @@ export default defineSchema({
     updatedAt: v.number(),
   }).index("by_owner", ["clerkSubject"]).index("by_owner_key", ["clerkSubject", "key"]),
 
-  shelfMeta: defineTable({ clerkSubject: v.string(), count: v.number() }).index("by_subject", ["clerkSubject"]),
+  shelfMeta: defineTable({ clerkSubject: v.string(), count: v.number(), bytes: v.number() }).index("by_subject", ["clerkSubject"]),
   heldHandles: defineTable({ handle: v.string(), until: v.number() }).index("by_handle", ["handle"]),
   erasures: defineTable({ clerkSubject: v.string(), at: v.number() }).index("by_subject", ["clerkSubject"]),
   suspendedSubjects: defineTable({ clerkSubject: v.string(), since: v.number() }).index("by_subject", ["clerkSubject"]),
