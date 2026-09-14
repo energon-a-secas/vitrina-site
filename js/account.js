@@ -32,10 +32,11 @@ import { closeModal } from './modals.js';
 import { title } from './data.js';
 import { toast } from './utils.js';
 import { bindStrips, paintStrips, offerMove, forgetMove } from './strips.js';
+import { deletionWait } from './erasing.js';
 
-// While shelf:mine says the data is being deleted there is no shelf to show,
-// so the page asks again at this pace until the deletion is over.
-const ERASING_POLL_MS = 8000;
+// While shelf:mine says the data is being deleted there is no shelf to show, so
+// the page asks again every 8 s, slower near the end and never for good (erasing.js).
+const deletion = deletionWait(8000);
 
 let booted = null;
 let kit = null;
@@ -59,7 +60,6 @@ let rerun = null;            // { quiet } when a refetch was held back by writes
 // book that never reached it, patch a note edit that did not. Memory only, so a
 // reload discards them, and so does somebody else signing in.
 const unsaved = new Map();
-let erasingTimer = null;
 
 export function startAccount(mode) {
   if (!booted) {
@@ -145,6 +145,7 @@ function holdForKit() {
 /** The kit settled with nobody signed in, or never loaded: the browser shelf the cookie held back. */
 function showBrowserShelf() {
   waitingForKit = false;
+  forgetMove();
   useLocalShelf();
   paint();
   render();
@@ -172,13 +173,15 @@ function onAuth(snap) {
     return;
   }
   // A page that opened signed out is already on the browser shelf, unless a session cookie held it back.
+  // Nobody is signed in either way, so a Not now said in this tab went with whoever said it (strips.js).
   if (signedInHere) leaveAccount(true);
   else if (waitingForKit) showBrowserShelf();
+  else forgetMove();
 }
 
 function leaveAccount(showStrip) {
   const titles = Array.from(unsaved.values()).map((item) => item.title);
-  stopErasingPoll();
+  deletion.stop();
   session.lastCount = null;
   session.erasing = null;
   forgetMove();
@@ -199,7 +202,7 @@ function retryLoad() {
 }
 
 async function loadAccount(seq) {
-  stopErasingPoll();
+  deletion.stop();
   useAccountLoading();
   const generation = state.generation;
   paint();
@@ -229,7 +232,7 @@ function applyMine(answer, { first = false, quiet = false } = {}) {
     if (first) failLoad();
     return;
   }
-  stopErasingPoll();
+  deletion.stop();
   session.erasing = null;
   session.lastCount = answer.entries.length;
   const before = !first && state.source === 'account' ? shelfSignature(state.entries) : null;
@@ -243,6 +246,8 @@ function applyMine(answer, { first = false, quiet = false } = {}) {
 }
 
 function failLoad() {
+  // Not loaded, so whether the data is still being deleted is not known either.
+  session.erasing = null;
   useAccountError();
   paint();
   render();
@@ -255,12 +260,8 @@ function showErasing(remaining) {
   if (state.source !== 'account-loading') useAccountLoading();
   paint();
   render();
-  stopErasingPoll();
   const seq = authSeq;
-  erasingTimer = setTimeout(() => {
-    erasingTimer = null;
-    if (seq === authSeq) void pollErasing(seq);
-  }, ERASING_POLL_MS);
+  deletion.next(session.erasing.remaining, () => pollErasing(seq));
 }
 
 async function pollErasing(seq) {
@@ -272,13 +273,10 @@ async function pollErasing(seq) {
     answer = undefined;
   }
   if (seq !== authSeq || generation !== state.generation) return;
-  if (answer && Array.isArray(answer.entries)) applyMine(answer, { first: true });
-  else showErasing(answer && answer.erasing === true ? answer.remaining : (session.erasing || {}).remaining);
-}
-
-function stopErasingPoll() {
-  clearTimeout(erasingTimer);
-  erasingTimer = null;
+  // Neither an erasure nor a shelf means a refused token or no connection, and a
+  // run of those ends in Try again rather than asking for good.
+  if (answer && (answer.erasing === true || Array.isArray(answer.entries))) applyMine(answer, { first: true });
+  else if (!deletion.missed(() => pollErasing(seq))) failLoad();
 }
 
 function entriesFromRows(rows) {

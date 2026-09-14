@@ -77,6 +77,16 @@ for (const [label, profile, open, copyable] of [
 }
 {
   const w = await dialog({ profile: { handle: 'ana' } });
+  w.server.lose('profiles:claimHandle', { user: 'u1' });
+  w.$('#shareHandle').value = 'ana-lee';
+  await w.fire(w.$('[data-share-form]'), 'submit');
+  eq([w.server.calls('profiles:claimHandle').length, w.server.account('u1').profile.handle], [2, 'ana-lee'],
+    'a change whose answer was lost after the account took it goes out again, and the retry meets same-handle');
+  eq([w.text('#shareHandleNote'), w.text('.share__url')], ['', 'vitrina.neorgon.com/u/?ana-lee'], 'which the dialog reads as done: no refusal, and the new address shown');
+  eq(w.toasts().pop(), "Your shelf's address is now vitrina.neorgon.com/u/?ana-lee", 'with the toast a change gets');
+}
+{
+  const w = await dialog({ profile: { handle: 'ana' } });
   w.$('#shareHandle').value = 'ana-lee';
   w.server.fail('shelf:mine', { user: 'u1', times: 2 });
   w.$('[data-share-act="claim"]').focus();
@@ -105,6 +115,26 @@ for (const [label, profile, open, copyable] of [
   const asked = w.server.calls('shelf:mine').length;
   await w.advance(2500 * 5);
   eq(w.server.calls('shelf:mine').length - asked, 0, 'a poll that was out when the dialog closed schedules no more, signed in or out');
+}
+{
+  // No books to delete: only the sweep 5 minutes after the shelf empties is left.
+  const w = await dialog({ profile: { handle: 'ana' } });
+  w.$('[data-share-act="delete"]').click();
+  await w.flush();
+  const asked = w.server.calls('shelf:mine').length;
+  await w.advance(5 * 60 * 1000);
+  eq(w.server.calls('shelf:mine').length - asked, 20, 'with no books left, the dialog and the shelf behind it each ask every 30 s, not every 2.5 s and 8 s');
+}
+{
+  const w = await dialog({ profile: { handle: 'ana' }, rows: [row(101)] });
+  w.$('[data-share-act="delete"]').click();
+  await w.flush();
+  w.server.answer('shelf:mine', null, { user: 'u1', times: 1000 });
+  await w.advance(60 * 1000);
+  eq(Boolean(w.$('[data-share-act="reload"]')), true, 'answers that say nothing about the deletion, five in a row, end the asking in Try again');
+  const asked = w.server.calls('shelf:mine').length;
+  await w.advance(10 * 60 * 1000);
+  eq(w.server.calls('shelf:mine').length - asked, 0, 'and neither the dialog nor the shelf behind it asks again meanwhile');
 }
 
 // ── Never over vitrina's own overlays ───────────────────────────────────────

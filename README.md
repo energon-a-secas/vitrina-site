@@ -215,7 +215,9 @@ vitrina-site/
 │   ├── strips.js           # the notices above /shelf/, and moving a browser shelf into an account
 │   ├── profile.js          # /u/: a shared shelf, and its owner's own view of it
 │   ├── share.js            # the Share dialog: address, publishing, deleting your data
-│   ├── accountplan.js      # pure: what account.js, strips.js, profile.js and share.js decide
+│   ├── accountplan.js      # pure: what account.js, strips.js and share.js decide, and authedCall
+│   ├── profileplan.js      # pure: what /u/ decides: its states, which reply stays, the owner banner
+│   ├── erasing.js          # the timer the shelf and the Share dialog wait out a deletion with
 │   ├── keyguard.js         # pure: which keys the page leaves to a dialog or menu it does not own
 │   ├── overflow.js         # hides the header kit's ⋯ toggle while nothing in it is drawn
 │   ├── handles.js          # handle rules, mirrored from convex/lib/handles.ts

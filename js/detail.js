@@ -3,6 +3,7 @@
 import { state, findEntry, removeEntry, updateEntry, whose } from './state.js';
 import { $, escHtml, toast } from './utils.js';
 import { markSelected } from './render.js';
+import { CAPS } from './syncplan.js';
 import {
   title, authorLine, bookYear, coverFor, spineFor, hasSpine, recordUrl,
   catalogEntry, localCover, localSpine, hasLocalSpine, hasLocalCover,
@@ -143,8 +144,29 @@ function detailMarkup(entry) {
 export function editNote(key) {
   const entry = findEntry(key);
   if (!entry) return;
-  const next = window.prompt('A note for this copy (where you found it, condition, anything):', entry.note || '');
-  if (next === null) return;
+  let question = 'A note for this copy (where you found it, condition, anything):';
+  let next = entry.note || '';
+  for (;;) {
+    const offered = next;
+    next = window.prompt(question, offered);
+    if (next === null) return;
+    // An account keeps a note of up to CAPS.note characters and refuses a longer
+    // one. A move or an import cuts a long note to fit, so one note cannot keep
+    // the rest of its chunk out, and an edit here went out cut the same way: the
+    // drawer said Note saved and the next refetch dropped the tail. So the whole
+    // text comes back to be shortened, with the reason in the prompt, since a
+    // toast behind a prompt is never seen. The browser shelf keeps any length.
+    const length = next.trim().length;
+    if (state.source !== 'account' || length <= CAPS.note) break;
+    const why = `A note on your account shelf holds at most ${CAPS.note} characters; this one has ${length}.`;
+    // Handed back unchanged, it is refused rather than asked for again, so
+    // nothing that answers a prompt with what it offered keeps the page asking.
+    if (next === offered) {
+      toast(`${why} It was not saved.`, 'bad');
+      return;
+    }
+    question = `${why} Shorten it to save it:`;
+  }
   // Refused while an account shelf loads or could not be read, and the refusal
   // has said so; "Note saved" straight after it would say the opposite.
   if (!updateEntry(key, { note: next.trim() || null })) return;

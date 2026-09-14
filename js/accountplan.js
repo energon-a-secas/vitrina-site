@@ -1,15 +1,16 @@
-// ── What the account, a shared shelf and the Share dialog decide ─────────────
+// ── What the account and the Share dialog decide ─────────────────────────────
 //
 // Pure: no DOM, no storage, no network, and nothing imported but syncplan.js,
-// which is pure too. account.js, strips.js, profile.js and share.js do the
-// talking and the painting; what they say, and which answer they believe, is
-// decided here. Those are the parts that go wrong quietly: a failure toast that
-// names no book, a banner telling a suspended owner their shelf is public, an
-// anonymous answer painted over the owner's own. A quiet failure needs a test
-// that runs without a browser, so tests/accountplan.test.mjs holds every rule,
-// and tests/account-flow, share-flow and profile-flow run the modules on them.
+// which is pure too. account.js, strips.js and share.js do the talking and the
+// painting, and profile.js sends its requests through authedCall; what they
+// say, and which answer they believe, is decided here. Those are the parts that
+// go wrong quietly: a failure toast that names no book, a write sent as the next
+// person, a move reported as adding nothing. A quiet failure needs a test that
+// runs without a browser, so tests/accountplan.test.mjs holds every rule, and
+// tests/account-flow and share-flow run the modules on them. What /u/ decides
+// is in profileplan.js.
 
-import { CALL_MAX, MAX_ENTRIES, RECORD_KEYS, catalogueId, fillCandidates, fromServerEntry, keysMissingFromAccount } from './syncplan.js';
+import { CALL_MAX, MAX_ENTRIES, RECORD_KEYS, catalogueId, fillCandidates, keysMissingFromAccount } from './syncplan.js';
 
 function isObject(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -67,10 +68,23 @@ export function notReadyCopy(source, erasing) {
   return 'Your account shelf is still loading, so nothing changed. Try again in a moment.';
 }
 
-/** The toast for a batch of books, built from upsertEntries totals summed over its chunks. Single adds said so when made. */
+/**
+ * What a batch of books says, built from upsertEntries totals summed over its
+ * chunks: the toast after a seed, an import or a fill, and the move strip's
+ * "Added N books." Single adds said so when made.
+ *
+ * A book a retried request skipped (totals.resent) counts as added or filled,
+ * never as already there. authedCall retries a write that threw, and when the
+ * first request reached the account and only its answer was lost, the retry
+ * finds those books and skips them. Read as skipped, a move that worked said
+ * "Added 0 books." and an import that added every book said the account
+ * already had them all.
+ */
 export function batchToast(kind, totals) {
-  const added = count(totals && totals.added);
-  const skipped = count(totals && totals.skipped);
+  const resent = count(totals && totals.resent);
+  const added = count(totals && totals.added) + resent;
+  const skipped = Math.max(0, count(totals && totals.skipped) - resent);
+  if (kind === 'move') return `Added ${books(added)}.`;
   if (kind === 'seed') {
     return added
       ? `Added ${books(added)} from the demo shelf to your account. Take off what you do not own.`
@@ -81,7 +95,7 @@ export function batchToast(kind, totals) {
     return `Added ${books(added)} to your account.${skipped ? ` ${skipped} ${skipped === 1 ? 'was' : 'were'} already on it.` : ''}`;
   }
   if (kind === 'fill') {
-    const filled = count(totals && totals.filled);
+    const filled = count(totals && totals.filled) + resent;
     return filled ? `Filled in notes or labels on ${books(filled)}.` : 'Your account already had those notes and labels.';
   }
   return null;
@@ -132,9 +146,12 @@ export function chunked(list, size = CALL_MAX) {
  * took, which is where a move records the keys that made it.
  *
  * Resolves { status: done | stale | erasing | failed, totals, sent, failure, chunk }.
+ * totals sums added, skipped and filled over the chunks the account took, and
+ * resent the books skipped in an answer to a retried request, which batchToast
+ * counts as sent rather than as already there.
  */
 export async function uploadInChunks(entries, { size = CALL_MAX, send, generation, onChunk } = {}) {
-  const totals = { added: 0, skipped: 0, filled: 0, total: null };
+  const totals = { added: 0, skipped: 0, filled: 0, resent: 0, total: null };
   const started = generation();
   let sent = 0;
   for (const chunk of chunked(entries, size)) {
@@ -153,6 +170,7 @@ export async function uploadInChunks(entries, { size = CALL_MAX, send, generatio
     totals.added += count(answer.added);
     totals.skipped += count(answer.skipped);
     totals.filled += count(answer.filled);
+    if (answer.retried === true) totals.resent += count(answer.skipped);
     if (Number.isSafeInteger(answer.total)) totals.total = answer.total;
     sent += chunk.length;
     if (onChunk) onChunk(chunk, answer);
@@ -234,7 +252,10 @@ function recordLacks(record, kept) {
  * template token lives 60 seconds and clerk-js 5 does not refresh it in the
  * background, so every request, queries included, asks the kit for a token
  * first. A request that throws gets one fresh mint past Clerk's cache and one
- * retry; a second failure is the caller's to report.
+ * retry; a second failure is the caller's to report. A write that threw may
+ * still have reached the account, with only its answer lost, so what its retry
+ * finds there can be its own work: that answer carries retried: true, and the
+ * callers read a same-handle or a skipped book in it accordingly.
  *
  * Who a request is for (holderOf) is taken before anything is awaited and
  * checked again just before a token is set, which the client's dispatch follows
@@ -260,7 +281,8 @@ export function authedCall(getClient, kit) {
       const fresh = await session.getToken({ template: 'convex', skipCache: true });
       if (!fresh || !still()) throw err;
       client.setAuth(fresh);
-      return run();
+      const again = await run();
+      return kind === 'mutation' && isObject(again) ? { ...again, retried: true } : again;
     }
   };
 }
@@ -334,99 +356,6 @@ export function writeQueue({ call, generation, settled = () => {} }) {
     return n;
   }
   return { send, pending, seq: () => made };
-}
-
-// ── /u/ ──────────────────────────────────────────────────────────────────────
-
-export const PROFILE_COPY = Object.freeze({
-  loading: 'Loading this shelf',
-  missing: 'This link is missing the shelf name, which goes after the question mark.',
-  unavailable: 'No public shelf at this address. It may not exist, or its owner keeps it private.',
-  error: 'This shelf could not be loaded. Check your connection and reload.',
-  empty: 'This shelf has no catalogued books to show.',
-});
-
-function isShelfAnswer(value) {
-  return isObject(value) && typeof value.handle === 'string' && Array.isArray(value.books);
-}
-
-/** A PublicShelf nobody signed in is needed to see, which /u/ may paint before the kit has settled. */
-export function isPublicShelf(value) {
-  return isShelfAnswer(value) && value.isOwner !== true;
-}
-
-/**
- * Browser entries for a shared shelf's books: catalogue ids and the owner's
- * shelf labels, and nothing else, whatever else an answer carried. Records are
- * rebuilt from the data files the way an account shelf's are.
- */
-export function publicEntries(value, libraryById, catalogById) {
-  if (!isShelfAnswer(value)) return [];
-  const out = [];
-  const seen = new Set();
-  for (const book of value.books) {
-    const id = isObject(book) ? catalogueId(book.id) : null;
-    if (id === null || seen.has(id)) continue;
-    seen.add(id);
-    const shelf = typeof book.shelf === 'string' ? book.shelf : null;
-    const entry = fromServerEntry({ key: 'tf' + id, id, shelf, note: null, listedAs: null, added: null, record: null }, libraryById, catalogById);
-    if (entry) out.push(entry);
-  }
-  return out;
-}
-
-/**
- * Which /u/ state a page is in (plan section 3.6). A link naming no shelf is
- * Missing; one naming something that can never be a handle is Unavailable
- * without a request, exactly like a shelf that does not exist or is private,
- * so the page never says which.
- */
-export function profileState(address, reply) {
-  if (!isObject(address) || !address.found) return 'missing';
-  if (!address.handle) return 'unavailable';
-  if (!isObject(reply)) return 'loading';
-  if (reply.error) return 'error';
-  if (!isShelfAnswer(reply.value)) return 'unavailable';
-  return reply.value.books.some((book) => isObject(book) && catalogueId(book.id) !== null) ? 'shelf' : 'empty';
-}
-
-/**
- * Whether a byHandle reply replaces the one on screen. Every request is
- * numbered, and replies below floor belong to a viewer who has since signed
- * out or changed. A reply sent with a token supersedes an anonymous one in
- * either arrival order, since only it can carry the owner's view; a failure
- * never replaces an answer already shown.
- */
-export function replyWins(current, reply, floor = 0) {
-  if (!isObject(reply) || !Number.isSafeInteger(reply.n) || reply.n < floor) return false;
-  if (!isObject(current) || current.n < floor) return true;
-  if (reply.error && !current.error) return false;
-  if (!reply.error && current.error) return true;
-  if (Boolean(reply.authed) !== Boolean(current.authed)) return Boolean(reply.authed);
-  return reply.n > current.n;
-}
-
-export const OWNER_COPY = Object.freeze({
-  suspended: 'A moderator has hidden this shelf. Nobody else can see it.',
-  closed: 'Public shelves are not open yet. Nobody else can see this page.',
-  private: 'Only you can see this shelf.',
-  published: 'This is what others see.',
-  note: 'Books added by hand, notes and dates are never shown here.',
-});
-
-/**
- * The one banner an owner sees on their own /u/ page, by precedence:
- * suspended, then closed, then private, then published. A suspended shelf is
- * hidden however it is set, and a closed site shows nobody a published one, so
- * each outranks the setting below it. Nobody but the owner gets a banner.
- */
-export function ownerBanner(value) {
-  if (!isShelfAnswer(value) || value.isOwner !== true) return null;
-  let kind = 'published';
-  if (value.suspended === true) kind = 'suspended';
-  else if (value.publishingOpen !== true) kind = 'closed';
-  else if (value.published !== true) kind = 'private';
-  return { kind, text: OWNER_COPY[kind], note: OWNER_COPY.note };
 }
 
 // ── The Share dialog ─────────────────────────────────────────────────────────

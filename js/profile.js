@@ -8,7 +8,7 @@
 // return, through a second client the kit keeps on the token.
 //
 // Both requests can be out at once and the network decides which lands first,
-// so every request is numbered and accountplan.replyWins decides what stays on
+// so every request is numbered and profileplan.replyWins decides what stays on
 // screen: the token reply supersedes the anonymous one whatever the order
 // (plan section 3.6). The page title stays generic, and nothing but a shelf the
 // server returned ever puts the handle on the page.
@@ -21,7 +21,8 @@ import { hideEmptyOverflow } from './overflow.js';
 import { FN, convexUrlFrom, loadClient, loadAuthKit, readClientUat } from './backend.js';
 import { handleFromSearch } from './handles.js';
 import { indexById } from './syncplan.js';
-import { PROFILE_COPY, authedCall, isPublicShelf, ownerBanner, profileState, publicEntries, replyWins } from './accountplan.js';
+import { authedCall } from './accountplan.js';
+import { PROFILE_COPY, isPublicShelf, ownerBanner, profileState, publicEntries, replyWins } from './profileplan.js';
 
 // hydrate() reads the saved preferences again every time it runs, which would
 // put the shelf and its controls out of step each time an answer is repainted.

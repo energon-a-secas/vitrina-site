@@ -85,17 +85,21 @@ never waits on sign-in or a database.
 - `js/profile.js`: `/u/`, its states, the anonymous client and the owner view.
 - `js/share.js`: the Share dialog: address, publish switch, Copy link, Delete
   my Vitrina data.
-- `js/accountplan.js`: pure. What the four modules above decide: failure copy,
-  chunked uploads, `booksToKeep`, `authedCall`, `holderOf`, `writeQueue`, the
-  `/u/` states, `replyWins`, the owner banner, `shareFacts`. Pinned by
-  `tests/accountplan.test.mjs`.
+- `js/accountplan.js`: pure. What the account modules decide: failure copy,
+  batch copy, chunked uploads, `booksToKeep`, `authedCall`, `holderOf`,
+  `writeQueue`, `shareFacts`. Pinned by `tests/accountplan.test.mjs`.
+- `js/profileplan.js`: pure. What `/u/` decides: its states, `replyWins`,
+  `publicEntries`, the owner banner. Pinned by the same test file.
+- `js/erasing.js`: the timer `account.js` and `share.js` wait out a deletion
+  with: its pace, a hidden tab, and when to stop asking.
 - `js/keyguard.js`: pure. When the page's keydown handler leaves a key alone.
   Pinned by `tests/keyguard.test.mjs`.
 - `js/overflow.js`: hides the header kit's `⋯` toggle while nothing folded into
   it is drawn.
 
-`account.js`, `accountplan.js` and `state.js` sit just under the fleet's
-500-line cap for a module (`wc -l js/*.js`): split one before growing it.
+`account.js` and `state.js` sit just under the fleet's 500-line cap for a
+module (`wc -l js/*.js`), and so does `tests/support/shelfworld.mjs`: split one
+before growing it, as `accountplan.js` gave its `/u/` half to `profileplan.js`.
 
 ## Gotchas
 
@@ -305,7 +309,13 @@ behind after a sign-out never receives a browser edit. `state.js` is the only
 module that writes the shelf or the prefs. `strips.js` writes
 `vitrina_moved_v1`, keys of books that reached an account and never a title,
 note or account id, and `vitrina_move_later_v1` in `sessionStorage`; `data.js`
-reads one flag, `vitrina:no-remote-images`. On an account shelf, Import and "Start from the demo
+reads one flag, `vitrina:no-remote-images`. Neither strips flag names its
+person, so each goes with them: the moved keys are cut down to the books still
+in this browser whenever an account shelf arrives or Done clears, and removed
+once the account's data is being deleted, and Not now is dropped whenever
+nobody, or somebody else, is signed in. Kept past their person, the list told a
+shared browser which editions somebody had moved, and both hid the offer from
+the next person to sign in. On an account shelf, Import and "Start from the demo
 shelf" only add keys memory lacks and never replace or overwrite a book, because
 an account has no undo; on the browser shelf both still replace it.
 
@@ -541,8 +551,12 @@ from `favicon.svg`. Changing any of them needs a plain `sync-auth.sh`, which
 rebuilds the catalogue and refreshes every vendored copy (`--to` rebuilds it but
 copies to one site), then `sync-auth.sh --check`, a root commit limited to
 `packages/neorgon-ui/auth/neorgon-auth-sites.js`, and a commit of
-`js/neorgon-auth-sites.js` in every repo the sync refreshed. `--check` is smoke
-check 13 and fails on a stale catalogue.
+`js/neorgon-auth-sites.js` in every repo the sync refreshed. Those repos are the
+ones `ls projects/*/js/neorgon-auth.js` lists, less `neorgon-auth-client`, which
+the sync skips: plan O4 names five, written before Enamel and Sash adopted the
+kit. `--check` compares working copies, so it passes with those commits unmade,
+and in vitrina the key meta and the catalogue need a commit of their own after
+the shipping one. `--check` is smoke check 13 and fails on a stale catalogue.
 
 **`/shelf/` changes hands only when the kit says so.** `state.source` is
 `local`, `account-loading`, `account` or `account-error`, and only
@@ -560,7 +574,11 @@ session somewhere on the fleet, so `holdForKit()` puts `/shelf/` in
 only once the kit settles signed out or fails to load: an edit made in that wait
 went to the browser shelf and then vanished under the account shelf. While
 `shelf:mine` answers `erasing`, the page stays loading, says how many books are
-left and asks again every 8 s.
+left and asks again through `js/erasing.js`: every 8 s, every 30 s once none are
+left (only `purge:sweep` remains, 5 minutes on), nothing while the tab is
+hidden, and after five answers in a row that are neither an erasure nor a shelf
+it stops and shows Try again. It used to ask every 8 s for as long as the page
+stayed open, a refused token included.
 
 **A write goes out one at a time, and never for the next person.**
 `accountplan.writeQueue` sends an account write only once the one before it,
@@ -573,7 +591,17 @@ awaits anything and again just before it sets the token, and throws unsent if it
 moved; its retry mints from the session it started with. `holderOf` is `null`
 while the kit's session already belongs to the next person and its `userId` is
 still the last one's, which is the order the kit swaps them in. Share's changes
-use the same queue (`session.send`). A failed add or note edit stays on screen as
+use the same queue (`session.send`). A retried write may already have reached
+the account the first time, with only its answer lost, so the answer to the
+retry carries `retried: true`: a book it skipped counts as added in the move
+strip and the toasts (`batchToast`), and a `same-handle` for an address the
+Share dialog was not showing counts as done. Read the other way, a move that
+worked said "Added 0 books." and a handle change that worked was reported as
+refused. A note typed in the drawer that is longer than an account keeps (1000
+characters) comes back to be shortened, with the reason in the prompt, instead
+of going out cut the way a move or an import cuts one so its chunk still lands,
+and handed back unchanged it is refused rather than asked for again, so an
+automated prompt that accepts its default cannot loop the page (`detail.js`). A failed add or note edit stays on screen as
 "not saved" with Try again, in memory only; a failed removal puts the book back.
 A refetch, after a failure or when the tab becomes visible, is applied only when
 no write is pending and none went out while it was on its way.
@@ -587,7 +615,8 @@ plus Fill them in for books whose account copy has an empty note or label.
 Nothing is uploaded until the person asks. Chunks of 200 go through
 `session.send` with the generation read before each chunk and on each answer,
 and a chunk's keys join `vitrina_moved_v1` only after the account took it. Not
-now lasts the tab (`vitrina_move_later_v1` in `sessionStorage`). After a move,
+now lasts the tab (`vitrina_move_later_v1` in `sessionStorage`), for as long as
+the person who said it stays signed in. After a move,
 "Clear this browser's copy" is checked by default, as the plan has it, and Done
 reads `shelf:mine` fresh rather than trusting memory. `booksToKeep()` then keeps
 every browser book the account lacks, holds with a label, note or listed-as text
@@ -624,9 +653,11 @@ and the switch stays disabled except to take a shelf published earlier private
 again, since `setPublished(false)` always works. Publishing needs "I am 16 or
 older" ticked. Copy link appears only when the shelf is published, publishing is
 open and the shelf is not suspended. A handle change confirms both of its effects.
-Delete my Vitrina data sits beside Export my shelf, confirms, then polls
-`shelf:mine` every 2.5 s with "Deleting your books: N left"; closing the dialog
-moves a counter that stops every poll and paint meant for it. A `not-signed-in`
+Delete my Vitrina data sits beside Export my shelf, confirms, forgets
+`vitrina_moved_v1` once the account takes it, then polls `shelf:mine` every
+2.5 s with "Deleting your books: N left", under the same pace and give-up as the
+shelf (`js/erasing.js`), ending in Try again; closing the dialog moves a counter
+that stops every poll and paint meant for it. A `not-signed-in`
 answer while the kit still says signed in means the deployment refused the
 token, where `requireSignIn()` would open nothing, so the dialog stays open and
 says to reload.
@@ -640,14 +671,14 @@ open under the kit's dialog, `trapFocus` swallowed Shift+Tab and `a` opened Add
 a book behind it.
 
 **The flow tests run the real modules on the generated pages.**
-`tests/account-flow.test.mjs`, `share-flow.test.mjs` and `profile-flow.test.mjs`
-load `shelf/index.html` or `u/index.html` into `tests/support/minidom.mjs`, a
+`tests/account-flow.test.mjs`, `move-flow.test.mjs`, `share-flow.test.mjs` and
+`profile-flow.test.mjs` load `shelf/index.html` or `u/index.html` into `tests/support/minidom.mjs`, a
 small DOM that throws on a selector it does not understand instead of matching
 nothing, and run `account.js`, `strips.js`, `share.js` and `profile.js` in a world
 from `tests/support/shelfworld.mjs`. Each world copies `js/` to a temporary
 directory without the vendored `neorgon-*` files, with a `render.js` that draws
 nothing and a `backend.js` that hands out fakes: a deployment that answers from
-the token's user and can hold, fail or replace one request; a client that queues
+the token's user and can hold, fail, lose the answer to or replace one request; a client that queues
 mutations and reads its token at dispatch, as `ConvexHttpClient` 1.45 does; a kit
 that re-tokens its bound clients before it tells listeners, as the real one does;
 and a clock that moves only when a test says so. So a module these tests load

@@ -10,7 +10,10 @@
 // browser's copy, which takes only the books the account holds in full.
 //
 // Nothing from an account is written to storage here. vitrina_moved_v1 holds
-// keys of books that left this browser's shelf, and no name, note or account id.
+// keys of books that left this browser's shelf, and no name, note or account id,
+// and only while those books are still on it. Neither it nor Not now says whose
+// it was, so each is dropped along with its person: Not now once nobody or
+// somebody else is signed in, the moved keys once the account's data is deleted.
 
 import { state, rewriteBrowserShelf, clearBrowserShelf } from './state.js';
 import { FN } from './backend.js';
@@ -54,6 +57,8 @@ export function bindStrips(callbacks) {
 
 export function paintStrips(next) {
   if (next) facts = { ...facts, ...next };
+  // An account being deleted, from this page or any other, keeps none of the books moved into it.
+  if (facts.erasing) forgetMoved();
   paint();
 }
 
@@ -62,11 +67,19 @@ export function offerMove() {
   if (browser === null) browser = normalisedBrowserShelf();
 }
 
-/** Signed out, or somebody else signed in: the counts and any move in progress belonged to that shelf. */
+/**
+ * Nobody signed in, or somebody else: the counts, any move in progress and a
+ * Not now belonged to the last shelf. Not now lasts the tab and names nobody,
+ * so kept past its person it hid the offer from the next one to sign in here.
+ */
 export function forgetMove() {
   browser = null;
   move = { phase: 'offer' };
   hands += 1;
+  laterHere = false;
+  try {
+    sessionStorage.removeItem(LATER);
+  } catch (err) { /* nothing was kept there */ }
 }
 
 /**
@@ -76,7 +89,8 @@ export function forgetMove() {
  * catalogue book keyed the old way would be demoted to a hand-added book and
  * saved like that. A key minted and not saved would be minted afresh next
  * time, and a second move would add that book to the account twice, so a
- * write that fails offers nothing.
+ * write that fails offers nothing. A saved shelf is also what vitrina_moved_v1
+ * is cut down to.
  */
 function normalisedBrowserShelf() {
   if (!state.catalog.length || !state.seed.length) return [];
@@ -85,7 +99,9 @@ function normalisedBrowserShelf() {
     result = normaliseBrowserShelf(stored, indexById(state.seed.map((e) => e.record)), indexById(state.catalog), mintUuid);
     return result;
   });
-  return saved ? result : [];
+  if (!saved) return [];
+  keepMoved(result.map((e) => e.key));
+  return result;
 }
 
 function movedKeys() {
@@ -103,6 +119,27 @@ function noteMoved(keys) {
     keys.forEach((key) => all.add(key));
     localStorage.setItem(MOVED, JSON.stringify(Array.from(all)));
   } catch (err) { /* without it a moved book may be offered again, and the account skips what it has */ }
+}
+
+/**
+ * vitrina_moved_v1 cut down to the keys of books still in this browser. A moved
+ * key only keeps its book from being offered twice. Once the book has left, the
+ * key is a record of an edition somebody moved to an account, kept on a browser
+ * other people may use, and it kept that edition, put back here later by
+ * anybody, from ever being offered again.
+ */
+function keepMoved(keys) {
+  try {
+    const here = new Set(keys);
+    const kept = movedKeys().filter((key) => here.has(key));
+    if (kept.length) localStorage.setItem(MOVED, JSON.stringify(kept));
+    else localStorage.removeItem(MOVED);
+  } catch (err) { /* a key left behind offers one book less, and names no one */ }
+}
+
+/** An account whose data is being deleted holds none of this browser's books, so none counts as moved. */
+export function forgetMoved() {
+  keepMoved([]);
 }
 
 function isLater() {
@@ -181,7 +218,7 @@ function moveStrip() {
   if (move.phase === 'moved') {
     // Fill them in stays beside Done: a book the account already had keeps this
     // browser's note only here until it is filled in.
-    return strip(`Added ${plural(move.added, 'book', 'books')}.`,
+    return strip(escHtml(move.said),
       `<label class="check"><input type="checkbox" id="stripClear"${move.clear ? ' checked' : ''}> <span>Clear this browser's copy</span></label>
        ${button('done', 'Done', 'btn--primary')}`) + fillRow(counts().fill, false);
   }
@@ -272,7 +309,8 @@ function finish(outcome, books, kind, back = null) {
     return;
   }
   if (outcome.status === 'done') {
-    move = kind === 'move' ? { phase: 'moved', added: outcome.totals.added, clear: true } : (back || { phase: 'offer' });
+    // From the totals, where a book a retried chunk skipped counts as added (accountplan.batchToast).
+    move = kind === 'move' ? { phase: 'moved', said: batchToast('move', outcome.totals), clear: true } : (back || { phase: 'offer' });
     if (kind === 'fill') toast(batchToast('fill', outcome.totals));
     paint();
     // The books are in the account and not yet in memory. Said by the strip, so the refetch stays quiet.
@@ -343,6 +381,8 @@ function clearHeld(rows) {
     return;
   }
   browser = kept;
+  // A book that left this browser leaves the moved list too.
+  keepMoved(kept.map((e) => e.key));
   if (!kept.length) toast("This browser's copy is cleared");
   else if (kept.length === total) toast(`Nothing was cleared: your account does not hold ${total === 1 ? 'this book' : `these ${total} books`} in full.`);
   else toast(`This browser's copy is cleared, except ${plural(kept.length, 'book', 'books')} your account does not hold in full.`);

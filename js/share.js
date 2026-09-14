@@ -18,19 +18,21 @@ import { FN } from './backend.js';
 import { HANDLE_MESSAGES, handleProblem, normalizeHandle } from './handles.js';
 import { changeHandleConfirm, deletionCopy, shareFacts, sharePreview } from './accountplan.js';
 import { session } from './session.js';
+import { forgetMoved } from './strips.js';
+import { deletionWait } from './erasing.js';
 
 const REASON = 'Sign in to keep your shelf in your account and reserve its address.';
 const CLOSED = 'Public shelves are not open yet. You can reserve an address now; nobody else can see your shelf.';
 const UNREACHED = 'That did not reach your account. Check your connection and try again.';
 const TOKEN_REFUSED = "Your account did not accept this page's sign-in. Reload the page and try again.";
 const DELETE_CONFIRM = 'Delete your Vitrina data? The books, notes and address kept in your account are deleted and cannot be brought back, and the address is held for 30 days so nobody else can take it.';
-const POLL_MS = 2500;
+// The dialog asks how a deletion is going every 2.5 s, slower near the end and never for good (erasing.js).
+const deletion = deletionWait(2500);
 
 let invoker = null;    // the header button, where focus goes back after a sign-in asked for from here
 let facts = null;      // what the dialog last painted, from accountplan.shareFacts
 let busy = false;      // a change is on its way; the dialog takes no second one meanwhile
 let deleting = false;  // a deletion is running, so the dialog polls its progress
-let pollTimer = null;
 let opened = 0;        // moves as a dialog opens and as it closes, so work for a closed one paints and polls nothing
 
 export async function openShare(button) {
@@ -63,15 +65,10 @@ export async function openShare(button) {
   root.addEventListener('submit', onSubmit);
   onModalClose(() => {
     opened += 1;
-    stopPolling();
+    deletion.stop();
     deleting = false;
   });
   await refresh();
-}
-
-function stopPolling() {
-  clearTimeout(pollTimer);
-  pollTimer = null;
 }
 
 /** Read the account and paint the dialog from it, keeping focus on the control that had it. */
@@ -97,18 +94,16 @@ async function refresh() {
     if (mine && Array.isArray(mine.entries)) {
       deleting = false;
       paintDeletion(root, mine);
-    } else {
-      schedulePoll();   // a poll that failed: the deletion runs on the server regardless
+    } else if (!deletion.missed(refresh)) {
+      // The deletion runs on the server regardless. A refused token or no
+      // connection several times running stops the asking, until Try again.
+      unreachable(root);
     }
     return;
   }
   facts = shareFacts(mine);
   if (!facts) {
-    const hadFocus = root.contains(document.activeElement);
-    root.innerHTML = `<p class="dialog__lead">Your account could not be reached, so nothing here can change right now.</p>
-      <p class="share__row"><button type="button" class="btn btn--secondary btn--sm" data-share-act="reload">Try again</button></p>`;
-    // The control that had focus went with the old markup, and focus would have fallen out of the dialog.
-    if (hadFocus) root.querySelector('[data-share-act="reload"]').focus({ preventScroll: true });
+    unreachable(root);
     return;
   }
   const active = document.activeElement;
@@ -117,6 +112,15 @@ async function refresh() {
   root.innerHTML = markup(facts);
   const again = focusAt ? root.querySelector(focusAt) : null;
   if (again) again.focus({ preventScroll: true });
+}
+
+/** The account could not be read: the dialog says so, with a Try again that reads it again. */
+function unreachable(root) {
+  const hadFocus = root.contains(document.activeElement);
+  root.innerHTML = `<p class="dialog__lead">Your account could not be reached, so nothing here can change right now.</p>
+    <p class="share__row"><button type="button" class="btn btn--secondary btn--sm" data-share-act="reload">Try again</button></p>`;
+  // The control that had focus went with the old markup, and focus would have fallen out of the dialog.
+  if (hadFocus) root.querySelector('[data-share-act="reload"]').focus({ preventScroll: true });
 }
 
 function markup(f) {
@@ -223,14 +227,20 @@ async function onSubmit(ev) {
     note('shareHandleNote', 'That is already your address.', true);
     return;
   }
-  if (facts.handle && !window.confirm(changeHandleConfirm(facts.handle))) return;
+  const shown = facts.handle;
+  if (shown && !window.confirm(changeHandleConfirm(shown))) return;
   const { gone, ok, answer } = await act(FN.profiles.claimHandle, { handle });
   if (gone) return;
-  if (!ok) {
+  // same-handle for an address the dialog was not showing means the dialog is
+  // behind, not that the change was refused. authedCall retries a change that
+  // threw, and when the first request reached the account and only its answer
+  // was lost, the retry finds the new address already this account's; a change
+  // made first in another tab reads the same. Either way the address is this one.
+  if (!ok && !(answer && answer.code === 'same-handle' && handle !== shown)) {
     note('shareHandleNote', said(answer), true);
     return;
   }
-  toast(`Your shelf's address is now vitrina.neorgon.com/u/?${answer.handle || handle}`);
+  toast(`Your shelf's address is now vitrina.neorgon.com/u/?${(ok && answer.handle) || handle}`);
   await refresh();
 }
 
@@ -305,6 +315,9 @@ async function deleteData(confirmFirst) {
     return;
   }
   deleting = true;
+  // None of this browser's books is in the account any more, so none counts as
+  // moved there; kept, the list hid them from the emptied account for good.
+  forgetMoved();
   // The shelf behind the dialog shows the deletion as well.
   if (session.refresh) void session.refresh();
   paintDeletion(root, { erasing: true, remaining: books });
@@ -322,14 +335,6 @@ function paintDeletion(root, mine) {
   const text = deletionCopy(mine);
   // A status region reads out every change, so the same words are not written twice.
   if (status.textContent !== text) status.textContent = text;
-  if (deleting) schedulePoll();
-  else stopPolling();
-}
-
-function schedulePoll() {
-  stopPolling();
-  pollTimer = setTimeout(() => {
-    pollTimer = null;
-    void refresh();
-  }, POLL_MS);
+  if (deleting) deletion.next(mine.remaining, refresh);
+  else deletion.stop();
 }

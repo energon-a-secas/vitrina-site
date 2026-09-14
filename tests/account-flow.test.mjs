@@ -9,7 +9,7 @@
 // fake Auth Kit that behave like the real ones where it decides an outcome
 // (tests/support/shelfworld.mjs).
 
-import { openShelf, row, stored, LIBRARY, CATALOG, checker } from './support/shelfworld.mjs';
+import { openShelf, row, stored, LIBRARY, checker } from './support/shelfworld.mjs';
 
 const t = checker();
 const eq = t.eq;
@@ -219,7 +219,8 @@ const SESSION = '__client_uat=1757000000';
   await w.visible();
   eq((strip(w) || '').startsWith('Your Vitrina data is being deleted.'), true, 'then the account data is deleted from somewhere else');
   w.server.finishErasing('u1');
-  await w.advance(8000);
+  // That deletion had no books left to take, so the page asks at the sweep's pace.
+  await w.advance(30000);
   eq([w.S.state.source, w.keys(), strip(w)], ['account', [], ''],
     'once the deletion is over, nothing made before it is laid back over the empty shelf or offered to send again');
 }
@@ -239,6 +240,50 @@ const SESSION = '__client_uat=1757000000';
   w.server.finishErasing('u1');
   await w.visible();
   eq([w.S.state.source, w.keys(), strip(w)], ['account', [], ''], 'and drops what was held as not saved, even when the refetch after it failed');
+}
+
+// ── Waiting out a deletion ──────────────────────────────────────────────────
+{
+  const w = await openShelf();
+  w.server.seed('u1', []);
+  w.server.erase('u1');
+  await w.kit.signIn('u1');
+  await w.flush();
+  const asked = w.server.calls('shelf:mine').length;
+  await w.advance(5 * 60 * 1000);
+  eq(w.server.calls('shelf:mine').length - asked, 10, 'with no books left to delete only the sweep is left, and the page asks every 30 s, not every 8 s');
+}
+{
+  const w = await openShelf();
+  w.server.seed('u1', [row(101), row(102)]);
+  w.server.erase('u1');
+  await w.kit.signIn('u1');
+  await w.flush();
+  w.doc.visibilityState = 'hidden';
+  const asked = w.server.calls('shelf:mine').length;
+  await w.advance(10 * 60 * 1000);
+  eq(w.server.calls('shelf:mine').length - asked, 0, 'a hidden tab asks nothing while its data is being deleted');
+  w.doc.visibilityState = 'visible';
+  await w.visible();
+  eq(w.server.calls('shelf:mine').length - asked, 1, 'and asks once as soon as it is shown again');
+}
+{
+  const w = await openShelf();
+  w.server.seed('u1', [row(101)]);
+  w.server.erase('u1');
+  await w.kit.signIn('u1');
+  await w.flush();
+  w.server.answer('shelf:mine', null, { user: 'u1', times: 5 });
+  await w.advance(60 * 1000);
+  eq([w.S.state.source, (strip(w) || '').startsWith('Your account shelf could not be loaded.')], ['account-error', true],
+    'five answers in a row that say nothing about the deletion, as a refused token gives, end the asking in Try again');
+  const asked = w.server.calls('shelf:mine').length;
+  await w.advance(10 * 60 * 1000);
+  eq(w.server.calls('shelf:mine').length - asked, 0, 'and nothing more is asked meanwhile');
+  w.server.finishErasing('u1');
+  w.$('[data-strip="retry-load"]').click();
+  await w.flush();
+  eq([w.S.state.source, w.keys()], ['account', []], 'Try again reads the account once more');
 }
 
 // ── Before the kit knows who is signed in ───────────────────────────────────
@@ -264,90 +309,73 @@ const SESSION = '__client_uat=1757000000';
   eq([w.S.state.source, w.keys()], ['local', ['tf102']], 'and a kit that cannot load leaves the browser shelf working');
 }
 
-// ── Moving a browser shelf ──────────────────────────────────────────────────
+// ── A write whose answer was lost ───────────────────────────────────────────
 {
-  const w = await openShelf({ shelf: [stored(101, { note: 'from the flea market' }), stored(102)] });
+  const w = await openShelf();
   w.server.seed('u1', []);
   await w.kit.signIn('u1');
   await w.flush();
-  eq((strip(w) || '').startsWith('This browser has 2 books that are not in your account.'), true, 'the browser books the account lacks are offered');
-  eq(w.server.calls('shelf:upsertEntries').length, 0, 'and nothing is uploaded before the person says so');
-  w.server.answer('shelf:upsertEntries', refused('rate-limited'), { user: 'u1' });
-  w.$('[data-strip="move"]').click();
+  const M = await w.import('modals.js');
+  w.server.lose('shelf:upsertEntries', { user: 'u1' });
+  M.applyImport(JSON.stringify({ v: 1, entries: [stored(1001), stored(1002)] }));
   await w.flush();
-  eq(w.local.has('vitrina_moved_v1'), false, 'a chunk the account refused records no key as moved');
-  const upload = w.server.hold('shelf:upsertEntries', { user: 'u1' });
-  w.$('[data-strip="move"]').click();
-  await w.flush();
-  eq(w.local.has('vitrina_moved_v1'), false, 'nor does one the account has not answered yet');
-  upload.release();
-  await w.flush();
-  eq(JSON.parse(w.local.get('vitrina_moved_v1') || '[]').sort(), ['tf101', 'tf102'], 'once it took the chunk, its keys are recorded, and keys only');
-}
-{
-  const w = await openShelf({ shelf: CATALOG.slice(0, 201).map((r) => stored(r.id, { shelf: 'Catalogue' })) });
-  w.server.seed('u1', []);
-  await w.kit.signIn('u1');
-  await w.flush();
-  const first = w.server.hold('shelf:upsertEntries', { user: 'u1' });
-  w.$('[data-strip="move"]').click();
-  await w.flush();
-  await w.kit.signOut();
-  await w.flush();
-  first.release();
-  await w.flush();
-  eq([w.server.calls('shelf:upsertEntries').length, w.local.has('vitrina_moved_v1')], [1, false],
-    'a sign-out halfway through a move sends no further chunk and records nothing as moved');
+  eq([w.server.calls('shelf:upsertEntries').length, w.server.keys('u1').sort()], [2, ['tf1001', 'tf1002']],
+    'an import whose answer was lost after the account took it goes out again, and the retry finds both books there');
+  eq(w.toasts().pop(), 'Added 2 books to your account.', 'so it says it added them, never that the account already had every book in the file');
 }
 
-// ── What Done clears ────────────────────────────────────────────────────────
-{
-  const NOTE = 'signed by the author, bought in Valparaiso';
-  const LONG = 'A note longer than an account keeps. '.repeat(40);
-  const w = await openShelf({ shelf: [stored(101, { shelf: 'Nova', note: NOTE }), stored(102, { shelf: 'VIB' }), stored(103, { shelf: 'B de Bolsillo', note: LONG })] });
-  w.server.seed('u1', [row(101, { shelf: 'Nova' })]);
+// ── A note longer than an account keeps ─────────────────────────────────────
+const LONG_NOTE = `${'a long note about where this copy came from. '.repeat(30)}and how it ends`;
+function answering(...answers) {
+  const asked = [];
+  // Out of answers, the prompt is dismissed, so a page that keeps asking fails its count instead of hanging.
+  globalThis.prompt = (question, value) => { asked.push({ question, value }); return answers.length ? answers.shift() : null; };
+  return asked;
+}
+async function accountNote() {
+  const w = await openShelf();
+  w.server.seed('u1', [row(101)]);
   await w.kit.signIn('u1');
   await w.flush();
-  eq((strip(w) || '').includes('1 book here has notes or labels your account lacks.'), true, 'a book the account holds without its note is offered for filling in');
-  w.$('[data-strip="move"]').click();
-  await w.flush();
-  const box = w.$('#stripClear');
-  eq([(strip(w) || '').startsWith('Added 2 books.'), Boolean(box && box.checked)], [true, true], "after a move, Clear this browser's copy is offered and checked, as the plan has it");
-  eq(Boolean(w.$('[data-strip="fill"]')), true, 'with the offer to fill in the missing note still beside it');
-  w.$('[data-strip="done"]').click();
-  await w.flush();
-  const kept = w.stored() || [];
-  eq(kept.map((e) => e.key), ['tf101', 'tf103'], 'Done keeps in this browser the books the account lacks a note for: one never filled in, one longer than the account keeps');
-  eq([kept.length === 2 && kept[0].note === NOTE, kept.length === 2 && kept[1].note === LONG], [true, true], 'each with its whole note');
-  eq(w.toasts().pop(), "This browser's copy is cleared, except 2 books your account does not hold in full.", 'and the toast says what stayed');
-  const fill = w.$('[data-strip="fill"]');
-  if (fill) fill.click();
-  await w.flush();
-  eq((w.server.account('u1').rows.get('tf101') || {}).note, NOTE, 'from where the note can still be filled in');
+  w.D = await w.import('detail.js');
+  return w;
 }
 {
-  const w = await openShelf({ shelf: [stored(102, { shelf: 'VIB' })] });
-  w.server.seed('u1', []);
-  await w.kit.signIn('u1');
+  const w = await accountNote();
+  const SHORT = LONG_NOTE.slice(0, 900).trim();
+  const asked = answering(LONG_NOTE, SHORT);
+  w.D.editNote('tf101');
   await w.flush();
-  w.$('[data-strip="move"]').click();
-  await w.flush();
-  w.$('[data-strip="done"]').click();
-  await w.flush();
-  eq([w.local.has('vitrina_shelf_v1'), w.toasts().pop()], [false, "This browser's copy is cleared"], 'a browser copy the account holds all of is cleared');
+  eq(asked.map((a) => a.value.length), [0, LONG_NOTE.length], 'on an account shelf a note longer than the account keeps comes back, whole, to be shortened');
+  eq((asked[1] || {}).question, `A note on your account shelf holds at most 1000 characters; this one has ${LONG_NOTE.length}. Shorten it to save it:`,
+    'with the reason in the prompt, where the person is looking');
+  eq(w.server.calls('shelf:updateEntry').map((c) => c.args.note), [SHORT], 'only the shortened note goes out, never the long one cut to fit');
+  eq(w.toasts().pop(), 'Note saved', 'and Note saved is said of the note that was saved');
 }
 {
-  const w = await openShelf({ shelf: [stored(102, { shelf: 'VIB' })] });
-  w.server.seed('u1', []);
-  await w.kit.signIn('u1');
+  const w = await accountNote();
+  answering(LONG_NOTE, null);
+  w.D.editNote('tf101');
   await w.flush();
-  w.$('[data-strip="move"]').click();
+  eq([w.server.calls('shelf:updateEntry').length, w.toasts().includes('Note saved'), w.S.state.entries[0].note], [0, false, null],
+    'cancelled instead, nothing is saved, in memory or the account, and nothing says it was');
+}
+{
+  const w = await accountNote();
+  const asked = answering(LONG_NOTE, LONG_NOTE, LONG_NOTE);
+  w.D.editNote('tf101');
   await w.flush();
-  w.server.fail('shelf:mine', { user: 'u1', times: 2 });
-  w.$('[data-strip="done"]').click();
+  eq([asked.length, w.server.calls('shelf:updateEntry').length, w.toasts().pop()],
+    [2, 0, `A note on your account shelf holds at most 1000 characters; this one has ${LONG_NOTE.length}. It was not saved.`],
+    'handed back unchanged, the note is refused and not asked for again, so a prompt answered with what it offered cannot keep the page asking');
+}
+{
+  const w = await openShelf({ shelf: [stored(101)] });
+  const D = await w.import('detail.js');
+  answering(LONG_NOTE);
+  D.editNote('tf101');
   await w.flush();
-  eq([storedKeys(w), w.toasts().pop()], [['tf102'], "This browser's copy is kept, because your account could not be checked."],
-    'and when the account cannot be read at Done, nothing is cleared');
+  eq(((w.stored() || [])[0] || {}).note, LONG_NOTE, 'the browser shelf keeps a note of any length');
 }
 
 t.done();

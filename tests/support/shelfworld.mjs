@@ -12,7 +12,7 @@
 //   - fakeKit re-tokens the clients bound to it before it tells listeners, as
 //     refresh() in js/neorgon-auth.js awaits syncClients() before commit().
 //   - fakeServer answers from the token's user, as convex/lib does from the
-//     identity, and a gate can hold, fail or replace one request.
+//     identity, and a gate can hold, fail, lose the answer to or replace one request.
 //   - time only moves when a test advances the fake clock.
 
 import { copyFileSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
@@ -165,6 +165,7 @@ const HANDLERS = {
   'profiles:claimHandle'(server, user, args) {
     if (!user) return fail('not-signed-in');
     const a = server.account(user);
+    if (a.profile && a.profile.handle === args.handle) return fail('same-handle');   // as claimHandleCore
     a.profile = { published: false, suspended: false, ...(a.profile || {}), handle: args.handle };
     return { ok: true, handle: args.handle };
   },
@@ -217,6 +218,7 @@ export function fakeServer({ publishingOpen = false } = {}) {
     hold: (name, options = {}) => gate(name, { ...options, held: true }),
     fail: (name, options = {}) => gate(name, { ...options, mode: 'throw' }),
     answer: (name, value, options = {}) => gate(name, { ...options, mode: 'answer', value }),
+    lose: (name, options = {}) => gate(name, { ...options, mode: 'lost' }),   // reaches the account, then throws on the way back
     async request(kind, name, args, auth) {
       const user = typeof auth === 'string' && auth.startsWith('tok:') ? auth.split(':')[1] : null;
       server.log.push({ kind, name, user, args: clone(args || {}) });
@@ -226,6 +228,7 @@ export function fakeServer({ publishingOpen = false } = {}) {
       if (g && g.mode === 'answer') { await g.opened; return clone(g.value); }
       const answer = clone(HANDLERS[name](server, user, args || {}));
       await (g ? g.opened : null);
+      if (g && g.mode === 'lost') throw new Error('the connection dropped after the account took the request');
       return answer;
     },
   };
@@ -405,7 +408,7 @@ function storage(map) {
  * A generated page with a fresh copy of the modules, hydrated as app.js does.
  * page is 'shelf' or 'u'. The test then starts account.js or profile.js.
  */
-export async function openWorld({ page = 'shelf', search = '', cookie = '', shelf = null, publishingOpen = false, kitLoadFails = false, mintDelay = 0, syncDelay = 0 } = {}) {
+export async function openWorld({ page = 'shelf', search = '', cookie = '', shelf = null, publishingOpen = false, kitLoadFails = false, mintDelay = 0, syncDelay = 0, reloadOf = null } = {}) {
   const clock = fakeClock();
   const doc = new Document(readFileSync(join(ROOT, page, 'index.html'), 'utf8'));
   doc.cookie = cookie;
@@ -422,6 +425,8 @@ export async function openWorld({ page = 'shelf', search = '', cookie = '', shel
     if (kitLoadFails) throw new Error('the kit did not load');
     return { NeoAuth: world.kit };
   };
+  // reloadOf is an earlier page in the same tab, and this one opens on its localStorage and sessionStorage.
+  if (reloadOf) ['local', 'session'].forEach((store) => reloadOf[store].forEach((value, key) => world[store].set(key, value)));
   if (shelf) world.local.set('vitrina_shelf_v1', JSON.stringify({ v: 1, entries: shelf }));
 
   const g = globalThis;

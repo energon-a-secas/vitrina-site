@@ -1,15 +1,17 @@
 // Plain node, no install. Run with: make validate
 //
-// js/accountplan.js decides what the account, a shared shelf and the Share
-// dialog say, and which answer the page believes. None of it fails loudly: a
-// toast that names no book still shows, a banner with the wrong precedence
-// still renders, an anonymous answer painted over the owner's looks like a
-// working page. So each rule is pinned here, with every combination the plan
-// names (sections 3.1, 3.6 and 3.7), and a few static checks hold the modules
-// that cannot run in node to the parts of the contract a source scan can see.
+// js/accountplan.js and js/profileplan.js decide what the account, a shared
+// shelf and the Share dialog say, and which answer the page believes. None of
+// it fails loudly: a toast that names no book still shows, a banner with the
+// wrong precedence still renders, an anonymous answer painted over the owner's
+// looks like a working page. So each rule is pinned here, with every
+// combination the plan names (sections 3.1, 3.6 and 3.7), and a few static
+// checks hold the modules that cannot run in node to the parts of the contract
+// a source scan can see.
 
 import { readFileSync } from 'node:fs';
 import * as A from '../js/accountplan.js';
+import * as P from '../js/profileplan.js';
 import { CALL_MAX, MAX_ENTRIES, MISSING_TITLE, indexById } from '../js/syncplan.js';
 import { handleFromSearch } from '../js/handles.js';
 
@@ -66,6 +68,13 @@ eq(A.batchToast('seed', { added: 39 }), 'Added 39 books from the demo shelf to y
 eq(A.batchToast('seed', { added: 0 }), 'Your account already has every book on the demo shelf.', 'a seed with nothing new');
 eq(A.batchToast('fill', { filled: 2 }), 'Filled in notes or labels on 2 books.', 'a fill');
 eq([A.batchToast('add', { added: 1 }), A.batchToast('retry', { added: 1 })], [null, null], 'a single add said so when it was made, so it says nothing more');
+eq([A.batchToast('move', { added: 2 }), A.batchToast('move', { added: 1 })], ['Added 2 books.', 'Added 1 book.'], 'the move strip says what the move added');
+// resent: books skipped in the answer to a retried request, which its first request may have put there.
+eq(A.batchToast('move', { added: 0, skipped: 2, resent: 2 }), 'Added 2 books.', 'a move retried after its first request went through still added its books, not 0');
+eq(A.batchToast('import', { added: 0, skipped: 5, resent: 5 }), 'Added 5 books to your account.', 'an import retried that way added them, and the account did not already have them');
+eq(A.batchToast('import', { added: 3, skipped: 4, resent: 2 }), 'Added 5 books to your account. 2 were already on it.', 'while a book skipped on a first request was already on it');
+eq(A.batchToast('seed', { added: 0, skipped: 39, resent: 39 }), 'Added 39 books from the demo shelf to your account. Take off what you do not own.', 'the demo seed reads the same');
+eq(A.batchToast('fill', { filled: 0, skipped: 2, resent: 2 }), 'Filled in notes or labels on 2 books.', 'and so does a fill, whose retry finds the fields already filled');
 
 eq([A.listTitles([]), A.listTitles(['A']), A.listTitles(['A', 'B']), A.listTitles(['A', 'B', 'C']), A.listTitles(['A', 'B', 'C', 'D', 'E'])],
   ['', 'A', 'A and B', 'A, B and C', 'A, B, C and 2 more'], 'a list of titles stays one line');
@@ -92,7 +101,13 @@ const complete = await A.uploadInChunks(rows, {
 });
 eq([complete.status, sizes, complete.sent, recorded], ['done', [200, 200, 1], 401, ['tf1', 'tf201', 'tf401']],
   '401 books go as 200, 200 and 1, each recorded once the account took it');
-eq(complete.totals, { added: 398, skipped: 3, filled: 0, total: 1000 }, 'and the totals are summed over the chunks');
+eq(complete.totals, { added: 398, skipped: 3, filled: 0, resent: 0, total: 1000 }, 'and the totals are summed over the chunks');
+const retriedChunk = await A.uploadInChunks(rows, {
+  generation: () => 1,
+  send: async (chunk) => (chunk[0].key === 'tf201' ? { ...took(chunk), added: 0, skipped: chunk.length, retried: true } : took(chunk)),
+});
+eq(retriedChunk.totals, { added: 199, skipped: 202, filled: 0, resent: 200, total: 1000 },
+  'books skipped in the answer to a retried request are summed as resent, apart from the ones a first request skipped');
 
 const between = [];
 const stopped = await A.uploadInChunks(rows, {
@@ -223,10 +238,16 @@ eq([client.log, kit.log], [[['setAuth', 'cached-token'], ['query', 'shelf:mine']
 
 kit = fakeKit();
 client = fakeClient([new Error('401'), { ok: true, removed: true }]);
-eq(await settled(A.authedCall(async () => client, kit)('mutation', 'shelf:removeEntry', { key: 'tf1' })), { ok: true, removed: true }, 'a request that throws is retried once');
+eq(await settled(A.authedCall(async () => client, kit)('mutation', 'shelf:removeEntry', { key: 'tf1' })), { ok: true, removed: true, retried: true },
+  'a request that throws is retried once, and a retried write says so, since its first request may have reached the account');
 eq(client.log, [['setAuth', 'cached-token'], ['mutation', 'shelf:removeEntry'], ['setAuth', 'fresh-token'], ['mutation', 'shelf:removeEntry']],
   'with a fresh token set before the retry');
 eq(kit.log.filter((entry) => entry[0] === 'getToken'), [['getToken', { template: 'convex', skipCache: true }]], 'minted once, from the convex template, past the cache');
+kit = fakeKit();
+client = fakeClient([new Error('401'), { ok: true }]);
+eq(await settled(A.authedCall(async () => client, kit)('query', 'shelf:mine', {})), { ok: true }, 'a retried query changes nothing on the account, so its answer comes back as it was');
+client = fakeClient([{ ok: true }]);
+eq(await settled(A.authedCall(async () => client, fakeKit())('mutation', 'shelf:removeEntry', {})), { ok: true }, 'and so does a write that went out once');
 
 kit = fakeKit();
 client = fakeClient([new Error('first'), new Error('second')]);
@@ -332,7 +353,7 @@ eq([A.holderOf(kit), A.holderOf(switchingKit()), A.holderOf(fakeKit({ session: f
   eq([turn, started], [null, [1, 2]], 'and one whose shelf changed hands before its turn is dropped unsent');
 }
 // ── /u/ ─────────────────────────────────────────────────────────────────────
-eq(A.PROFILE_COPY, {
+eq(P.PROFILE_COPY, {
   loading: 'Loading this shelf',
   missing: 'This link is missing the shelf name, which goes after the question mark.',
   unavailable: 'No public shelf at this address. It may not exist, or its owner keeps it private.',
@@ -342,38 +363,38 @@ eq(A.PROFILE_COPY, {
 
 const at = handleFromSearch;
 const shelfReply = (books, extra = {}) => ({ n: 1, authed: false, value: { handle: 'ana', books, ...extra } });
-eq([A.profileState(at(''), null), A.profileState(at('?theme=matrix'), null)], ['missing', 'missing'], 'a link naming no shelf is Missing, a kit key alone included');
-eq(A.profileState(at('?al%20ice'), null), 'unavailable', 'a name that can never be a handle is Unavailable, before any request');
-eq(A.profileState(at('?al%20ice'), shelfReply([{ id: 1 }])), 'unavailable', 'whatever a reply says');
-eq(A.profileState(at('?ana'), null), 'loading', 'a valid handle with no reply yet is Loading');
-eq(A.profileState(at('?ana'), { n: 1, authed: false, error: true }), 'error', 'a request that threw is Error');
-eq([A.profileState(at('?ana'), { n: 1, value: null }), A.profileState(at('?ana'), { n: 1, value: 'nonsense' })], ['unavailable', 'unavailable'],
+eq([P.profileState(at(''), null), P.profileState(at('?theme=matrix'), null)], ['missing', 'missing'], 'a link naming no shelf is Missing, a kit key alone included');
+eq(P.profileState(at('?al%20ice'), null), 'unavailable', 'a name that can never be a handle is Unavailable, before any request');
+eq(P.profileState(at('?al%20ice'), shelfReply([{ id: 1 }])), 'unavailable', 'whatever a reply says');
+eq(P.profileState(at('?ana'), null), 'loading', 'a valid handle with no reply yet is Loading');
+eq(P.profileState(at('?ana'), { n: 1, authed: false, error: true }), 'error', 'a request that threw is Error');
+eq([P.profileState(at('?ana'), { n: 1, value: null }), P.profileState(at('?ana'), { n: 1, value: 'nonsense' })], ['unavailable', 'unavailable'],
   'null is Unavailable, identical for every cause, and so is anything that is not a shelf');
-eq(A.profileState(at('?ana'), shelfReply([])), 'empty', 'a shelf with no books is Empty');
-eq(A.profileState(at('?ana'), shelfReply([{ id: 'x' }, { id: -4 }, null])), 'empty', 'and so is one whose books carry no usable catalogue id');
-eq(A.profileState(at('?ana'), shelfReply([{ id: 622, shelf: 'Nova' }])), 'shelf', 'a shelf with books is Shelf');
-eq(A.profileState(at('?ana'), shelfReply([], { isOwner: true, published: false, suspended: false, publishingOpen: false })), 'empty', "an owner's empty shelf is Empty too");
+eq(P.profileState(at('?ana'), shelfReply([])), 'empty', 'a shelf with no books is Empty');
+eq(P.profileState(at('?ana'), shelfReply([{ id: 'x' }, { id: -4 }, null])), 'empty', 'and so is one whose books carry no usable catalogue id');
+eq(P.profileState(at('?ana'), shelfReply([{ id: 622, shelf: 'Nova' }])), 'shelf', 'a shelf with books is Shelf');
+eq(P.profileState(at('?ana'), shelfReply([], { isOwner: true, published: false, suspended: false, publishingOpen: false })), 'empty', "an owner's empty shelf is Empty too");
 
 const anon = (n) => ({ n, authed: false, value: { handle: 'ana', books: [] } });
 const owner = (n) => ({ n, authed: true, value: { handle: 'ana', books: [], isOwner: true } });
 const broke = (n, authed) => ({ n, authed, error: true });
-eq(A.replyWins(null, anon(1)), true, 'the first reply is shown');
-eq(A.replyWins(anon(1), owner(2)), true, 'a token reply replaces an anonymous one that landed first');
-eq(A.replyWins(owner(2), anon(1)), false, 'an anonymous reply landing after a token reply does not replace it');
-eq(A.replyWins(owner(1), anon(2)), false, 'whatever its number: the anonymous request may simply have gone out later');
-eq([A.replyWins(owner(1), owner(3)), A.replyWins(owner(3), owner(1))], [true, false], 'between token replies the newer wins');
-eq([A.replyWins(anon(1), anon(2)), A.replyWins(anon(2), anon(1))], [true, false], 'and between anonymous ones');
-eq([A.replyWins(anon(1), broke(2, true)), A.replyWins(owner(1), broke(2, false))], [false, false], 'a failure never replaces an answer on screen');
-eq([A.replyWins(broke(1, false), anon(2)), A.replyWins(broke(1, false), broke(2, true))], [true, true], 'an answer replaces a failure, and a token failure an anonymous one');
-eq(A.replyWins(null, owner(4), 5), false, 'a reply for a viewer who has since signed out or changed is dropped');
-eq(A.replyWins(owner(4), anon(5), 5), true, 'and what that viewer left on screen gives way');
+eq(P.replyWins(null, anon(1)), true, 'the first reply is shown');
+eq(P.replyWins(anon(1), owner(2)), true, 'a token reply replaces an anonymous one that landed first');
+eq(P.replyWins(owner(2), anon(1)), false, 'an anonymous reply landing after a token reply does not replace it');
+eq(P.replyWins(owner(1), anon(2)), false, 'whatever its number: the anonymous request may simply have gone out later');
+eq([P.replyWins(owner(1), owner(3)), P.replyWins(owner(3), owner(1))], [true, false], 'between token replies the newer wins');
+eq([P.replyWins(anon(1), anon(2)), P.replyWins(anon(2), anon(1))], [true, false], 'and between anonymous ones');
+eq([P.replyWins(anon(1), broke(2, true)), P.replyWins(owner(1), broke(2, false))], [false, false], 'a failure never replaces an answer on screen');
+eq([P.replyWins(broke(1, false), anon(2)), P.replyWins(broke(1, false), broke(2, true))], [true, true], 'an answer replaces a failure, and a token failure an anonymous one');
+eq(P.replyWins(null, owner(4), 5), false, 'a reply for a viewer who has since signed out or changed is dropped');
+eq(P.replyWins(owner(4), anon(5), 5), true, 'and what that viewer left on screen gives way');
 
-eq([A.isPublicShelf({ handle: 'ana', books: [] }), A.isPublicShelf({ handle: 'ana', books: [], isOwner: true }), A.isPublicShelf(null), A.isPublicShelf(undefined)],
+eq([P.isPublicShelf({ handle: 'ana', books: [] }), P.isPublicShelf({ handle: 'ana', books: [], isOwner: true }), P.isPublicShelf(null), P.isPublicShelf(undefined)],
   [true, false, false, false], 'only a shelf that is not the owner view is public');
 
 const LIBRARY = indexById([{ id: 622, title: 'Premio UPC 1991', shelf: 'Nova', listed_as: 'Nova ciencia ficción', note_mine: "the maintainer's copy" }]);
 const CATALOG = indexById([{ id: 900, title: 'Only in the catalogue' }]);
-const shared = A.publicEntries({ handle: 'ana', books: [
+const shared = P.publicEntries({ handle: 'ana', books: [
   { id: 622, shelf: 'Leídos', note: 'a note that must not arrive', listedAs: 'x', added: '2026-09-01' },
   { id: 622, shelf: 'again' },
   { id: '900' }, { id: -1 }, null,
@@ -384,13 +405,13 @@ eq(shared.map((e) => [e.key, e.shelf]), [['tf622', 'Leídos'], ['tf900', null], 
 eq(shared.every((e) => e.note === null && e.listed_as === null && e.added === null), true, 'and no note, listed_as or date, whatever the answer carried');
 eq(['listed_as', 'note', 'note_mine', 'shelf'].filter((field) => field in (shared[0] || { record: {} }).record), [], "nor the maintainer's own fields from library.json");
 eq((shared[2] || { record: {} }).record.title, MISSING_TITLE, 'an id in neither data file is drawn as a book no longer in the catalogue');
-eq(A.publicEntries(null, LIBRARY, CATALOG), [], 'no shelf, no entries');
+eq(P.publicEntries(null, LIBRARY, CATALOG), [], 'no shelf, no entries');
 
 const kinds = [];
 for (const suspended of [false, true]) {
   for (const publishingOpen of [false, true]) {
     for (const published of [false, true]) {
-      const banner = A.ownerBanner({ handle: 'ana', books: [], isOwner: true, suspended, publishingOpen, published });
+      const banner = P.ownerBanner({ handle: 'ana', books: [], isOwner: true, suspended, publishingOpen, published });
       kinds.push(`${suspended ? 'suspended' : '-'}/${publishingOpen ? 'open' : 'closed'}/${published ? 'published' : 'private'}: ${banner ? banner.kind : null}`);
     }
   }
@@ -399,17 +420,17 @@ eq(kinds, [
   '-/closed/private: closed', '-/closed/published: closed', '-/open/private: private', '-/open/published: published',
   'suspended/closed/private: suspended', 'suspended/closed/published: suspended', 'suspended/open/private: suspended', 'suspended/open/published: suspended',
 ], 'the owner banner, for every combination: suspended, then closed, then private, then published');
-eq(['suspended', 'closed', 'private', 'published'].map((kind) => A.OWNER_COPY[kind]), [
+eq(['suspended', 'closed', 'private', 'published'].map((kind) => P.OWNER_COPY[kind]), [
   'A moderator has hidden this shelf. Nobody else can see it.',
   'Public shelves are not open yet. Nobody else can see this page.',
   'Only you can see this shelf.',
   'This is what others see.',
 ], 'each says what the plan says');
-eq((A.ownerBanner({ handle: 'ana', books: [], isOwner: true, suspended: false, publishingOpen: true, published: true }) || {}).note,
+eq((P.ownerBanner({ handle: 'ana', books: [], isOwner: true, suspended: false, publishingOpen: true, published: true }) || {}).note,
   'Books added by hand, notes and dates are never shown here.', 'and every owner banner adds what is never shown');
-eq([A.ownerBanner({ handle: 'ana', books: [] }), A.ownerBanner({ handle: 'ana', books: [], isOwner: 'true' }), A.ownerBanner(null)], [null, null, null],
+eq([P.ownerBanner({ handle: 'ana', books: [] }), P.ownerBanner({ handle: 'ana', books: [], isOwner: 'true' }), P.ownerBanner(null)], [null, null, null],
   'nobody but the owner gets a banner');
-eq((A.ownerBanner({ handle: 'ana', books: [], isOwner: true }) || {}).kind, 'closed', 'an owner view missing its flags reads as nobody else seeing it');
+eq((P.ownerBanner({ handle: 'ana', books: [], isOwner: true }) || {}).kind, 'closed', 'an owner view missing its flags reads as nobody else seeing it');
 
 // ── The Share dialog ────────────────────────────────────────────────────────
 const mine = (extra) => ({ erasing: false, profile: null, entries: [], count: 0, max: 2000, truncated: false, publishingOpen: false, ...extra });
@@ -445,12 +466,12 @@ eq([A.deletionCopy({ erasing: true, remaining: 1200 }), A.deletionCopy({ erasing
 const JS = new URL('../js/', import.meta.url);
 const read = (name) => readFileSync(new URL(name, JS), 'utf8');
 const writes = [];
-for (const name of ['account.js', 'strips.js', 'profile.js', 'share.js', 'session.js', 'accountplan.js', 'keyguard.js']) {
+for (const name of ['account.js', 'strips.js', 'profile.js', 'share.js', 'session.js', 'accountplan.js', 'profileplan.js', 'erasing.js', 'keyguard.js']) {
   const code = read(name);
   for (const match of code.matchAll(/localStorage\.(setItem|removeItem)\(\s*([^,)]+)/g)) writes.push(`${name} ${match[1]} ${match[2].trim()}`);
   if (code.includes('vitrina_shelf_v1')) writes.push(`${name} names vitrina_shelf_v1`);
 }
-eq(writes, ['strips.js setItem MOVED'], 'the account modules write one localStorage key, and never the shelf');
+eq(Array.from(new Set(writes)), ['strips.js setItem MOVED', 'strips.js removeItem MOVED'], 'the account modules write and remove one localStorage key, and never the shelf');
 eq(read('strips.js').includes("const MOVED = 'vitrina_moved_v1';"), true, 'and that key is vitrina_moved_v1');
 
 const profile = read('profile.js');
