@@ -26,12 +26,12 @@ export const RESERVED_HANDLES = Object.freeze([
 ]);
 
 // Whole hyphen-separated segments only, so "steam" and "badminton" stay free.
-const ROLE_WORDS = Object.freeze([
+export const ROLE_WORDS = Object.freeze([
   'admin', 'administrador', 'administrator', 'staff', 'team', 'equipo', 'mod', 'moderator', 'moderador',
   'official', 'oficial', 'support', 'soporte', 'help', 'ayuda',
 ]);
 
-const BRANDS = Object.freeze(['neorgon', 'energon', 'vitrina', 'tercerafundacion']);
+export const BRANDS = Object.freeze(['neorgon', 'energon', 'vitrina', 'tercerafundacion']);
 
 export const HANDLE_MESSAGES = Object.freeze({
   'handle-invalid': 'Letters a to z without accents or ñ, digits and single hyphens, 3 to 30 characters, not only digits.',
@@ -40,7 +40,7 @@ export const HANDLE_MESSAGES = Object.freeze({
 
 // Query keys the header kit reads for itself. "?theme=matrix&ana" is Ana's
 // shelf in the Matrix palette, not a shelf called theme.
-const KIT_KEYS = Object.freeze(['theme', 'header', 'footer', 'via', 'src', 'yaml']);
+export const KIT_KEYS = Object.freeze(['theme', 'header', 'footer', 'via', 'src', 'yaml']);
 
 export function normalizeHandle(raw) {
   if (typeof raw !== 'string') return '';

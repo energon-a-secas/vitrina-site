@@ -13,8 +13,14 @@
 //
 // The timestamp window is not checked here. clerkWebhookCore owns it, with the
 // clock passed in, so a test can hold the time still.
+//
+// Every byte array here is typed Uint8Array<ArrayBuffer>. Since TypeScript 5.7
+// a bare Uint8Array means Uint8Array<ArrayBufferLike>, which Web Crypto's
+// BufferSource refuses, and the Convex CLI fails a push on that error once
+// typescript is installed. tests/convex-contract.test.mjs keeps the bare
+// spelling out of convex/.
 
-function base64ToBytes(text: string): Uint8Array {
+function base64ToBytes(text: string): Uint8Array<ArrayBuffer> {
   const binary = atob(text);
   const bytes = new Uint8Array(binary.length);
   for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
@@ -32,7 +38,7 @@ export async function verifySvixSignature(
   // secret pasted without it would otherwise fail every delivery, and Svix
   // disables an endpoint after five days of failures.
   const encoded = secret.startsWith("whsec_") ? secret.slice("whsec_".length) : secret;
-  let keyBytes: Uint8Array;
+  let keyBytes: Uint8Array<ArrayBuffer>;
   try {
     keyBytes = base64ToBytes(encoded);
   } catch {
@@ -48,7 +54,7 @@ export async function verifySvixSignature(
   for (const part of signatureHeader.split(" ")) {
     const comma = part.indexOf(",");
     if (comma < 0 || part.slice(0, comma) !== "v1") continue;
-    let signature: Uint8Array;
+    let signature: Uint8Array<ArrayBuffer>;
     try {
       signature = base64ToBytes(part.slice(comma + 1));
     } catch {

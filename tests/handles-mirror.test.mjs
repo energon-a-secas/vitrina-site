@@ -2,9 +2,10 @@
 //
 // convex/lib/handles.ts decides what may be claimed; js/handles.js tells the
 // person first, in the Share dialog. Two copies of a rule list drift, so this
-// imports both and runs one corpus through each. It also pins what each case
-// must answer, because two copies that agree on a wrong answer would pass a
-// comparison on its own.
+// imports both, compares every list they hold and runs one corpus through
+// each. It also pins each list and what each case must answer against plan
+// section 3.5, because two copies that agree on a wrong answer, or that both
+// lost the same word, would pass a comparison on its own.
 
 import * as server from '../convex/lib/handles.ts';
 import * as browser from '../js/handles.js';
@@ -16,10 +17,27 @@ function eq(actual, expected, what) {
   else console.log(`ok   ${what}`);
 }
 
+// The lists as plan section 3.5 writes them.
+const CONTRACT_RESERVED = ('u shelf demo privacy tos admin api www css js data assets docs scripts tests templates index sitemap robots ' +
+  'llms favicon manifest static img theme header footer via src yaml login logout signin sign-in signup sign-up account accounts auth ' +
+  'oauth session clerk convex vitrina neorgon energon tercerafundacion tercera-fundacion la-tercera-fundacion owner official staff team ' +
+  'mod moderator security abuse report legal terms contact about me you anon anonymous null undefined test help support settings system ' +
+  'user users profile root verify claim embed policy ayuda soporte privacidad terminos cuenta usuario usuarios perfil administrador ' +
+  'estanteria biblioteca catalogo prueba').split(' ');
+const CONTRACT_ROLE_WORDS = ('admin administrador administrator staff team equipo mod moderator moderador official oficial support ' +
+  'soporte help ayuda').split(' ');
+const CONTRACT_BRANDS = ['neorgon', 'energon', 'vitrina', 'tercerafundacion'];
+const CONTRACT_KIT_KEYS = ['theme', 'header', 'footer', 'via', 'src', 'yaml'];
+
 // ── The rules are the same rules ────────────────────────────────────────────
 eq(browser.HANDLE_RE.source, server.HANDLE_RE.source, 'both modules use the same handle pattern');
 eq(browser.HANDLE_RE.flags, server.HANDLE_RE.flags, 'with the same flags');
 eq([...browser.RESERVED_HANDLES], [...server.RESERVED_HANDLES], 'and the same reserved words');
+eq([...server.RESERVED_HANDLES], CONTRACT_RESERVED, 'the reserved words are the ones plan section 3.5 lists');
+eq([...browser.ROLE_WORDS], [...server.ROLE_WORDS], 'both modules use the same role words');
+eq([...server.ROLE_WORDS], CONTRACT_ROLE_WORDS, 'the role words are the ones plan section 3.5 lists');
+eq([...browser.BRANDS], [...server.BRANDS], 'both modules use the same brands');
+eq([...server.BRANDS], CONTRACT_BRANDS, 'the brands are the ones plan section 3.5 lists');
 eq(Object.isFrozen(server.RESERVED_HANDLES) && Object.isFrozen(browser.RESERVED_HANDLES), true, 'both reserved lists are frozen');
 eq(browser.HANDLE_MESSAGES, server.HANDLE_MESSAGES, 'and both say the same thing about a refused handle');
 
@@ -65,8 +83,15 @@ for (const word of server.RESERVED_HANDLES) {
 for (const lookalike of ['neorg0n', 'vitr1na', 'latercerafundacion', 'en3rg0n', 'ne-org-on', 't3rc3r4fund4c10n', 'my-vitrina']) {
   check(lookalike, RESERVED, `the brand lookalike ${lookalike}`);
 }
+for (const brand of CONTRACT_BRANDS) {
+  check('mi' + brand, RESERVED, `a handle containing the brand ${brand}`);
+}
 for (const role of ['vitrina-team', 'tf-oficial', 'moderador', 'shop-admin', 'ayuda-libros']) {
   check(role, RESERVED, `the role handle ${role}`);
+}
+for (const word of CONTRACT_ROLE_WORDS) {
+  // As one segment of a longer handle, which the reserved list alone never catches.
+  check('libros-' + word, RESERVED, `the role segment ${word}`);
 }
 for (const fine of ['modesto', 'steam', 'badminton', 'tf-lector', 'l1bros']) {
   check(fine, null, `${fine}, which only contains a role word or a digit`);
@@ -96,6 +121,16 @@ eq(at('?theme=matrix'), none, 'a kit parameter alone names no shelf');
 eq(at('?theme'), none, 'nor does a bare kit key');
 eq(at('?fbclid=x'), none, 'nor does a parameter with a value');
 eq(at(undefined), none, 'nor does no search at all');
+
+eq([...browser.KIT_KEYS], CONTRACT_KIT_KEYS, 'the header kit keys are the six plan section 3.5 lists');
+for (const key of CONTRACT_KIT_KEYS) {
+  // Every kit key is also a reserved handle, so a kit key read as the handle
+  // would name nobody instead of Ana.
+  eq(at(`?${key}&ana`), shelf('ana'), `the bare kit key ${key} is skipped`);
+  eq(at(`?${key}=&ana=`), shelf('ana'), `and so is ${key}= in the key= pass`);
+}
+eq(at('?%61na'), shelf('ana'), 'a percent-encoded letter is decoded before it is judged');
+eq(at('?%74heme&ana'), shelf('ana'), 'and a percent-encoded kit key is still a kit key');
 
 console.log(failed ? `\n${failed} failed` : '\nall passed');
 process.exit(failed ? 1 : 0);

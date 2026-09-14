@@ -16,16 +16,25 @@ PUBLISHING says, because a public shelf there is a real page. It never uses a
 real person's subject, and it refuses to run if its own synthetic subject is an
 admin, because it ends by erasing everything that subject owns. Every run ends
 with deleteMyData and waits for the erasure to finish, so it leaves nothing
-behind except the handle's 30-day hold.
+behind except the handle's 30-day hold. A run that fails after its claim still
+calls deleteMyData on the way out, without waiting for it.
+
+That hold is why a second prod run on the same UTC day cannot claim
+smoke-YYYYMMDD again, and the smoke subject is no admin, so it cannot release
+the hold. Such a run stops and says so; run it again with --handle, for example
+--handle smoke-YYYYMMDD-2, or any other smoke- handle nobody holds.
 
 No environment value is ever printed. PUBLISHING and ADMIN_SUBJECTS are read
 into memory to decide what to check, and only a yes or no about them is shown.
+
+tests/convex-smoke.test.py covers what this script decides without a deployment.
 """
 
 import argparse
 import datetime
 import json
 import os
+import re
 import shlex
 import subprocess
 import sys
@@ -41,6 +50,10 @@ FORBIDDEN = {"clerkSubject", "subject", "_id", "_creationTime", "note", "listedA
 
 DEV_ADMIN = "user_vitrina_dev_admin"
 PROD_SUBJECT = "user_vitrina_smoke"
+
+# HANDLE_RE from convex/lib/handles.ts. --handle is checked against it only so
+# a typo fails before anything is called; the server still decides.
+HANDLE_RE = re.compile(r"[a-z0-9](?:[a-z0-9]|-(?=[a-z0-9])){2,29}")
 
 
 class SmokeFailure(Exception):
@@ -78,6 +91,10 @@ class Smoke:
         self.prod = prod
         self.dry_run = dry_run
         self.checks = 0
+        # The subject this run's claim gave a handle, so a failure after the
+        # claim can erase what the run wrote. None until a claim answers ok or
+        # same-handle.
+        self.owner = None
 
     # ── talking to the deployment ────────────────────────────────────────────
 
@@ -110,6 +127,31 @@ class Smoke:
         cmd = ["env", "get"] + (["--prod"] if self.prod else []) + [name]
         out = self._npx(cmd)
         return (out or "").strip()
+
+    def claim(self, handle, subject):
+        """claimHandle, remembering the subject once it holds a handle."""
+        claimed = self.run("profiles:claimHandle", {"handle": handle}, subject)
+        if isinstance(claimed, dict) and (claimed.get("ok") is True or claimed.get("code") == "same-handle"):
+            self.owner = subject
+        return claimed
+
+    def erase_after_failure(self):
+        """Start erasing what a failed run wrote. Never raises; says what happened."""
+        if self.dry_run or self.owner is None:
+            return
+        try:
+            answer = self.run("profiles:deleteMyData", {}, self.owner)
+            started = isinstance(answer, dict) and answer.get("ok") is True
+        except Exception:
+            started = False
+        if started:
+            print("\nThe run failed after its claim, so deleteMyData was called for %s. The erasure finishes"
+                  " on its own, and the handle stays held for 30 days." % self.owner, file=sys.stderr)
+        else:
+            identity = shlex.quote(json.dumps({"subject": self.owner, "issuer": ISSUER}))
+            print("\nThe run failed after its claim, and deleteMyData could not be called. Call it by hand:\n"
+                  "  npx convex run%s --identity %s profiles:deleteMyData '{}'"
+                  % (" --prod" if self.prod else "", identity), file=sys.stderr)
 
     # ── checking ─────────────────────────────────────────────────────────────
 
@@ -177,6 +219,23 @@ def entries_for(catalogue_id):
     ]
 
 
+def refused_claim(handle, claimed):
+    """The failure for a prod claim that neither succeeded nor found the subject's own handle."""
+    code = claimed.get("code") if isinstance(claimed, dict) else None
+    retry = "run again with --handle %s-2, or any other smoke- handle nobody holds" % handle
+    if code == "handle-taken":
+        return SmokeFailure(
+            "claimHandle answered handle-taken for %s. A run earlier today erased the smoke subject, and an erased"
+            " handle is held for 30 days; the smoke subject is no admin, so it cannot release the hold. To test again"
+            " today, %s." % (handle, retry))
+    if code == "erasing":
+        return SmokeFailure(
+            "claimHandle answered erasing: an earlier run's erasure of the smoke subject is still finishing, and"
+            " purge:sweep ends it about 5 minutes after the shelf empties. Wait for that. If that run claimed %s as"
+            " well, the handle is held now, so %s." % (handle, retry))
+    return SmokeFailure("claimHandle refused %s: %s" % (handle, json.dumps(claimed)))
+
+
 def dev_path(s, stamp, catalogue_id):
     subject = "user_vitrinadev%s" % stamp
     stranger = "user_vitrinadevb%s" % stamp
@@ -190,7 +249,7 @@ def dev_path(s, stamp, catalogue_id):
             lambda: DEV_ADMIN in [a.strip() for a in admins.split(",")])
 
     print("\nClaim, fill, publish")
-    claimed = s.run("profiles:claimHandle", {"handle": handle.upper()}, subject)
+    claimed = s.claim(handle.upper(), subject)
     s.check("claimHandle answers ok with the normalised handle",
             lambda: claimed.get("ok") is True and claimed.get("handle") == handle)
     added = s.run("shelf:upsertEntries", {"entries": entries_for(catalogue_id)}, subject)
@@ -244,9 +303,10 @@ def dev_path(s, stamp, catalogue_id):
     s.check("an admin can release the hold", lambda: released.get("ok") is True)
 
 
-def prod_path(s, stamp, catalogue_id):
+def prod_path(s, stamp, catalogue_id, handle=None):
     subject = PROD_SUBJECT
-    handle = "smoke-%s" % stamp[:8]
+    # The plan's handle (section 4 step 7.5), unless --handle names another.
+    handle = handle or "smoke-%s" % stamp[:8]
 
     print("\nPreconditions on prod")
     admins = s.env_value("ADMIN_SUBJECTS")
@@ -257,8 +317,10 @@ def prod_path(s, stamp, catalogue_id):
         print("  PUBLISHING on prod is %s" % ("open" if publishing == "open" else "not open"))
 
     print("\nClaim and fill, never publish")
-    claimed = s.run("profiles:claimHandle", {"handle": handle}, subject)
-    s.check("claimHandle answers ok (or same-handle from an earlier run today)",
+    claimed = s.claim(handle, subject)
+    if not s.dry_run and s.owner is None:
+        raise refused_claim(handle, claimed)
+    s.check("claimHandle answers ok (or same-handle, left by an earlier run today that could not erase)",
             lambda: claimed.get("ok") is True or claimed.get("code") == "same-handle")
     added = s.run("shelf:upsertEntries", {"entries": entries_for(catalogue_id)}, subject)
     s.check("upsertEntries answers ok", lambda: added.get("ok") is True)
@@ -280,19 +342,39 @@ def prod_path(s, stamp, catalogue_id):
     s.wait_for_erasure(subject)
 
 
+def run_smoke(s, stamp, catalogue_id, handle=None):
+    """One path. A failure after the claim erases what the run wrote, then is raised as it was."""
+    try:
+        if s.prod:
+            prod_path(s, stamp, catalogue_id, handle)
+        else:
+            dev_path(s, stamp, catalogue_id)
+    except Exception:
+        s.erase_after_failure()
+        raise
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     target = parser.add_mutually_exclusive_group(required=True)
     target.add_argument("--dev", action="store_true", help="the dev deployment .env.local names")
     target.add_argument("--prod", action="store_true", help="the production deployment")
     parser.add_argument("--dry-run", action="store_true", help="print the commands and checks, run nothing")
+    parser.add_argument("--handle", help="prod only: claim this smoke- handle instead of smoke-YYYYMMDD, "
+                                         "for a second run on the same UTC day")
     opts = parser.parse_args()
+    if opts.handle is not None:
+        if not opts.prod:
+            parser.error("--handle is for --prod; every dev run already claims a handle of its own")
+        if not (opts.handle.startswith("smoke-") and HANDLE_RE.fullmatch(opts.handle)):
+            parser.error("--handle takes a lowercase handle that starts with smoke-, so a smoke run never holds"
+                         " a name somebody might want")
 
     stamp = datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%d%H%M")
     s = Smoke(prod=opts.prod, dry_run=opts.dry_run)
     try:
         catalogue_id = first_catalogue_id()
-        (prod_path if opts.prod else dev_path)(s, stamp, catalogue_id)
+        run_smoke(s, stamp, catalogue_id, opts.handle)
     except SmokeFailure as err:
         print("\n%s" % err, file=sys.stderr)
         sys.exit(1)

@@ -133,6 +133,10 @@ make validate   # the tests, plain node, no install
 make routes     # regenerate /shelf/ and /demo/ from _templates/app.html
 ```
 
+`make validate` needs a Node that strips TypeScript types by default (verified on v25.4.0).
+The backend tests import `convex/lib/*.ts` directly, and a Node without that stops at the
+first of those imports.
+
 ---
 
 ## Architecture

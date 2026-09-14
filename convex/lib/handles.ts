@@ -30,14 +30,14 @@ export const RESERVED_HANDLES: readonly string[] = Object.freeze([
 // A handle with one of these as a whole hyphen-separated segment reads as a
 // role ("vitrina-team", "tf-oficial"). Whole segments only, so "steam",
 // "modesto" and "badminton" stay available.
-const ROLE_WORDS: readonly string[] = Object.freeze([
+export const ROLE_WORDS: readonly string[] = Object.freeze([
   "admin", "administrador", "administrator", "staff", "team", "equipo", "mod", "moderator", "moderador",
   "official", "oficial", "support", "soporte", "help", "ayuda",
 ]);
 
 // Substrings, after folding lookalike digits, because "neorg0n" and
 // "la-tercera-fundacion-oficial" impersonate just as well as the exact word.
-const BRANDS: readonly string[] = Object.freeze(["neorgon", "energon", "vitrina", "tercerafundacion"]);
+export const BRANDS: readonly string[] = Object.freeze(["neorgon", "energon", "vitrina", "tercerafundacion"]);
 
 export const HANDLE_MESSAGES = Object.freeze({
   "handle-invalid": "Letters a to z without accents or ñ, digits and single hyphens, 3 to 30 characters, not only digits.",

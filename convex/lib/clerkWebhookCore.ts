@@ -57,7 +57,12 @@ export async function clerkWebhookCore(
     return { status: 200, purgeSubject: null };
   }
 
-  const id = event && typeof event === "object" && event.data && typeof event.data === "object" ? event.data.id : undefined;
+  // Signed JSON that is not an object (null, a number, a string, a list) names
+  // no event. null is the one that used to throw on event.type below, which
+  // http.ts answers with a 500 that Svix retries for days.
+  if (event === null || typeof event !== "object" || Array.isArray(event)) return { status: 200, purgeSubject: null };
+
+  const id = event.data && typeof event.data === "object" ? event.data.id : undefined;
   // The id becomes a subject the purge deletes by, so only the exact Clerk
   // shape passes; anything else is acknowledged and nothing is erased.
   if (event.type === "user.deleted" && typeof id === "string" && CLERK_USER_ID_RE.test(id)) {

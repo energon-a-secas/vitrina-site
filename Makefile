@@ -46,6 +46,8 @@ validate:
 	@node tests/convex-profiles.test.mjs
 	@node tests/convex-purge.test.mjs
 	@node tests/convex-webhook.test.mjs
+	@node tests/convex-contract.test.mjs
+	@python3 tests/convex-smoke.test.py
 	@python3 scripts/catalog_ids.py --check
 	@python3 scripts/routes.py --check
 

@@ -101,6 +101,14 @@ const noData = JSON.stringify({ type: 'user.deleted', object: 'event' });
 eq(await run(noData, await signed(noData), SECRET), REST, 'a user.deleted with no data erases nothing');
 const notJson = 'user.deleted user_2abc';
 eq(await run(notJson, await signed(notJson), SECRET), REST, 'a verified body that is not JSON is acknowledged and dropped');
+// JSON that is not an event. null used to throw on event.type, and http.ts
+// answers a throw with a 500, which Svix retries for days before disabling
+// the endpoint.
+for (const [body, what] of [['null', 'null'], ['42', 'a number'], ['"user.deleted"', 'a string'], ['[]', 'a list'], ['{}', 'an empty object']]) {
+  let answer;
+  try { answer = await run(body, await signed(body), SECRET); } catch (err) { answer = `threw ${err.message}`; }
+  eq(answer, REST, `a verified body of ${what} is acknowledged and erases nothing`);
+}
 
 console.log(failed ? `\n${failed} failed` : '\nall passed');
 process.exit(failed ? 1 : 0);

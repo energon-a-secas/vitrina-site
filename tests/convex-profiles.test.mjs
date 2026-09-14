@@ -4,13 +4,14 @@
 // convex/lib/profilesCore.ts and adminCore.ts over tests/support/fakedb.mjs.
 //
 // The projection is the privacy boundary of the whole feature, so it is tested
-// two ways: every returned object is scanned recursively for keys that must
-// never leave the database, and the fake database's query log proves a refusal
-// never read the entries table at all.
+// three ways: every returned object is scanned recursively for keys that must
+// never leave the database, and for the private values the fixtures stored,
+// and the fake database's query log proves a refusal never read the entries
+// table at all.
 
 import { createFakeDb } from './support/fakedb.mjs';
 import {
-  byHandleCore, claimHandleCore, deleteMyDataCore, projectShelf, removeProfileCore, setPublishedCore,
+  byHandleCore, claimHandleCore, deleteMyDataCore, holdHandle, projectShelf, removeProfileCore, setPublishedCore,
 } from '../convex/lib/profilesCore.ts';
 import { upsertEntriesCore } from '../convex/lib/shelfCore.ts';
 import { purgeByHandleCore, releaseHandleCore, setSuspendedCore } from '../convex/lib/adminCore.ts';
@@ -43,16 +44,27 @@ const bucketRows = (db, bucket) => db.rows('rateEvents').filter((r) => r.bucket 
 const heldRow = (db, handle) => db.rows('heldHandles').find((h) => h.handle === handle) || null;
 
 const FORBIDDEN = ['clerkSubject', 'subject', '_id', '_creationTime', 'note', 'listedAs', 'added', 'record', 'updatedAt', 'createdAt', 'email'];
-function forbiddenKeys(value, path = '$', found = []) {
-  if (Array.isArray(value)) value.forEach((item, i) => forbiddenKeys(item, `${path}[${i}]`, found));
+// A key scan alone passes a projection that puts a note or a listedAs under the
+// public shelf key, so every string returned is also searched for the private
+// values the fixtures below store. Each belongs to one private field, every
+// subject here starts with user_, and no handle or shelf label returned
+// contains any of them.
+const PRIVATE_VALUES = ['NOTE-MARK-7f3', 'LISTED-MARK-7f3', 'RECORD-MARK-7f3', '2026-01-02', 'firmado por el autor', 'Dune I', '2026-09-01',
+  'Hecho a mano', 'user_', '@example.org'];
+function leaks(value, path = '$', found = []) {
+  if (typeof value === 'string') {
+    for (const mark of PRIVATE_VALUES) if (value.includes(mark)) found.push(`${path} holds ${JSON.stringify(mark)}`);
+  } else if (Array.isArray(value)) value.forEach((item, i) => leaks(item, `${path}[${i}]`, found));
   else if (value && typeof value === 'object') {
     for (const [key, item] of Object.entries(value)) {
       if (FORBIDDEN.includes(key)) found.push(`${path}.${key}`);
-      forbiddenKeys(item, `${path}.${key}`, found);
+      leaks(item, `${path}.${key}`, found);
     }
   }
   return found;
 }
+eq(leaks({ handle: 'h', books: [{ id: 1, shelf: 'x LISTED-MARK-7f3' }] }), ['$.books[0].shelf holds "LISTED-MARK-7f3"'],
+  'the scan finds a private value under a public key');
 const returned = [];   // every non-null byHandle answer, scanned at the end
 
 // ── Claiming ────────────────────────────────────────────────────────────────
@@ -105,12 +117,32 @@ const returned = [];   // every non-null byHandle answer, scanned at the end
   await db.insert('erasures', { clerkSubject: KIM, at: T0 });
   await db.insert('suspendedSubjects', { clerkSubject: KIM, since: T0 });
   eq((await claim(db, KIM, 'kim')).code, 'erasing', 'erasing is answered before suspended');
+  eq(bucketRows(db, `${KIM}|handle.claim`), 0, 'and before the claim limit records anything');
 
   // The claim limit.
   const fresh = createFakeDb();
   const { max } = LIMITS['handle.claim'];
   for (let i = 0; i < max; i++) await claim(fresh, DAVE, 'ab', T0 + i);
   eq((await claim(fresh, DAVE, 'dave', T0 + max)).code, 'rate-limited', `claim attempt ${max + 1} in an hour is refused, even for a valid handle`);
+}
+
+// ── The hold helper ─────────────────────────────────────────────────────────
+{
+  const db = createFakeDb();
+  await holdHandle(db, 'ana', T0);
+  await holdHandle(db, 'ana', T0 + 1);
+  eq(db.rows('heldHandles').map((h) => [h.handle, h.until]), [['ana', T0 + 1 + HOLD_MS]],
+    'holding a held handle again patches its one row rather than adding another');
+
+  // The helper never writes a second row for a handle, but reads use first()
+  // so that a stray one can never make somebody's claim throw.
+  const stray = createFakeDb();
+  await stray.insert('heldHandles', { handle: 'ana', until: T0 + HOLD_MS });
+  await stray.insert('heldHandles', { handle: 'ana', until: T0 + HOLD_MS });
+  const attempt = async (fn) => { try { return await fn(); } catch (err) { return `threw: ${err.message}`; } };
+  eq(await attempt(async () => (await claim(stray, ALICE, 'ana')).code), 'handle-taken', 'two live holds on one handle answer handle-taken, not an exception');
+  eq(await attempt(async () => { await holdHandle(stray, 'ana', T0 + 1); return stray.count('heldHandles'); }), 2,
+    'and holding that handle again patches one of them, adding no third');
 }
 
 // ── setPublished: the order of its checks ───────────────────────────────────
@@ -152,7 +184,14 @@ const returned = [];   // every non-null byHandle answer, scanned at the end
   const db = createFakeDb();
   await claim(db, ALICE, 'alice');
   await upsertEntriesCore(db, ALICE, {
-    entries: [book(1, { shelf: 'Nova', note: 'firmado por el autor', listedAs: 'Dune I', added: '2026-09-01' }), own('x1', 'Hecho a mano'), book(2)],
+    entries: [
+      book(1, { shelf: 'Nova', note: 'firmado por el autor', listedAs: 'Dune I', added: '2026-09-01' }),
+      own('x1', 'Hecho a mano'),
+      book(2),
+      // No shelf label and every private field set: a projection that fills
+      // a missing label from another field shows it here.
+      book(3, { note: 'NOTE-MARK-7f3', listedAs: 'LISTED-MARK-7f3', added: '2026-01-02' }),
+    ],
   }, T0);
   await publish(db, ALICE, true, true);
 
@@ -162,7 +201,7 @@ const returned = [];   // every non-null byHandle answer, scanned at the end
     eq(db.queried('entries'), false, `${what}, without reading entries`);
   };
 
-  const visible = { handle: 'alice', books: [{ id: 1, shelf: 'Nova' }, { id: 2, shelf: null }] };
+  const visible = { handle: 'alice', books: [{ id: 1, shelf: 'Nova' }, { id: 2, shelf: null }, { id: 3, shelf: null }] };
   db.clearLog();
   const stranger = await byHandleCore(db, BOB, 'alice', OPEN);
   eq(stranger, visible, 'a stranger sees the handle and catalogue books with their shelf labels, nothing else');
@@ -215,14 +254,19 @@ const returned = [];   // every non-null byHandle answer, scanned at the end
   // projectShelf builds field by field, whatever the rows carry.
   const leaky = projectShelf(
     { handle: 'h', published: true, suspendedAt: null, clerkSubject: 'user_x', email: 'x@example.org', createdAt: 1 },
-    [{ _id: 'entries:1', _creationTime: 1, clerkSubject: 'user_x', key: 'tf1', catalogId: 1, shelf: 's', note: 'n', listedAs: 'l', added: 'a', record: { title: 't' }, updatedAt: 1 }],
+    [
+      { _id: 'entries:1', _creationTime: 1, clerkSubject: 'user_x', key: 'tf1', catalogId: 1, shelf: 's', note: 'n', listedAs: 'l', added: 'a', record: { title: 't' }, updatedAt: 1 },
+      { _id: 'entries:2', _creationTime: 2, clerkSubject: 'user_x', key: 'tf2', catalogId: 2, shelf: null, note: 'NOTE-MARK-7f3',
+        listedAs: 'LISTED-MARK-7f3', added: '2026-01-02', record: { title: 'RECORD-MARK-7f3' }, updatedAt: 2 },
+    ],
     { isOwner: true, publishingOpen: true },
   );
-  eq(leaky, { handle: 'h', books: [{ id: 1, shelf: 's' }], isOwner: true, published: true, suspended: false, publishingOpen: true },
-    'projectShelf copies no field it does not name');
+  eq(leaky, { handle: 'h', books: [{ id: 1, shelf: 's' }, { id: 2, shelf: null }], isOwner: true, published: true, suspended: false, publishingOpen: true },
+    'projectShelf copies no field it does not name, and a missing label stays null');
   returned.push(leaky);
 
-  eq(returned.map((r) => forbiddenKeys(r)), returned.map(() => []), `none of the ${returned.length} returned shelves holds a forbidden key at any depth`);
+  eq(returned.map((r) => leaks(r)), returned.map(() => []),
+    `none of the ${returned.length} returned shelves holds a forbidden key or a private value at any depth`);
 }
 
 // ── deleteMyData, and the handle held after each erasure path ───────────────
@@ -239,8 +283,10 @@ const returned = [];   // every non-null byHandle answer, scanned at the end
   eq(profileOf(db, ALICE), null, 'the profile is deleted in the same call');
   eq(heldRow(db, 'alice').until, T + HOLD_MS, 'the handle is held for 30 days');
   eq(db.rows('erasures').map((e) => [e.clerkSubject, e.at]), [[ALICE, T]], 'and one erasures row records it');
+  eq(bucketRows(db, `${ALICE}|data.delete`), 1, 'the request spent one data.delete event');
   eq(await deleteMyDataCore(db, ALICE, T + 1), { ok: true, status: 'erasing', started: false }, 'a second press is ok and starts nothing');
   eq(db.count('erasures'), 1, 'and adds no second row');
+  eq(bucketRows(db, `${ALICE}|data.delete`), 1, 'nor a rate event: erasing is answered before the limit');
   eq((await claim(db, HAL, 'alice', T + 2)).code, 'handle-taken', 'nobody can take the handle while it is held');
   eq((await claim(db, HAL, 'alice', T + HOLD_MS + 1)).ok, true, 'and anybody can after 30 days');
 
@@ -261,6 +307,19 @@ const returned = [];   // every non-null byHandle answer, scanned at the end
   eq(heldRow(hook, 'june').until, T + HOLD_MS, 'the handle is held after the webhook path too');
   eq((await claim(hook, KIM, 'june', T + HOLD_MS - 1)).code, 'handle-taken', 'up to the last millisecond of the hold');
   eq((await claim(hook, KIM, 'june', T + HOLD_MS + 1)).ok, true, 'and free after it');
+}
+
+// ── deleteMyData has a limit of its own ─────────────────────────────────────
+{
+  const db = createFakeDb();
+  await claim(db, ALICE, 'alice');
+  const { max, windowMs } = LIMITS['data.delete'];
+  for (let i = 0; i < max; i++) await db.insert('rateEvents', { bucket: `${ALICE}|data.delete`, at: T0 + i });
+  const refused = await deleteMyDataCore(db, ALICE, T0 + max);
+  eq([refused.ok, refused.code], [false, 'rate-limited'], `deletion request ${max + 1} in an hour is refused`);
+  eq([db.count('erasures'), profileOf(db, ALICE) !== null, heldRow(db, 'alice'), bucketRows(db, `${ALICE}|data.delete`)], [0, true, null, max],
+    'and changes nothing: no erasure, the profile keeps its handle unheld, no event recorded');
+  eq((await deleteMyDataCore(db, ALICE, T0 + windowMs + max)).started, true, 'once the hour has passed, the request goes through');
 }
 
 // ── Admin ───────────────────────────────────────────────────────────────────

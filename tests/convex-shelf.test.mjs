@@ -169,9 +169,16 @@ const metaCount = (db, subject) => { const m = db.rows('shelfMeta').find((r) => 
   const over = await updateEntryCore(db, ALICE, { key: 'tf1', note: 'x' }, T0 + max);
   eq(over.code, 'rate-limited', `write ${max + 1} in the hour is refused`);
   eq(over.retryAfterMs, windowMs - max, 'retryAfterMs is when the oldest write in the window ages out');
+  const overUpsert = await upsert(db, ALICE, [book(9)], T0 + max);
+  eq([overUpsert.code, db.count('entries')], ['rate-limited', 0], 'upsertEntries spends the same budget, so it is refused too and adds no book');
   eq(db.rows('rateEvents').every((r) => r.bucket === `${ALICE}|shelf.write`), true, 'the bucket is the subject and the limit name');
   eq(db.count('rateEvents'), max, 'a refused call records nothing');
   eq((await removeEntryCore(db, BOB, { key: 'tf1' }, T0 + max)).ok, true, "Bob's budget is his own");
+
+  // One event per call, whatever the call carries (plan section 3.3).
+  const chunk = createFakeDb();
+  await upsert(chunk, ALICE, Array.from({ length: CALL_MAX }, (_, i) => book(i + 1)));
+  eq(chunk.count('rateEvents'), 1, `an upsertEntries call of ${CALL_MAX} books is one shelf.write event`);
 
   const later = T0 + windowMs + max + 1;
   eq((await removeEntryCore(db, ALICE, { key: 'tf1' }, later)).ok, true, 'once the window has passed, writes are allowed again');
