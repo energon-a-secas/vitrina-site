@@ -3,7 +3,7 @@ import { internal } from "./_generated/api";
 import { v } from "convex/values";
 import { SWEEP_DELAY_MS } from "./lib/limits.ts";
 import { removeProfileCore } from "./lib/profilesCore.ts";
-import { purgeBatchCore, sweepCore, sweepRateEventsCore } from "./lib/purgeCore.ts";
+import { purgeBatchCore, sweepCore, sweepHeldHandlesCore, sweepRateEventsCore } from "./lib/purgeCore.ts";
 
 // Internal only: nothing here can be called from a browser. Each function does
 // one bounded transaction through a core in convex/lib/purgeCore.ts and
@@ -47,6 +47,15 @@ export const sweepRateEvents = internalMutation({
   handler: async (ctx): Promise<{ more: boolean; deleted: number }> => {
     const result = await sweepRateEventsCore(ctx.db, Date.now());
     if (result.more) await ctx.scheduler.runAfter(0, internal.purge.sweepRateEvents, {});
+    return result;
+  },
+});
+
+export const sweepHeldHandles = internalMutation({
+  args: {},
+  handler: async (ctx): Promise<{ more: boolean; deleted: number }> => {
+    const result = await sweepHeldHandlesCore(ctx.db, Date.now());
+    if (result.more) await ctx.scheduler.runAfter(0, internal.purge.sweepHeldHandles, {});
     return result;
   },
 });

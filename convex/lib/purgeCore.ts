@@ -1,5 +1,5 @@
 import type { GenericDatabaseWriter } from "convex/server";
-import { LIMIT_NAMES, PURGE_BATCH, RATE_SWEEP_AGE_MS, RATE_SWEEP_BATCH, SWEEP_DELAY_MS } from "./limits.ts";
+import { HOLD_SWEEP_BATCH, LIMIT_NAMES, PURGE_BATCH, RATE_SWEEP_AGE_MS, RATE_SWEEP_BATCH, SWEEP_DELAY_MS } from "./limits.ts";
 import { storedBytes } from "./entries.ts";
 import { bucketFor } from "./rate.ts";
 import { readMeta } from "./shelfCore.ts";
@@ -91,4 +91,17 @@ export async function sweepRateEventsCore(db: Db, now: number): Promise<{ more: 
   const rows = await db.query("rateEvents").withIndex("by_at", (q: any) => q.lt("at", cutoff)).take(RATE_SWEEP_BATCH);
   for (const row of rows) await db.delete("rateEvents", row._id);
   return { more: rows.length === RATE_SWEEP_BATCH, deleted: rows.length };
+}
+
+/**
+ * The daily cron, for holds. A claim deletes an expired hold it happens to find,
+ * but a handle nobody tries again after its 30 days kept its row for good: a
+ * bare name, possibly a person's, with no end date, which the privacy page had
+ * to admit. A hold ends when until is not after now, the same rule claimHandle
+ * applies, and timestamps are whole milliseconds, so lt(now + 1) is lte(now).
+ */
+export async function sweepHeldHandlesCore(db: Db, now: number): Promise<{ more: boolean; deleted: number }> {
+  const rows = await db.query("heldHandles").withIndex("by_until", (q: any) => q.lt("until", now + 1)).take(HOLD_SWEEP_BATCH);
+  for (const row of rows) await db.delete("heldHandles", row._id);
+  return { more: rows.length === HOLD_SWEEP_BATCH, deleted: rows.length };
 }

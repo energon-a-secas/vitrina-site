@@ -2,7 +2,7 @@ import type { GenericDatabaseWriter } from "convex/server";
 import { isAdminSubject } from "./admin.ts";
 import { normalizeHandle } from "./handles.ts";
 import { PURGE_BATCH } from "./limits.ts";
-import { profileByHandle, removeProfileCore } from "./profilesCore.ts";
+import { profileByHandle, profileBySubject, removeProfileCore } from "./profilesCore.ts";
 import { done, fail } from "./result.ts";
 import type { Failure, Success } from "./result.ts";
 
@@ -23,6 +23,28 @@ function notAdmin(): Failure {
 }
 
 const NOT_FOUND = "No profile has that address.";
+const NO_SUBJECT = "Give the account id, as the Clerk dashboard shows it.";
+
+/** Sets or lifts both halves of a suspension for one account. profile says whether a live profile was there to hide. */
+async function applySuspension(db: Db, subject: string, suspended: boolean, now: number): Promise<{ profile: boolean }> {
+  const profile = await profileBySubject(db, subject);
+  const rows = await db
+    .query("suspendedSubjects")
+    .withIndex("by_subject", (q: any) => q.eq("clerkSubject", subject))
+    .take(PURGE_BATCH);
+  if (suspended) {
+    if (profile && profile.suspendedAt === null) await db.patch("profiles", profile._id, { suspendedAt: now, updatedAt: now });
+    if (rows.length === 0) await db.insert("suspendedSubjects", { clerkSubject: subject, since: now });
+  } else {
+    if (profile && profile.suspendedAt !== null) await db.patch("profiles", profile._id, { suspendedAt: null, updatedAt: now });
+    for (const row of rows) await db.delete("suspendedSubjects", row._id);
+  }
+  return { profile: profile !== null };
+}
+
+function subjectFrom(raw: unknown): string {
+  return typeof raw === "string" ? raw.trim() : "";
+}
 
 /**
  * Suspension lives in two places on purpose: suspendedAt hides a live profile
@@ -40,19 +62,29 @@ export async function setSuspendedCore(
   const handle = normalizeHandle(args.handle);
   const profile = handle ? await profileByHandle(db, handle) : null;
   if (!profile) return fail("not-found", NOT_FOUND);
-
-  const rows = await db
-    .query("suspendedSubjects")
-    .withIndex("by_subject", (q: any) => q.eq("clerkSubject", profile.clerkSubject))
-    .take(PURGE_BATCH);
-  if (args.suspended === true) {
-    if (profile.suspendedAt === null) await db.patch("profiles", profile._id, { suspendedAt: now, updatedAt: now });
-    if (rows.length === 0) await db.insert("suspendedSubjects", { clerkSubject: profile.clerkSubject, since: now });
-  } else {
-    if (profile.suspendedAt !== null) await db.patch("profiles", profile._id, { suspendedAt: null, updatedAt: now });
-    for (const row of rows) await db.delete("suspendedSubjects", row._id);
-  }
+  await applySuspension(db, profile.clerkSubject, args.suspended === true, now);
   return done();
+}
+
+/**
+ * Suspension by account id, for what setSuspended cannot reach. A suspended
+ * person who erases their Vitrina data has no profile and no handle left, and
+ * their suspendedSubjects row stayed with no way to lift it. It can also
+ * suspend an account before it claims anything. The operator reads the id from
+ * the Clerk dashboard.
+ */
+export async function setSubjectSuspendedCore(
+  db: Db,
+  callerSubject: string | null,
+  args: { subject: unknown; suspended: unknown },
+  now: number,
+  env: AdminEnv,
+): Promise<Success | Failure> {
+  if (!isAdminSubject(callerSubject, env.ADMIN_SUBJECTS)) return notAdmin();
+  const subject = subjectFrom(args.subject);
+  if (!subject) return fail("not-found", NO_SUBJECT);
+  const { profile } = await applySuspension(db, subject, args.suspended === true, now);
+  return done({ profile });
 }
 
 /** The same erasure deleteMyData starts, for the profile holding a handle. started and subject are the handler's to schedule. */
@@ -69,6 +101,25 @@ export async function purgeByHandleCore(
   if (!profile) return fail("not-found", NOT_FOUND);
   const { started } = await removeProfileCore(db, profile.clerkSubject, now);
   return { ...done({ status: "erasing" }), started, subject: profile.clerkSubject };
+}
+
+/**
+ * The same erasure by account id, for a shelf that never had a handle: an
+ * erasure request that names no handle could not be served at all before.
+ * started and subject are the handler's to schedule.
+ */
+export async function purgeBySubjectCore(
+  db: Db,
+  callerSubject: string | null,
+  args: { subject: unknown },
+  now: number,
+  env: AdminEnv,
+): Promise<(Success | Failure) & { started?: boolean; subject?: string }> {
+  if (!isAdminSubject(callerSubject, env.ADMIN_SUBJECTS)) return notAdmin();
+  const subject = subjectFrom(args.subject);
+  if (!subject) return fail("not-found", NO_SUBJECT);
+  const { started } = await removeProfileCore(db, subject, now);
+  return { ...done({ status: "erasing" }), started, subject };
 }
 
 /**

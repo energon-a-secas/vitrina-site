@@ -191,6 +191,9 @@ export function projectShelf(
     if (typeof entry.catalogId !== "number") continue;
     books.push({ id: entry.catalogId, shelf: typeof entry.shelf === "string" ? entry.shelf : null });
   }
+  // By catalogue id, not in index order: entries come back in the order their
+  // rows were created, which told any visitor the order the owner added books.
+  books.sort((a, b) => a.id - b.id);
   const shelf = { handle: profile.handle, books };
   if (!opts.isOwner) return shelf;
   return {

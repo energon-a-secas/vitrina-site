@@ -15,7 +15,7 @@
 
 import { readFileSync, readdirSync } from 'node:fs';
 import {
-  CALL_MAX, HOLD_MS, LIMIT_NAMES, LIMITS, MAX_ENTRIES, PURGE_BATCH, RATE_PRUNE_MAX, RATE_SWEEP_AGE_MS, RATE_SWEEP_BATCH, ROW_OVERHEAD_BYTES, SHELF_BYTES_MAX, SWEEP_DELAY_MS,
+  CALL_MAX, HOLD_MS, LIMIT_NAMES, LIMITS, MAX_ENTRIES, PURGE_BATCH, RATE_PRUNE_MAX, RATE_SWEEP_AGE_MS, HOLD_SWEEP_BATCH, RATE_SWEEP_BATCH, ROW_OVERHEAD_BYTES, SHELF_BYTES_MAX, SWEEP_DELAY_MS,
 } from '../convex/lib/limits.ts';
 
 let failed = 0;
@@ -43,6 +43,7 @@ eq(LIMITS, {
 eq([...LIMIT_NAMES], ['handle.claim', 'handle.change', 'profile.publish', 'shelf.write', 'data.delete'], 'and the purge deletes exactly those five buckets');
 eq({ SHELF_BYTES_MAX, ROW_OVERHEAD_BYTES }, { SHELF_BYTES_MAX: 8 * 1024 * 1024, ROW_OVERHEAD_BYTES: 150 },
   'an account shelf weighs at most 8 MiB, counting 150 bytes a row for what the budget does not weigh');
+eq(HOLD_SWEEP_BATCH, 500, 'expired handle holds are swept 500 at a time');
 
 // ── The guarantees that rest on them ────────────────────────────────────────
 // A Clerk token for Convex lives 60 s (plan section 1). The sweep is what ends

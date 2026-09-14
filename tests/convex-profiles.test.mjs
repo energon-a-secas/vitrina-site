@@ -14,7 +14,7 @@ import {
   byHandleCore, claimHandleCore, deleteMyDataCore, holdHandle, projectShelf, removeProfileCore, setPublishedCore,
 } from '../convex/lib/profilesCore.ts';
 import { upsertEntriesCore } from '../convex/lib/shelfCore.ts';
-import { purgeByHandleCore, releaseHandleCore, setSuspendedCore } from '../convex/lib/adminCore.ts';
+import { purgeByHandleCore, purgeBySubjectCore, releaseHandleCore, setSubjectSuspendedCore, setSuspendedCore } from '../convex/lib/adminCore.ts';
 import { clerkWebhookCore } from '../convex/lib/clerkWebhookCore.ts';
 import { verifySvixSignature } from '../convex/lib/webhookVerify.ts';
 import { HANDLE_MESSAGES } from '../convex/lib/handles.ts';
@@ -362,6 +362,44 @@ const returned = [];   // every non-null byHandle answer, scanned at the end
   eq((await claim(db, BOB, 'alice', T0 + 1)).ok, true, 'so the handle can be claimed today');
   eq(await releaseHandleCore(db, 'user_admin', { handle: 'alice' }, T0, ADMINS), { ok: true, released: false }, 'a handle with no hold releases nothing');
   eq(profileOf(db, BOB).handle, 'alice', 'and a live profile keeps its handle');
+}
+
+// ── Public book order ───────────────────────────────────────────────────────
+// Entries are read in the order their rows were created, and that order used to
+// reach the public answer as it was.
+eq(projectShelf({ handle: 'order', published: true, suspendedAt: null },
+  [{ catalogId: 30, shelf: null }, { catalogId: 2, shelf: 'b' }, { catalogId: 17, shelf: null }],
+  { isOwner: false, publishingOpen: true }).books.map((b) => b.id), [2, 17, 30],
+  'a public shelf lists books by catalogue id, never in the order they were saved');
+
+// ── Suspension and erasure by account id ────────────────────────────────────
+// setSuspended and purgeByHandle need a live handle. A suspended person who
+// erased their data, or a shelf that never had a handle, had no way in.
+{
+  const env = { ADMIN_SUBJECTS: 'user_admin' };
+  const NOW = 1_800_000_000_000;
+  const who = 'user_suspendme';
+  const db = createFakeDb();
+  eq((await setSubjectSuspendedCore(db, 'user_nobody', { subject: who, suspended: true }, NOW, env)).code, 'not-admin', 'setSubjectSuspended refuses a non-admin');
+  eq((await purgeBySubjectCore(db, null, { subject: who }, NOW, env)).code, 'not-admin', 'purgeBySubject refuses a signed-out caller');
+  eq(await setSubjectSuspendedCore(db, 'user_admin', { subject: who, suspended: true }, NOW, env), { ok: true, profile: false },
+    'an account can be suspended before it has a profile');
+  eq((await claimHandleCore(db, who, { handle: 'suspended-one' }, NOW + 1)).code, 'suspended', 'and then cannot claim a handle');
+  eq(await setSubjectSuspendedCore(db, 'user_admin', { subject: who, suspended: false }, NOW + 2, env), { ok: true, profile: false },
+    'a suspension with no profile left can be lifted by account id');
+  eq(db.rows('suspendedSubjects').length, 0, 'which deletes the record');
+  eq((await claimHandleCore(db, who, { handle: 'suspended-one' }, NOW + 3)).ok, true, 'and the account can claim again');
+  eq(await setSubjectSuspendedCore(db, 'user_admin', { subject: who, suspended: true }, NOW + 4, env), { ok: true, profile: true },
+    'suspending by account id reaches a live profile too');
+  eq(db.rows('profiles')[0].suspendedAt, NOW + 4, 'and hides it');
+  eq((await setSubjectSuspendedCore(db, 'user_admin', { subject: '   ', suspended: true }, NOW + 5, env)).code, 'not-found', 'a blank account id is refused');
+
+  const quietDb = createFakeDb();
+  const quiet = 'user_neverclaimed';
+  await upsertEntriesCore(quietDb, quiet, { entries: [{ key: 'tf7', catalogId: 7, shelf: null, note: 'private', listedAs: null, added: null, record: null }] }, NOW);
+  eq(await purgeBySubjectCore(quietDb, 'user_admin', { subject: quiet }, NOW + 1, env), { ok: true, status: 'erasing', started: true, subject: quiet },
+    'a shelf that never had a handle can be erased by account id');
+  eq(quietDb.rows('erasures').map((r) => r.clerkSubject), [quiet], 'which starts the same erasure deleteMyData does');
 }
 
 console.log(failed ? `\n${failed} failed` : '\nall passed');

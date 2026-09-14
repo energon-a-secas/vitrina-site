@@ -1,7 +1,7 @@
 import { mutation } from "./_generated/server";
 import { internal } from "./_generated/api";
 import { v } from "convex/values";
-import { purgeByHandleCore, releaseHandleCore, setSuspendedCore } from "./lib/adminCore.ts";
+import { purgeByHandleCore, purgeBySubjectCore, releaseHandleCore, setSubjectSuspendedCore, setSuspendedCore } from "./lib/adminCore.ts";
 
 // Moderation, thin wrappers over convex/lib/adminCore.ts. ADMIN_SUBJECTS is read
 // here and nowhere else. A signed-out caller is passed as null and refused as
@@ -37,5 +37,27 @@ export const releaseHandle = mutation({
     return await releaseHandleCore(ctx.db, identity ? identity.subject : null, args, Date.now(), {
       ADMIN_SUBJECTS: process.env.ADMIN_SUBJECTS,
     });
+  },
+});
+
+export const setSubjectSuspended = mutation({
+  args: { subject: v.string(), suspended: v.boolean() },
+  handler: async (ctx, args) => {
+    const identity = await ctx.auth.getUserIdentity();
+    return await setSubjectSuspendedCore(ctx.db, identity ? identity.subject : null, args, Date.now(), {
+      ADMIN_SUBJECTS: process.env.ADMIN_SUBJECTS,
+    });
+  },
+});
+
+export const purgeBySubject = mutation({
+  args: { subject: v.string() },
+  handler: async (ctx, args) => {
+    const identity = await ctx.auth.getUserIdentity();
+    const { started, subject, ...result } = await purgeBySubjectCore(ctx.db, identity ? identity.subject : null, args, Date.now(), {
+      ADMIN_SUBJECTS: process.env.ADMIN_SUBJECTS,
+    });
+    if (started && subject) await ctx.scheduler.runAfter(0, internal.purge.run, { subject });
+    return result;
   },
 });

@@ -9,4 +9,8 @@ const crons = cronJobs();
 // day past it for the longest one.
 crons.daily("sweep stale rate events", { hourUTC: 4, minuteUTC: 17 }, internal.purge.sweepRateEvents, {});
 
+// Holds past their 30 days. A claim clears one it finds, but a handle nobody
+// tries again would otherwise keep its row, a bare name, for good.
+crons.daily("sweep expired handle holds", { hourUTC: 4, minuteUTC: 29 }, internal.purge.sweepHeldHandles, {});
+
 export default crons;

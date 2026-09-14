@@ -51,6 +51,9 @@ export const RATE_SWEEP_AGE_MS = 31 * DAY;
 /** Rows per sweepRateEvents run. */
 export const RATE_SWEEP_BATCH = 500;
 
+/** Expired holds one sweepHeldHandles run deletes. */
+export const HOLD_SWEEP_BATCH = 500;
+
 export type LimitName = "handle.claim" | "handle.change" | "profile.publish" | "shelf.write" | "data.delete";
 
 /**

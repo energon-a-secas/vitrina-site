@@ -6,11 +6,11 @@
 // row by row, next to another subject whose rows must all survive.
 
 import { createFakeDb } from './support/fakedb.mjs';
-import { purgeBatchCore, sweepCore, sweepRateEventsCore } from '../convex/lib/purgeCore.ts';
+import { purgeBatchCore, sweepCore, sweepHeldHandlesCore, sweepRateEventsCore } from '../convex/lib/purgeCore.ts';
 import { deleteMyDataCore } from '../convex/lib/profilesCore.ts';
 import { mineCore } from '../convex/lib/shelfCore.ts';
 import { bucketFor } from '../convex/lib/rate.ts';
-import { LIMIT_NAMES, PURGE_BATCH, RATE_SWEEP_AGE_MS, RATE_SWEEP_BATCH, SWEEP_DELAY_MS } from '../convex/lib/limits.ts';
+import { HOLD_SWEEP_BATCH, LIMIT_NAMES, PURGE_BATCH, RATE_SWEEP_AGE_MS, RATE_SWEEP_BATCH, SWEEP_DELAY_MS } from '../convex/lib/limits.ts';
 
 let failed = 0;
 function eq(actual, expected, what) {
@@ -117,6 +117,23 @@ const rowsFor = (db, table, subject) => db.rows(table).filter((r) => r.clerkSubj
   eq(await sweepRateEventsCore(busy, now), { more: true, deleted: RATE_SWEEP_BATCH }, 'at most 500 per run, asking to run again');
   eq(await sweepRateEventsCore(busy, now), { more: false, deleted: 5 }, 'the next run takes the rest');
   eq(busy.count('rateEvents'), 1, 'leaving the recent row');
+}
+
+// ── Expired handle holds ────────────────────────────────────────────────────
+// A claim clears an expired hold it finds, but a handle nobody tries again kept
+// its row for good. The daily sweep ends that.
+{
+  const db = createFakeDb();
+  const now = 5_000_000_000;
+  await db.insert('heldHandles', { handle: 'gone-a', until: now - 1 });
+  await db.insert('heldHandles', { handle: 'gone-b', until: now });
+  await db.insert('heldHandles', { handle: 'kept', until: now + 1 });
+  eq(await sweepHeldHandlesCore(db, now), { more: false, deleted: 2 }, 'the daily sweep deletes holds that have ended, one ending this very millisecond included');
+  eq(db.rows('heldHandles').map((h) => h.handle), ['kept'], 'and keeps a hold still running');
+  const busy = createFakeDb();
+  for (let i = 0; i < HOLD_SWEEP_BATCH + 3; i++) await busy.insert('heldHandles', { handle: `old-${i}`, until: now - 1000 });
+  eq(await sweepHeldHandlesCore(busy, now), { more: true, deleted: HOLD_SWEEP_BATCH }, `at most ${HOLD_SWEEP_BATCH} per run, asking to run again`);
+  eq(await sweepHeldHandlesCore(busy, now), { more: false, deleted: 3 }, 'the next run takes the rest');
 }
 
 console.log(failed ? `\n${failed} failed` : '\nall passed');
