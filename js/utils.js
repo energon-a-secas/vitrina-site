@@ -83,6 +83,23 @@ export function plural(n, one, many) {
   return n === 1 ? `${n} ${one}` : `${n} ${many}`;
 }
 
+/**
+ * A random UUID, for the key of a book added by hand. crypto.randomUUID exists
+ * only in a secure context, and a phone opening a laptop's dev server over the
+ * local network is not one, so the same version 4 layout is built from
+ * getRandomValues there.
+ */
+export function mintUuid() {
+  const c = globalThis.crypto;
+  if (c && typeof c.randomUUID === 'function') return c.randomUUID();
+  const b = new Uint8Array(16);
+  c.getRandomValues(b);
+  b[6] = (b[6] & 0x0f) | 0x40;
+  b[8] = (b[8] & 0x3f) | 0x80;
+  const hex = Array.from(b, (x) => x.toString(16).padStart(2, '0')).join('');
+  return `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}`;
+}
+
 /** Trigger a client-side download of `text`. */
 export function download(filename, text, mime = 'application/json') {
   const blob = new Blob([text], { type: mime });

@@ -2,7 +2,10 @@
 
 import { state, whose } from './state.js';
 import { $, $$, escHtml, plural } from './utils.js';
-import { shelves, title, authorLine, bookYear, coverFor, hasSpine, collectionRuns } from './data.js';
+import {
+  shelves, title, authorLine, bookYear, coverFor, hasSpine, collectionRuns,
+  remoteImagesOff, scansWithheld, SCANS_WITHHELD,
+} from './data.js';
 import { shelfMarkup, runMarkup, measureSpines, markScrollable } from './shelf.js';
 import { renderBrowse } from './browse.js';
 
@@ -101,7 +104,9 @@ function renderCovers() {
   const { groups, total } = shelves();
   count(total);
   if (!total) { view.innerHTML = empty(); return; }
-  view.innerHTML = groups.map((g) => `
+  // Said once for the whole view rather than on every card it applies to.
+  const withheld = groups.some((g) => g.books.some(scansWithheld));
+  view.innerHTML = (withheld ? `<p class="scans-note">${escHtml(SCANS_WITHHELD)}</p>` : '') + groups.map((g) => `
     <section class="coverset">
       <header class="shelfrow__head">
         <h2 class="shelfrow__label">${escHtml(g.label)}</h2>
@@ -119,8 +124,8 @@ function coverCard(entry) {
   const name = `${title(entry)}, ${authorLine(entry)}${y ? ', ' + y : ''}`;
   return `<button type="button" class="cover" data-key="${escHtml(entry.key)}" aria-label="${escHtml(name)}">
       <span class="cover__frame">
-        ${src ? `<img src="${escHtml(src)}" alt="" loading="lazy" decoding="async">` : '<span class="cover__none" aria-hidden="true">no scan</span>'}
-        ${hasSpine(entry) ? '' : '<span class="cover__flag" aria-hidden="true" title="No spine scan in the catalogue">no spine</span>'}
+        ${src ? `<img src="${escHtml(src)}" alt="" loading="lazy" decoding="async">` : `<span class="cover__none" aria-hidden="true">${scansWithheld(entry) ? 'not shown' : 'no scan'}</span>`}
+        ${remoteImagesOff() || hasSpine(entry) ? '' : '<span class="cover__flag" aria-hidden="true" title="No spine scan in the catalogue">no spine</span>'}
       </span>
       <span class="cover__title">${escHtml(title(entry))}</span>
       <span class="cover__meta">${escHtml(authorLine(entry))}${y ? ` &middot; ${y}` : ''}</span>

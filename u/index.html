@@ -4,25 +4,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="neo-analytics" content="off">
+  <meta name="referrer" content="strict-origin">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <meta name="apple-mobile-web-app-title" content="Vitrina">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="neo-mark" content="on">
-  <title>Vitrina | A real shelf, read-only</title>
-  <meta name="description" content="Browse a real collection of Spanish science fiction paperbacks on a shelf built from their real spine scans, each drawn at the height its catalogue record gives">
-  <meta property="og:title" content="Vitrina: a real shelf of Spanish science fiction">
-  <meta property="og:description" content="A real collection of Spanish science fiction paperbacks, read by their spines">
+  <title>Vitrina | A shared shelf</title>
+  <meta name="description" content="A shelf of Spanish science fiction paperbacks, shared read-only and drawn from their real spine scans">
+  <meta property="og:title" content="Vitrina: a shared shelf">
+  <meta property="og:description" content="Spanish science fiction paperbacks on a shared shelf, read by their spines">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://vitrina.neorgon.com/demo/">
+  <meta property="og:url" content="https://vitrina.neorgon.com/u/">
   <meta property="og:site_name" content="Neorgon">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Vitrina: a real shelf of Spanish science fiction">
-  <meta name="twitter:description" content="A real collection of Spanish science fiction paperbacks, read by their spines">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://vitrina.neorgon.com/demo/">
+  <meta name="twitter:title" content="Vitrina: a shared shelf">
+  <meta name="twitter:description" content="Spanish science fiction paperbacks on a shared shelf, read by their spines">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://vitrina.neorgon.com/u/">
   <meta property="og:locale" content="en_US">
   <meta name="theme-color" content="#040714">
   <meta property="og:image" content="https://vitrina.neorgon.com/og-preview.jpg">
@@ -47,14 +48,14 @@
   <script defer src="/js/neorgon-beacon.js"></script>
   <meta name="neo-repo" content="https://github.com/energon-a-secas/vitrina-site">
   <meta name="neo-updated" content="updated Sep 2026">
-
+  <meta name="neo-convex-url" content="https://fantastic-chickadee-557.convex.cloud">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Vitrina",
     "description": "Stand your science fiction paperbacks on a shelf built from their real spine scans",
-    "url": "https://vitrina.neorgon.com/demo/",
+    "url": "https://vitrina.neorgon.com/u/",
     "applicationCategory": "LifestyleApplication",
     "operatingSystem": "Any",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -62,7 +63,7 @@
   }
   </script>
 </head>
-<body data-mode="demo">
+<body data-mode="profile">
 
   <a class="skip-link" href="#main">Skip to content</a>
 
@@ -72,7 +73,7 @@
         <img src="https://cdn.neorgon.org/v1.0.0/energon-classic-logo.png" class="header-logo-img" alt="">
         <div class="header-title-wrap">
           <h1>Vitrina</h1>
-          <div class="header-subtitle">A real shelf, read-only</div>
+          <div class="header-subtitle">A shared shelf</div>
         </div>
       </a>
     </div>
@@ -105,10 +106,7 @@
   </header>
 
   <main id="main">
-    <div class="demo-banner" role="note">
-      <p class="demo-banner__text"><strong>A real shelf, read-only.</strong> This is the collection of the person who built Vitrina, each book drawn at the height its catalogue record gives.</p>
-      <a class="btn btn--primary btn--sm" href="/shelf/">Start your own shelf</a>
-    </div>
+    <div class="profile-banner" data-profile-banner aria-live="polite"></div>
 
     <!-- Controls -------------------------------------------------------- -->
     <div class="controls" role="group" aria-label="Shelf controls">
@@ -215,7 +213,7 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <footer class="neo-footer" data-footer-mode="app">
-    A real collection, shown read-only. Build your own on <a href="/shelf/">your shelf</a>.
+    Shared shelves are read-only. Build your own on <a href="/shelf/">your shelf</a>.
   </footer>
 
   <script type="module" src="/js/app.js"></script>

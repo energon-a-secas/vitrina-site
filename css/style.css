@@ -237,8 +237,8 @@ main#main {
  * Owned by the Neorgon Header Kit (css/neorgon-header.css, canonical
  * source: packages/neorgon-ui/header/). Do NOT style .header-bar,
  * .header-logo*, .header-title-link, .header-subtitle, .header-right,
- * .header-actions, or .header-home here. Auth styles (.auth-*) stay
- * site-owned below.
+ * .header-actions, or .header-home here. Sign-in UI belongs to the
+ * Neorgon Auth Kit (packages/neorgon-ui/auth/); a site never styles .auth-*.
  */
 nav {
   display: flex;
@@ -247,7 +247,7 @@ nav {
 }
 
 /* ── Buttons (canonical) ─────────────────────────────────────
- * Use .btn + a variant. Aliases: .nav-link = toolbar ghost; .auth-* map below.
+ * Use .btn + a variant. Alias: .nav-link = toolbar ghost.
  */
 .btn {
   display: inline-flex;
@@ -340,136 +340,6 @@ nav {
 .nav-link:hover {
   background: rgba(255,255,255,0.1);
   color: #fff;
-}
-
-.auth-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: var(--control-height);
-  min-height: var(--control-height);
-  padding: 0;
-  border: 1px solid rgba(255,255,255,0.18);
-  border-radius: var(--radius-sm);
-  background: transparent;
-  color: rgba(255,255,255,0.92);
-  cursor: pointer;
-  font-family: inherit;
-  transition: background-color var(--dur), color var(--dur), border-color var(--dur);
-}
-.auth-toggle:hover {
-  background: rgba(255,255,255,0.1);
-  color: #fff;
-}
-.auth-toggle svg {
-  width: 22px;
-  height: 22px;
-  flex-shrink: 0;
-  display: block;
-}
-.auth-toggle.logged-in { color: var(--accent); }
-.auth-toggle.logged-in svg circle:nth-of-type(2) {
-  fill: currentColor;
-  stroke: none;
-}
-
-/* ── Sheet (inline panel under header), not a modal ──────────
- * Use for auth, filters, compact forms. No backdrop; page scrolls.
- * For blocking overlays use .modal below.
- */
-.auth-panel {
-  background: rgba(255,255,255,0.02);
-  border-bottom: 1px solid var(--border-subtle);
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease-out;
-}
-.auth-panel.open { max-height: 300px; }
-.auth-panel-inner {
-  padding: var(--space-6);
-  max-width: 400px;
-  margin: 0 auto;
-}
-.auth-tabs {
-  display: flex;
-  gap: var(--space-2);
-  margin-bottom: var(--space-4);
-}
-.auth-tab {
-  flex: 1;
-  min-height: var(--control-height-sm);
-  padding: 0 var(--space-4);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  background: transparent;
-  color: var(--text-muted);
-  cursor: pointer;
-  font-family: inherit;
-  font-size: var(--text-sm);
-  font-weight: 600;
-  transition: background-color var(--dur), color var(--dur), border-color var(--dur);
-}
-.auth-tab.active {
-  background: var(--surface-2);
-  color: var(--text-primary);
-  border-color: var(--border-strong);
-}
-.auth-form input {
-  width: 100%;
-  padding: var(--space-3) var(--space-4);
-  margin-bottom: var(--space-3);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  background: var(--surface-1);
-  color: var(--text-primary);
-  font-size: var(--text-sm);
-  font-family: inherit;
-}
-.auth-submit {
-  width: 100%;
-  min-height: var(--control-height);
-  padding: 0 var(--space-4);
-  border: none;
-  border-radius: var(--radius-sm);
-  background: var(--accent);
-  color: #fff;
-  font-family: inherit;
-  font-weight: 600;
-  font-size: var(--text-sm);
-  cursor: pointer;
-  transition: background-color var(--dur);
-}
-.auth-submit:hover { background: var(--accent-bright); }
-#authUser {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-4);
-}
-.auth-username {
-  color: var(--text-primary);
-  font-weight: 600;
-}
-.auth-logout {
-  min-height: var(--control-height-sm);
-  padding: 0 var(--space-3);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  background: transparent;
-  color: var(--text-muted);
-  cursor: pointer;
-  font-family: inherit;
-  font-size: var(--text-sm);
-  font-weight: 600;
-  transition: background-color var(--dur), color var(--dur), border-color var(--dur);
-}
-.auth-logout:hover {
-  background: var(--surface-2);
-  color: var(--text-primary);
-}
-.auth-divider {
-  height: 1px;
-  background: var(--border-subtle);
 }
 
 /* ── Modal (blocking overlay) ──────────────────────────────── */
@@ -601,11 +471,7 @@ nav {
 /* ── Button press feedback ─────────────────────────────────── */
 button:active,
 .btn:active,
-.nav-link:active,
-.auth-toggle:active,
-.auth-tab:active,
-.auth-submit:active,
-.auth-logout:active {
+.nav-link:active {
   transform: scale(0.98);
   transition-duration: var(--dur-fast);
 }
@@ -1394,18 +1260,29 @@ button.chip:hover { border-color: var(--accent); border-style: solid; color: var
   min-height: 1.2em;
 }
 
-/* Routes. /shelf/ is yours and editable; /demo/ is a real shelf and is not.
-   data-mode is written into <body> by scripts/routes.py, so these controls are
-   hidden before any script runs rather than flashing on the demo and vanishing.
-   Rendered edit controls carry data-add or data-act and the header's are named
-   by id, so this needs no markup of its own. The state layer refuses edits as
-   well; this rule only keeps them out of sight. */
+/* Routes. /shelf/ is yours and editable; /demo/ is a real shelf and /u/ a
+   shared one, and neither is. data-mode is written into <body> by
+   scripts/routes.py, so these controls are hidden before any script runs rather
+   than flashing on a read-only page and vanishing. Rendered edit controls carry
+   data-add or data-act and the header's are named by id, and the ids survive
+   the header kit moving a control into its menu, so this needs no markup of its
+   own. Import writes a shelf, so neither page offers it. Export stays on the
+   demo, which is offered as a starting point, and not on /u/, whose owner
+   published a view of their shelf rather than a copy of it. The state layer
+   refuses edits as well; this rule only keeps them out of sight. */
 body[data-mode="demo"] [data-add],
 body[data-mode="demo"] [data-act],
 body[data-mode="demo"] #addBtn,
 body[data-mode="demo"] #isbnBtn,
 body[data-mode="demo"] #importBtn,
-body[data-mode="demo"] #resetShelf { display: none !important; }
+body[data-mode="demo"] #resetShelf,
+body[data-mode="profile"] [data-add],
+body[data-mode="profile"] [data-act],
+body[data-mode="profile"] #addBtn,
+body[data-mode="profile"] #isbnBtn,
+body[data-mode="profile"] #importBtn,
+body[data-mode="profile"] #exportBtn,
+body[data-mode="profile"] #resetShelf { display: none !important; }
 
 /* main is a flex column, so a width-capped child needs width:100% and a zero
    min-width, the same fix .stage needed. */
@@ -1423,6 +1300,24 @@ body[data-mode="demo"] #resetShelf { display: none !important; }
 }
 .demo-banner__text { margin: 0; max-width: 70ch; font-size: var(--text-sm); color: var(--text-secondary); }
 .demo-banner__text strong { color: var(--text-primary); }
+
+/* The /u/ banner. routes.py writes it empty and the page fills it. It is a live
+   region, so it is in the page from the start instead of inserted later, and
+   while it is empty it takes no room. */
+.profile-banner {
+  max-width: 1400px;
+  width: 100%;
+  min-width: 0;
+  margin: var(--space-4) auto 0;
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+.profile-banner:empty { margin: 0; padding: 0; }
+
+/* While remote images are switched off (js/data.js), the covers view says so
+   once instead of calling every withheld scan missing. */
+.scans-note { margin: 0 0 var(--space-4); font-size: var(--text-xs); color: var(--text-muted); }
 
 .empty__actions {
   margin-top: var(--space-4);

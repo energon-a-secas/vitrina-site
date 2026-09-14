@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -29,10 +30,8 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Vitrina: Spanish SF paperbacks, by their spines">
   <meta name="twitter:image" content="https://vitrina.neorgon.com/og-preview.jpg">
-  <!-- The catalogue this shelf reads from. Images are loaded straight from it,
-       never copied here, so the browser should open that connection early. -->
-  <link rel="preconnect" href="https://tercerafundacion.net" crossorigin>
-  <link rel="dns-prefetch" href="https://tercerafundacion.net">
+  <!-- No preconnect to the catalogue: it would open a connection there on every
+       visit, including the ones made with remote images switched off. -->
   <!-- Fleet design tokens: canonical, do not redeclare locally (PROJECTS.md section 5) -->
   <link rel="stylesheet" href="https://cdn.neorgon.org/v1.0.0/styles/base.css">
   <link rel="stylesheet" href="/css/style.css">
@@ -48,6 +47,7 @@
   <script defer src="/js/neorgon-beacon.js"></script>
   <meta name="neo-repo" content="https://github.com/energon-a-secas/vitrina-site">
   <meta name="neo-updated" content="updated Sep 2026">
+  <meta name="neo-convex-url" content="https://fantastic-chickadee-557.convex.cloud">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -79,11 +79,16 @@
 
     <div class="header-right">
       <div class="header-actions">
-        <button class="btn btn--ghost btn--sm" id="addBtn" data-keep-mobile>Add a book</button>
+        <button class="btn btn--ghost btn--sm" id="addBtn">Add a book</button>
         <button class="btn btn--ghost btn--sm" id="isbnBtn" data-keep-mobile>Add by ISBN</button>
-        <button class="btn btn--ghost btn--sm" id="statsBtn">Shelf report</button>
-        <button class="btn btn--ghost btn--sm" id="exportBtn">Export</button>
-        <button class="btn btn--ghost btn--sm" id="importBtn">Import</button>
+        <div class="header-btn-group">
+          <button type="button" class="btn btn--ghost btn--sm" id="shelfMenuBtn" aria-haspopup="menu" aria-expanded="false" aria-controls="shelfMenu">Shelf tools <span aria-hidden="true">▾</span></button>
+          <div class="header-menu" id="shelfMenu" role="menu" aria-labelledby="shelfMenuBtn">
+            <button type="button" role="menuitem" id="statsBtn">Shelf report</button>
+            <button type="button" role="menuitem" id="exportBtn">Export</button>
+            <button type="button" role="menuitem" id="importBtn">Import</button>
+          </div>
+        </div>
       </div>
       <a class="header-home" href="https://neorgon.com/" title="neorgon.com" aria-label="Neorgon home">
         <svg class="nh-hub-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

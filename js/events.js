@@ -80,6 +80,7 @@ export function bindEvents() {
   $('#statsBtn').addEventListener('click', reportDialog);
   $('#exportBtn').addEventListener('click', exportShelf);
   $('#importBtn').addEventListener('click', importDialog);
+  bindShelfMenu();
 
   // Drawer
   $('#drawer').addEventListener('click', (ev) => {
@@ -174,6 +175,99 @@ export function bindEvents() {
     if (jump) { state.view = jump; resetBrowsePaging(); savePrefs(); render(); return; }
     if (ev.key === 'ArrowLeft' || ev.key === 'ArrowRight') step(ev);
   });
+}
+
+/**
+ * Shelf report, Export and Import sit behind one header menu.
+ *
+ * The header kit styles .header-menu, but the only menus it opens, closes and
+ * steers with the keyboard are the ones it builds itself (the ⋯ overflow and
+ * the palette). A menu a site writes gets none of that, so it is done here:
+ * toggle, arrow keys, Escape back to the trigger, a click anywhere else.
+ *
+ * At 700px and below the kit folds every header action without data-keep-mobile
+ * into its ⋯ menu, and that menu closes on any click inside it, so a menu folded
+ * into it could never be opened. There the three items leave this menu and are
+ * handed to the kit's menu as rows of their own; at desktop width they come
+ * back. They are moved, never cloned, so the listeners above survive, and so do
+ * the ids the read-only CSS hides them by.
+ */
+function bindShelfMenu() {
+  const trigger = $('#shelfMenuBtn');
+  const menu = $('#shelfMenu');
+  if (!trigger || !menu) return;
+  const group = trigger.parentElement;
+  const actions = trigger.closest('.header-actions');
+  const items = Array.from(menu.children);
+
+  const isOpen = () => menu.classList.contains('open');
+  const open = () => { menu.classList.add('open'); trigger.setAttribute('aria-expanded', 'true'); };
+  const close = () => {
+    if (!isOpen()) return;
+    menu.classList.remove('open');
+    trigger.setAttribute('aria-expanded', 'false');
+  };
+  const rows = () => items.filter((el) => menu.contains(el) && el.offsetParent !== null);
+
+  trigger.addEventListener('click', () => {
+    if (isOpen()) { close(); return; }
+    open();
+    const first = rows()[0];
+    if (first) first.focus();
+  });
+  trigger.addEventListener('keydown', (ev) => {
+    if (ev.key !== 'ArrowDown' && ev.key !== 'ArrowUp') return;
+    ev.preventDefault();
+    open();
+    const list = rows();
+    const target = ev.key === 'ArrowUp' ? list[list.length - 1] : list[0];
+    if (target) target.focus();
+  });
+  menu.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Escape') {
+      // Stopped here, so the page's own Escape handler does not run as well.
+      ev.preventDefault();
+      ev.stopPropagation();
+      close();
+      trigger.focus();
+      return;
+    }
+    if (ev.key === 'Tab') { close(); return; }
+    const list = rows();
+    const at = list.indexOf(document.activeElement);
+    let next = null;
+    if (ev.key === 'ArrowDown') next = list[(at + 1) % list.length];
+    else if (ev.key === 'ArrowUp') next = list[(at - 1 + list.length) % list.length];
+    else if (ev.key === 'Home') next = list[0];
+    else if (ev.key === 'End') next = list[list.length - 1];
+    if (next) { ev.preventDefault(); next.focus(); }
+  });
+  // In the capture phase, so the menu is shut and focus is back on its trigger
+  // before the item's own handler opens a dialog. A dialog hands focus back to
+  // whatever held it when it opened, and an item in a closed menu cannot take it.
+  menu.addEventListener('click', (ev) => {
+    if (!ev.target.closest('button')) return;
+    close();
+    trigger.focus({ preventScroll: true });
+  }, true);
+  document.addEventListener('click', (ev) => {
+    if (isOpen() && !group.contains(ev.target)) close();
+  });
+
+  const phone = window.matchMedia('(max-width: 700px)');
+  const place = () => {
+    close();
+    if (phone.matches) {
+      items.forEach((el) => actions.appendChild(el));
+      group.hidden = true;
+    } else {
+      items.forEach((el) => menu.appendChild(el));
+      group.hidden = false;
+    }
+    if (window.NeoHeader && typeof window.NeoHeader.syncOverflow === 'function') window.NeoHeader.syncOverflow();
+  };
+  phone.addEventListener('change', place);
+  place();
 }
 
 /**

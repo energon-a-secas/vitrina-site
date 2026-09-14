@@ -7,6 +7,7 @@ import {
   title, authorLine, bookYear, coverFor, spineFor, hasSpine, recordUrl,
   catalogEntry, localCover, localSpine, hasLocalSpine, hasLocalCover,
   spineUrl, coverUrl, hasThumbSpine, hasThumbCover,
+  remoteImagesOff, scansWithheld, SCANS_WITHHELD,
 } from './data.js';
 
 let hideTimer = null;
@@ -24,17 +25,21 @@ export function openBook(key) {
   drawer.hidden = false;
   // Same walk down the sources as the shelf: our thumbnail, then the
   // catalogue, then the development cache, then give up on the image.
+  // spineUrl and coverUrl answer '' while remote images are switched off, and
+  // that step is skipped rather than handed to the image.
   const art = $('.detail__spine');
   if (art) art.addEventListener('error', () => {
     if (r0 == null) { art.remove(); return; }
-    if (hasThumbSpine(r0) && !art.dataset.triedRemote) { art.dataset.triedRemote = '1'; art.src = spineUrl(r0); return; }
+    const remote = spineUrl(r0);
+    if (remote && hasThumbSpine(r0) && !art.dataset.triedRemote) { art.dataset.triedRemote = '1'; art.src = remote; return; }
     if (hasLocalSpine(r0) && !art.dataset.triedLocal) { art.dataset.triedLocal = '1'; art.src = localSpine(r0); return; }
     art.remove();
   });
   const face = $('.detail__cover');
   if (face && face.tagName === 'IMG') face.addEventListener('error', () => {
     if (r0 == null) return;
-    if (hasThumbCover(r0) && !face.dataset.triedRemote) { face.dataset.triedRemote = '1'; face.src = coverUrl(r0); return; }
+    const remote = coverUrl(r0);
+    if (remote && hasThumbCover(r0) && !face.dataset.triedRemote) { face.dataset.triedRemote = '1'; face.src = remote; return; }
     if (hasLocalCover(r0) && !face.dataset.triedLocal) { face.dataset.triedLocal = '1'; face.src = localCover(r0); }
   });
   document.body.classList.add('modal-open');
@@ -72,6 +77,7 @@ function detailMarkup(entry) {
   const r = entry.record || {};
   const cover = coverFor(entry);
   const spine = spineFor(entry);
+  const withheld = scansWithheld(entry);
   const y = bookYear(entry);
   const coll = r.collection
     ? `${r.collection}${r.collection_number ? ' ' + r.collection_number : ''}`
@@ -93,7 +99,7 @@ function detailMarkup(entry) {
     <div class="detail">
       <div class="detail__art">
         ${cover ? `<img class="detail__cover" src="${escHtml(cover)}" alt="Front cover of ${escHtml(title(entry))}" loading="lazy">`
-                : '<div class="detail__cover detail__cover--none">no cover scan</div>'}
+                : `<div class="detail__cover detail__cover--none">${withheld ? 'scan not shown' : 'no cover scan'}</div>`}
         ${spine && hasSpine(entry) ? `<img class="detail__spine" src="${escHtml(spine)}" alt="" loading="lazy">` : ''}
       </div>
 
@@ -114,7 +120,7 @@ function detailMarkup(entry) {
           ${row('Translation', r.translators)}
           ${row('Cover art', r.cover_art)}
           ${row('Awards', r.awards)}
-          ${row(whose('Listed by you as', 'Listed by its owner as'), entry.listed_as || (r.listed_as || null))}
+          ${row(whose('Listed by you as', 'Listed by its owner as'), entry.listed_as || null)}
         </dl>
 
         ${contents}
@@ -122,12 +128,14 @@ function detailMarkup(entry) {
         <div class="detail__actions">
           ${r.id != null ? `<a class="btn btn--secondary btn--sm" href="${escHtml(recordUrl(r.id))}" target="_blank" rel="noopener noreferrer">Read the catalogue record</a>` : ''}
           ${entry.notOwned
-            ? `<button type="button" class="btn btn--primary btn--sm" data-add="${r.id}">Put it on the shelf</button>`
+            ? `<button type="button" class="btn btn--primary btn--sm" data-add="${escHtml(r.id)}">Put it on the shelf</button>`
             : `<button type="button" class="btn btn--ghost btn--sm" data-act="note" data-key="${escHtml(entry.key)}">${entry.note ? 'Edit note' : 'Add a note'}</button>
                <button type="button" class="btn btn--danger btn--sm" data-act="remove" data-key="${escHtml(entry.key)}">Take off the shelf</button>`}
         </div>
 
-        ${hasSpine(entry) ? '' : '<p class="detail__warn">The catalogue has no spine scan for this edition, so the shelf draws one.</p>'}
+        ${withheld
+          ? `<p class="detail__warn">${escHtml(SCANS_WITHHELD)}</p>`
+          : (remoteImagesOff() || hasSpine(entry) ? '' : '<p class="detail__warn">The catalogue has no spine scan for this edition, so the shelf draws one.</p>')}
       </div>
     </div>`;
 }

@@ -6,7 +6,7 @@
 
 import { state, addEntry, whose } from './state.js';
 import { $, escHtml, fold, toast, plural, numberOf } from './utils.js';
-import { coverUrl, gaps } from './data.js';
+import { coverFor, gaps } from './data.js';
 
 const PAGE = 60;
 let shown = PAGE;
@@ -78,15 +78,18 @@ function browseCard(b) {
   const own = state.ownedIds.has(b.id);
   const num = b.collection_number && numberOf(b.collection_number) !== Number.MAX_SAFE_INTEGER
     ? b.collection_number : null;
+  // The lookup the shelf and the drawer use: this site's own thumbnail for a
+  // book on the demo shelf, and nothing at all while remote images are off.
+  const src = coverFor({ record: b });
   return `<article class="bcard${own ? ' is-own' : ''}">
       <div class="bcard__art">
-        <img src="${escHtml(coverUrl(b.id))}" alt="" loading="lazy" decoding="async">
+        ${src ? `<img src="${escHtml(src)}" alt="" loading="lazy" decoding="async">` : ''}
         ${own ? `<span class="bcard__own">${whose('On your shelf', 'On this shelf')}</span>` : ''}
       </div>
       <h3 class="bcard__title">${escHtml(b.title)}</h3>
       <p class="bcard__by">${escHtml((b.authors || []).slice(0, 2).join(', ') || 'Unknown')}</p>
       <p class="bcard__meta">${escHtml(b.collection || '')}${num ? ' ' + escHtml(num) : ''}${b.year ? ' &middot; ' + escHtml(b.year) : ''}</p>
-      <button type="button" class="btn btn--ghost btn--sm bcard__add" data-add="${b.id}"${own ? ' disabled' : ''}>
+      <button type="button" class="btn btn--ghost btn--sm bcard__add" data-add="${escHtml(b.id)}"${own ? ' disabled' : ''}>
         ${own ? whose('Already yours', 'On this shelf') : 'Add to shelf'}
       </button>
     </article>`;
@@ -108,7 +111,7 @@ function gapsMarkup() {
             <span class="gaps__missing">${s.missing.map((b) =>
               (state.readOnly
                 ? `<span class="chip chip--static">${escHtml(b.subcollection_number || '?')}. ${escHtml(b.title)}</span>`
-                : `<button type="button" class="chip" data-add="${b.id}" title="Add to shelf">${escHtml(b.subcollection_number || '?')}. ${escHtml(b.title)}</button>`)).join('')}</span>
+                : `<button type="button" class="chip" data-add="${escHtml(b.id)}" title="Add to shelf">${escHtml(b.subcollection_number || '?')}. ${escHtml(b.title)}</button>`)).join('')}</span>
           </li>`).join('')}
       </ul>
     </section>`;

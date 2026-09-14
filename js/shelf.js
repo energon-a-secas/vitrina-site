@@ -37,7 +37,7 @@ export function spineMarkup(entry, { trueScale = true, ghost = false, number = n
   const hue = hueOf(t);
 
   const inner = src
-    ? `<img class="spine__img" src="${escHtml(src)}" alt="" loading="lazy" decoding="async" fetchpriority="low"${entry.record && entry.record.id != null ? ` data-book-id="${entry.record.id}"` : ''}>`
+    ? `<img class="spine__img" src="${escHtml(src)}" alt="" loading="lazy" decoding="async" fetchpriority="low"${entry.record && entry.record.id != null ? ` data-book-id="${escHtml(entry.record.id)}"` : ''}>`
     : '';
 
   const cls = `spine${src ? '' : ' spine--drawn'}${ghost ? ' spine--ghost' : ''}`;
@@ -105,7 +105,10 @@ function onError(btn, img, apply) {
     img.src = url;
   };
   if (id) {
-    if (hasThumbSpine(id) && !img.dataset.triedRemote) return next('triedRemote', spineUrl(id));
+    // spineUrl answers '' while remote images are switched off, and that step
+    // is skipped rather than handed to the image.
+    const remote = spineUrl(id);
+    if (remote && hasThumbSpine(id) && !img.dataset.triedRemote) return next('triedRemote', remote);
     if (hasLocalSpine(id) && !img.dataset.triedLocal) return next('triedLocal', localSpine(id));
   }
   fallback(btn, img);

@@ -1,10 +1,11 @@
 // ── Dialogs: add a book, import, shelf report ───────────────────────────────
 
-import { state, addEntry, restoreSeed, reindex, save } from './state.js';
-import { $, escHtml, toast, download, plural } from './utils.js';
+import { state, addEntry, restoreSeed, importEntries } from './state.js';
+import { $, escHtml, toast, download, plural, mintUuid } from './utils.js';
 import { title, bookYear, hasSpine, bookHeight } from './data.js';
 import { resolveIsbn, explain, loadScanIndex } from './scan.js';
 import { cameraPossible, startScanner } from './camera.js';
+import { importKeys, idFromKey, indexById } from './syncplan.js';
 
 let hideTimer = null;
 let opener = null;
@@ -138,7 +139,7 @@ export function scanDialog() {
     note.textContent = explain(res);
     note.className = 'dialog__note' + (res.candidates.length ? '' : ' dialog__note--warn');
     results.innerHTML = res.candidates.map((c) => `
-      <button type="button" class="candidate" data-add="${c.id}">
+      <button type="button" class="candidate" data-add="${escHtml(c.id)}">
         <span class="candidate__title">${escHtml(c.title || 'Untitled')}</span>
         <span class="candidate__meta">${escHtml([
           c.author, c.year,
@@ -260,19 +261,29 @@ export function applyImport(text) {
     toast('Nothing in that file looked like a book, so the shelf is unchanged', 'bad');
     return false;
   }
-  state.entries = usable
-    .map((e, i) => ({
-      key: e.key || `imp${i}`,
-      id: e.id != null ? e.id : null,
+  // Keys come from the catalogue, not from a book's place in the file: a
+  // catalogue book is tf<id> however the file named it, and anything else keeps
+  // a valid own key or gets a new own-<uuid>. imp<index> was in neither
+  // grammar, so no account shelf could ever have taken it.
+  const keys = importKeys(usable, indexById(state.seed.map((e) => e.record)), indexById(state.catalog), mintUuid);
+  const result = importEntries(usable.map((e, i) => {
+    const id = idFromKey(keys[i]);
+    return {
+      key: keys[i],
+      id,
       slug: e.slug || null,
       shelf: e.shelf || null,
       note: e.note || null,
+      listed_as: e.listed_as || null,
       added: e.added || null,
-      record: e.record || e,
-    }));
-  reindex();
-  save();
-  toast(`${plural(state.entries.length, 'book', 'books')} imported`);
+      // record.id follows the key, so a file cannot put an id of its own
+      // choosing into data-book-id or an image URL.
+      record: { ...(e.record || e), id },
+    };
+  }));
+  // A refusal has already been announced by state.
+  if (!result) return false;
+  toast(`${plural(result.added, 'book', 'books')} imported`);
   return true;
 }
 

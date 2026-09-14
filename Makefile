@@ -10,7 +10,7 @@ help:
 	@echo "  make kill     Kill this project's HTTP server"
 	@echo "  make validate Run the tests (plain node, no install)"
 	@echo "                Needs a Node that strips TypeScript types by default (verified on v25.4.0)"
-	@echo "  make routes   Regenerate /shelf/ and /demo/ from _templates/app.html"
+	@echo "  make routes   Regenerate /shelf/, /demo/ and /u/ from _templates/app.html"
 	@echo ""
 	@echo "  make install  npm install, for the Convex CLI only; the site itself needs no install"
 	@echo "  make push-dev Push convex/ to the dev deployment once"
@@ -40,6 +40,11 @@ validate:
 	@node tests/isbn.test.mjs
 	@node tests/syntax.test.mjs
 	@node tests/readonly.test.mjs
+	@node tests/syncplan.test.mjs
+	@node tests/entries-mirror.test.mjs
+	@node tests/backend.test.mjs
+	@node tests/remote-images.test.mjs
+	@node tests/escaping.test.mjs
 	@node tests/handles-mirror.test.mjs
 	@node tests/convex-entries.test.mjs
 	@node tests/convex-shelf.test.mjs
@@ -48,6 +53,7 @@ validate:
 	@node tests/convex-webhook.test.mjs
 	@node tests/convex-contract.test.mjs
 	@python3 tests/convex-smoke.test.py
+	@python3 tests/routes.test.py
 	@python3 scripts/catalog_ids.py --check
 	@python3 scripts/routes.py --check
 

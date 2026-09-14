@@ -4,9 +4,36 @@ import { state } from './state.js';
 import { fold, yearOf, heightCm, numberOf, authorKey, titleKey } from './utils.js';
 
 export const SOURCE = 'https://tercerafundacion.net';
-export const spineUrl = (id) => `${SOURCE}/imagenes/lomo/L-${String(id).padStart(8, '0')}.jpg`;
-export const coverUrl = (id) => `${SOURCE}/imagenes/portada/P-${String(id).padStart(8, '0')}.jpg`;
 export const recordUrl = (id) => `${SOURCE}/biblioteca/ver/libro/${id}/`;
+
+// ── The remote-image switch ──────────────────────────────────────────────────
+// Every image this site does not serve itself comes out of spineUrl, coverUrl,
+// spineFor or coverFor, so this is the one place that turns them all off: for
+// everybody with REMOTE_IMAGES, or in one browser with
+// localStorage["vitrina:no-remote-images"] = "1". Every Claude verification
+// runs with it on. The catalogue's robots.txt refuses ClaudeBot, so a page a
+// Claude session checks must ask the catalogue for nothing, and a custom image
+// URL on a hand-added book can point there too, which is why those are withheld
+// as well. Our own thumbnails and the development cache are this site's files
+// and still show.
+export const REMOTE_IMAGES = true;
+export const SCANS_WITHHELD = 'Scans are not shown here right now; the catalogue record has them.';
+
+export function remoteImagesOff() {
+  if (!REMOTE_IMAGES) return true;
+  try {
+    return globalThis.localStorage != null && globalThis.localStorage.getItem('vitrina:no-remote-images') === '1';
+  } catch (err) {
+    return false;   // storage unreadable: the flag cannot be read, and the constant still rules
+  }
+}
+
+const spineAt = (id) => `${SOURCE}/imagenes/lomo/L-${String(id).padStart(8, '0')}.jpg`;
+const coverAt = (id) => `${SOURCE}/imagenes/portada/P-${String(id).padStart(8, '0')}.jpg`;
+/** The catalogue's spine scan, or '' while remote images are off. Callers skip ''. */
+export const spineUrl = (id) => (remoteImagesOff() ? '' : spineAt(id));
+/** The catalogue's cover scan, or '' while remote images are off. Callers skip ''. */
+export const coverUrl = (id) => (remoteImagesOff() ? '' : coverAt(id));
 
 // Fallback copies, written by `scripts/scrape.py cache-images`. The catalogue
 // serves the originals with a one-year cache header and no hotlink protection,
@@ -106,18 +133,40 @@ export function hasSpine(entry) {
   return r.id != null && r.has_spine !== false;
 }
 
-export function spineFor(entry) {
+// Where an image comes from, with remote images allowed or not. spineFor and
+// coverFor ask with the switch as it stands; scansWithheld asks both ways.
+function spineSource(entry, allowRemote) {
   const r = entry.record || {};
-  if (r.spine_custom) return r.spine_custom;
+  if (r.spine_custom) return allowRemote ? r.spine_custom : null;
   if (r.id == null) return null;
-  return hasThumbSpine(r.id) ? thumbSpine(r.id) : spineUrl(r.id);
+  if (hasThumbSpine(r.id)) return thumbSpine(r.id);
+  return allowRemote ? spineAt(r.id) : null;
+}
+
+function coverSource(entry, allowRemote) {
+  const r = entry.record || {};
+  if (r.cover_custom) return allowRemote ? r.cover_custom : null;
+  if (r.id == null) return null;
+  if (hasThumbCover(r.id)) return thumbCover(r.id);
+  return allowRemote ? coverAt(r.id) : null;
+}
+
+export function spineFor(entry) {
+  return spineSource(entry, !remoteImagesOff());
 }
 
 export function coverFor(entry) {
-  const r = entry.record || {};
-  if (r.cover_custom) return r.cover_custom;
-  if (r.id == null) return null;
-  return hasThumbCover(r.id) ? thumbCover(r.id) : coverUrl(r.id);
+  return coverSource(entry, !remoteImagesOff());
+}
+
+/**
+ * True when the switch is what keeps a scan of this book off the page, so the
+ * page can say that instead of calling the scan missing.
+ */
+export function scansWithheld(entry) {
+  if (!remoteImagesOff()) return false;
+  return coverSource(entry, true) !== coverSource(entry, false)
+    || (hasSpine(entry) && spineSource(entry, true) !== spineSource(entry, false));
 }
 
 // ── Grouping ─────────────────────────────────────────────────────────────────
