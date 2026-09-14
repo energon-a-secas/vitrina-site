@@ -311,8 +311,8 @@ module that writes the shelf or the prefs. `strips.js` writes
 note or account id, and `vitrina_move_later_v1` in `sessionStorage`; `data.js`
 reads one flag, `vitrina:no-remote-images`. Neither strips flag names its
 person, so each goes with them: the moved keys are cut down to the books still
-in this browser whenever an account shelf arrives or Done clears, and removed
-once the account's data is being deleted, and Not now is dropped whenever
+in this browser when an account shelf first arrives and when Done clears, and
+removed once the account's data is being deleted, and Not now is dropped whenever
 nobody, or somebody else, is signed in. Kept past their person, the list told a
 shared browser which editions somebody had moved, and both hid the offer from
 the next person to sign in. On an account shelf, Import and "Start from the demo
@@ -559,8 +559,9 @@ and in vitrina the key meta and the catalogue need a commit of their own after
 the shipping one. `--check` is smoke check 13 and fails on a stale catalogue.
 
 **`/shelf/` changes hands only when the kit says so.** `state.source` is
-`local`, `account-loading`, `account` or `account-error`, and only
-`NeoAuth.onChange` moves it (plan section 3.1). Signed in: `account-loading`,
+`local`, `account-loading`, `account` or `account-error`, and it moves between
+the browser shelf and an account only on what `NeoAuth.onChange` reports, or
+when the kit fails to load (plan section 3.1). Signed in: `account-loading`,
 then `account` once `shelf:mine` answers, or `account-error` with Try again; a
 `null` answer while the kit says signed in is a failed request, never a sign-out.
 A different `userId` drops the last shelf and its unsaved changes before the next
@@ -593,16 +594,18 @@ while the kit's session already belongs to the next person and its `userId` is
 still the last one's, which is the order the kit swaps them in. Share's changes
 use the same queue (`session.send`). A retried write may already have reached
 the account the first time, with only its answer lost, so the answer to the
-retry carries `retried: true`: a book it skipped counts as added in the move
-strip and the toasts (`batchToast`), and a `same-handle` for an address the
-Share dialog was not showing counts as done. Read the other way, a move that
-worked said "Added 0 books." and a handle change that worked was reported as
-refused. A note typed in the drawer that is longer than an account keeps (1000
-characters) comes back to be shortened, with the reason in the prompt, instead
-of going out cut the way a move or an import cuts one so its chunk still lands,
-and handed back unchanged it is refused rather than asked for again, so an
-automated prompt that accepts its default cannot loop the page (`detail.js`). A failed add or note edit stays on screen as
-"not saved" with Try again, in memory only; a failed removal puts the book back.
+retry carries `retried: true`, and a book it skipped counts as added in the
+move strip and the toasts (`batchToast`). The Share dialog reads no flag: a
+`same-handle` for an address it was not showing counts as done, retried or not,
+which also covers a change made first in another tab. Read the other way, a
+move that worked said "Added 0 books." and a handle change that worked was
+reported as refused. A note typed in the drawer that is longer than an account
+keeps (1000 characters) comes back to be shortened, with the reason in the
+prompt, instead of going out cut the way a move or an import cuts one so its
+chunk still lands, and handed back unchanged it is refused rather than asked
+for again, so an automated prompt that accepts its default cannot loop the page
+(`detail.js`). A failed add or note edit stays on screen as "not saved" with
+Try again, in memory only; a failed removal puts the book back.
 A refetch, after a failure or when the tab becomes visible, is applied only when
 no write is pending and none went out while it was on its way.
 
@@ -655,10 +658,12 @@ older" ticked. Copy link appears only when the shelf is published, publishing is
 open and the shelf is not suspended. A handle change confirms both of its effects.
 Delete my Vitrina data sits beside Export my shelf, confirms, forgets
 `vitrina_moved_v1` once the account takes it, then polls `shelf:mine` every
-2.5 s with "Deleting your books: N left", under the same pace and give-up as the
-shelf (`js/erasing.js`), ending in Try again; closing the dialog moves a counter
-that stops every poll and paint meant for it. A `not-signed-in`
-answer while the kit still says signed in means the deployment refused the
+2.5 s with "Deleting your books: N left". It waits through `js/erasing.js` as
+the shelf does, only quicker while books remain: every 30 s once none are left,
+nothing while the tab is hidden, and Try again after five answers in a row that
+say nothing about the deletion. Closing the dialog moves a counter that stops
+every poll and paint meant for it. A `not-signed-in` answer while the kit still
+says signed in means the deployment refused the
 token, where `requireSignIn()` would open nothing, so the dialog stays open and
 says to reload.
 
@@ -691,10 +696,11 @@ it was written.
 localhost, so no signed-in path runs anywhere but `vitrina.neorgon.com`, and the
 fakes encode what the kit and clerk-js 5.127.2 did when they were read. Checked
 there, with the remote-image switch on: that the shipped deployment accepts the
-`convex` template's token (`convex/auth.config.ts`; without the template every
-call answers `not-signed-in`, which Share reports as a refused token); that
-signing in and Sign out reload the page, and a session that ends on its own
-shows the signed-out strip; that switching accounts swaps session, token and
+`convex` template's token (`convex/auth.config.ts`; without it no request is
+signed in, so `/shelf/` says the account shelf could not be loaded and Share
+says the account could not be reached); that signing in and Sign out reload the
+page, and a session that ends on its own shows the signed-out strip; that
+switching accounts swaps session, token and
 `userId` in the order `holderOf` expects; that `__client_uat` holds `/shelf/` and
 `/u/` until the kit settles, and a stale cookie releases them; that the kit's
 dialog and Clerk's account menu keep the keyboard; that the header fits with the

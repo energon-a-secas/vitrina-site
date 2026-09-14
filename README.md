@@ -227,7 +227,7 @@ vitrina-site/
 │   ├── detail.js           # the drawer for one book
 │   ├── browse.js           # the catalogue, with owned books marked
 │   ├── modals.js           # add, import, export, shelf report
-│   ├── events.js           # every listener, and the Shelf tools menu; no inline onclick
+│   ├── events.js           # most listeners, the keyboard and the Shelf tools menu; no inline onclick
 │   ├── utils.js            # folding, parsing cm and years, toast, download
 │   └── neorgon-*.js        # vendored kits, the Auth Kit among them; never edited here
 ├── convex/
