@@ -113,10 +113,13 @@ const kit = {
     overflow.hidden = kitMenu.children.length === 0;
   },
 };
+// Controls vitrina's CSS hides on the page stood in for, by id.
+const hiddenByCss = new Set();
 const win = {
   listeners: [],
   addEventListener(type, fn) { this.listeners.push({ type, fn }); },
   matchMedia: () => phone,
+  getComputedStyle: (el) => ({ display: hiddenByCss.has(el.id) ? 'none' : 'inline-flex' }),
   NeoHeader: kit,
 };
 globalThis.window = win;
@@ -170,6 +173,23 @@ eq([group.hidden, names(menu), names(kitMenu)], [false, ['statsBtn', 'exportBtn'
 cross(true);
 cross(false);
 eq(names(actions), TEMPLATE_ORDER, 'however many times the width crosses');
+
+// ── The ⋯ toggle with nothing in it to draw ─────────────────────────────────
+// The kit shows its toggle whenever its menu has children. On /u/ outside the
+// Shelf state vitrina's CSS hides every control it folds, and the toggle opened
+// an empty panel, so js/overflow.js hides it while no row is drawn.
+const { hideEmptyOverflow } = await import('../js/overflow.js');
+cross(true);
+eq(overflow.hidden, false, 'on /shelf/ at phone width the ⋯ toggle shows, with rows to open');
+['addBtn', 'isbnBtn', 'shareBtn', 'exportBtn', 'importBtn', 'shelfMenuBtn', 'statsBtn'].forEach((id) => hiddenByCss.add(id));
+cross(false);
+cross(true);
+eq(overflow.hidden, true, 'on /u/ outside the Shelf state every row it folds is hidden, so the toggle is hidden too');
+hiddenByCss.delete('statsBtn');
+hideEmptyOverflow(doc, win);
+eq(overflow.hidden, false, 'and it shows again once the Shelf report is drawn');
+cross(false);
+eq(overflow.hidden, true, 'wider than a phone nothing is folded, and it stays hidden as the kit leaves it');
 
 console.log(failed ? `\n${failed} failed` : '\nall passed');
 process.exit(failed ? 1 : 0);

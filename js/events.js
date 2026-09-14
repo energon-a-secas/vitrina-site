@@ -11,6 +11,7 @@ import {
 } from './modals.js';
 import { openShare } from './share.js';
 import { keysBelongElsewhere } from './keyguard.js';
+import { hideEmptyOverflow } from './overflow.js';
 
 export function bindEvents() {
   // View switch
@@ -287,6 +288,7 @@ export function bindShelfMenu() {
       group.hidden = false;
     }
     if (window.NeoHeader && typeof window.NeoHeader.syncOverflow === 'function') window.NeoHeader.syncOverflow();
+    hideEmptyOverflow(document, window);
     // Leaving the phone width, the kit puts every control it folded back in
     // front of its ⋯ toggle, which lands Add a book after Add by ISBN, the one
     // control it never folds. The template has Add a book first.

@@ -17,6 +17,7 @@ import { state, hydrate } from './state.js';
 import { render } from './render.js';
 import { closeIfGone } from './detail.js';
 import { $, escHtml } from './utils.js';
+import { hideEmptyOverflow } from './overflow.js';
 import { FN, convexUrlFrom, loadClient, loadAuthKit, readClientUat } from './backend.js';
 import { handleFromSearch } from './handles.js';
 import { indexById } from './syncplan.js';
@@ -176,6 +177,8 @@ function paint() {
   const value = shown && !shown.error ? shown.value : null;
   // The controls, the views, the count and the report control are hidden by CSS in every state but shelf.
   document.body.dataset.profileState = name;
+  // So is every control the header kit folds into its ⋯ menu, which then has nothing to open.
+  hideEmptyOverflow(document, window);
   showEntries(name === 'shelf' ? publicEntries(value, indexById(library), indexById(state.catalog)) : []);
   paintBanner(name, value);
 }

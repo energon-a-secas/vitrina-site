@@ -48,6 +48,9 @@ validate:
 	@node tests/header-menu.test.mjs
 	@node tests/keyguard.test.mjs
 	@node tests/accountplan.test.mjs
+	@node tests/account-flow.test.mjs
+	@node tests/share-flow.test.mjs
+	@node tests/profile-flow.test.mjs
 	@node tests/handles-mirror.test.mjs
 	@node tests/convex-entries.test.mjs
 	@node tests/convex-shelf.test.mjs

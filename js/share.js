@@ -22,6 +22,7 @@ import { session } from './session.js';
 const REASON = 'Sign in to keep your shelf in your account and reserve its address.';
 const CLOSED = 'Public shelves are not open yet. You can reserve an address now; nobody else can see your shelf.';
 const UNREACHED = 'That did not reach your account. Check your connection and try again.';
+const TOKEN_REFUSED = "Your account did not accept this page's sign-in. Reload the page and try again.";
 const DELETE_CONFIRM = 'Delete your Vitrina data? The books, notes and address kept in your account are deleted and cannot be brought back, and the address is held for 30 days so nobody else can take it.';
 const POLL_MS = 2500;
 
@@ -30,15 +31,21 @@ let facts = null;      // what the dialog last painted, from accountplan.shareFa
 let busy = false;      // a change is on its way; the dialog takes no second one meanwhile
 let deleting = false;  // a deletion is running, so the dialog polls its progress
 let pollTimer = null;
+let opened = 0;        // moves as a dialog opens and as it closes, so work for a closed one paints and polls nothing
 
 export async function openShare(button) {
   if (state.mode !== 'shelf') return;
   invoker = button || $('#shareBtn');
   const kit = session.kit;
-  if (!kit || !session.call) {
+  if (!kit || !session.call || !session.send) {
     toast('Sign-in is still loading. Try again in a moment.', 'bad');
     return;
   }
+  // The kit settles first. While clerk-js loads nothing native is open, so the
+  // page keeps its keys, and an overlay opened in that wait ended up under the
+  // kit's dialog. Once it has settled, nothing can open between these closes
+  // and the kit's showModal.
+  await kit.start();
   closeBook();
   closeModal();
   if (!(await kit.requireSignIn({ reason: REASON, invoker }))) return;
@@ -48,12 +55,14 @@ export async function openShare(button) {
   openModal('Share your shelf',
     '<div class="share" data-share><p class="dialog__lead">Reading your shelf\'s address</p></div>',
     '<button type="button" class="btn btn--primary" data-modal-close>Close</button>');
+  opened += 1;
   const root = $('[data-share]');
   root.addEventListener('click', onClick);
   root.addEventListener('change', onToggle);
   root.addEventListener('input', onInput);
   root.addEventListener('submit', onSubmit);
   onModalClose(() => {
+    opened += 1;
     stopPolling();
     deleting = false;
   });
@@ -67,13 +76,17 @@ function stopPolling() {
 
 /** Read the account and paint the dialog from it, keeping focus on the control that had it. */
 async function refresh() {
+  const dialog = opened;
   let mine;
   try {
     mine = await session.call('query', FN.shelf.mine, {});
   } catch (err) {
     mine = undefined;
   }
-  const root = $('[data-share]');
+  // Read for a dialog that has closed since. Closing hides #modal and keeps its
+  // markup, so a poll out at the time repainted it and scheduled itself again,
+  // for good once signed out.
+  const root = dialog === opened ? $('[data-share]') : null;
   if (!root) return;
   if (mine && mine.erasing === true) {
     deleting = true;
@@ -91,8 +104,11 @@ async function refresh() {
   }
   facts = shareFacts(mine);
   if (!facts) {
+    const hadFocus = root.contains(document.activeElement);
     root.innerHTML = `<p class="dialog__lead">Your account could not be reached, so nothing here can change right now.</p>
       <p class="share__row"><button type="button" class="btn btn--secondary btn--sm" data-share-act="reload">Try again</button></p>`;
+    // The control that had focus went with the old markup, and focus would have fallen out of the dialog.
+    if (hadFocus) root.querySelector('[data-share-act="reload"]').focus({ preventScroll: true });
     return;
   }
   const active = document.activeElement;
@@ -156,29 +172,30 @@ function said(answer) {
 }
 
 /**
- * A change made from the dialog. A lost sign-in closes the dialog first and
- * hands over to the kit, whose dialog never opens over this one.
+ * A change made from the dialog, sent through the page's write queue
+ * (account.js), so none waits in the client's own queue while the kit swaps in
+ * another person's token. A lost sign-in closes the dialog first and hands over
+ * to the kit, whose dialog never opens over this one. While the kit still says
+ * signed in, the deployment refused its token and requireSignIn would open
+ * nothing, so the dialog stays and says so.
  */
 async function act(name, args) {
+  const dialog = opened;
   busy = true;
   const root = $('[data-share]');
   if (root) root.setAttribute('aria-busy', 'true');
-  let answer;
-  try {
-    answer = await session.call('mutation', name, args);
-  } catch (err) {
-    answer = null;
-  }
+  const answer = await session.send(name, args);
   busy = false;
-  const still = $('[data-share]');
-  if (still) still.removeAttribute('aria-busy');
+  if (root) root.removeAttribute('aria-busy');
+  const gone = dialog !== opened;
   if (answer && answer.code === 'not-signed-in') {
+    if (session.kit.state.signedIn) return { gone, ok: false, answer: { ...answer, message: TOKEN_REFUSED } };
     closeModal();
     closeBook();
     await session.kit.requireSignIn({ reason: REASON, invoker });
     return { gone: true, ok: false, answer };
   }
-  return { gone: !still, ok: Boolean(answer && answer.ok === true), answer };
+  return { gone, ok: Boolean(answer && answer.ok === true), answer };
 }
 
 function onInput(ev) {
@@ -296,8 +313,11 @@ async function deleteData(confirmFirst) {
 function paintDeletion(root, mine) {
   let status = root.querySelector('#shareDeleting');
   if (!status) {
-    root.innerHTML = '<p class="dialog__lead" id="shareDeleting" role="status"></p>';
+    // Delete, which has focus, goes with the markup; the progress it started takes focus instead.
+    const hadFocus = root.contains(document.activeElement);
+    root.innerHTML = '<p class="dialog__lead" id="shareDeleting" role="status" tabindex="-1"></p>';
     status = root.querySelector('#shareDeleting');
+    if (hadFocus) status.focus({ preventScroll: true });
   }
   const text = deletionCopy(mine);
   // A status region reads out every change, so the same words are not written twice.

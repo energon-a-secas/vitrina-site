@@ -6,9 +6,10 @@
 // decided here. Those are the parts that go wrong quietly: a failure toast that
 // names no book, a banner telling a suspended owner their shelf is public, an
 // anonymous answer painted over the owner's own. A quiet failure needs a test
-// that runs without a browser, so tests/accountplan.test.mjs holds every rule.
+// that runs without a browser, so tests/accountplan.test.mjs holds every rule,
+// and tests/account-flow, share-flow and profile-flow run the modules on them.
 
-import { CALL_MAX, MAX_ENTRIES, catalogueId, fillCandidates, fromServerEntry, keysMissingFromAccount } from './syncplan.js';
+import { CALL_MAX, MAX_ENTRIES, RECORD_KEYS, catalogueId, fillCandidates, fromServerEntry, keysMissingFromAccount } from './syncplan.js';
 
 function isObject(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -182,6 +183,48 @@ export function stripCounts(browser, account, movedKeys) {
   };
 }
 
+/**
+ * The books "Clear this browser's copy" has to leave here, from the stored
+ * browser shelf and the rows shelf:mine has just returned. A book goes only
+ * when the account holds it and has everything this browser has for it. It
+ * stays when the account lacks it, and when a note, label or listed-as text
+ * here is not in the account copy word for word: empty there (what Fill them
+ * in is for), other words, or cut short, as toServerEntry cuts a note at 1000
+ * characters. A book added by hand also stays for a record field the account
+ * does not keep, such as a cover URL that is not https. The date is left out,
+ * since each copy's own is as true. Clearing what is left loses nothing.
+ */
+export function booksToKeep(stored, accountRows) {
+  const rows = new Map((Array.isArray(accountRows) ? accountRows : []).filter(isObject).map((row) => [row.key, row]));
+  return (Array.isArray(stored) ? stored : []).filter((entry) => {
+    if (!isObject(entry)) return false;
+    const account = rows.get(entry.key);
+    if (!isObject(account)) return true;
+    if (lacks(entry.shelf, account.shelf) || lacks(entry.note, account.note) || lacks(entry.listed_as, account.listedAs)) return true;
+    return catalogueId(entry.id) === null && recordLacks(entry.record, account.record);
+  });
+}
+
+// Text this browser has that the account copy does not hold as it is.
+function lacks(mine, theirs) {
+  let text = '';
+  if (typeof mine === 'string') text = mine.trim();
+  else if (typeof mine === 'number' && Number.isFinite(mine)) text = String(mine);
+  return text !== '' && text !== theirs;
+}
+
+function recordLacks(record, kept) {
+  const mine = isObject(record) ? record : {};
+  const theirs = isObject(kept) ? kept : {};
+  const names = (Array.isArray(mine.authors) ? mine.authors : [mine.authors])
+    .filter((name) => typeof name === 'string' && name.trim())
+    .map((name) => name.trim());
+  const held = Array.isArray(theirs.authors) ? theirs.authors : [];
+  if (names.some((name, i) => held[i] !== name)) return true;
+  if (Number.isSafeInteger(mine.pages) && mine.pages >= 0 && mine.pages !== theirs.pages) return true;
+  return RECORD_KEYS.some((field) => field !== 'authors' && field !== 'pages' && lacks(mine[field], theirs[field]));
+}
+
 // ── Authenticated requests ───────────────────────────────────────────────────
 
 /**
@@ -192,25 +235,105 @@ export function stripCounts(browser, account, movedKeys) {
  * background, so every request, queries included, asks the kit for a token
  * first. A request that throws gets one fresh mint past Clerk's cache and one
  * retry; a second failure is the caller's to report.
+ *
+ * Who a request is for (holderOf) is taken before anything is awaited and
+ * checked again just before a token is set, which the client's dispatch follows
+ * at once. A request whose holder changed on the way throws unsent, and its
+ * retry is minted from the session it started with, never from whoever is
+ * signed in by the time it failed.
  */
 export function authedCall(getClient, kit) {
   return async function call(kind, name, args) {
+    const session = sessionOf(kit);
+    const holder = holderOf(kit);
+    const still = () => holder !== null && holderOf(kit) === holder;
     const client = await getClient();
     const run = () => (kind === 'mutation' ? client.mutation(name, args) : client.query(name, args));
     try {
       const token = await kit.convexToken();
+      if (!still()) throw new Error('the signed-in account changed before this request went out');
       if (token) client.setAuth(token);
       else if (typeof client.clearAuth === 'function') client.clearAuth();
       return await run();
     } catch (err) {
-      const session = kit.state && kit.state.clerk ? kit.state.clerk.session : null;
-      if (!session) throw err;
+      if (!session || !still()) throw err;
       const fresh = await session.getToken({ template: 'convex', skipCache: true });
-      if (!fresh) throw err;
+      if (!fresh || !still()) throw err;
       client.setAuth(fresh);
       return run();
     }
   };
+}
+
+function sessionOf(kit) {
+  const snap = kit ? kit.state : null;
+  return snap && snap.clerk && snap.clerk.session ? snap.clerk.session : null;
+}
+
+/**
+ * Who the kit's session is for, as one string, or null while the kit is between
+ * two people. The kit swaps the session, then the token on every bound client,
+ * and only then its userId and its listeners, so for a moment the session is
+ * the next person's while userId is still the last one's. The session id is in
+ * the string too, so a sign-out and sign-in in between is a change as well.
+ */
+export function holderOf(kit) {
+  const snap = kit ? kit.state : null;
+  const session = sessionOf(kit);
+  const userId = (snap && snap.userId) || null;
+  const owner = session && session.user && typeof session.user.id === 'string' ? session.user.id : userId;
+  if (owner !== userId) return null;
+  return `${userId || ''}|${(session && session.id) || ''}`;
+}
+
+/**
+ * The page's writes to the account, one at a time (plan section 3.1).
+ *
+ * The client's own queue keeps mutations in order only until one throws:
+ * authedCall retries a thrown write after a fresh mint, and by then a later
+ * write has gone out ahead of it, so a book put on and taken straight off
+ * stayed on the account. That queue also reads its token as each mutation is
+ * dispatched, so a write waiting behind a slow one could leave with the token
+ * of whoever signed in meanwhile. Here a write starts only once the one before
+ * it, retry included, has settled, and is dropped unsent when the shelf it was
+ * made for is no longer the one in memory. One whose turn comes while the kit is
+ * between two people is refused by authedCall, which runs it.
+ *
+ * call is authedCall's, generation() reads state.generation, and settled() runs
+ * after each write. send(name, args) resolves the function's answer, or null
+ * when the request failed or was dropped. pending() counts unsettled writes made
+ * for the shelf now in memory, and seq() every write made, so a refetch can
+ * tell whether one went out while it was on its way.
+ */
+export function writeQueue({ call, generation, settled = () => {} }) {
+  const waiting = new Set();
+  let made = 0;
+  let tail = Promise.resolve();
+  function send(name, args) {
+    const ticket = { generation: generation() };
+    made += 1;
+    waiting.add(ticket);
+    const turn = tail.then(async () => {
+      if (ticket.generation !== generation()) return null;
+      try {
+        return await call('mutation', name, args);
+      } catch (err) {
+        return null;
+      }
+    });
+    tail = turn;
+    return turn.finally(() => {
+      waiting.delete(ticket);
+      settled();
+    });
+  }
+  function pending() {
+    const now = generation();
+    let n = 0;
+    for (const ticket of waiting) if (ticket.generation === now) n += 1;
+    return n;
+  }
+  return { send, pending, seq: () => made };
 }
 
 // ── /u/ ──────────────────────────────────────────────────────────────────────

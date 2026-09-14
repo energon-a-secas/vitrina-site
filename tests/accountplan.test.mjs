@@ -150,6 +150,45 @@ eq(A.stripCounts(browser, [...account, { key: 'tf1', note: 'x', shelf: 'y' }, { 
   'once the account has every book, N is 0');
 eq(A.stripCounts([], account, ['tf2']), { missing: [], fill: [] }, 'an empty browser shelf offers nothing');
 
+// ── What Clear this browser's copy takes ────────────────────────────────────
+const handRecord = { title: 'Kept', authors: ['A. Writer'], year: null, pages: 120, publisher: null, collection: null, dimensions: null, cover_custom: 'https://example.org/c.jpg', spine_custom: null };
+const inBrowser = [
+  { key: 'tf1', id: 1, shelf: 'Nova', note: 'signed copy', listed_as: null },
+  { key: 'tf2', id: 2, shelf: 'Nova', note: '  same words  ', listed_as: null },
+  { key: 'tf3', id: 3, shelf: null, note: 'n'.repeat(1200) },
+  { key: 'tf4', id: 4, shelf: 'Mine', note: 'mine' },
+  { key: 'tf5', id: 5, shelf: 'VIB', note: null, listed_as: 'the way I file it' },
+  { key: 'tf6', id: 6, shelf: null, note: null },
+  { key: 'tf7', id: 7, shelf: 'Nova', note: null },
+  { key: 'tf8', id: 8, shelf: 'X', note: null, added: '2026-02-02' },
+  { key: 'own-a', id: null, shelf: 'Hand', note: null, record: { ...handRecord, authors: [' A. Writer '] } },
+  { key: 'own-b', id: null, shelf: 'Hand', note: null, record: { title: 'Plain http cover', cover_custom: 'http://example.org/c.jpg' } },
+  { key: 'own-c', id: null, shelf: 'Hand', note: null, record: { title: 'Two authors', authors: ['One', 'Two'] } },
+  { key: 'own-d', id: null, shelf: 'Hand', note: null, record: { title: 'Paged', pages: 300 } },
+];
+const inAccount = [
+  { key: 'tf1', id: 1, shelf: 'Nova', note: null, listedAs: null },
+  { key: 'tf2', id: 2, shelf: 'Nova', note: 'same words', listedAs: null },
+  { key: 'tf3', id: 3, shelf: null, note: 'n'.repeat(1000), listedAs: null },
+  { key: 'tf4', id: 4, shelf: 'Mine', note: 'the account says otherwise', listedAs: null },
+  { key: 'tf5', id: 5, shelf: 'VIB', note: null, listedAs: null },
+  { key: 'tf6', id: 6, shelf: 'Nova', note: 'the account has more', listedAs: null },
+  { key: 'tf8', id: 8, shelf: 'X', note: null, listedAs: null, added: '2025-01-01' },
+  { key: 'own-a', id: null, shelf: 'Hand', note: null, listedAs: null, record: handRecord },
+  { key: 'own-b', id: null, shelf: 'Hand', note: null, listedAs: null, record: { ...handRecord, title: 'Plain http cover', authors: [], pages: null, cover_custom: null } },
+  { key: 'own-c', id: null, shelf: 'Hand', note: null, listedAs: null, record: { ...handRecord, title: 'Two authors', authors: ['One'], pages: null, cover_custom: null } },
+  { key: 'own-d', id: null, shelf: 'Hand', note: null, listedAs: null, record: { ...handRecord, title: 'Paged', authors: [], pages: null, cover_custom: null } },
+];
+const keptHere = A.booksToKeep(inBrowser, inAccount).map((e) => e.key);
+eq(keptHere.includes('tf7'), true, 'Clear keeps a book the account does not hold');
+eq(['tf1', 'tf3', 'tf4', 'tf5'].filter((key) => keptHere.includes(key)), ['tf1', 'tf3', 'tf4', 'tf5'],
+  'and one whose note or label is not in the account as it is here: empty there, cut at 1000 characters, other words, or a listed-as the account lacks');
+eq(['own-b', 'own-c', 'own-d'].filter((key) => keptHere.includes(key)), ['own-b', 'own-c', 'own-d'],
+  'and a book added by hand with a record field the account does not keep: a cover URL, an author, a page count');
+eq(['tf2', 'tf6', 'tf8', 'own-a'].filter((key) => keptHere.includes(key)), [],
+  'a book the account holds in full goes: spaces around a note, the account holding more, another date and a whole hand-added record all count as in full');
+eq([A.booksToKeep(inBrowser, null).length, A.booksToKeep(null, inAccount)], [inBrowser.length, []], 'with no rows to judge by every book stays, and with nothing stored nothing does');
+
 // ── Authenticated requests ──────────────────────────────────────────────────
 function fakeKit({ cached = 'cached-token', fresh = 'fresh-token', session = true } = {}) {
   const log = [];
@@ -212,6 +251,86 @@ kit = fakeKit({ fresh: null });
 client = fakeClient([new Error('expired')]);
 eq([await rejection(A.authedCall(async () => client, kit)('query', 'shelf:mine', {})), client.log.length], ['expired', 2], 'a fresh mint that comes back empty throws the first error');
 
+// Who a request is for. The real kit swaps the session, then the token on every
+// bound client, and only then its userId, so switchTo moves the session alone.
+const tick = () => new Promise((resolve) => setImmediate(resolve));
+function switchingKit() {
+  const minted = [];
+  const sessionFor = (uid) => ({ id: `sess_${uid}`, user: { id: uid }, getToken: async (options) => { minted.push([uid, Boolean(options && options.skipCache)]); return `tok:${uid}`; } });
+  const snap = { userId: 'u1', clerk: { session: sessionFor('u1') } };
+  return {
+    minted,
+    get state() { return snap; },
+    convexToken: async () => snap.clerk.session.getToken({ template: 'convex' }),
+    switchTo(uid) { snap.clerk.session = sessionFor(uid); },
+  };
+}
+kit = switchingKit();
+let dropLine = null;
+const heldClient = { log: [], setAuth(token) { this.log.push(['setAuth', token]); }, clearAuth() {}, mutation(name) { this.log.push(['mutation', name]); return new Promise((resolve, reject) => { dropLine = reject; }); } };
+const lostAfterSwitch = settled(A.authedCall(async () => heldClient, kit)('mutation', 'shelf:upsertEntries', {}));
+await tick();
+kit.switchTo('u2');
+dropLine(new Error('lost'));
+eq([await lostAfterSwitch, kit.minted], ['threw: lost', [['u1', false]]], 'a request that fails after the session changed is not retried, and nothing is minted from the new session');
+eq(heldClient.log.filter((entry) => entry[0] === 'mutation').length, 1, 'so it went out once, as the person who made it');
+
+kit = switchingKit();
+client = fakeClient([{ ok: true }]);
+let handOver = null;
+kit.convexToken = () => new Promise((resolve) => { handOver = resolve; });
+const tokenAfterSwitch = settled(A.authedCall(async () => client, kit)('mutation', 'shelf:upsertEntries', {}));
+await tick();
+kit.switchTo('u2');
+handOver('tok:u2');
+eq([await tokenAfterSwitch, client.log], ['threw: the signed-in account changed before this request went out', []],
+  'a token that arrives after the session changed is never set, and the request never goes out');
+
+kit = switchingKit();
+client = fakeClient([new Error('expired')]);
+let mintBack = null;
+kit.state.clerk.session.getToken = (options) => (options && options.skipCache ? new Promise((resolve) => { mintBack = resolve; }) : Promise.resolve('tok:u1'));
+const retryDuringSwitch = settled(A.authedCall(async () => client, kit)('mutation', 'shelf:upsertEntries', {}));
+await tick();
+kit.switchTo('u2');
+mintBack('tok:u1-fresh');
+eq([await retryDuringSwitch, client.log.filter((entry) => entry[0] === 'mutation').length, client.log.some((entry) => entry[1] === 'tok:u1-fresh')], ['threw: expired', 1, false],
+  'a retry whose fresh token arrives after the session changed is neither set nor sent');
+
+kit = switchingKit();
+kit.switchTo('u2');
+client = fakeClient([{ ok: true }]);
+eq([await settled(A.authedCall(async () => client, kit)('mutation', 'shelf:upsertEntries', {})), client.log], ['threw: the signed-in account changed before this request went out', []],
+  "a request made while the kit's session is somebody other than its userId never goes out");
+eq([A.holderOf(kit), A.holderOf(switchingKit()), A.holderOf(fakeKit({ session: false }))], [null, 'u1|sess_u1', '|'],
+  'holderOf is null while the kit is between two people, and names the user and the session otherwise');
+
+// ── One write at a time ─────────────────────────────────────────────────────
+{
+  let current = 1;
+  const started = [];
+  const answers = [];
+  const queue = A.writeQueue({
+    generation: () => current,
+    call: (kind, name, args) => new Promise((resolve, reject) => { started.push(args.n); answers.push({ resolve, reject }); }),
+  });
+  const first = queue.send('shelf:upsertEntries', { n: 1 });
+  const second = queue.send('shelf:removeEntry', { n: 2 });
+  await tick();
+  eq([started, queue.pending(), queue.seq()], [[1], 2, 2], 'a write waits for the one before it, and both count as pending');
+  answers[0].reject(new Error('lost'));
+  eq(await settled(first), null, 'a write whose request failed resolves null');
+  await tick();
+  eq(started, [1, 2], 'and the next starts only once that one has settled, retry and all');
+  const third = queue.send('shelf:upsertEntries', { n: 3 });
+  current = 2;
+  eq(queue.pending(), 0, 'writes made for a shelf no longer in memory do not hold back a refetch of the one that is');
+  answers[1].resolve({ ok: true });
+  eq(await settled(second), { ok: true }, 'the write ahead of it gets its answer');
+  // Raced against the event loop: a write that went out would wait on an answer that never comes.
+  const turn = await Promise.race([settled(third), tick().then(tick).then(() => 'sent, and waiting on its answer')]);
+  eq([turn, started], [null, [1, 2]], 'and one whose shelf changed hands before its turn is dropped unsent');
+}
 // ── /u/ ─────────────────────────────────────────────────────────────────────
 eq(A.PROFILE_COPY, {
   loading: 'Loading this shelf',

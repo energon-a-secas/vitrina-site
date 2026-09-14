@@ -8,10 +8,11 @@
 // read, because on a shared browser that fallback is somebody else's shelf.
 //
 // Edits are optimistic. state.js changes memory and hands each edit to the
-// adapter below, which sends it and deals with the answer. An answer that
-// arrives after the shelf changed hands is ignored; a failed add or note edit
-// stays on screen as "not saved", with Try again; a failed removal puts the
-// book back; and a refetch never lands on top of a write still on its way.
+// adapter below, which sends it once the write before it has settled and deals
+// with the answer. An answer that arrives after the shelf changed hands is
+// ignored; a failed add or note edit stays on screen as "not saved", with Try
+// again; a failed removal puts the book back; and a refetch never lands on top
+// of a write still on its way.
 //
 // /demo/ only starts the kit, so its header shows the account. It never loads
 // the Convex client and never asks for a shelf.
@@ -22,7 +23,7 @@ import {
 import { FN, convexUrlFrom, loadClient, loadAuthKit, readClientUat } from './backend.js';
 import { toServerEntry, fromServerEntry, indexById, demoSeedForAccount, shouldApplyFetch } from './syncplan.js';
 import {
-  authedCall, failureCopy, keepsUnsaved, notReadyCopy, batchToast, uploadInChunks, failedIndex, shelfSignature,
+  authedCall, failureCopy, keepsUnsaved, notReadyCopy, batchToast, uploadInChunks, failedIndex, shelfSignature, writeQueue,
 } from './accountplan.js';
 import { session } from './session.js';
 import { render } from './render.js';
@@ -41,13 +42,18 @@ let kit = null;
 let convexUrl = null;
 let clientLoad = null;
 
-let authSeq = 0;             // moves with every change the kit reports; work for an older one is dropped
+let authSeq = 0;             // moves when the shelf changes hands; work for an older holder is dropped
 let userId = null;           // whose account shelf memory holds, or held before a sign-out
 let signedInHere = false;    // this page has seen somebody signed in, so a sign-out now came without a reload
 let signedOut = null;        // { unsaved: [titles] } for the strip after such a sign-out
+let waitingForKit = false;   // a session cookie is holding the browser shelf back until the kit settles
 
-const inflight = new Set();  // a ticket per write still waiting for its answer
-let writeSeq = 0;
+// Every write to the account goes through one queue, one at a time (accountplan.writeQueue).
+const writes = writeQueue({
+  call: (...args) => session.call(...args),
+  generation: () => state.generation,
+  settled: () => setTimeout(settle, 0),
+});
 let rerun = null;            // { quiet } when a refetch was held back by writes and runs once they settle
 // Changes the account has not taken: key -> { title, entry, patch }. entry is a
 // book that never reached it, patch a note edit that did not. Memory only, so a
@@ -60,34 +66,30 @@ export function startAccount(mode) {
     booted = boot(mode).catch((err) => {
       // The shelf in this browser keeps working without the kit; only signing in does not.
       console.warn('Vitrina could not start sign-in:', err && err.message);
+      if (waitingForKit) showBrowserShelf();
     });
   }
   return booted;
 }
 
 async function boot(mode) {
+  if (mode === 'shelf') holdForKit();
   kit = (await loadAuthKit()).NeoAuth;
   session.kit = kit;
   if (mode !== 'shelf') {
     await kit.start();
     return;
   }
-  // Throws on a malformed meta, and the catch above says so: read as "no
-  // backend", a typo there would quietly show a signed-in person the browser shelf.
-  convexUrl = convexUrlFrom(document);
   if (!convexUrl) {
     console.warn('Vitrina: this page names no Convex deployment, so account shelves are off here.');
     await kit.start();
     return;
   }
   session.call = authedCall(client, kit);
-  session.send = send;
+  session.send = writes.send;
   session.refresh = refetch;
   setPersistence(adapter);
   bindStrips({ signIn, retryLoad, retryUnsaved });
-  document.addEventListener('vitrina:shelf-not-ready', (ev) => {
-    toast(notReadyCopy(ev.detail && ev.detail.source, session.erasing), 'bad');
-  });
   // Two tabs or two devices: whichever comes back into view reads the account again.
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'visible') void refetch();
@@ -118,26 +120,60 @@ function client() {
   return clientLoad;
 }
 
+/**
+ * A session somewhere on the fleet may be this browser's person, whose shelf is
+ * the account one. Until the kit says who is signed in, /shelf/ neither shows
+ * nor edits the browser shelf: an edit made to it meanwhile was saved there and
+ * then vanished from view as the account shelf arrived. The /shelf/ counterpart
+ * of the hold /u/ keeps (plan section 3.6), run before boot awaits anything, so
+ * no input reaches the browser shelf first.
+ */
+function holdForKit() {
+  // Throws on a malformed meta, and startAccount says so: read as "no backend",
+  // a typo there would quietly show a signed-in person the browser shelf.
+  convexUrl = convexUrlFrom(document);
+  if (!convexUrl) return;
+  document.addEventListener('vitrina:shelf-not-ready', (ev) => {
+    toast(notReadyCopy(ev.detail && ev.detail.source, session.erasing), 'bad');
+  });
+  if (!(readClientUat(document.cookie) > 0)) return;
+  waitingForKit = true;
+  useAccountLoading();
+  render();
+}
+
+/** The kit settled with nobody signed in, or never loaded: the browser shelf the cookie held back. */
+function showBrowserShelf() {
+  waitingForKit = false;
+  useLocalShelf();
+  paint();
+  render();
+}
+
 // ── Whose shelf ──────────────────────────────────────────────────────────────
 
 function onAuth(snap) {
+  // The same person under a new label: the shelf in memory is still theirs, and
+  // so is a load or deletion poll on its way for it, which a new sequence number
+  // would drop, leaving the page loading for good.
+  if (snap.signedIn && userId === snap.userId && (state.source === 'account' || state.source === 'account-loading')) return;
   const seq = ++authSeq;
   if (snap.signedIn) {
     signedInHere = true;
+    waitingForKit = false;
     if (userId !== null && userId !== snap.userId) {
       // Somebody else: nothing of the last person's shelf, or their unsaved changes, stays.
       unsaved.clear();
       leaveAccount(false);
-    } else if (userId === snap.userId && (state.source === 'account' || state.source === 'account-loading')) {
-      return;   // the same person under a new label; the shelf in memory is still theirs
     }
     userId = snap.userId;
     signedOut = null;
     void loadAccount(seq);
     return;
   }
-  // A page that opened signed out is already on the browser shelf.
+  // A page that opened signed out is already on the browser shelf, unless a session cookie held it back.
   if (signedInHere) leaveAccount(true);
+  else if (waitingForKit) showBrowserShelf();
 }
 
 function leaveAccount(showStrip) {
@@ -213,6 +249,8 @@ function failLoad() {
 }
 
 function showErasing(remaining) {
+  // Nothing made before the deletion is sent again, or laid back over the empty shelf it leaves.
+  unsaved.clear();
   session.erasing = { remaining: Number.isSafeInteger(remaining) && remaining > 0 ? remaining : 0 };
   if (state.source !== 'account-loading') useAccountLoading();
   paint();
@@ -283,34 +321,8 @@ function paint() {
 
 // ── Writes and refetches ─────────────────────────────────────────────────────
 
-function pendingNow() {
-  let n = 0;
-  for (const ticket of inflight) if (ticket.generation === state.generation) n += 1;
-  return n;
-}
-
-/**
- * One write, through the client's own mutation queue (never skipQueue, so
- * writes from one tab reach the account in the order they were made). Counted,
- * so a refetch that was on its way meanwhile is not applied over it. Resolves
- * the function's answer, or null when the request itself failed.
- */
-async function send(name, args) {
-  const ticket = { generation: state.generation };
-  writeSeq += 1;
-  inflight.add(ticket);
-  try {
-    return await session.call('mutation', name, args);
-  } catch (err) {
-    return null;
-  } finally {
-    inflight.delete(ticket);
-    setTimeout(settle, 0);
-  }
-}
-
 function settle() {
-  if (!rerun || pendingNow() > 0) return;
+  if (!rerun || writes.pending() > 0) return;
   const { quiet } = rerun;
   rerun = null;
   void refetch({ quiet });
@@ -323,12 +335,12 @@ function settle() {
  */
 async function refetch({ quiet = false } = {}) {
   if (state.source !== 'account' || !session.call) return;
-  if (pendingNow() > 0) {
+  if (writes.pending() > 0) {
     rerun = { quiet: rerun ? rerun.quiet && quiet : quiet };
     return;
   }
   const seq = authSeq;
-  const started = { generation: state.generation, writeSeq };
+  const started = { generation: state.generation, writeSeq: writes.seq() };
   let answer;
   try {
     answer = await session.call('query', FN.shelf.mine, {});
@@ -336,7 +348,7 @@ async function refetch({ quiet = false } = {}) {
     return;   // the shelf in memory stands; the next write or visit tries again
   }
   if (seq !== authSeq) return;
-  const now = { generation: state.generation, writeSeq, pending: pendingNow() };
+  const now = { generation: state.generation, writeSeq: writes.seq(), pending: writes.pending() };
   if (!shouldApplyFetch(started, now)) {
     if (started.generation === now.generation) {
       rerun = { quiet: rerun ? rerun.quiet && quiet : quiet };
@@ -370,7 +382,7 @@ async function saveBooks(entries, kind) {
   const gained = new Map(entries.map((e) => [e.key, e]));
   if (!outgoing.length) return;
   const outcome = await uploadInChunks(outgoing, {
-    send: (chunk) => send(FN.shelf.upsertEntries, { entries: chunk }),
+    send: (chunk) => writes.send(FN.shelf.upsertEntries, { entries: chunk }),
     generation: () => state.generation,
     onChunk: (chunk) => chunk.forEach((row) => {
       const held = unsaved.get(row.key);
@@ -380,6 +392,7 @@ async function saveBooks(entries, kind) {
     }),
   });
   if (outcome.status === 'stale' || generation !== state.generation) return;
+  if (outcome.status === 'erasing') unsaved.clear();
   if (outcome.status === 'done') {
     const said = batchToast(kind, outcome.totals);
     if (said) toast(said);
@@ -407,8 +420,9 @@ async function saveRemove(key, entry) {
   const neverSaved = Boolean(held && held.entry);
   unsaved.delete(key);
   paint();
-  const answer = await send(FN.shelf.removeEntry, { key });
+  const answer = await writes.send(FN.shelf.removeEntry, { key });
   if (generation !== state.generation || (answer && answer.ok === true)) return;
+  if (answer && answer.code === 'erasing') unsaved.clear();
   if (neverSaved || (answer && answer.code === 'erasing')) {
     if (!neverSaved) toast(failureCopy(answer, title(entry)), 'bad');
     void refetch();
@@ -439,7 +453,7 @@ async function saveUpdate(key, patch, entry) {
   if ('note' in patch) args.note = outgoing.note;
   if ('shelf' in patch) args.shelf = outgoing.shelf;
   if (!('note' in args) && !('shelf' in args)) return;
-  const answer = await send(FN.shelf.updateEntry, args);
+  const answer = await writes.send(FN.shelf.updateEntry, args);
   if (generation !== state.generation) return;
   if (answer && answer.ok === true) {
     const still = unsaved.get(key);
@@ -450,6 +464,7 @@ async function saveUpdate(key, patch, entry) {
     return;
   }
   toast(failureCopy(answer, title(entry)), 'bad');
+  if (answer && answer.code === 'erasing') unsaved.clear();
   if (keepsUnsaved(answer, 'update')) {
     const still = unsaved.get(key);
     unsaved.set(key, { title: title(entry), entry: null, patch: { ...(still && still.patch), ...patch } });

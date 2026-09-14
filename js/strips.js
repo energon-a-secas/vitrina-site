@@ -7,7 +7,7 @@
 // it. The strip offering a browser shelf's books to the account is this
 // module's own, because moving them is never automatic (plan section 3.1): it
 // counts, offers, uploads only when asked, and then offers to clear this
-// browser's copy.
+// browser's copy, which takes only the books the account holds in full.
 //
 // Nothing from an account is written to storage here. vitrina_moved_v1 holds
 // keys of books that left this browser's shelf, and no name, note or account id.
@@ -15,7 +15,7 @@
 import { state, rewriteBrowserShelf, clearBrowserShelf } from './state.js';
 import { FN } from './backend.js';
 import { normaliseBrowserShelf, indexById, toServerEntry } from './syncplan.js';
-import { stripCounts, uploadInChunks, failedIndex, failureCopy, batchToast, listTitles, deletionCopy } from './accountplan.js';
+import { stripCounts, uploadInChunks, failedIndex, failureCopy, batchToast, listTitles, deletionCopy, booksToKeep } from './accountplan.js';
 import { session } from './session.js';
 import { title } from './data.js';
 import { $, escHtml, toast, plural, mintUuid } from './utils.js';
@@ -26,7 +26,8 @@ const LATER = 'vitrina_move_later_v1';
 let actions = { signIn() {}, retryLoad() {}, retryUnsaved() {} };
 let facts = { signedOut: null, erasing: null, unsaved: [] };
 let browser = null;          // the browser shelf as normalised when the account shelf arrived
-let move = { phase: 'offer' };   // offer, moving, filling, moved or stopped
+let move = { phase: 'offer' };   // offer, moving, filling, moved, clearing or stopped
+let hands = 0;               // moves in forgetMove, so a Done still reading the account paints nothing after it
 let laterHere = false;
 let painted = '';
 
@@ -44,7 +45,7 @@ export function bindStrips(callbacks) {
     else if (act === 'move') void startMove();
     else if (act === 'fill') void startFill();
     else if (act === 'later') later();
-    else if (act === 'done') done();
+    else if (act === 'done') void done();
   });
   root.addEventListener('change', (ev) => {
     if (ev.target.id === 'stripClear') move.clear = ev.target.checked;
@@ -65,6 +66,7 @@ export function offerMove() {
 export function forgetMove() {
   browser = null;
   move = { phase: 'offer' };
+  hands += 1;
 }
 
 /**
@@ -163,16 +165,25 @@ function unsavedStrip() {
   return strip(`Not saved to your account: ${escHtml(listTitles(facts.unsaved))}.`, button('retry-unsaved', 'Try again', 'btn--primary'), 'warn');
 }
 
+function fillRow(fill, notNow) {
+  if (!fill.length) return '';
+  return strip(`${plural(fill.length, 'book', 'books')} here ${fill.length === 1 ? 'has' : 'have'} notes or labels your account lacks.`,
+    button('fill', 'Fill them in') + (notNow ? button('later', 'Not now', 'btn--ghost') : ''));
+}
+
 function moveStrip() {
   if (state.source !== 'account') return '';
   if (move.phase === 'moving' || move.phase === 'filling') {
     const doing = move.phase === 'moving' ? 'Adding books to your account' : 'Filling in notes and labels';
     return strip(`${doing}: ${move.done} of ${move.total}`);
   }
+  if (move.phase === 'clearing') return strip("Checking your account before clearing this browser's copy");
   if (move.phase === 'moved') {
+    // Fill them in stays beside Done: a book the account already had keeps this
+    // browser's note only here until it is filled in.
     return strip(`Added ${plural(move.added, 'book', 'books')}.`,
       `<label class="check"><input type="checkbox" id="stripClear"${move.clear ? ' checked' : ''}> <span>Clear this browser's copy</span></label>
-       ${button('done', 'Done', 'btn--primary')}`);
+       ${button('done', 'Done', 'btn--primary')}`) + fillRow(counts().fill, false);
   }
   if (move.phase === 'stopped') {
     return strip(escHtml(move.message), button(move.retry, 'Try again', 'btn--primary') + button('later', 'Not now', 'btn--ghost'), 'warn');
@@ -184,10 +195,7 @@ function moveStrip() {
     rows.push(strip(`This browser has ${plural(missing.length, 'book', 'books')} that ${missing.length === 1 ? 'is' : 'are'} not in your account.`,
       button('move', 'Add them to your account', 'btn--primary') + button('later', 'Not now', 'btn--ghost')));
   }
-  if (fill.length) {
-    rows.push(strip(`${plural(fill.length, 'book', 'books')} here ${fill.length === 1 ? 'has' : 'have'} notes or labels your account lacks.`,
-      button('fill', 'Fill them in') + (missing.length ? '' : button('later', 'Not now', 'btn--ghost'))));
-  }
+  rows.push(fillRow(fill, !missing.length));
   return rows.join('');
 }
 
@@ -210,8 +218,13 @@ function paint() {
 
 // ── Moving and filling ───────────────────────────────────────────────────────
 
+// A move, a fill, or a Done still reading the account: the strip takes nothing else meanwhile.
+function busy() {
+  return move.phase === 'moving' || move.phase === 'filling' || move.phase === 'clearing';
+}
+
 async function startMove() {
-  if (state.source !== 'account' || !session.send || move.phase === 'moving' || move.phase === 'filling') return;
+  if (state.source !== 'account' || !session.send || busy()) return;
   const wanted = new Set(counts().missing);
   const books = (browser || []).filter((e) => wanted.has(e.key));
   const outgoing = books.map(toServerEntry).filter(Boolean);
@@ -232,10 +245,12 @@ async function startMove() {
 }
 
 async function startFill() {
-  if (state.source !== 'account' || !session.send || move.phase === 'moving' || move.phase === 'filling') return;
+  if (state.source !== 'account' || !session.send || busy()) return;
   const books = counts().fill;
   const outgoing = books.map(toServerEntry).filter(Boolean);
   if (!outgoing.length) return;
+  // Filled in from beside Done, the strip goes back to Done afterwards.
+  const back = move.phase === 'moved' ? move : null;
   move = { phase: 'filling', done: 0, total: outgoing.length };
   paint();
   const outcome = await uploadInChunks(outgoing, {
@@ -247,17 +262,17 @@ async function startFill() {
       paint();
     },
   });
-  finish(outcome, books, 'fill');
+  finish(outcome, books, 'fill', back);
 }
 
-function finish(outcome, books, kind) {
+function finish(outcome, books, kind, back = null) {
   if (outcome.status === 'stale') {
     move = { phase: 'offer' };
     paint();
     return;
   }
   if (outcome.status === 'done') {
-    move = kind === 'move' ? { phase: 'moved', added: outcome.totals.added, clear: true } : { phase: 'offer' };
+    move = kind === 'move' ? { phase: 'moved', added: outcome.totals.added, clear: true } : (back || { phase: 'offer' });
     if (kind === 'fill') toast(batchToast('fill', outcome.totals));
     paint();
     // The books are in the account and not yet in memory. Said by the strip, so the refetch stays quiet.
@@ -282,18 +297,58 @@ function finish(outcome, books, kind) {
   if (outcome.sent && session.refresh) void session.refresh({ quiet: true });
 }
 
-function done() {
-  const clear = move.clear !== false;
-  move = { phase: 'offer' };
-  if (clear) {
-    if (clearBrowserShelf()) {
-      browser = [];
-      toast("This browser's copy is cleared");
-    } else {
-      toast('This browser would not let the page clear its copy', 'bad');
-    }
+/**
+ * Done, with "Clear this browser's copy" checked as the plan has it by default.
+ * The account is read fresh, not from memory, which may still be waiting on the
+ * refetch after the move, and a book leaves this browser only once the account
+ * holds everything this browser has for it (accountplan.booksToKeep). Clearing
+ * the whole shelf used to delete a note the account had empty, while Fill them
+ * in was out of sight, and the tail of a note longer than the account keeps.
+ */
+async function done() {
+  if (move.phase !== 'moved') return;
+  if (move.clear === false) {
+    move = { phase: 'offer' };
+    paint();
+    focusShelf();
+    return;
   }
+  const holder = hands;
+  move = { phase: 'clearing' };
   paint();
+  let mine = null;
+  try {
+    mine = await session.call('query', FN.shelf.mine, {});
+  } catch (err) {
+    mine = null;
+  }
+  if (holder !== hands) return;
+  move = { phase: 'offer' };
+  if (mine && mine.erasing !== true && Array.isArray(mine.entries)) clearHeld(mine.entries);
+  else toast("This browser's copy is kept, because your account could not be checked.", 'bad');
+  paint();
+  focusShelf();
+}
+
+function clearHeld(rows) {
+  let total = 0;
+  let kept = [];
+  const saved = rewriteBrowserShelf((stored) => {
+    total = stored.length;
+    kept = booksToKeep(stored, rows);
+    return kept.length ? kept : stored;
+  });
+  if (!saved || (!kept.length && !clearBrowserShelf())) {
+    toast('This browser would not let the page clear its copy', 'bad');
+    return;
+  }
+  browser = kept;
+  if (!kept.length) toast("This browser's copy is cleared");
+  else if (kept.length === total) toast(`Nothing was cleared: your account does not hold ${total === 1 ? 'this book' : `these ${total} books`} in full.`);
+  else toast(`This browser's copy is cleared, except ${plural(kept.length, 'book', 'books')} your account does not hold in full.`);
+}
+
+function focusShelf() {
   // The strip that held focus is gone; the shelf's own controls come next.
   const next = document.querySelector('.viewswitch__btn.is-on');
   if (next) next.focus({ preventScroll: true });
