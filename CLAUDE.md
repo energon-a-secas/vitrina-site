@@ -51,10 +51,11 @@ Convex project `vitrina-site` on team `luciano-adonis-villarroel`. Each handler
 in `convex/*.ts` takes the person from `ctx.auth.getUserIdentity()`, never from
 an argument, and hands `ctx.db`, `Date.now()` and `process.env` values to a core
 in `convex/lib/`, which `make validate` runs against `tests/support/fakedb.mjs`
-with no deployment and no install. Expected failures return
-`{ ok: false, code, message }` and never throw. `js/backend.js` names every
-function a browser may call, and `tests/backend.test.mjs` fails when that list
-and `convex/*.ts` disagree.
+with no deployment and no install. The fake reads its tables and indexes from
+`convex/schema.ts`, so a core that uses one the schema lacks fails there too.
+Expected failures return `{ ok: false, code, message }` and never throw.
+`js/backend.js` names every function a browser may call, and
+`tests/backend.test.mjs` fails when that list and `convex/*.ts` disagree.
 
 ```bash
 make where        # the deployment each page names, and the one .env.local pushes to
@@ -140,8 +141,8 @@ browser sizes the item to max-content and clamps it to `max-width`, so the
 Each step is tried at most once per image, tracked with a `data-tried*` flag on
 the element, so a source that fails twice cannot loop. `data.js` is the only
 place an id becomes an image URL, and `assets/thumbs/index.json` is what tells
-the page a thumbnail exists rather than guessing and eating a 404. While the
-remote-image switch is on (see the tercerafundacion.net gotcha), step 2 asks the
+the page a thumbnail exists rather than guessing and eating a 404. While remote
+images are switched off (see the tercerafundacion.net gotcha), step 2 asks the
 catalogue for nothing.
 
 **Regenerate thumbnails after changing the shelf.** `scrape.py cache-images`
@@ -202,8 +203,9 @@ opened under-reports its own hosts. The list from source is `cdn.neorgon.org`,
 inside the ponyfill), `cdn.jsdelivr.net` (the pinned Convex client in
 `js/backend.js`), the production Convex deployment, `neorgon.goatcounter.com`,
 `gc.zgo.at`, `static.cloudflareinsights.com`, plus `data:` and `blob:`, and it
-needs `wasm-unsafe-eval`. Plan section 6 keeps the full list. Verify it against
-a page that has actually scrolled the shelf and opened the scanner.
+needs `wasm-unsafe-eval`. Plan section 6 defers it and names the parts it has
+to union. Verify it against a page that has actually scrolled the shelf and
+opened the scanner.
 
 **Four addresses, one app, and the home page is not the app.** `/` is a static
 home page that loads no app code. The app runs at `/shelf/` (your own shelf,
@@ -266,7 +268,9 @@ backstop no test can trip, so it is not coverage. An adapter installed with
 `setPersistence()` is consulted only while the source is `account`, so one left
 behind after a sign-out never receives a browser edit. `state.js` is the only
 module that writes `localStorage`; `data.js` reads one flag from it,
-`vitrina:no-remote-images`.
+`vitrina:no-remote-images`. On an account shelf, Import and "Start from the demo
+shelf" only add keys memory lacks and never replace or overwrite a book, because
+an account has no undo; on the browser shelf both still replace it.
 
 **`/shelf/` starts empty, and both empty states have to agree.** It used to seed
 from `library.json`, handing every first-time visitor the maintainer's books as
@@ -287,9 +291,9 @@ verified live on this domain, so a profile served through `404.html` answers 404
 to every crawler and link preview. fitprofile-site hands out `/p/<id>` links
 built exactly that way, and every one of them opens its 404 page. So `/u/` is a
 generated page and the handle rides in the query: `handleFromSearch()` in
-`js/handles.js` reads it, skipping the header kit's own query keys, so
-`?theme=matrix&ana` is Ana's shelf. The handle rules are canonical in
-`convex/lib/handles.ts` and mirrored in `js/handles.js`;
+`js/handles.js` reads it, taking a bare segment over `key=value` and skipping the
+header kit's own query keys, so `?theme=matrix&ana` is Ana's shelf. The handle
+rules are canonical in `convex/lib/handles.ts` and mirrored in `js/handles.js`;
 `tests/handles-mirror.test.mjs` runs one corpus through both. Production leaves
 `PUBLISHING` unset until the owner opens it, so `profiles:setPublished` answers
 `publishing-closed` and `profiles:byHandle` answers `null` to everyone but the
@@ -322,7 +326,8 @@ catalogue is the owner's job. Before any browser verification, set
 reload: `spineUrl` and `coverUrl` in `data.js` then return `''`, custom image
 URLs on hand-added books are withheld too (they can point at the catalogue), and
 only this site's thumbnails and the development cache still show.
-`REMOTE_IMAGES = false` in `data.js` does the same for everybody.
+Setting `REMOTE_IMAGES` in `data.js` to `false` (it ships `true`) does the same
+for everybody.
 `tests/remote-images.test.mjs` holds both, and the template carries no
 preconnect to the catalogue for the same reason.
 
@@ -354,10 +359,10 @@ closing on scroll once focus has left the bar, or the app-mode header slides awa
 with the menu open. At 700 px and below the kit folds header actions into its
 `⋯` menu, which closes on any click inside it, so a menu folded in there could
 never open. `bindShelfMenu()` moves the three items into `.header-actions`
-instead, and back above that width, putting Add a book ahead of Add by ISBN
-again. Moved, never cloned, so their listeners and the ids the read-only CSS
-hides them by survive. `tests/header-menu.test.mjs` drives it on a stand-in
-header.
+instead, where the kit folds them into `⋯` as rows of their own, and back above
+that width, putting Add a book ahead of Add by ISBN again. Moved, never cloned,
+so their listeners and the ids the read-only CSS hides them by survive.
+`tests/header-menu.test.mjs` drives it on a stand-in header.
 
 **Two deployments, and a page names only production.** The dev deployment is
 the one `CONVEX_DEPLOYMENT` in `.env.local` names, and `make push-dev`
@@ -387,11 +392,12 @@ publishing and moderation included, and first requires `PUBLISHING` open and
 whatever `PUBLISHING` says, uses only the synthetic subject `user_vitrina_smoke`,
 refuses to run if that subject is a prod admin, and while publishing is closed
 checks that it answers `publishing-closed`. Both end by erasing their subject and
-waiting for `purge:sweep`, which runs 5 minutes after the shelf empties, so a
-run takes at least that long. The erased handle stays held 30 days, so a second
-`--prod` run on the same UTC day needs `--handle smoke-YYYYMMDD-2`. `--dry-run`
-prints the commands and runs nothing; env values are read into memory and never
-printed.
+waiting for `purge:sweep`, which runs 5 minutes after the shelf empties (a Clerk
+token for Convex lives 60 s, and none minted before the erasure may still write
+when it ends), so a run takes at least that long. The erased handle stays held
+30 days, so a second `--prod` run on the same UTC day needs
+`--handle smoke-YYYYMMDD-2`. `--dry-run` prints the commands and runs nothing;
+env values are read into memory and never printed.
 
 **Three environment variables, checked by hash.** `PUBLISHING` (`open`, or unset
 for closed), `ADMIN_SUBJECTS` (comma-separated Clerk user ids; unset means nobody
@@ -414,11 +420,14 @@ first and expect the site's own directory. `package.json` pins only `convex`
 TypeScript types by default (verified on v25.4.0), and that Node, with no
 install, sets the rules. Relative imports between `convex/lib` files carry the
 `.ts` extension (`convex/tsconfig.json` allows it because `noEmit` is true).
-Types arrive only through statement-form `import type { ... }`; an inline
-`{ type X }` fails. No `convex/lib` file imports `convex/*` or `_generated` at
-runtime, and there is no `enum`, `namespace` or parameter property. Separately,
-the Convex bundler skips any `convex/` file whose basename has more than one
-dot, with only a warning, so a `shelf.core.ts` would never deploy.
+Types arrive only through statement-form `import type { ... }`: an inline
+`{ type X }` leaves the import in place at runtime, so from `convex/server` it
+fails with no install (from a sibling `.ts` file it happens to run). No
+`convex/lib` file imports `convex/*` or `_generated` at runtime, and there is no
+`enum`, `namespace` or parameter property. Separately, the Convex bundler skips
+any `convex/` file whose basename has more than one dot and logs it only when
+`CONVEX_VERBOSE` is set, so a `shelf.core.ts` would never deploy and nothing
+would say why. `auth.config.ts` is exempt because the bundler reads it by name.
 
 **An account shelf has a byte budget as well as a book cap.** `MAX_ENTRIES` is
 2000 and `SHELF_BYTES_MAX` is 8 MiB (`convex/lib/limits.ts`), both checked
@@ -432,6 +441,16 @@ insert, fill, edit and delete in `shelfCore.ts`, and each purge batch, patches
 `count` and `bytes` in the same transaction; a new write path that skips that
 lets the budget drift. `tests/convex-contract.test.mjs` states these numbers
 literally, so changing one there is a deliberate act.
+
+**`profiles:byHandle` builds its answer field by field and lists books by id.**
+`projectShelf` in `convex/lib/profilesCore.ts` never spreads a stored row, so a
+field added to the schema stays private until it is named there. A public shelf
+is `{ handle, books }`, each book `{ id, shelf }`, sorted by catalogue id: rows
+come back in the order they were created, which told any visitor the order the
+owner added their books. Every refusal (a malformed or unknown handle, a private
+or suspended shelf, publishing closed) is the same `null`, so the answer never
+says which. `tests/convex-profiles.test.mjs` holds the projection and the order,
+and `convex_smoke.py` checks both views for private keys.
 
 **The webhook answers 503 until its secret is set.** `POST /clerk-users-webhook`
 is served on the deployment's `.convex.site` host, not `.convex.cloud`. With

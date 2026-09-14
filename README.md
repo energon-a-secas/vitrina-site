@@ -92,11 +92,13 @@ and this is a way to stand in front of them.
 [La Tercera Fundación][tf] is a volunteer catalogue of Spanish-language science
 fiction, and it has no public API, so `scripts/scrape.py` reads it: one request
 every 1.2 seconds, a descriptive User-Agent, and an on-disk cache so a re-run
-costs nothing. `robots.txt` allows it.
+costs nothing. `robots.txt` allows crawlers in general and disallows `ClaudeBot`,
+so the owner runs it and a Claude session never does.
 
-**Images are hotlinked, never copied.** The catalogue serves them from
-Cloudflare with a one-year cache header and no hotlink protection, so this repo
-carries no cover art. It carries bibliographic facts only: titles, authors,
+**Images are hotlinked, apart from small thumbnails of the shelf's own books.**
+The catalogue serves them from Cloudflare with a one-year cache header and no
+hotlink protection, so the only cover art in this repo is `assets/thumbs/`,
+described below. Otherwise it carries bibliographic facts only: titles, authors,
 imprints, ISBNs, formats, page counts, tables of contents. Back cover copy is
 deliberately not stored; the drawer links to the record instead.
 
@@ -129,7 +131,7 @@ ES modules require an HTTP server (not `file://`):
 
 ```bash
 make serve      # http://localhost:8881
-make validate   # the tests, plain node, no install
+make validate   # every test, plain node and python, no install
 make routes     # regenerate /shelf/, /demo/ and /u/ from _templates/app.html
 ```
 
@@ -198,7 +200,7 @@ vitrina-site/
 │   ├── events.js           # every listener, and the Shelf tools menu; no inline onclick
 │   └── utils.js            # folding, parsing cm and years, toast, download
 ├── convex/
-│   ├── schema.ts           # profiles, entries, shelfMeta, holds, erasures, rate events
+│   ├── schema.ts           # profiles, entries, shelfMeta, heldHandles, erasures, suspendedSubjects, rateEvents
 │   ├── shelf.ts            # shelf:mine and the three shelf writes
 │   ├── profiles.ts         # handles, publishing, byHandle, deleteMyData
 │   ├── admin.ts            # moderation, for ADMIN_SUBJECTS only
