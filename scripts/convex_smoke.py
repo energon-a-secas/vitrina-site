@@ -126,19 +126,41 @@ class Smoke:
         self.check("%s carries none of %s" % (what, ", ".join(sorted(FORBIDDEN))),
                    lambda: not forbidden_keys(value))
 
+    # purge:sweep runs SWEEP_DELAY_MS (5 minutes, convex/lib/limits.ts) after the
+    # shelf empties, and only the sweep deletes the erasures row, so shelf:mine
+    # keeps answering erasing: true for at least that long by design. The first
+    # dev run gave up at 180 s while the sweep was still pending and every row
+    # the purge owns was already gone.
+    PURGE_TIMEOUT_S = 180
+    SWEEP_TIMEOUT_S = 5 * 60 + 120
+
     def wait_for_erasure(self, subject):
-        """deleteMyData schedules the purge; poll mine until it has run."""
+        """deleteMyData schedules the purge, and the purge schedules the sweep; wait for both."""
         if self.dry_run:
-            print("    poll shelf:mine until erasing is false, entries are empty and there is no profile")
+            print("    poll shelf:mine until remaining is 0 (the purge ran)")
+            print("    then until erasing is false with no entries and no profile (the sweep, about 5 minutes later)")
             return
-        deadline = time.time() + 180
-        while time.time() < deadline:
+        deadline = time.time() + self.PURGE_TIMEOUT_S
+        while True:
             mine = self.run("shelf:mine", subject=subject)
-            if mine and not mine.get("erasing") and not mine.get("entries") and mine.get("profile") is None:
-                self.check("the erasure finished: no entries and no profile", lambda: True)
-                return
+            if mine is not None and ((mine.get("erasing") and mine.get("remaining") == 0)
+                                     or (not mine.get("erasing") and not mine.get("entries"))):
+                break
+            if time.time() > deadline:
+                raise SmokeFailure("the purge did not empty the shelf within %d s" % self.PURGE_TIMEOUT_S)
             time.sleep(3)
-        raise SmokeFailure("the erasure did not finish within 180 s")
+        self.check("the purge emptied the shelf", lambda: True)
+
+        print("  ...  waiting for purge:sweep, about 5 minutes after the shelf emptied")
+        deadline = time.time() + self.SWEEP_TIMEOUT_S
+        while True:
+            mine = self.run("shelf:mine", subject=subject)
+            if mine is not None and not mine.get("erasing") and not mine.get("entries") and mine.get("profile") is None:
+                break
+            if time.time() > deadline:
+                raise SmokeFailure("purge:sweep did not finish within %d s" % self.SWEEP_TIMEOUT_S)
+            time.sleep(15)
+        self.check("the sweep finished: not erasing, no entries, no profile", lambda: True)
 
 
 def entries_for(catalogue_id):
