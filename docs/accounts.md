@@ -10,7 +10,9 @@ and this file loads only when read. Read it before touching `convex/`,
 `js/erasing.js`, `js/overflow.js` or the Auth Kit files (`js/neorgon-auth.js`,
 `js/neorgon-auth-sites.js`, `css/neorgon-auth.css`, and the kit's key and slot
 in `_templates/app.html`). The site's own gotchas, the read-only layers and the
-`vitrina_shelf_v1` storage rule among them, stay in `CLAUDE.md`.
+`vitrina_shelf_v1` storage rule among them, stay in `CLAUDE.md`. Where a gotcha
+cites the plan, it means `docs/plans/2026-09-11-vitrina-public-shelves.md` in
+the monorepo root.
 
 ## The backend
 

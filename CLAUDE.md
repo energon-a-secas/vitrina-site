@@ -56,9 +56,10 @@ and share a signed-in shelf, and the gotchas behind both are in
 `js/erasing.js`, `js/overflow.js` or the Auth Kit files. The traps every
 session carries:
 
-- Two deployments, and a page names only production: `make push-dev` reaches
-  the dev deployment `.env.local` names, and `make where` prints both, which
-  must differ.
+- Two deployments, and a page names only production: `/shelf/` and `/u/` carry
+  `CONVEX_URL` from `scripts/routes.py`, `make push-dev` reaches the dev
+  deployment `.env.local` names, and `make where` prints both, which must
+  differ.
 - Production deploys by hand from the shipping commit, with
   `npx convex deploy --yes --message "vitrina $(git rev-parse HEAD)"`.
 - Check an environment value with `npx convex env get [--prod] NAME | shasum`;
