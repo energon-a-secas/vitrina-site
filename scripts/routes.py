@@ -96,7 +96,11 @@ ROUTES = {
         "SUBTITLE": "A shelf read by its spines",
         "HIDE_OWNED": "Hide what I own",
         "FOOTER_NOTE": "Your shelf is stored in this browser. Nothing is uploaded.",
-        "BANNER": "",
+        # Where the page says what it knows about the account: signed out without
+        # a reload, a shelf that could not be loaded or is being deleted, changes
+        # that did not reach it, and the offer to move this browser's books into
+        # it. A live region, so it is here from the start; js/strips.js fills it.
+        "BANNER": '    <div class="account-strip" data-account-strip aria-live="polite"></div>\n',
         "CONVEX_META": CONVEX_META,
         "PROFILE_HEAD": "",
     },

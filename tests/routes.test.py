@@ -82,8 +82,30 @@ eq(('<body data-mode="profile">' in pages["u"], 'data-profile-banner aria-live="
    "/u/ declares its mode and carries its empty banner")
 eq([route for route, text in pages.items() if "tercerafundacion.net" in text.split("</head>", 1)[0]], [],
    "no page opens a connection to the catalogue from its head")
-eq([route for route, text in pages.items() if text.count('data-keep-mobile') != 1], [],
-   "every page keeps exactly one control in the phone header")
+# The phone header keeps two things: Add by ISBN, the one action the camera
+# makes worth having on a phone, and the Auth Kit slot, which the kit's contract
+# marks data-keep-mobile too. More crowds a 375px header; Share and Shelf tools
+# fold into the kit's menu there.
+SLOT = '<div class="neo-auth" data-neo-auth data-keep-mobile hidden></div>'
+KEY_META = '<meta name="clerk-publishable-key" content="pk_live_Y2xlcmsubmVvcmdvbi5jb20k">'
+AUTH_CSS = '<link rel="stylesheet" href="/css/neorgon-auth.css">'
+for route, page in pages.items():
+    header = page.split('<header class="header-bar"', 1)[1].split("</header>", 1)[0]
+    actions = header.split('<div class="header-actions">', 1)[1].split(SLOT, 1)[0]
+    eq((header.count("data-keep-mobile"), actions.count("data-keep-mobile"), actions.count('id="isbnBtn" data-keep-mobile')), (2, 1, 1),
+       "/%s/ keeps Add by ISBN and the account slot in the phone header, and nothing else" % route)
+    right, home = header.find('<div class="header-right">'), header.find('<a class="header-home"')
+    eq((header.count(SLOT), 0 <= right < header.find(SLOT) < home), (1, True),
+       "/%s/ carries the Auth Kit slot once, inside .header-right and before .header-home" % route)
+    share = re.search(r"<button\b[^>]*\bid=\"shareBtn\"[^>]*>", actions)
+    eq(bool(share) and "data-keep-mobile" not in share.group(0), True,
+       "/%s/ has Share among the header actions, without data-keep-mobile" % route)
+    head = page.split("</head>", 1)[0]
+    eq((head.count(KEY_META), head.count(AUTH_CSS)), (1, 1), "/%s/ carries the publishable key and the kit stylesheet once" % route)
+    eq(head.find(AUTH_CSS) > max(head.find(kit) for kit in ("/css/neorgon-header.css", "/css/neorgon-footer.css", "/css/neorgon-beacon.css")), True,
+       "/%s/ links the kit stylesheet after the other kits' stylesheets" % route)
+eq([route for route, text in pages.items() if "data-account-strip" in text], ["shelf"],
+   "only /shelf/ carries the account strip, which is empty until the page fills it")
 
 # ── The guard, tripped ────────────────────────────────────────────────────────
 with open(os.path.join(ROOT, "js", "state.js"), encoding="utf-8") as fh:

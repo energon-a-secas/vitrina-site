@@ -125,9 +125,9 @@ export function addFromCatalog(id) {
   const rec = state.catalog.find((b) => b.id === Number(id));
   if (!rec) { toast('That book is not in the catalogue file', 'bad'); return false; }
   const entry = addEntry({ ...rec }, { shelf: rec.publisher === 'Ediciones B' && rec.collection === 'Nova' ? 'Nova' : rec.collection });
-  // On the demo addEntry has already announced the refusal, and this toast
-  // replaced it with the wrong reason.
-  if (!entry) { if (!state.readOnly) toast('Already on your shelf'); return false; }
+  // On the demo, and while an account shelf is not ready, addEntry has already
+  // announced the refusal, and this toast replaced it with the wrong reason.
+  if (!entry) { if (!state.readOnly && state.ownedIds.has(rec.id)) toast('Already on your shelf'); return false; }
   toast(`${rec.title} added to the shelf`);
   return true;
 }

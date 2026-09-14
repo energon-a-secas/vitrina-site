@@ -9,6 +9,8 @@ import {
   addDialog, saveFromAddDialog, closeModal, exportShelf, importDialog,
   applyImport, resetShelf, reportDialog, scanDialog
 } from './modals.js';
+import { openShare } from './share.js';
+import { keysBelongElsewhere } from './keyguard.js';
 
 export function bindEvents() {
   // View switch
@@ -27,7 +29,9 @@ export function bindEvents() {
       if (state.readOnly) return;
       // A tab left open on the empty state knows nothing of a shelf filled in
       // another tab since, and copying the demo from here would overwrite it.
-      if (storedShelfSize() > 0) {
+      // An account shelf is only ever added to, so it has nothing to overwrite,
+      // and what storage holds is not that shelf anyway.
+      if (state.source === 'local' && storedShelfSize() > 0) {
         toast('Your shelf has books added in another tab. Reload the page to see them.', 'bad');
         return;
       }
@@ -37,8 +41,9 @@ export function bindEvents() {
       // keyboard focus back to the top of the document. Land on the first book.
       const first = $('#stage').querySelector('.spine:not(.spine--ghost), .cover');
       if (first) first.focus();
-      // A failed save has already said so; a success toast would replace it.
-      if (saved) toast('Your shelf now matches the demo shelf. Take off what you do not own.');
+      // A failed save has already said so; a success toast would replace it. An
+      // account says what it added once it has answered, from its own totals.
+      if (saved && state.source === 'local') toast('Your shelf now matches the demo shelf. Take off what you do not own.');
       return;
     }
     const add = ev.target.closest('[data-add]');
@@ -80,6 +85,8 @@ export function bindEvents() {
   $('#statsBtn').addEventListener('click', reportDialog);
   $('#exportBtn').addEventListener('click', exportShelf);
   $('#importBtn').addEventListener('click', importDialog);
+  const share = $('#shareBtn');
+  if (share) share.addEventListener('click', (ev) => { void openShare(ev.currentTarget); });
   bindShelfMenu();
 
   // Drawer
@@ -152,6 +159,10 @@ export function bindEvents() {
 
   // Keyboard
   document.addEventListener('keydown', (ev) => {
+    // Escape, the focus trap and the shortcuts below are for vitrina's own page
+    // and overlays. A key meant for the Auth Kit's sign-in dialog, Clerk's
+    // account menu or an open header menu is left to it (js/keyguard.js).
+    if (keysBelongElsewhere(document, ev.target)) return;
     if (ev.key === 'Escape') { closeModal(); closeBook(); return; }
 
     // While an overlay is open the shortcuts used to keep firing behind it,

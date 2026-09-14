@@ -45,6 +45,9 @@
   <meta name="beacon-site" content="vitrina-site">
   <link rel="stylesheet" href="/css/neorgon-beacon.css">
   <script defer src="/js/neorgon-beacon.js"></script>
+  <!-- Neorgon Auth Kit, vendored by packages/neorgon-ui/sync-auth.sh. A publishable key is public by design. -->
+  <meta name="clerk-publishable-key" content="pk_live_Y2xlcmsubmVvcmdvbi5jb20k">
+  <link rel="stylesheet" href="/css/neorgon-auth.css">
   <meta name="neo-repo" content="https://github.com/energon-a-secas/vitrina-site">
   <meta name="neo-updated" content="updated Sep 2026">
 
@@ -81,6 +84,7 @@
       <div class="header-actions">
         <button class="btn btn--ghost btn--sm" id="addBtn">Add a book</button>
         <button class="btn btn--ghost btn--sm" id="isbnBtn" data-keep-mobile>Add by ISBN</button>
+        <button class="btn btn--ghost btn--sm" id="shareBtn">Share</button>
         <div class="header-btn-group">
           <button type="button" class="btn btn--ghost btn--sm" id="shelfMenuBtn" aria-haspopup="menu" aria-expanded="false" aria-controls="shelfMenu">Shelf tools <span aria-hidden="true">▾</span></button>
           <div class="header-menu" id="shelfMenu" role="menu" aria-labelledby="shelfMenuBtn">
@@ -90,6 +94,7 @@
           </div>
         </div>
       </div>
+      <div class="neo-auth" data-neo-auth data-keep-mobile hidden></div>
       <a class="header-home" href="https://neorgon.com/" title="neorgon.com" aria-label="Neorgon home">
         <svg class="nh-hub-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M12 4.4 18.58 8.2 18.58 15.8 12 19.6 5.42 15.8 5.42 8.2Z" fill="currentColor" stroke="none"/>

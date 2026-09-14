@@ -8,6 +8,7 @@ import {
 } from './data.js';
 import { shelfMarkup, runMarkup, measureSpines, markScrollable } from './shelf.js';
 import { renderBrowse } from './browse.js';
+import { session, offersDemoCopy } from './session.js';
 
 export function render() {
   const focused = document.activeElement;
@@ -133,15 +134,30 @@ function coverCard(entry) {
 }
 
 function empty() {
+  // An account shelf on its way, or one that could not be read, is not an empty
+  // shelf, and offering to fill it from the demo would be offering blind.
+  if (!state.query && state.source === 'account-loading') {
+    return `<div class="empty"><p class="empty__lead">${session.erasing ? 'Your Vitrina data is being deleted.' : 'Loading your account shelf'}</p></div>`;
+  }
+  if (!state.query && state.source === 'account-error') {
+    return `<div class="empty">
+        <p class="empty__lead">Your account shelf could not be loaded.</p>
+        <p class="empty__hint">Use <strong>Try again</strong> above the shelf.</p>
+      </div>`;
+  }
+  // The demo copy is offered to an account only when shelf:mine answered empty.
+  const offer = !state.query && !state.readOnly && offersDemoCopy(state.source);
   return `<div class="empty">
       <p class="empty__lead">${state.query ? 'Nothing on the shelf matches that.' : 'The shelf is empty.'}</p>
       <p class="empty__hint">${state.query
         ? `Clear the search, or look in <strong>Browse</strong> for a book ${whose('you have not added yet', 'this shelf does not have')}.`
-        : 'Scan or type a number with <strong>Add by ISBN</strong>, pick from the catalogue in <strong>Browse</strong>, or start from a real collection.'}</p>
-      ${state.query || state.readOnly ? '' : `<p class="empty__actions">
+        : `Scan or type a number with <strong>Add by ISBN</strong>${offer
+          ? ', pick from the catalogue in <strong>Browse</strong>, or start from a real collection.'
+          : ' or pick from the catalogue in <strong>Browse</strong>.'}`}</p>
+      ${offer ? `<p class="empty__actions">
         <button type="button" class="btn btn--secondary btn--sm" data-copy-demo>Start from the demo shelf</button>
         <a class="btn btn--ghost btn--sm" href="/demo/">See the demo first</a>
-      </p>`}
+      </p>` : ''}
     </div>`;
 }
 

@@ -145,7 +145,9 @@ export function editNote(key) {
   if (!entry) return;
   const next = window.prompt('A note for this copy (where you found it, condition, anything):', entry.note || '');
   if (next === null) return;
-  updateEntry(key, { note: next.trim() || null });
+  // Refused while an account shelf loads or could not be read, and the refusal
+  // has said so; "Note saved" straight after it would say the opposite.
+  if (!updateEntry(key, { note: next.trim() || null })) return;
   openBook(key);
   toast('Note saved');
 }
@@ -154,7 +156,8 @@ export function takeOff(key) {
   const entry = findEntry(key);
   if (!entry) return;
   if (!window.confirm(`Take "${title(entry)}" off the shelf?`)) return;
-  removeEntry(key);
+  // The same for a removal that was refused.
+  if (!removeEntry(key)) return;
   closeBook();
   toast(`${title(entry)} removed`);
   return true;

@@ -82,6 +82,7 @@ const bar = new Stub('header', { cls: 'header-bar' });
 const actions = bar.appendChild(new Stub('div', { cls: 'header-actions' }));
 actions.appendChild(new Stub('button', { id: 'addBtn' }));
 actions.appendChild(new Stub('button', { id: 'isbnBtn', attrs: { 'data-keep-mobile': '' } }));
+actions.appendChild(new Stub('button', { id: 'shareBtn' }));
 const group = actions.appendChild(new Stub('div', { cls: 'header-btn-group' }));
 const trigger = group.appendChild(new Stub('button', { id: 'shelfMenuBtn' }));
 const menu = group.appendChild(new Stub('div', { id: 'shelfMenu', cls: 'header-menu' }));
@@ -142,7 +143,7 @@ const names = (el) => el.children.map((child) => child.id || [...child.classes][
 
 const { bindShelfMenu } = await import('../js/events.js');
 bindShelfMenu();
-const TEMPLATE_ORDER = ['addBtn', 'isbnBtn', 'header-btn-group', 'header-overflow'];
+const TEMPLATE_ORDER = ['addBtn', 'isbnBtn', 'shareBtn', 'header-btn-group', 'header-overflow'];
 eq(names(actions), TEMPLATE_ORDER, 'at desktop width the header starts in template order');
 
 // ── Scrolling with the menu open ────────────────────────────────────────────
@@ -160,8 +161,8 @@ eq(trigger.getAttribute('aria-expanded'), 'false', 'and a scroll with the menu s
 
 // ── Phone width and back ────────────────────────────────────────────────────
 cross(true);
-eq([group.hidden, names(kitMenu)], [true, ['addBtn', 'header-btn-group', 'statsBtn', 'exportBtn', 'importBtn']],
-  'at phone width Add a book and the three rows are in the kit menu, Shelf tools itself hidden');
+eq([group.hidden, names(kitMenu)], [true, ['addBtn', 'shareBtn', 'header-btn-group', 'statsBtn', 'exportBtn', 'importBtn']],
+  'at phone width Add a book, Share and the three rows are in the kit menu, Shelf tools itself hidden');
 cross(false);
 eq(names(actions), TEMPLATE_ORDER, 'back at desktop width Add a book is first again, not after Add by ISBN');
 eq([group.hidden, names(menu), names(kitMenu)], [false, ['statsBtn', 'exportBtn', 'importBtn'], []],

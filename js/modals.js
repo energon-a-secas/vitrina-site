@@ -5,7 +5,9 @@ import { $, escHtml, toast, download, plural, mintUuid } from './utils.js';
 import { title, bookYear, hasSpine, bookHeight } from './data.js';
 import { resolveIsbn, explain, loadScanIndex } from './scan.js';
 import { cameraPossible, startScanner } from './camera.js';
-import { importKeys, importedEntries, indexById } from './syncplan.js';
+import { importKeys, importedEntries, indexById, demoSeedForAccount } from './syncplan.js';
+import { batchToast } from './accountplan.js';
+import { offersDemoCopy } from './session.js';
 
 let hideTimer = null;
 let opener = null;
@@ -233,19 +235,29 @@ export function exportShelf() {
 
 export function importDialog() {
   if (state.readOnly) { document.dispatchEvent(new CustomEvent('vitrina:read-only')); return; }
+  // An account shelf on its way, or one that could not be read, has nothing to
+  // import into. Said now, rather than after a file has been picked.
+  if (state.source === 'account-loading' || state.source === 'account-error') {
+    document.dispatchEvent(new CustomEvent('vitrina:shelf-not-ready', { detail: { source: state.source } }));
+    return;
+  }
+  // An account shelf is only ever added to: there is no undo for an account.
+  const account = state.source === 'account';
   openModal('Import a shelf',
-    `<p class="dialog__lead">Paste a shelf exported from here, or pick the file. Importing replaces what is on the shelf now, so export first if you want to keep it.</p>
+    `<p class="dialog__lead">${account
+      ? 'Adds the books your account does not have. Nothing is removed.'
+      : 'Paste a shelf exported from here, or pick the file. Importing replaces what is on the shelf now, so export first if you want to keep it.'}</p>
      <label class="form__row" for="importFile"><span>Choose an exported shelf</span></label>
      <input type="file" id="importFile" accept="application/json,.json" class="form__file" aria-label="Choose an exported shelf file">
      <textarea id="importText" class="form__area" rows="8" placeholder="or paste the JSON here" spellcheck="false" aria-label="Paste exported shelf JSON"></textarea>`,
     `<button type="button" class="btn btn--ghost" data-modal-close>Cancel</button>
-     <button type="button" class="btn btn--ghost" id="resetShelf">Start from the demo shelf</button>
-     <button type="button" class="btn btn--primary" id="importSave">Replace the shelf</button>`);
+     ${offersDemoCopy(state.source) ? '<button type="button" class="btn btn--ghost" id="resetShelf">Start from the demo shelf</button>' : ''}
+     <button type="button" class="btn btn--primary" id="importSave">${account ? 'Add to my account' : 'Replace the shelf'}</button>`);
 }
 
 export function applyImport(text) {
-  // Import replaces the whole shelf, so it is the likeliest way to write the
-  // demo over somebody's own; state refuses too, this says why first.
+  // On the browser shelf import replaces the whole shelf, so it is the likeliest
+  // way to write the demo over somebody's own; state refuses too, this says why first.
   if (state.readOnly) { toast('This is a read-only shelf. Import into your own at /shelf/.', 'bad'); return false; }
   let blob;
   try {
@@ -271,13 +283,21 @@ export function applyImport(text) {
   const result = importEntries(importedEntries(usable, keys));
   // A refusal has already been announced by state.
   if (!result) return false;
-  toast(`${plural(result.added, 'book', 'books')} imported`);
+  // An account says what it added once it has answered, from the totals its
+  // chunks return. A file with nothing new for it never reaches the account.
+  if (state.source === 'local') toast(`${plural(result.added, 'book', 'books')} imported`);
+  else if (!result.added) toast(batchToast('import', { added: 0 }));
   return true;
 }
 
 export function resetShelf() {
-  if (!window.confirm('Replace your shelf with the demo shelf? Everything on your shelf now is lost.')) return false;
-  if (restoreSeed()) toast('Your shelf now matches the demo shelf. Take off what you do not own.');
+  // Offered on an account only while it answered empty, and there it adds.
+  const account = state.source !== 'local';
+  const question = account
+    ? `Add the demo shelf's ${demoSeedForAccount(state.seed).length} books to your account? Nothing on it is removed.`
+    : 'Replace your shelf with the demo shelf? Everything on your shelf now is lost.';
+  if (!window.confirm(question)) return false;
+  if (restoreSeed() && !account) toast('Your shelf now matches the demo shelf. Take off what you do not own.');
   return true;
 }
 
