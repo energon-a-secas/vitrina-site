@@ -85,7 +85,7 @@ ROUTES = {
     "shelf": {
         "MODE": "shelf",
         "TITLE": "Vitrina | Your own shelf",
-        "DESCRIPTION": "Build your own shelf of Spanish science fiction paperbacks from real spine scans, kept in your browser with nothing uploaded",
+        "DESCRIPTION": "Build your own shelf of Spanish science fiction paperbacks from real spine scans, kept in this browser or, while you are signed in, in your account",
         "OG_TITLE": "Vitrina: your own shelf",
         "OG_DESCRIPTION": "Your Spanish science fiction paperbacks, standing on a shelf built from their real spine scans",
         "URL": SITE + "/shelf/",
@@ -95,7 +95,9 @@ ROUTES = {
         "ROBOTS": "noindex, follow",
         "SUBTITLE": "A shelf read by its spines",
         "HIDE_OWNED": "Hide what I own",
-        "FOOTER_NOTE": "Your shelf is stored in this browser. Nothing is uploaded.",
+        # This used to promise that nothing is uploaded, which stopped being true
+        # the moment a signed-in shelf lived in an account (plan section 3.10).
+        "FOOTER_NOTE": "Signed out, your shelf stays in this browser. Signed in, it is kept in your account. Nothing is public unless you publish it.",
         # Where the page says what it knows about the account: signed out without
         # a reload, a shelf that could not be loaded or is being deleted, changes
         # that did not reach it, and the offer to move this browser's books into

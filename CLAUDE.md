@@ -10,9 +10,10 @@ One template generates three app pages. `/shelf/` is the visitor's own shelf,
 which starts empty and lives in `localStorage`; a signed-in person's shelf lives
 in the Convex backend under `convex/`. `/demo/` is `data/library.json`, the
 maintainer's own shelf, read-only. `/u/?handle` is a shelf somebody published,
-read-only. `/` is a static home page. The design contract for accounts and
-public shelves is `docs/plans/2026-09-11-vitrina-public-shelves.md` in the
-monorepo root.
+read-only. `/` is a static home page. Signing in is the fleet's Neorgon Auth
+Kit, on the three app pages and never on the home page. The design contract for
+accounts and public shelves is
+`docs/plans/2026-09-11-vitrina-public-shelves.md` in the monorepo root.
 
 **Live:** vitrina.neorgon.com · **Port:** 8881
 
@@ -64,6 +65,37 @@ python3 scripts/convex_smoke.py --dev    # the whole path on dev, publishing inc
 python3 scripts/convex_smoke.py --prod   # the safe path on production
 npx convex deploy --yes --message "vitrina $(git rev-parse HEAD)"   # production, from a Claude session
 ```
+
+## Accounts in the browser
+
+`app.js` renders first, then hands the page to `account.js` (`/shelf/`,
+`/demo/`) or `profile.js` (`/u/`) without awaiting either, so the first paint
+never waits on sign-in or a database.
+
+- `js/account.js`: boots the Auth Kit once. On `/demo/` it only calls
+  `NeoAuth.start()` and never loads a Convex client. On `/shelf/` it runs the
+  source machine, the account adapter `state.js` hands edits to, the write
+  queue, refetches, and the memory-only list of changes the account did not take.
+- `js/session.js`: what `account.js` shares (the kit, `call`, `send`,
+  `refresh`, the last count, erasing) with `render.js`, `modals.js`, `strips.js`
+  and `share.js`, which would otherwise import it in a circle. Also
+  `offersDemoCopy()`.
+- `js/strips.js`: the live region above `/shelf/` (signed out, not loaded,
+  being deleted, not saved) and the move and fill flows.
+- `js/profile.js`: `/u/`, its states, the anonymous client and the owner view.
+- `js/share.js`: the Share dialog: address, publish switch, Copy link, Delete
+  my Vitrina data.
+- `js/accountplan.js`: pure. What the four modules above decide: failure copy,
+  chunked uploads, `booksToKeep`, `authedCall`, `holderOf`, `writeQueue`, the
+  `/u/` states, `replyWins`, the owner banner, `shareFacts`. Pinned by
+  `tests/accountplan.test.mjs`.
+- `js/keyguard.js`: pure. When the page's keydown handler leaves a key alone.
+  Pinned by `tests/keyguard.test.mjs`.
+- `js/overflow.js`: hides the header kit's `⋯` toggle while nothing folded into
+  it is drawn.
+
+`account.js`, `accountplan.js` and `state.js` sit just under the fleet's
+500-line cap for a module (`wc -l js/*.js`): split one before growing it.
 
 ## Gotchas
 
@@ -196,15 +228,17 @@ copies each module to `.mjs` first, which is what makes node parse it under
 module rules. It was tripped both ways before being trusted.
 
 **Vitrina still has no Content-Security-Policy**, and one should not be written
-from a resource dump: images are lazy, the ponyfill loads on demand and the
-Convex client only when a page needs an account, so a page that has merely been
-opened under-reports its own hosts. The list from source is `cdn.neorgon.org`,
+from a resource dump: images are lazy, the ponyfill loads on demand, and the
+Convex client and clerk-js only when a page needs them, so a page that has
+merely been opened under-reports its own hosts. The list from source is `cdn.neorgon.org`,
 `tercerafundacion.net`, `esm.sh`, `fastly.jsdelivr.net` (the wasm, fetched from
 inside the ponyfill), `cdn.jsdelivr.net` (the pinned Convex client in
 `js/backend.js`), the production Convex deployment, `neorgon.goatcounter.com`,
 `gc.zgo.at`, `static.cloudflareinsights.com`, plus `data:` and `blob:`, and it
-needs `wasm-unsafe-eval`. Plan section 6 defers it and names the parts it has
-to union. Verify it against a page that has actually scrolled the shelf and
+needs `wasm-unsafe-eval`. The Auth Kit adds its own hosts and directives: the
+CSP table in `packages/neorgon-ui/auth/README.md`, which `sync-auth.sh --check`
+enforces on any page that has both a key and a CSP. Plan section 6 defers it and
+names the parts it has to union. Verify it against a page that has actually scrolled the shelf and
 opened the scanner.
 
 **Four addresses, one app, and the home page is not the app.** `/` is a static
@@ -240,7 +274,8 @@ relative: they resolve against the module file, not the page. A
 **Read-only has two layers, and only one of them holds.** On `/demo/` and
 `/u/`, CSS keyed on `body[data-mode="demo"]` and `body[data-mode="profile"]`
 hides the edit controls before any script runs: rendered ones by `data-add` or
-`data-act`, the header's by id (`/u/` hides Export too). The header kit and
+`data-act`, the header's by id, Share included (`/u/` hides Export too, and
+outside its Shelf state Shelf tools and the Shelf report as well). The header kit and
 Shelf tools move controls rather than cloning them, so their ids survive and the
 rule still applies inside the mobile menu. That layer is cosmetic. The one that
 holds is `state.js`: `addEntry`, `removeEntry`, `updateEntry`, `restoreSeed` and
@@ -267,8 +302,10 @@ the source again, but no exported path reaches it with another source: it is a
 backstop no test can trip, so it is not coverage. An adapter installed with
 `setPersistence()` is consulted only while the source is `account`, so one left
 behind after a sign-out never receives a browser edit. `state.js` is the only
-module that writes `localStorage`; `data.js` reads one flag from it,
-`vitrina:no-remote-images`. On an account shelf, Import and "Start from the demo
+module that writes the shelf or the prefs. `strips.js` writes
+`vitrina_moved_v1`, keys of books that reached an account and never a title,
+note or account id, and `vitrina_move_later_v1` in `sessionStorage`; `data.js`
+reads one flag, `vitrina:no-remote-images`. On an account shelf, Import and "Start from the demo
 shelf" only add keys memory lacks and never replace or overwrite a book, because
 an account has no undo; on the browser shelf both still replace it.
 
@@ -280,7 +317,10 @@ shelf owns from, finds none, and used to fall through to a developer message
 telling the visitor to run the scraper. It now hands an empty shelf to
 `empty()`, which offers "Start from the demo shelf", that is, `restoreSeed()`.
 The button checks `storedShelfSize()` first: a tab left open on the empty state
-would otherwise overwrite a shelf filled in another tab since. The copy brings
+would otherwise overwrite a shelf filled in another tab since. An account shelf
+skips that check, because there the copy only adds, and is offered it (in the
+empty state and the Import dialog) only when the last `shelf:mine` answered
+empty, through `offersDemoCopy()` in `session.js`. The copy brings
 each book's shelf label and nothing else of the maintainer's: no note, no
 `listed_as`, no date. It used to keep them, and a browser shelf can later move
 to an account, where they would have arrived as the visitor's own.
@@ -361,8 +401,12 @@ with the menu open. At 700 px and below the kit folds header actions into its
 never open. `bindShelfMenu()` moves the three items into `.header-actions`
 instead, where the kit folds them into `⋯` as rows of their own, and back above
 that width, putting Add a book ahead of Add by ISBN again. Moved, never cloned,
-so their listeners and the ids the read-only CSS hides them by survive.
-`tests/header-menu.test.mjs` drives it on a stand-in header.
+so their listeners and the ids the read-only CSS hides them by survive. After
+each sync it asks the kit for, `hideEmptyOverflow()` (`js/overflow.js`) hides
+the `⋯` toggle while none of its rows is drawn. While any `.header-menu` is open
+the page's own keydown handler stands aside (`js/keyguard.js`), or a `2` typed at
+the menu switched the view underneath it. `tests/header-menu.test.mjs` drives it
+on a stand-in header.
 
 **Two deployments, and a page names only production.** The dev deployment is
 the one `CONVEX_DEPLOYMENT` in `.env.local` names, and `make push-dev`
@@ -478,3 +522,151 @@ Every `admin:*` function answers `not-admin` to a caller not in
 `setSubjectSuspended` and `purgeBySubject` take the Clerk user id from the Clerk
 dashboard, for what a handle cannot reach: a suspended person who erased their
 data and has no handle left, or a shelf that never had one.
+
+**The Auth Kit is vendored, and nothing lists Vitrina under "Your Neorgon sites"
+yet.** `packages/neorgon-ui/sync-auth.sh --to vitrina-site` put
+`js/neorgon-auth.js`, `js/neorgon-auth-sites.js` and `css/neorgon-auth.css`
+here; fix the canonical source and resync, never the copies. `_templates/app.html`
+carries the `clerk-publishable-key` meta and the kit stylesheet after the other
+kits' stylesheets, and the `data-neo-auth` slot inside `.header-right` before
+`.header-home`, marked `data-keep-mobile` as the kit's contract has it, so the
+phone header keeps two things: Add by ISBN and the slot. `tests/routes.test.py`
+pins all of it on every route page. `backend.js` imports the kit on demand, so no
+page waits on it. The root `index.html` carries no key: adding one is a ship step
+(plan O4), and it is what lists Vitrina, because `authkit.py build` lists a live
+site whose own `index.html` has a `pk_live_` key. From then on that entry is
+built from vitrina's registry `description`, `display_name` and `live_url`
+(edited in the root `scripts/generate-registry.py`, then `make registry`) and
+from `favicon.svg`. Changing any of them needs a plain `sync-auth.sh`, which
+rebuilds the catalogue and refreshes every vendored copy (`--to` rebuilds it but
+copies to one site), then `sync-auth.sh --check`, a root commit limited to
+`packages/neorgon-ui/auth/neorgon-auth-sites.js`, and a commit of
+`js/neorgon-auth-sites.js` in every repo the sync refreshed. `--check` is smoke
+check 13 and fails on a stale catalogue.
+
+**`/shelf/` changes hands only when the kit says so.** `state.source` is
+`local`, `account-loading`, `account` or `account-error`, and only
+`NeoAuth.onChange` moves it (plan section 3.1). Signed in: `account-loading`,
+then `account` once `shelf:mine` answers, or `account-error` with Try again; a
+`null` answer while the kit says signed in is a failed request, never a sign-out.
+A different `userId` drops the last shelf and its unsaved changes before the next
+one loads. The same person under a new label changes nothing: a new sequence
+number would drop the load or deletion poll on its way, and the page would load
+for good. A sign-out this page did not reload for (an explicit Sign out reloads;
+a session that ends on its own does not) shows the browser shelf under the
+signed-out strip, naming anything not saved. A `__client_uat` above 0 means a
+session somewhere on the fleet, so `holdForKit()` puts `/shelf/` in
+`account-loading` before `boot()` awaits anything, and the browser shelf appears
+only once the kit settles signed out or fails to load: an edit made in that wait
+went to the browser shelf and then vanished under the account shelf. While
+`shelf:mine` answers `erasing`, the page stays loading, says how many books are
+left and asks again every 8 s.
+
+**A write goes out one at a time, and never for the next person.**
+`accountplan.writeQueue` sends an account write only once the one before it,
+retry included, has settled. The client's own queue keeps order only until a
+write throws: `authedCall` retries after a fresh mint, by then the next write had
+gone ahead, and a book put on and taken straight off stayed on the account. A
+write whose shelf changed hands before its turn (its generation moved) is dropped
+unsent. `authedCall` reads `holderOf(kit)`, user id and session id, before it
+awaits anything and again just before it sets the token, and throws unsent if it
+moved; its retry mints from the session it started with. `holderOf` is `null`
+while the kit's session already belongs to the next person and its `userId` is
+still the last one's, which is the order the kit swaps them in. Share's changes
+use the same queue (`session.send`). A failed add or note edit stays on screen as
+"not saved" with Try again, in memory only; a failed removal puts the book back.
+A refetch, after a failure or when the tab becomes visible, is applied only when
+no write is pending and none went out while it was on its way.
+
+**Moving a browser shelf is offered, never done, and Done clears only what the
+account holds in full.** When an account shelf arrives, `strips.js` normalises
+the stored browser shelf once through `rewriteBrowserShelf`, saving any key it
+mints (a key minted afresh on the next count would add a hand-added book twice),
+and offers the books the account lacks, less the keys in `vitrina_moved_v1`,
+plus Fill them in for books whose account copy has an empty note or label.
+Nothing is uploaded until the person asks. Chunks of 200 go through
+`session.send` with the generation read before each chunk and on each answer,
+and a chunk's keys join `vitrina_moved_v1` only after the account took it. Not
+now lasts the tab (`vitrina_move_later_v1` in `sessionStorage`). After a move,
+"Clear this browser's copy" is checked by default, as the plan has it, and Done
+reads `shelf:mine` fresh rather than trusting memory. `booksToKeep()` then keeps
+every browser book the account lacks, holds with a label, note or listed-as text
+that is not the same word for word (empty there, other words, or a note cut at
+1000 characters), or, for a hand-added book, holds without a record field this
+browser has. Clearing the whole shelf used to delete a note the account had
+empty. When the account cannot be read at Done, nothing is cleared. Fill them in
+sits beside Done and is offered again afterwards for the books that stayed.
+
+**`/u/` has six states, and on your own address it waits for the kit.**
+`profile.js` writes `data-profile-state` on `<body>` (`loading`, `missing`,
+`unavailable`, `error`, `empty`, `shelf`), and CSS hides the controls, the
+views, Shelf tools and the Shelf report in every state but `shelf`, and before
+the script has run. Every visitor's request goes through an anonymous client the
+kit never holds a token on. With `__client_uat` above 0 an anonymous `null` or
+failure is held until the kit settles, since it may be this person's own private
+shelf, which only a request carrying their token returns (`authedCall` on a
+second, kit-bound client). Requests are numbered: `replyWins` lets a token reply
+supersede an anonymous one in either order, and a sign-out or a different viewer
+raises a floor that drops every older reply. The owner banner goes by precedence
+suspended, closed, private, published, each with "Books added by hand, notes and
+dates are never shown here." Unavailable reads the same for every cause and never
+repeats the handle. At 700 px and below, `overflow.js` hides the header kit's `⋯`
+toggle while none of the controls folded into it is drawn: the kit counts
+children, and on `/u/` outside the Shelf state it opened an empty panel.
+
+**Share lets the kit settle before it closes anything.** `openShare()` awaits
+`NeoAuth.start()`, then closes the drawer and `#modal`, then awaits
+`requireSignIn()`. While clerk-js loads nothing native is open and the page keeps
+its keys, so an overlay opened in that wait used to end up under the kit's
+dialog. The dialog paints from a fresh `shelf:mine`, read again after every
+change. While `publishingOpen` is false it says public shelves are not open yet,
+and the switch stays disabled except to take a shelf published earlier private
+again, since `setPublished(false)` always works. Publishing needs "I am 16 or
+older" ticked. Copy link appears only when the shelf is published, publishing is
+open and the shelf is not suspended. A handle change confirms both of its effects.
+Delete my Vitrina data sits beside Export my shelf, confirms, then polls
+`shelf:mine` every 2.5 s with "Deleting your books: N left"; closing the dialog
+moves a counter that stops every poll and paint meant for it. A `not-signed-in`
+answer while the kit still says signed in means the deployment refused the
+token, where `requireSignIn()` would open nothing, so the dialog stays open and
+says to reload.
+
+**Keys belong to whatever holds them.** `keysBelongElsewhere()` in
+`js/keyguard.js` makes the page's keydown handler leave Escape, the focus trap
+and the shortcuts alone while a native `<dialog>` is open (the kit's sign-in),
+while a `.header-menu` is open, and when focus is inside a `[role=dialog]`
+outside `#modal` and `#drawer` (Clerk's account menu). With the Shelf report
+open under the kit's dialog, `trapFocus` swallowed Shift+Tab and `a` opened Add
+a book behind it.
+
+**The flow tests run the real modules on the generated pages.**
+`tests/account-flow.test.mjs`, `share-flow.test.mjs` and `profile-flow.test.mjs`
+load `shelf/index.html` or `u/index.html` into `tests/support/minidom.mjs`, a
+small DOM that throws on a selector it does not understand instead of matching
+nothing, and run `account.js`, `strips.js`, `share.js` and `profile.js` in a world
+from `tests/support/shelfworld.mjs`. Each world copies `js/` to a temporary
+directory without the vendored `neorgon-*` files, with a `render.js` that draws
+nothing and a `backend.js` that hands out fakes: a deployment that answers from
+the token's user and can hold, fail or replace one request; a client that queues
+mutations and reads its token at dispatch, as `ConvexHttpClient` 1.45 does; a kit
+that re-tokens its bound clients before it tells listeners, as the real one does;
+and a clock that moves only when a test says so. So a module these tests load
+cannot import a vendored kit file directly: reach the kit through `backend.js`.
+They read the generated pages, so run `make routes` after a template change
+before trusting them. Each rule they pin was tripped once in a scratch copy when
+it was written.
+
+**Only a live sign-in settles the rest.** A production Clerk key refuses
+localhost, so no signed-in path runs anywhere but `vitrina.neorgon.com`, and the
+fakes encode what the kit and clerk-js 5.127.2 did when they were read. Checked
+there, with the remote-image switch on: that the shipped deployment accepts the
+`convex` template's token (`convex/auth.config.ts`; without the template every
+call answers `not-signed-in`, which Share reports as a refused token); that
+signing in and Sign out reload the page, and a session that ends on its own
+shows the signed-out strip; that switching accounts swaps session, token and
+`userId` in the order `holderOf` expects; that `__client_uat` holds `/shelf/` and
+`/u/` until the kit settles, and a stale cookie releases them; that the kit's
+dialog and Clerk's account menu keep the keyboard; that the header fits with the
+slot showing Sign in or an avatar at 375, 414, 768 and 960 px (plan section 4,
+step 7.2); and the owner's own `/u/?handle` banner, a refetch between two tabs,
+and Delete my Vitrina data through to an empty shelf (plan section 5, step 5).
