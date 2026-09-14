@@ -186,8 +186,7 @@ Every `admin:*` function answers `not-admin` to a caller not in
 dashboard, for what a handle cannot reach: a suspended person who erased their
 data and has no handle left, or a shelf that never had one.
 
-**The Auth Kit is vendored, and nothing lists Vitrina under "Your Neorgon sites"
-yet.** `packages/neorgon-ui/sync-auth.sh --to vitrina-site` put
+**The Auth Kit is vendored, and Vitrina is listed under "Your Neorgon sites".** `packages/neorgon-ui/sync-auth.sh --to vitrina-site` put
 `js/neorgon-auth.js`, `js/neorgon-auth-sites.js` and `css/neorgon-auth.css`
 here; fix the canonical source and resync, never the copies. `_templates/app.html`
 carries the `clerk-publishable-key` meta and the kit stylesheet after the other
@@ -195,9 +194,10 @@ kits' stylesheets, and the `data-neo-auth` slot inside `.header-right` before
 `.header-home`, marked `data-keep-mobile` as the kit's contract has it, so the
 phone header keeps two things: Add by ISBN and the slot. `tests/routes.test.py`
 pins all of it on every route page. `backend.js` imports the kit on demand, so no
-page waits on it. The root `index.html` carries no key: adding one is a ship step
-(plan O4), and it is what lists Vitrina, because `authkit.py build` lists a live
-site whose own `index.html` has a `pk_live_` key. From then on that entry is
+page waits on it. The root `index.html` carries the key as well (added when the feature shipped,
+plan O4), and that is what lists Vitrina, because `authkit.py build` lists a live
+site whose own `index.html` has a `pk_live_` key; the home page still loads no
+sign-in code. From then on that entry is
 built from vitrina's registry `description`, `display_name` and `live_url`
 (edited in the root `scripts/generate-registry.py`, then `make registry`) and
 from `favicon.svg`. Changing any of them needs a plain `sync-auth.sh`, which
@@ -208,8 +208,8 @@ copies to one site), then `sync-auth.sh --check`, a root commit limited to
 ones `ls projects/*/js/neorgon-auth.js` lists, less `neorgon-auth-client`, which
 the sync skips: plan O4 names five, written before Enamel and Sash adopted the
 kit. `--check` compares working copies, so it passes with those commits unmade,
-and in vitrina the key meta and the catalogue need a commit of their own after
-the shipping one. `--check` is smoke check 13 and fails on a stale catalogue.
+and in vitrina a change to the key meta or the catalogue goes in a commit of its
+own. `--check` is smoke check 13 and fails on a stale catalogue.
 
 **`/shelf/` changes hands only when the kit says so.** `state.source` is
 `local`, `account-loading`, `account` or `account-error`, and it moves between
