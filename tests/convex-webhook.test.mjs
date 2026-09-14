@@ -66,7 +66,10 @@ for (const name of ['svix-id', 'svix-timestamp', 'svix-signature']) {
   eq(await run(VECTOR.body, headers({ [name]: undefined })), REJECTED, `a missing ${name} header is 400`);
   eq(await run(VECTOR.body, headers({ [name]: '' })), REJECTED, `an empty ${name} header is 400`);
 }
-eq(await run(VECTOR.body, headers(), undefined), { status: 503, purgeSubject: null }, 'an unset secret is 503, so Svix retries once it is set');
+// Called directly, not through run(): passing undefined to run() hands it the
+// default secret, so this case used to verify the vector and answer 200.
+eq(await clerkWebhookCore(VECTOR.body, headers(), undefined, NOW, counted), { status: 503, purgeSubject: null }, 'an unset secret is 503, so Svix retries once it is set');
+eq(await clerkWebhookCore(VECTOR.body, headers(), null, NOW, counted), { status: 503, purgeSubject: null }, 'a null secret too');
 eq(await run(VECTOR.body, headers(), ''), { status: 503, purgeSubject: null }, 'an empty secret too');
 eq(await run(VECTOR.body, headers(), VECTOR.secret, NOW + 10_000), REJECTED, 'a stale delivery again');
 eq(verifierCalls, 0, 'no signature was computed for a missing header, a missing secret or a stale timestamp');
