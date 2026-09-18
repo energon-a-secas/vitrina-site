@@ -312,8 +312,11 @@ to an account, where they would have arrived as the visitor's own.
 serves the site's own `404.html` for any unknown path, with HTTP status 404,
 verified live on this domain, so a profile served through `404.html` answers 404
 to every crawler and link preview. fitprofile-site hands out `/p/<id>` links
-built exactly that way, and every one of them opens its 404 page. So `/u/` is a
-generated page and the handle rides in the query: `handleFromSearch()` in
+built exactly that way, and until 2026-09-18 every one of them simply opened its
+404 page. That is now rescued by an inline redirect in its `404.html` to
+`/?p=<id>`, which is what the cheap fix costs: the app loads, but a crawler and a
+link preview are still served 404 first, and it takes JavaScript plus a hop. So
+`/u/` is a generated page and the handle rides in the query: `handleFromSearch()` in
 `js/handles.js` reads it, taking a bare segment over `key=value` and skipping the
 header kit's own query keys, so `?theme=matrix&ana` is Ana's shelf. The handle
 rules are canonical in `convex/lib/handles.ts` and mirrored in `js/handles.js`;
