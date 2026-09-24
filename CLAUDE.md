@@ -170,7 +170,13 @@ too.
 decide whether a failed image is worth retrying locally. Without that gate the
 retry fired for every catalogue spine with no scan, which was 43 doomed requests
 on one load of the whole-collection view. The index is inside the gitignored
-directory, so the published page never finds it and never retries.
+directory, so the published page never finds it and never retries. It does not
+ask for it either: `loadData` requests the index only on `localhost`,
+`127.0.0.1` or `[::1]` (`onLocalHost` in `data.js`), because the published page
+asking for a file that cannot exist there logged a 404 in the browser's network
+log on every load of `/shelf/`, `/demo/` and `/u/`, and `{ quiet: true }`
+silences our own warning, never the browser's. `tests/remote-images.test.mjs`
+holds both directions.
 
 **The light must not live on the scrolling element.** The downlight was a
 `::before` on `.shelfrow__case`, which is what scrolls, so on a 365-volume row

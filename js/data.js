@@ -47,7 +47,8 @@ export const localCover = (id) => `/data/images/portada-${String(id).padStart(8,
 // What is actually in that directory, written by `cache-images`. Without it the
 // page cannot tell a cached image from one that was never fetched, and every
 // catalogue spine with no scan costs a second doomed request. Absent on the
-// published page, where both sets stay empty and nothing is retried.
+// published page, where both sets stay empty and nothing is retried, and the
+// page does not ask for it there either: see `onLocalHost` below.
 const cached = { spine: new Set(), cover: new Set() };
 export const hasLocalSpine = (id) => cached.spine.has(Number(id));
 export const hasLocalCover = (id) => cached.cover.has(Number(id));
@@ -77,11 +78,29 @@ async function getJson(path, fallback, { quiet = false } = {}) {
   }
 }
 
+// The development cache exists on one machine and nowhere else: `data/images/`
+// is gitignored, this site has no build step, and only `scripts/scrape.py
+// cache-images` writes it. Asking for its index in production was a 404 in the
+// browser's network log on every load of /shelf/, /demo/ and /u/, and
+// `{ quiet: true }` silences only our own warning, never that. So the request is
+// made on a local host and skipped everywhere else, which leaves the cached sets
+// exactly as empty as the published page already has them.
+//
+// The three hosts are the same list as LOCAL_HOSTS in js/neorgon-auth.js:28,
+// copied rather than imported: that file is a vendored kit, it does not export
+// the list, and a vendored copy is never edited. Two accepted costs. A fresh
+// clone or a worktree on localhost still 404s once, which is a developer seeing
+// a developer's missing file. And a phone reaching the dev server by LAN address
+// (scripts/serve.py binds every interface) loses the offline fallback, keeping
+// the hotlink and then the drawn spine.
+const LOCAL_HOSTS = ['localhost', '127.0.0.1', '[::1]'];
+const onLocalHost = () => LOCAL_HOSTS.includes(globalThis.location?.hostname);
+
 export async function loadData() {
   const [library, catalog, images, thumbIndex] = await Promise.all([
     getJson('/data/library.json', { books: [] }),
     getJson('/data/catalog.json', { books: [], collections: [] }),
-    getJson('/data/images/index.json', null, { quiet: true }),
+    onLocalHost() ? getJson('/data/images/index.json', null, { quiet: true }) : null,
     getJson('/assets/thumbs/index.json', null, { quiet: true }),
   ]);
   if (images) {

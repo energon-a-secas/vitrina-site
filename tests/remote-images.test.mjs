@@ -58,6 +58,48 @@ globalThis.localStorage = { getItem: () => { throw new Error('blocked'); } };
 eq(data.coverUrl(622) !== '', true, 'storage that throws does not break the builders');
 globalThis.localStorage = storage;
 
+// ── The development cache is asked for on a dev machine only ────────────────
+// data/images/ is gitignored and only scripts/scrape.py cache-images writes it,
+// so in production the index cannot exist and asking for it was a 404 in the
+// browser's network log on every load. What has to hold is the pair: the
+// published page does not ask, and a local one still does, or the offline
+// fallback silently stops working for the one person who has the cache.
+//
+// The production cases run FIRST on purpose. loadData only ever adds to the
+// cached sets, so a run that populated them would make a later "stays empty"
+// assertion pass for the wrong reason.
+const asked = [];
+const BODIES = {
+  '/data/library.json': { books: [] },
+  '/data/catalog.json': { books: [], collections: [] },
+  '/data/images/index.json': { spine: [622], cover: [622] },
+  '/assets/thumbs/index.json': { spine: [], cover: [] },
+};
+globalThis.fetch = async (path) => {
+  asked.push(path);
+  const body = BODIES[path];
+  if (!body) return { ok: false, status: 404, statusText: 'Not Found' };
+  return { ok: true, status: 200, json: async () => body };
+};
+
+async function loadFrom(hostname) {
+  asked.length = 0;
+  if (hostname === null) delete globalThis.location;
+  else globalThis.location = { hostname };
+  await data.loadData();
+  return asked.includes('/data/images/index.json');
+}
+
+eq(await loadFrom('vitrina.neorgon.com'), false, 'the published page never asks for the development image index');
+eq(await loadFrom(null), false, 'and neither does a page with no location at all');
+eq(data.hasLocalSpine(622), false, 'so the cached set stays as empty as production has it');
+for (const host of ['localhost', '127.0.0.1', '[::1]']) {
+  eq(await loadFrom(host), true, `a page served from ${host} asks for it, so the offline fallback still works`);
+}
+eq(data.hasLocalSpine(622), true, 'and reading it fills the cached set');
+delete globalThis.location;
+delete globalThis.fetch;
+
 // ── The constant ────────────────────────────────────────────────────────────
 // data.js as shipped, with REMOTE_IMAGES false and its imports pointed at the
 // real modules, loaded from a scratch file.

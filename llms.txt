@@ -4,7 +4,7 @@
 
 - Live: https://vitrina.neorgon.com/
 - Part of the Neorgon tool suite (free, no signup, runs in your browser): https://neorgon.com/
-- Keywords: books, collection, sci-fi, scraper, static-site
+- Keywords: books, collection, sci-fi, scraper, convex, auth, clerk, static-site
 
 ## More Neorgon tools
 
