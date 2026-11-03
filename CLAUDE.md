@@ -210,19 +210,58 @@ the whole module graph and the page lost every handler. `tests/syntax.test.mjs`
 copies each module to `.mjs` first, which is what makes node parse it under
 module rules. It was tripped both ways before being trusted.
 
-**Vitrina still has no Content-Security-Policy**, and one should not be written
+**Every page carries a meta Content-Security-Policy, written from source.** Not
 from a resource dump: images are lazy, the ponyfill loads on demand, and the
 Convex client and clerk-js only when a page needs them, so a page that has
-merely been opened under-reports its own hosts. The list from source is `cdn.neorgon.org`,
-`tercerafundacion.net`, `esm.sh`, `fastly.jsdelivr.net` (the wasm, fetched from
-inside the ponyfill), `cdn.jsdelivr.net` (the pinned Convex client in
-`js/backend.js`), the production Convex deployment, `neorgon.goatcounter.com`,
-`gc.zgo.at`, `static.cloudflareinsights.com`, plus `data:` and `blob:`, and it
-needs `wasm-unsafe-eval`. The Auth Kit adds its own hosts and directives: the
-CSP table in `packages/neorgon-ui/auth/README.md`, which `sync-auth.sh --check`
-enforces on any page that has both a key and a CSP. Plan section 6 defers it and
-names the parts it has to union. Verify it against a page that has actually scrolled the shelf and
-opened the scanner.
+merely been opened under-reports its own hosts. The app policy lives in
+`_templates/app.html`, so `routes.py` carries it to all three app pages;
+`index.html` and `404.html` carry narrower ones by hand (the home page admits
+none of the app's or the kit's hosts, the 404 page runs no script). What the app
+policy admits, and why:
+
+- `script-src`: the theme guard's hash (a fleet constant); the pinned Convex
+  client in `js/backend.js`, scoped to `cdn.jsdelivr.net/npm/convex@1.45.0/`
+  because that build is one self-contained file; the ponyfill in
+  `js/camera.js`, scoped to `esm.sh/barcode-detector@3.2.2/` plus `esm.sh/node/`,
+  because its entry imports its own build and esm.sh's `process`, `events`,
+  `tty` and `async_hooks` polyfills; `'wasm-unsafe-eval'` for its decoder; the
+  Auth Kit's two hosts; the two analytics scripts.
+- `connect-src`: `https://*.convex.cloud`, a wildcard on purpose, since
+  `routes.py` refuses a page that names a deployment host anywhere but its one
+  `neo-convex-url` meta; `clerk.neorgon.com`; `fastly.jsdelivr.net`, where the
+  ponyfill itself fetches the wasm; the two analytics endpoints.
+- `img-src 'self' data: https:`, because a catalogue scan and a hand-added
+  book's own image URL can be any https address. That is also why the catalogue
+  is never named, which `tests/routes.test.py` refuses in a page head anyway.
+- `style-src 'unsafe-inline'`, for Clerk's injected styles and the style
+  attributes `shelf.js` writes. Never add a style hash beside it: a hash or nonce
+  switches `'unsafe-inline'` off for the whole directive.
+- Left out on purpose: `frame-ancestors` (a meta policy ignores it),
+  `accounts.neorgon.com` (memes-site's entries are the ones the fleet means to
+  remove), `*.protect.clerk.com` (fleet scope).
+
+Changing it is a test away. `tests/csp.test.mjs` (`make validate`) reads the
+URLs from the code that loads them and fails on a new remote import, a Convex or
+ponyfill bump, an edited inline script or style block, a stale pin, a meta that
+moved below the first request, and any inline event handler or `javascript:`
+URL in a page or a module, since none of those runs under this policy (the Add
+by ISBN form's `onsubmit` was the one there was; Enter reloaded the page with
+the number in the query once it stopped running). After a ponyfill bump, read
+the new module graph from esm.sh, the entry and then each import, and update the
+test's list. The Auth Kit's entries are its own table in
+`packages/neorgon-ui/auth/README.md`, enforced by `sync-auth.sh --check`, and
+smoke check 29 reconciles inline scripts across the fleet. A meta policy sends
+no reports, so the console is the only record: verify with remote images off,
+scroll Whole collection, and open the camera with `window.BarcodeDetector`
+deleted, the only way the ponyfill path runs on a desktop Chromium. Done that
+way on 2026-11-03 against a local server, headless Chromium with a fake camera
+showing an EAN-13 the ponyfill decoded: no console error on any page, and two
+controls (the policy without `'wasm-unsafe-eval'`, and without `esm.sh/node/`)
+each logged the violation and stopped the decoder. Not reachable locally:
+clerk-js (a production key never loads on localhost), the analytics beacons
+(only on `*.neorgon.com`) and catalogue scans (remote images off). If esm.sh
+ever changes its layout, a browser with no native detector falls back to typing
+the number, and its console names the blocked path.
 
 **Four addresses, one app, and the home page is not the app.** `/` is a static
 home page that loads no app code. The app runs at `/shelf/` (your own shelf,

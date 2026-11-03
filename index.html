@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Content-Security-Policy. The home page loads no app code and no sign-in code, so it admits none of
+       their hosts; the second hash is the returning-visitor script at the end of the body. See CLAUDE.md. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-na6phygP/tfoCIp4oBeQgGJJpQsZob/udrLum+20QTI=' 'sha256-oI4tHKgKTn7thh8A3YpmH93lU81CMfpJF0mJO32ww/Y=' https://gc.zgo.at https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://cdn.neorgon.org; img-src 'self' data: https:; connect-src 'self' https://neorgon.goatcounter.com https://cloudflareinsights.com; object-src 'none'; base-uri 'self'">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">

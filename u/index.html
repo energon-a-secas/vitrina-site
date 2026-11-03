@@ -4,6 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Content-Security-Policy, before anything the page requests, which is all a meta policy governs.
+       What each source is for, and how to change it: CLAUDE.md. tests/csp.test.mjs checks it against the code. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-na6phygP/tfoCIp4oBeQgGJJpQsZob/udrLum+20QTI=' 'wasm-unsafe-eval' https://cdn.jsdelivr.net/npm/convex@1.45.0/ https://esm.sh/barcode-detector@3.2.2/ https://esm.sh/node/ https://clerk.neorgon.com https://challenges.cloudflare.com https://gc.zgo.at https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://cdn.neorgon.org; img-src 'self' data: https:; connect-src 'self' https://*.convex.cloud https://clerk.neorgon.com https://fastly.jsdelivr.net https://neorgon.goatcounter.com https://cloudflareinsights.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'">
   <meta name="neo-analytics" content="off">
   <meta name="referrer" content="strict-origin">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
