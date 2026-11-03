@@ -205,11 +205,11 @@ rebuilds the catalogue and refreshes every vendored copy (`--to` rebuilds it but
 copies to one site), then `sync-auth.sh --check`, a root commit limited to
 `packages/neorgon-ui/auth/neorgon-auth-sites.js`, and a commit of
 `js/neorgon-auth-sites.js` in every repo the sync refreshed. Those repos are the
-ones `ls projects/*/js/neorgon-auth.js` lists, less `neorgon-auth-client`, which
-the sync skips: plan O4 names five, written before Enamel and Sash adopted the
-kit. `--check` compares working copies, so it passes with those commits unmade,
-and in vitrina a change to the key meta or the catalogue goes in a commit of its
-own. `--check` is smoke check 13 and fails on a stale catalogue.
+ones `ls projects/*/js/neorgon-auth.js` lists; plan O4 names five, written before
+Enamel and Sash adopted the kit. `--check` compares working copies, so it passes
+with those commits unmade, and in vitrina a change to the key meta or the
+catalogue goes in a commit of its own. `--check` is smoke check 13 and fails on
+a stale catalogue.
 
 **`/shelf/` changes hands only when the kit says so.** `state.source` is
 `local`, `account-loading`, `account` or `account-error`, and it moves between
