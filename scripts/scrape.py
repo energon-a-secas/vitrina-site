@@ -14,8 +14,14 @@ Why the site is scraped at all: tercerafundacion.net has no public API. It is a
 volunteer catalogue and the only place the 1980s and 1990s Spanish covers are
 scanned, which is the whole point of this shelf. The client waits 1.2s between
 requests, sends a descriptive User-Agent, and caches everything it reads.
-robots.txt allows it (`Allow: /`, `search=yes`); the `ai-train=no` signal is
-respected: nothing here trains anything.
+
+Who may run it: the owner, and never a Claude session. The site's robots.txt
+allows every crawler in its generic group (`Allow: /`, `search=yes`) but gives
+ClaudeBot `Disallow: /`, so a Claude session neither runs this script nor
+fetches the site (CLAUDE.md, the tercerafundacion.net gotcha). This docstring
+used to cite only the generic group, which is how sessions came to scrape it
+between 2026-09-06 and 2026-09-08. The `ai-train=no` signal is respected:
+nothing here trains anything.
 """
 
 import argparse
