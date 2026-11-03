@@ -116,7 +116,15 @@ silently rewrite one into the other.
 `assets/thumbs/` holds small copies of the 39 books in `library.json` (step 1 of
 the image chain below). Every other image is hotlinked, back cover copy is not
 captured at all (see the comment in `tf.parse_book`), and `data/.cache/` and
-`data/images/` are gitignored. The page copy has to match: the provenance line
+`data/images/` are gitignored. That promise was false for two months: two
+records in `candidates.json` carried a `blurb` key from the first commit, and
+`rank.py` copies a record whole into `ranked.json` and the briefs, so it sat in
+four published files that nothing read. `tests/provenance.test.mjs` (`make
+validate`) now walks every file under `data/` and `data/briefs/` and fails on a
+key that names back cover copy, the catalogue's own "Texto de contraportada"
+label, or its sign-in chrome, which only a whole-page capture brings. To drop a
+field, delete it from `candidates.json` and rerun `rank.py`, which rebuilds the
+other three from it offline. The page copy has to match: the provenance line
 kept saying "Nothing is copied here" after the thumbnails were committed. If the
 catalogue ever blocks hotlinking,
 `scripts/scrape.py cache-images` builds a local copy and `data.js` is the one

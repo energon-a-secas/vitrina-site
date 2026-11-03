@@ -44,6 +44,7 @@ validate:
 	@node tests/entries-mirror.test.mjs
 	@node tests/backend.test.mjs
 	@node tests/remote-images.test.mjs
+	@node tests/provenance.test.mjs
 	@node tests/csp.test.mjs
 	@node tests/escaping.test.mjs
 	@node tests/header-menu.test.mjs
