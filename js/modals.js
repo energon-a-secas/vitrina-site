@@ -107,7 +107,7 @@ export function scanDialog() {
   openModal('Add by ISBN',
     `<p class="dialog__lead">The number under the barcode, 10 or 13 digits. Hyphens and spaces are fine.
       Resolved against the catalogue on your machine, so this works with no network.</p>
-     <form class="form" id="isbnForm" onsubmit="return false">
+     <form class="form" id="isbnForm">
        <label class="form__row">
          <span>ISBN</span>
          <input name="isbn" id="isbnInput" inputmode="numeric" autocomplete="off"
@@ -127,6 +127,10 @@ export function scanDialog() {
   const note = $('#isbnNote');
   const results = $('#isbnResults');
   if (!input) return;
+  // One field, so Enter submits the form, and a form with no action reloads the
+  // page with the number in the query. This was an onsubmit attribute, which
+  // the page's Content-Security-Policy refuses to run, like any inline handler.
+  $('#isbnForm').addEventListener('submit', (ev) => ev.preventDefault());
   input.focus();
 
   // Warm the index while they are still typing, so the first lookup is instant.
