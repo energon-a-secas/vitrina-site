@@ -267,7 +267,9 @@ function audit(rel, html) {
   } else if (rel === 'index.html') {
     // The home page loads no app code and no sign-in code.
     analytics();
-    for (const url of [CONVEX_CLIENT, PONYFILL, 'https://clerk.neorgon.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js']) {
+    // The Auth Kit's two Clerk Core 3 scripts (packages/neorgon-ui/auth/neorgon-auth.js): the
+    // refusal is of the whole host, so it holds whatever release the kit names.
+    for (const url of [CONVEX_CLIENT, PONYFILL, 'https://clerk.neorgon.com/npm/@clerk/clerk-js@6/dist/clerk.browser.js', 'https://clerk.neorgon.com/npm/@clerk/ui@1.42.0/dist/ui.browser.js']) {
       refuse('script-src', url, 'the home page loads none of the app, so admitting it would only widen what an injection could run');
     }
     refuse('connect-src', `${CONVEX_URL}/api/query`, 'the home page never reaches the backend');
